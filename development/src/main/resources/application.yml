@@ -1,0 +1,34 @@
+server:
+  port: 8822
+  servlet:
+    context-path: /development
+spring:
+    banner:
+     #image:
+       location: classpath:bander.txt
+    datasource:
+        driver-class-name: oracle.jdbc.driver.OracleDriver
+        url: jdbc:oracle:thin:@192.168.6.3:1521:orcl
+        username: t_material
+        password: t_material
+    freemarker:
+     request-context-attribute: request     
+    thymeleaf:
+      cache: false
+      prefix: classpath:/templates/
+      suffix: .html
+      encoding: UTF-8
+    output:
+      ansi:
+       enabled: always
+
+    #配置mybatis相关文件路径
+mybatis:
+  #映射配置文件路径
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  #核心配置文件路径
+  config-location: classpath:mybatis/mybatis-config.xml
+logging:
+  config: classpath:logback-spring.xml
+  file:
+    path: classpath:logs

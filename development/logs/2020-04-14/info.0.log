@@ -1,0 +1,232 @@
+[INFO ] 2020-04-14 08:38:11.578 [main] com.jnbdt.DevelopmentApplication - Starting DevelopmentApplication on DESKTOP-11AKJED with PID 14352 (D:\eclipse\workspace\development\target\classes started by 濂ョ壒铏句笉浼氬啓浠ｇ爜 in D:\eclipse\workspace\development)
+[INFO ] 2020-04-14 08:38:11.581 [main] com.jnbdt.DevelopmentApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-14 08:38:12.423 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8822 (http)
+[INFO ] 2020-04-14 08:38:12.430 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8822"]
+[INFO ] 2020-04-14 08:38:12.430 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-14 08:38:12.433 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-14 08:38:12.497 [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-14 08:38:12.497 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 877 ms
+[INFO ] 2020-04-14 08:38:12.971 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 08:38:13.120 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8822"]
+[INFO ] 2020-04-14 08:38:13.145 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8822 (http) with context path ''
+[INFO ] 2020-04-14 08:38:13.148 [main] com.jnbdt.DevelopmentApplication - Started DevelopmentApplication in 1.961 seconds (JVM running for 3.3)
+[INFO ] 2020-04-14 08:38:19.972 [http-nio-8822-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-04-14 08:38:19.972 [http-nio-8822-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-04-14 08:38:19.977 [http-nio-8822-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+[INFO ] 2020-04-14 08:38:37.742 [http-nio-8822-exec-6] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2020-04-14 08:38:38.675 [http-nio-8822-exec-6] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2020-04-14 08:51:26.772 [RMI TCP Connection(4)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 2020-04-14 08:51:26.777 [RMI TCP Connection(4)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 08:51:26.778 [RMI TCP Connection(4)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2020-04-14 08:51:26.813 [RMI TCP Connection(4)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 2020-04-14 08:51:35.747 [main] com.jnbdt.DevelopmentApplication - Starting DevelopmentApplication on DESKTOP-11AKJED with PID 14332 (D:\eclipse\workspace\development\target\classes started by 濂ョ壒铏句笉浼氬啓浠ｇ爜 in D:\eclipse\workspace\development)
+[INFO ] 2020-04-14 08:51:35.750 [main] com.jnbdt.DevelopmentApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-14 08:51:36.597 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8822 (http)
+[INFO ] 2020-04-14 08:51:36.605 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8822"]
+[INFO ] 2020-04-14 08:51:36.605 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-14 08:51:36.606 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-14 08:51:36.671 [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-14 08:51:36.672 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 882 ms
+[INFO ] 2020-04-14 08:51:37.121 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 08:51:37.272 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8822"]
+[INFO ] 2020-04-14 08:51:37.294 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8822 (http) with context path ''
+[INFO ] 2020-04-14 08:51:37.296 [main] com.jnbdt.DevelopmentApplication - Started DevelopmentApplication in 1.955 seconds (JVM running for 3.145)
+[INFO ] 2020-04-14 08:51:42.626 [http-nio-8822-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-04-14 08:51:42.627 [http-nio-8822-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-04-14 08:51:42.631 [http-nio-8822-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+[INFO ] 2020-04-14 08:51:42.657 [http-nio-8822-exec-1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2020-04-14 08:51:43.697 [http-nio-8822-exec-1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2020-04-14 08:53:33.838 [RMI TCP Connection(4)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 2020-04-14 08:53:33.841 [RMI TCP Connection(4)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 08:53:33.842 [RMI TCP Connection(4)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2020-04-14 08:53:33.867 [RMI TCP Connection(4)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 2020-04-14 08:53:44.527 [main] com.jnbdt.DevelopmentApplication - Starting DevelopmentApplication on DESKTOP-11AKJED with PID 14024 (D:\eclipse\workspace\development\target\classes started by 濂ョ壒铏句笉浼氬啓浠ｇ爜 in D:\eclipse\workspace\development)
+[INFO ] 2020-04-14 08:53:44.530 [main] com.jnbdt.DevelopmentApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-14 08:53:45.304 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8822 (http)
+[INFO ] 2020-04-14 08:53:45.311 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8822"]
+[INFO ] 2020-04-14 08:53:45.312 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-14 08:53:45.312 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-14 08:53:45.381 [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-14 08:53:45.381 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 815 ms
+[INFO ] 2020-04-14 08:53:45.799 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 08:53:45.950 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8822"]
+[INFO ] 2020-04-14 08:53:45.973 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8822 (http) with context path ''
+[INFO ] 2020-04-14 08:53:45.976 [main] com.jnbdt.DevelopmentApplication - Started DevelopmentApplication in 1.851 seconds (JVM running for 3.031)
+[INFO ] 2020-04-14 08:53:49.792 [http-nio-8822-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-04-14 08:53:49.793 [http-nio-8822-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-04-14 08:53:49.797 [http-nio-8822-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+[INFO ] 2020-04-14 08:53:49.823 [http-nio-8822-exec-1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2020-04-14 08:53:50.874 [http-nio-8822-exec-1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2020-04-14 08:56:38.690 [RMI TCP Connection(4)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 2020-04-14 08:56:38.692 [RMI TCP Connection(4)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 08:56:38.693 [RMI TCP Connection(4)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2020-04-14 08:56:38.716 [RMI TCP Connection(4)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 2020-04-14 08:56:47.944 [main] com.jnbdt.DevelopmentApplication - Starting DevelopmentApplication on DESKTOP-11AKJED with PID 10692 (D:\eclipse\workspace\development\target\classes started by 濂ョ壒铏句笉浼氬啓浠ｇ爜 in D:\eclipse\workspace\development)
+[INFO ] 2020-04-14 08:56:47.948 [main] com.jnbdt.DevelopmentApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-14 08:56:48.714 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8822 (http)
+[INFO ] 2020-04-14 08:56:48.720 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8822"]
+[INFO ] 2020-04-14 08:56:48.721 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-14 08:56:48.721 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-14 08:56:48.793 [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-14 08:56:48.793 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 801 ms
+[INFO ] 2020-04-14 08:56:49.215 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 08:56:49.360 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8822"]
+[INFO ] 2020-04-14 08:56:49.385 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8822 (http) with context path ''
+[INFO ] 2020-04-14 08:56:49.388 [main] com.jnbdt.DevelopmentApplication - Started DevelopmentApplication in 1.835 seconds (JVM running for 2.996)
+[INFO ] 2020-04-14 08:57:02.802 [http-nio-8822-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-04-14 08:57:02.802 [http-nio-8822-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-04-14 08:57:02.807 [http-nio-8822-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+[INFO ] 2020-04-14 08:57:02.833 [http-nio-8822-exec-1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2020-04-14 08:57:04.126 [http-nio-8822-exec-1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2020-04-14 09:02:30.202 [RMI TCP Connection(4)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 2020-04-14 09:02:30.207 [RMI TCP Connection(4)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 09:02:30.207 [RMI TCP Connection(4)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2020-04-14 09:02:30.227 [RMI TCP Connection(4)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 2020-04-14 09:02:37.783 [main] com.jnbdt.DevelopmentApplication - Starting DevelopmentApplication on DESKTOP-11AKJED with PID 16980 (D:\eclipse\workspace\development\target\classes started by 濂ョ壒铏句笉浼氬啓浠ｇ爜 in D:\eclipse\workspace\development)
+[INFO ] 2020-04-14 09:02:37.786 [main] com.jnbdt.DevelopmentApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-14 09:02:38.545 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8822 (http)
+[INFO ] 2020-04-14 09:02:38.552 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8822"]
+[INFO ] 2020-04-14 09:02:38.553 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-14 09:02:38.553 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-14 09:02:38.623 [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-14 09:02:38.623 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 802 ms
+[INFO ] 2020-04-14 09:02:39.029 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 09:02:39.182 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8822"]
+[INFO ] 2020-04-14 09:02:39.202 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8822 (http) with context path ''
+[INFO ] 2020-04-14 09:02:39.205 [main] com.jnbdt.DevelopmentApplication - Started DevelopmentApplication in 1.811 seconds (JVM running for 3.021)
+[INFO ] 2020-04-14 09:02:46.260 [http-nio-8822-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-04-14 09:02:46.260 [http-nio-8822-exec-2] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-04-14 09:02:46.265 [http-nio-8822-exec-2] o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+[INFO ] 2020-04-14 09:02:46.292 [http-nio-8822-exec-2] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2020-04-14 09:02:47.304 [http-nio-8822-exec-2] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2020-04-14 09:05:39.826 [RMI TCP Connection(4)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 2020-04-14 09:05:39.831 [RMI TCP Connection(4)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 09:05:39.832 [RMI TCP Connection(4)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2020-04-14 09:05:39.862 [RMI TCP Connection(4)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 2020-04-14 09:07:39.009 [main] c.jnbdt.DevelopmentApplicationTests - Starting DevelopmentApplicationTests on DESKTOP-11AKJED with PID 6272 (started by 奥特虾不会写代码 in D:\eclipse\workspace\development)
+[INFO ] 2020-04-14 09:07:39.011 [main] c.jnbdt.DevelopmentApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-14 09:07:41.148 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 09:07:41.595 [main] c.jnbdt.DevelopmentApplicationTests - Started DevelopmentApplicationTests in 3.084 seconds (JVM running for 3.992)
+[INFO ] 2020-04-14 09:07:41.939 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 09:11:20.115 [main] c.jnbdt.DevelopmentApplicationTests - Starting DevelopmentApplicationTests on DESKTOP-11AKJED with PID 10924 (started by 奥特虾不会写代码 in D:\eclipse\workspace\development)
+[INFO ] 2020-04-14 09:11:20.121 [main] c.jnbdt.DevelopmentApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-14 09:11:22.503 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 09:11:23.046 [main] c.jnbdt.DevelopmentApplicationTests - Started DevelopmentApplicationTests in 3.556 seconds (JVM running for 5.092)
+[INFO ] 2020-04-14 09:11:23.348 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 09:17:48.737 [main] c.jnbdt.DevelopmentApplicationTests - Starting DevelopmentApplicationTests on DESKTOP-11AKJED with PID 5328 (started by 奥特虾不会写代码 in D:\eclipse\workspace\development)
+[INFO ] 2020-04-14 09:17:48.740 [main] c.jnbdt.DevelopmentApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-14 09:17:50.690 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 09:17:51.190 [main] c.jnbdt.DevelopmentApplicationTests - Started DevelopmentApplicationTests in 2.94 seconds (JVM running for 3.94)
+[INFO ] 2020-04-14 09:17:51.493 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 09:19:54.244 [main] c.jnbdt.DevelopmentApplicationTests - Starting DevelopmentApplicationTests on DESKTOP-11AKJED with PID 16760 (started by 奥特虾不会写代码 in D:\eclipse\workspace\development)
+[INFO ] 2020-04-14 09:19:54.246 [main] c.jnbdt.DevelopmentApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-14 09:19:56.155 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 09:19:56.661 [main] c.jnbdt.DevelopmentApplicationTests - Started DevelopmentApplicationTests in 2.969 seconds (JVM running for 4.167)
+[INFO ] 2020-04-14 09:19:56.935 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 09:21:11.321 [main] c.jnbdt.DevelopmentApplicationTests - Starting DevelopmentApplicationTests on DESKTOP-11AKJED with PID 11504 (started by 奥特虾不会写代码 in D:\eclipse\workspace\development)
+[INFO ] 2020-04-14 09:21:11.323 [main] c.jnbdt.DevelopmentApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-14 09:21:13.401 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 09:21:13.887 [main] c.jnbdt.DevelopmentApplicationTests - Started DevelopmentApplicationTests in 3.088 seconds (JVM running for 4.184)
+[INFO ] 2020-04-14 09:21:14.192 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 09:24:43.589 [main] c.jnbdt.DevelopmentApplicationTests - Starting DevelopmentApplicationTests on DESKTOP-11AKJED with PID 10860 (started by 奥特虾不会写代码 in D:\eclipse\workspace\development)
+[INFO ] 2020-04-14 09:24:43.590 [main] c.jnbdt.DevelopmentApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-14 09:24:45.477 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 09:24:45.991 [main] c.jnbdt.DevelopmentApplicationTests - Started DevelopmentApplicationTests in 2.879 seconds (JVM running for 3.823)
+[INFO ] 2020-04-14 09:24:46.427 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 09:30:48.505 [main] c.jnbdt.DevelopmentApplicationTests - Starting DevelopmentApplicationTests on DESKTOP-11AKJED with PID 16444 (started by 奥特虾不会写代码 in D:\eclipse\workspace\development)
+[INFO ] 2020-04-14 09:30:48.507 [main] c.jnbdt.DevelopmentApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-14 09:30:50.476 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 09:30:50.926 [main] c.jnbdt.DevelopmentApplicationTests - Started DevelopmentApplicationTests in 2.893 seconds (JVM running for 3.974)
+[INFO ] 2020-04-14 09:30:51.195 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 10:24:06.029 [main] com.jnbdt.DevelopmentApplication - Starting DevelopmentApplication on DESKTOP-11AKJED with PID 6988 (D:\eclipse\workspace\development\target\classes started by 濂ョ壒铏句笉浼氬啓浠ｇ爜 in D:\eclipse\workspace\development)
+[INFO ] 2020-04-14 10:24:06.066 [main] com.jnbdt.DevelopmentApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-14 10:24:06.897 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8822 (http)
+[INFO ] 2020-04-14 10:24:06.905 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8822"]
+[INFO ] 2020-04-14 10:24:06.905 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-14 10:24:06.905 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-14 10:24:06.978 [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-14 10:24:06.978 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 875 ms
+[INFO ] 2020-04-14 10:24:07.378 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 10:24:07.614 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8822"]
+[INFO ] 2020-04-14 10:24:07.641 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8822 (http) with context path ''
+[INFO ] 2020-04-14 10:24:07.644 [main] com.jnbdt.DevelopmentApplication - Started DevelopmentApplication in 2.014 seconds (JVM running for 3.176)
+[INFO ] 2020-04-14 10:30:28.033 [main] c.jnbdt.DevelopmentApplicationTests - Starting DevelopmentApplicationTests on DESKTOP-11AKJED with PID 6560 (started by 奥特虾不会写代码 in D:\eclipse\workspace\development)
+[INFO ] 2020-04-14 10:30:28.035 [main] c.jnbdt.DevelopmentApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-14 10:30:30.107 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 10:30:30.595 [main] c.jnbdt.DevelopmentApplicationTests - Started DevelopmentApplicationTests in 3.059 seconds (JVM running for 4.071)
+[INFO ] 2020-04-14 10:30:31.474 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 10:47:56.584 [main] c.jnbdt.DevelopmentApplicationTests - Starting DevelopmentApplicationTests on DESKTOP-11AKJED with PID 7112 (started by 奥特虾不会写代码 in D:\eclipse\workspace\development)
+[INFO ] 2020-04-14 10:47:56.590 [main] c.jnbdt.DevelopmentApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-14 10:47:59.044 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 10:47:59.522 [main] c.jnbdt.DevelopmentApplicationTests - Started DevelopmentApplicationTests in 3.583 seconds (JVM running for 4.837)
+[INFO ] 2020-04-14 10:47:59.831 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 10:51:42.583 [main] c.jnbdt.DevelopmentApplicationTests - Starting DevelopmentApplicationTests on DESKTOP-11AKJED with PID 12824 (started by 奥特虾不会写代码 in D:\eclipse\workspace\development)
+[INFO ] 2020-04-14 10:51:42.588 [main] c.jnbdt.DevelopmentApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-14 10:51:44.561 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 10:51:45.023 [main] c.jnbdt.DevelopmentApplicationTests - Started DevelopmentApplicationTests in 3.001 seconds (JVM running for 3.95)
+[INFO ] 2020-04-14 10:51:45.365 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 10:55:01.924 [main] c.jnbdt.DevelopmentApplicationTests - Starting DevelopmentApplicationTests on DESKTOP-11AKJED with PID 12704 (started by 奥特虾不会写代码 in D:\eclipse\workspace\development)
+[INFO ] 2020-04-14 10:55:01.929 [main] c.jnbdt.DevelopmentApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-14 10:55:03.997 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 10:55:04.536 [main] c.jnbdt.DevelopmentApplicationTests - Started DevelopmentApplicationTests in 3.297 seconds (JVM running for 4.343)
+[INFO ] 2020-04-14 10:55:04.866 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 11:01:39.720 [main] c.jnbdt.DevelopmentApplicationTests - Starting DevelopmentApplicationTests on DESKTOP-11AKJED with PID 6960 (started by 奥特虾不会写代码 in D:\eclipse\workspace\development)
+[INFO ] 2020-04-14 11:01:39.723 [main] c.jnbdt.DevelopmentApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-14 11:01:41.742 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 11:01:42.483 [main] c.jnbdt.DevelopmentApplicationTests - Started DevelopmentApplicationTests in 3.274 seconds (JVM running for 4.32)
+[INFO ] 2020-04-14 11:01:42.866 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 11:09:33.142 [main] c.jnbdt.DevelopmentApplicationTests - Starting DevelopmentApplicationTests on DESKTOP-11AKJED with PID 18928 (started by 奥特虾不会写代码 in D:\eclipse\workspace\development)
+[INFO ] 2020-04-14 11:09:33.144 [main] c.jnbdt.DevelopmentApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-14 11:09:35.217 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 11:09:35.728 [main] c.jnbdt.DevelopmentApplicationTests - Started DevelopmentApplicationTests in 3.179 seconds (JVM running for 4.158)
+[INFO ] 2020-04-14 11:09:36.049 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 11:13:01.724 [main] c.jnbdt.DevelopmentApplicationTests - Starting DevelopmentApplicationTests on DESKTOP-11AKJED with PID 18804 (started by 奥特虾不会写代码 in D:\eclipse\workspace\development)
+[INFO ] 2020-04-14 11:13:01.727 [main] c.jnbdt.DevelopmentApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-14 11:13:03.843 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 11:13:04.422 [main] c.jnbdt.DevelopmentApplicationTests - Started DevelopmentApplicationTests in 3.234 seconds (JVM running for 4.349)
+[INFO ] 2020-04-14 11:13:04.717 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 11:16:38.181 [main] c.jnbdt.DevelopmentApplicationTests - Starting DevelopmentApplicationTests on DESKTOP-11AKJED with PID 4480 (started by 奥特虾不会写代码 in D:\eclipse\workspace\development)
+[INFO ] 2020-04-14 11:16:38.185 [main] c.jnbdt.DevelopmentApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-14 11:16:41.025 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 11:16:41.605 [main] c.jnbdt.DevelopmentApplicationTests - Started DevelopmentApplicationTests in 4.162 seconds (JVM running for 5.603)
+[INFO ] 2020-04-14 11:16:41.939 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 11:19:21.929 [main] c.jnbdt.DevelopmentApplicationTests - Starting DevelopmentApplicationTests on DESKTOP-11AKJED with PID 10748 (started by 奥特虾不会写代码 in D:\eclipse\workspace\development)
+[INFO ] 2020-04-14 11:19:21.932 [main] c.jnbdt.DevelopmentApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-14 11:19:24.210 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 11:19:25.057 [main] c.jnbdt.DevelopmentApplicationTests - Started DevelopmentApplicationTests in 3.791 seconds (JVM running for 4.976)
+[INFO ] 2020-04-14 11:19:25.463 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 11:20:44.736 [main] com.jnbdt.DevelopmentApplication - Starting DevelopmentApplication on DESKTOP-11AKJED with PID 5712 (D:\eclipse\workspace\development\target\classes started by 濂ョ壒铏句笉浼氬啓浠ｇ爜 in D:\eclipse\workspace\development)
+[INFO ] 2020-04-14 11:20:44.738 [main] com.jnbdt.DevelopmentApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-14 11:20:45.425 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8822 (http)
+[INFO ] 2020-04-14 11:20:45.431 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8822"]
+[INFO ] 2020-04-14 11:20:45.431 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-14 11:20:45.431 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-14 11:20:45.488 [main] o.a.c.c.C.[.[.[/development] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-14 11:20:45.489 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 710 ms
+[INFO ] 2020-04-14 11:20:45.867 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 11:20:46.009 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8822"]
+[INFO ] 2020-04-14 11:20:46.019 [main] o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8822"]
+[INFO ] 2020-04-14 11:20:46.019 [main] o.a.catalina.core.StandardService - Stopping service [Tomcat]
+[INFO ] 2020-04-14 11:20:46.022 [main] o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8822"]
+[INFO ] 2020-04-14 11:20:46.022 [main] o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8822"]
+[INFO ] 2020-04-14 11:20:46.024 [main] o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[INFO ] 2020-04-14 11:20:46.029 [main] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 11:22:29.506 [main] com.jnbdt.DevelopmentApplication - Starting DevelopmentApplication on DESKTOP-11AKJED with PID 13808 (D:\eclipse\workspace\development\target\classes started by 濂ョ壒铏句笉浼氬啓浠ｇ爜 in D:\eclipse\workspace\development)
+[INFO ] 2020-04-14 11:22:29.538 [main] com.jnbdt.DevelopmentApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-14 11:22:30.260 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8822 (http)
+[INFO ] 2020-04-14 11:22:30.266 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8822"]
+[INFO ] 2020-04-14 11:22:30.267 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-14 11:22:30.267 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-14 11:22:30.323 [main] o.a.c.c.C.[.[.[/development] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-14 11:22:30.323 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 756 ms
+[INFO ] 2020-04-14 11:22:30.692 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 11:22:30.849 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8822"]
+[INFO ] 2020-04-14 11:22:30.870 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8822 (http) with context path '/development'
+[INFO ] 2020-04-14 11:22:30.873 [main] com.jnbdt.DevelopmentApplication - Started DevelopmentApplication in 1.714 seconds (JVM running for 2.799)
+[INFO ] 2020-04-14 11:22:54.487 [http-nio-8822-exec-2] o.a.c.c.C.[.[.[/development] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-04-14 11:22:54.489 [http-nio-8822-exec-2] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-04-14 11:22:54.493 [http-nio-8822-exec-2] o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+[INFO ] 2020-04-14 13:14:39.985 [RMI TCP Connection(4)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 2020-04-14 13:14:40.095 [RMI TCP Connection(4)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
