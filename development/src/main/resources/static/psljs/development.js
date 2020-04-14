@@ -8,8 +8,8 @@ $(function() {
 })
 
 function selectUnit() {
+	var lo = layer.load();
 	var unitId = $("#unitId").prop("value");
-
 	if (unitId == "") {
 		layer.msg("请输入流水号！", {
 			icon : 2
@@ -19,6 +19,7 @@ function selectUnit() {
 	$.post("/selectUntiId", {
 		"unitId" : unitId.trim()
 	}, function(data) {
+		layer.close(lo);
 		if (data.code == 2) {
 			layer.alert(data.msg, function() {
 				layer.closeAll();
@@ -31,7 +32,7 @@ function selectUnit() {
 	});
 }
 function addUnit() {
-
+	var lo = layer.load();
 	var unitId = $("#unitId").prop("value");
 	unitId = unitId.trim();
 	var yfQty = $("#yfQty").prop("value");
@@ -42,6 +43,7 @@ function addUnit() {
 			layer.closeAll();
 			$("#unitId").select();
 		});
+		layer.close(lo);
 		return;
 	}
 	if (yfQty == "") {
@@ -49,6 +51,7 @@ function addUnit() {
 			layer.closeAll();
 			$("#unitId").select();
 		});
+		layer.close(lo);
 		return;
 	}
 	var luckElements = document.getElementsByName("unitId");
@@ -59,6 +62,7 @@ function addUnit() {
 				layer.closeAll();
 				$("#unitId").select();
 			});
+			layer.close(lo);
 			return false;
 		}
 	}
@@ -100,7 +104,7 @@ function deleteRow(r) {
 }
 
 function putIn() {
-	//var lo = layer.load();
+	var lo = layer.load();
 	var aInput = document.getElementsByName("unitId");
 	if (aInput.length < 1) {
 		layer.msg("没有数据提交，不要瞎点！", {
@@ -135,9 +139,14 @@ function putIn() {
 		"workId" : workId
 	}, function(data) {
 		layer.close(lo);
-		layer.alert(data.code, function() {
-			window.location.reload();
-		});
+		if (data.code == 1) {
+			layer.alert(data.msg, function() {
+				window.location.reload();
+			});
+		} else {
+			layer.alert(data.msg, function() {
 
+			});
+		}
 	});
 }
