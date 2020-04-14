@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>蓝膜贴带派料</title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="../layui/css/layui.css" media="all">
+<!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
+	<div>
+		<button class="layui-btn">
+			蓝膜贴带派料<span class="layui-badge-dot layui-bg-orange"></span>
+		</button>
+	</div>
+	<hr class="layui-bg-orange">
+	<form id="setPwdForm" class="layui-form layui-form-pane"
+		style="margin-top: 20px;">
+
+		<div class="layui-inline">
+			<label class="layui-form-label">选择框</label>
+			<div class="layui-input-inline">
+				<select name="modules" id="bianEqpt" lay-filter="modules"
+					lay-verify="required">
+					<option value="">直接选择机台</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="layui-form-item" id="divstatus">
+			<label class="layui-form-label">机台状态</label>
+			<div class="layui-input-inline">
+				<input id="status" lay-verify="required" readonly="readonly"
+					class="layui-input" type="text" />
+			</div>
+		</div>
+
+		<div class="layui-form-item" id="divlotType">
+			<label class="layui-form-label">种类</label>
+			<div class="layui-input-inline">
+				<input id="lotType" lay-verify="required" readonly="readonly"
+					class="layui-input" type="text" />
+			</div>
+		</div>
+
+		<div class="layui-form-item" id="divspecId">
+			<label class="layui-form-label">specId</label>
+			<div class="layui-input-inline">
+				<input id="specId" lay-verify="required" readonly="readonly"
+					class="layui-input" type="text" />
+			</div>
+		</div>
+
+		<div class="layui-form-item" id="divbinId">
+			<label class="layui-form-label">BIN</label>
+			<div class="layui-input-inline">
+				<input id="binId" lay-verify="required" readonly="readonly"
+					class="layui-input" type="text" />
+			</div>
+		</div>
+
+		<div class="layui-form-item" id="divbdLotType">
+			<label class="layui-form-label">贴带批次号</label>
+			<div class="layui-input-inline">
+				<input id="bdLotId" lay-verify="required" readonly="readonly"
+					class="layui-input" type="text" />
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">片号</label>
+			<div class="layui-input-inline">
+				<input id="unitId" lay-filter="setPut"  onkeypress='if(event.keyCode==13) tailingputin()'
+					lay-verify="required" class="layui-input" type="text" />
+			</div>
+		</div>
+
+		<div class="layui-inline" id="divtable"
+			style="height:400px;width:650px;overflow-y:auto;">
+			<div class="layui-inline">
+			
+				<table id="demo" lay-filter="test" class="layui-table">
+					<th>序号</th>
+					<th>片号</th>
+					<th>种类</th>
+					<th>ID</th>
+					<th>BIN</th>
+					<th>数量</th>
+					<th>位置号</th>
+					<th>操作</th>
+				</table>
+			</div>	<div class="layui-inline">
+			<label class="layui-form-label">累计数量</label>
+			<div class="layui-input-inline">
+				<input id="zQty" lay-verify="required" readonly="readonly"
+					class="layui-input" type="text" />
+			</div>
+			</div>
+		</div>
+		<input type="hidden" id="workId">
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+
+				<input id="pwdBtn" onclick="paiinput()" class="layui-btn layui-btn-primary"
+				value="提交"  />
+			</div>
+		</div>
+	</form>
+
+	<script src="../js/jquery-1.7.2.min.js" charset="utf-8"></script>
+	<script src="../psljs/paiunit.js" charset="utf-8"></script>
+	<script src="../layui/layui.js" charset="utf-8"></script>
+	<script src="../layui/layui.all.js" charset="utf-8"></script>
+	<script type="text/javascript">
+	//点击 确定
+	</script>
+	<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+</body>
+</html>

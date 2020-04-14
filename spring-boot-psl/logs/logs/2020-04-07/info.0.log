@@ -1,0 +1,74 @@
+[INFO ] 2020-04-07 10:29:48.033 [restartedMain] c.e.s.psl.SpringbootpslApplication - Starting SpringbootpslApplication on DESKTOP-11AKJED with PID 17592 (C:\Users\pengs\Downloads\hljzgd-springboottest2-master\springboottest2\target\classes started by 奥特虾不会写代码 in C:\Users\pengs\Downloads\hljzgd-springboottest2-master\springboottest2)
+[INFO ] 2020-04-07 10:29:48.034 [restartedMain] c.e.s.psl.SpringbootpslApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-07 10:29:48.482 [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8821 (http)
+[INFO ] 2020-04-07 10:29:48.483 [restartedMain] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8821"]
+[INFO ] 2020-04-07 10:29:48.483 [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-07 10:29:48.483 [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+[INFO ] 2020-04-07 10:29:48.505 [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-07 10:29:48.505 [restartedMain] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 467 ms
+[INFO ] 2020-04-07 10:29:48.601 [restartedMain] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-07 10:29:48.636 [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+[INFO ] 2020-04-07 10:29:48.763 [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 2020-04-07 10:29:48.777 [restartedMain] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8821"]
+[INFO ] 2020-04-07 10:29:48.778 [restartedMain] o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+[INFO ] 2020-04-07 10:29:48.781 [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8821 (http) with context path ''
+[INFO ] 2020-04-07 10:29:48.782 [restartedMain] c.e.s.psl.SpringbootpslApplication - Started SpringbootpslApplication in 0.829 seconds (JVM running for 143.439)
+[INFO ] 2020-04-07 10:29:48.783 [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[INFO ] 2020-04-07 10:29:52.821 [RMI TCP Connection(6)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 2020-04-07 10:29:52.826 [RMI TCP Connection(6)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-07 10:30:01.062 [restartedMain] c.e.s.psl.SpringbootpslApplication - Starting SpringbootpslApplication on DESKTOP-11AKJED with PID 18076 (C:\Users\pengs\Downloads\hljzgd-springboottest2-master\springboottest2\target\classes started by 奥特虾不会写代码 in C:\Users\pengs\Downloads\hljzgd-springboottest2-master\springboottest2)
+[INFO ] 2020-04-07 10:30:01.067 [restartedMain] c.e.s.psl.SpringbootpslApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-07 10:30:01.151 [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2020-04-07 10:30:01.152 [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2020-04-07 10:30:02.498 [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8821 (http)
+[INFO ] 2020-04-07 10:30:02.508 [restartedMain] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8821"]
+[INFO ] 2020-04-07 10:30:02.515 [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-07 10:30:02.516 [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+[INFO ] 2020-04-07 10:30:02.523 [restartedMain] o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_144\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jdk1.8.0_144/bin/../jre/bin/server;C:/Program Files/Java/jdk1.8.0_144/bin/../jre/bin;C:/Program Files/Java/jdk1.8.0_144/bin/../jre/lib/amd64;C:\app\FristJava\product\11.2.0\dbhome_1\bin;"C:\ProgramData\Oracle\Java\javapath ;C:\Program Files\Java\jdk1.8.0_144\bin;C:\Program Files\Java\jdk1.8.0_144\jre\bin;";C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\TortoiseSVN\bin;D:\maven\apache-maven-3.6.0\bin\;D:\Program Files\Microsoft VS Code\bin;D:\Users\pengs\mysql-8.0.18-winx64\bin;D:\Program Files\TortoiseGit\bin;D:\Program Files\Git\cmd;D:\Program Files\nodejs\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\pengs\AppData\Local\Microsoft\WindowsApps;;%IntelliJ IDEA%;C:\Users\pengs\AppData\Roaming\npm;C:\Users\pengs\Desktop;;.]
+[INFO ] 2020-04-07 10:30:02.610 [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-07 10:30:02.610 [restartedMain] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1458 ms
+[INFO ] 2020-04-07 10:30:03.156 [restartedMain] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-07 10:30:03.315 [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+[INFO ] 2020-04-07 10:30:03.557 [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 2020-04-07 10:30:03.586 [restartedMain] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8821"]
+[INFO ] 2020-04-07 10:30:03.596 [restartedMain] o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+[INFO ] 2020-04-07 10:30:03.615 [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8821 (http) with context path ''
+[INFO ] 2020-04-07 10:30:03.618 [restartedMain] c.e.s.psl.SpringbootpslApplication - Started SpringbootpslApplication in 3.061 seconds (JVM running for 4.368)
+[INFO ] 2020-04-07 10:32:41.916 [Thread-8] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-07 10:32:42.747 [restartedMain] c.e.s.psl.SpringbootpslApplication - Starting SpringbootpslApplication on DESKTOP-11AKJED with PID 18076 (C:\Users\pengs\Downloads\hljzgd-springboottest2-master\springboottest2\target\classes started by 奥特虾不会写代码 in C:\Users\pengs\Downloads\hljzgd-springboottest2-master\springboottest2)
+[INFO ] 2020-04-07 10:32:42.747 [restartedMain] c.e.s.psl.SpringbootpslApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-07 10:32:43.175 [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8821 (http)
+[INFO ] 2020-04-07 10:32:43.176 [restartedMain] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8821"]
+[INFO ] 2020-04-07 10:32:43.176 [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-07 10:32:43.176 [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+[INFO ] 2020-04-07 10:32:43.191 [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-07 10:32:43.191 [restartedMain] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 441 ms
+[INFO ] 2020-04-07 10:32:43.316 [restartedMain] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-07 10:32:43.360 [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+[INFO ] 2020-04-07 10:32:43.518 [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 2020-04-07 10:32:43.535 [restartedMain] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8821"]
+[INFO ] 2020-04-07 10:32:43.537 [restartedMain] o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+[INFO ] 2020-04-07 10:32:43.541 [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8821 (http) with context path ''
+[INFO ] 2020-04-07 10:32:43.541 [restartedMain] c.e.s.psl.SpringbootpslApplication - Started SpringbootpslApplication in 0.855 seconds (JVM running for 164.292)
+[INFO ] 2020-04-07 10:32:43.545 [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[INFO ] 2020-04-07 10:32:50.560 [RMI TCP Connection(6)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 2020-04-07 10:32:50.566 [RMI TCP Connection(6)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-07 10:32:56.311 [restartedMain] c.e.s.psl.SpringbootpslApplication - Starting SpringbootpslApplication on DESKTOP-11AKJED with PID 9972 (C:\Users\pengs\Downloads\hljzgd-springboottest2-master\springboottest2\target\classes started by 奥特虾不会写代码 in C:\Users\pengs\Downloads\hljzgd-springboottest2-master\springboottest2)
+[INFO ] 2020-04-07 10:32:56.315 [restartedMain] c.e.s.psl.SpringbootpslApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-07 10:32:56.415 [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2020-04-07 10:32:56.415 [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2020-04-07 10:32:57.723 [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8821 (http)
+[INFO ] 2020-04-07 10:32:57.734 [restartedMain] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8821"]
+[INFO ] 2020-04-07 10:32:57.741 [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-07 10:32:57.741 [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+[INFO ] 2020-04-07 10:32:57.748 [restartedMain] o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_144\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jdk1.8.0_144/bin/../jre/bin/server;C:/Program Files/Java/jdk1.8.0_144/bin/../jre/bin;C:/Program Files/Java/jdk1.8.0_144/bin/../jre/lib/amd64;C:\app\FristJava\product\11.2.0\dbhome_1\bin;"C:\ProgramData\Oracle\Java\javapath ;C:\Program Files\Java\jdk1.8.0_144\bin;C:\Program Files\Java\jdk1.8.0_144\jre\bin;";C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\TortoiseSVN\bin;D:\maven\apache-maven-3.6.0\bin\;D:\Program Files\Microsoft VS Code\bin;D:\Users\pengs\mysql-8.0.18-winx64\bin;D:\Program Files\TortoiseGit\bin;D:\Program Files\Git\cmd;D:\Program Files\nodejs\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\pengs\AppData\Local\Microsoft\WindowsApps;;%IntelliJ IDEA%;C:\Users\pengs\AppData\Roaming\npm;C:\Users\pengs\Desktop;;.]
+[INFO ] 2020-04-07 10:32:57.834 [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-07 10:32:57.835 [restartedMain] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1420 ms
+[INFO ] 2020-04-07 10:32:58.318 [restartedMain] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-07 10:32:58.447 [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+[INFO ] 2020-04-07 10:32:58.690 [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 2020-04-07 10:32:58.719 [restartedMain] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8821"]
+[INFO ] 2020-04-07 10:32:58.729 [restartedMain] o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+[INFO ] 2020-04-07 10:32:58.754 [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8821 (http) with context path ''
+[INFO ] 2020-04-07 10:32:58.758 [restartedMain] c.e.s.psl.SpringbootpslApplication - Started SpringbootpslApplication in 2.938 seconds (JVM running for 4.24)
+[INFO ] 2020-04-07 10:34:55.708 [Thread-6] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'

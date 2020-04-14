@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.example.springboot.psl.dao.DataShowServiceMapper">
+	<select id="queryAllDataFromTable" resultType="Map">
+		select
+		odd,createtime,workid,unit_type,lotid,unitid,status,p_no,lottype,binid,spec_id,qty,outtime,outworkid,flag_type
+		from ( select rownum odd,t.* from( select t.* from
+		SYS_PSL.CSP_PL_BINUNIT_SHELF_GOODS t order by unitid desc) t)
+		where odd
+		between #{page} and #{limit}
+	</select>
+	<select id="queryAllCount" resultType="java.lang.Integer"
+		parameterType="java.lang.String">
+		select count(*) from (select
+		odd,createtime,workid,unit_type,lotid,unitid,status,p_no,lottype,binid,spec_id,qty,outtime,outworkid,flag_type
+		from ( select rownum odd,t.* from( select t.* from
+		SYS_PSL.CSP_PL_BINUNIT_SHELF_GOODS t order by unitid desc) t))
+	</select>
+</mapper>

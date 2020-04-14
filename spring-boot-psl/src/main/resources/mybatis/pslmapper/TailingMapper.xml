@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springboot.psl.dao.TailingDao">
+
+	<select id="tailingPutIn" resultType="Map">
+		select t.p_no pno
+		,t.lotid,u.spec_id specid,binid ,lottype1
+		lottype ,batchLot,qty from
+		SYS_PSL.CSP_PL_BINUNIT_SHELF t,
+		(select
+		substr(lottype,1,2) lottype,
+		binid,flag,spec_id,lottype lottype1
+		,lotid batchLot,qty from
+		SYS_PSL.CSP_PL_BINUNIT_SHELF_GOODS
+		where
+		createtime=(select
+		max(createtime) from
+		SYS_PSL.CSP_PL_BINUNIT_SHELF_GOODS
+		where
+		unitId=#{unitId,
+		jdbcType=VARCHAR} and flag=1
+		group by unitId)
+		and
+		unitId=#{unitId,
+		jdbcType=VARCHAR}) u
+		where t.flag=0
+		and
+		t.lotid=u.lottype
+		order by pno
+	</select>
+	<insert id="saveBinUnitId"
+		parameterType="com.example.springboot.psl.entity.BinUnit">
+		insert into
+		SYS_PSL.CSP_PL_BINUNIT_SHELF_GOODS
+		(lotid,p_no,lottype,spec_id,binid,flag,qty,unitid,workId,CREATETIME,unit_type)
+		values(
+		#{lotId,jdbcType=VARCHAR},
+		#{pno,jdbcType=VARCHAR},
+		#{lotType,jdbcType=VARCHAR},
+		#{specId,jdbcType=VARCHAR},
+		#{binId,jdbcType=VARCHAR},
+		0,
+		#{qty,jdbcType=VARCHAR},
+		#{unitId,jdbcType=VARCHAR},
+		#{workId,jdbcType=VARCHAR},
+		sysdate,#{unitType,jdbcType=VARCHAR})
+	</insert>
+
+	<update id="updateShelfFlag">
+		update SYS_PSL.CSP_PL_BINUNIT_SHELF
+		set
+		flag=#{flag,jdbcType=VARCHAR}
+		WHERE
+		p_no =#{pno,jdbcType=VARCHAR}
+
+	</update>
+
+	<update id="updateUnitFlag">
+		update SYS_PSL.CSP_PL_BINUNIT_SHELF_goods
+		set
+		flag=1,flag_type='补料出库' ,outworkid=#{workId,jdbcType=VARCHAR},
+		outtime=sysdate
+		WHERE
+		unitId =#{unitId,jdbcType=VARCHAR}
+		AND FLAG=0
+	</update>
+
+	<select id="selectUnitIdPno"
+		resultType="com.example.springboot.psl.entity.BinUnit">
+		select * from
+		SYS_PSL.CSP_PL_BINUNIT_SHELF_GOODS where
+		unitId
+		=#{unitId,jdbcType=VARCHAR} and flag=0
+	</select>
+
+
+</mapper>
