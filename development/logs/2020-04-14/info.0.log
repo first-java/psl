@@ -230,3 +230,9 @@ Error starting ApplicationContext. To display the conditions report re-run your 
 [INFO ] 2020-04-14 11:22:54.493 [http-nio-8822-exec-2] o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
 [INFO ] 2020-04-14 13:14:39.985 [RMI TCP Connection(4)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
 [INFO ] 2020-04-14 13:14:40.095 [RMI TCP Connection(4)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 16:38:07.364 [main] c.jnbdt.DevelopmentApplicationTests - Starting DevelopmentApplicationTests on DESKTOP-11AKJED with PID 11232 (started by 奥特虾不会写代码 in D:\docker\development)
+[INFO ] 2020-04-14 16:38:07.367 [main] c.jnbdt.DevelopmentApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-14 16:38:10.139 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-14 16:38:10.294 [main] o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+[INFO ] 2020-04-14 16:38:10.724 [main] c.jnbdt.DevelopmentApplicationTests - Started DevelopmentApplicationTests in 4.214 seconds (JVM running for 5.817)
+[INFO ] 2020-04-14 16:38:11.143 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
