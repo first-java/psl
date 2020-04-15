@@ -16,7 +16,7 @@ function selectUnit() {
 		});
 		return;
 	}
-	$.post("/selectUntiId", {
+	$.post("/development/selectUntiId", {
 		"unitId" : unitId.trim()
 	}, function(data) {
 		layer.close(lo);
@@ -66,6 +66,7 @@ function addUnit() {
 			return false;
 		}
 	}
+	layer.close(lo);
 	$("#demo").show();
 	s = "<tr name='sss'><td>"
 			+ (Number(luckElements.length) + 1)
@@ -133,7 +134,7 @@ function putIn() {
 	yfQty += "]";
 	var workId = $("#workId").prop("value");
 
-	$.post("/saveUnit", {
+	$.post("/development/saveUnit", {
 		"unitId" : unitId,
 		"yfQty" : yfQty,
 		"workId" : workId
