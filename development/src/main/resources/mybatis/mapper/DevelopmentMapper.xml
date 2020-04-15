@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jnbdt.dao.DevelopmentDao">
+
+	<resultMap id="demoMap" type="com.jnbdt.entity.Development">
+		<id column="" property="id" jdbcType="BIGINT" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="password" property="password"
+			jdbcType="VARCHAR" />
+	</resultMap>
+
+
+	<insert id="saveJnbdtKu" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		SYS_PSL.JNBDT_KU@lbdas
+		(reelid,qty,createtime,workid,status,outdate,barcodetype,flag)
+		<foreach collection="list" item="development" index="index"
+			separator="union all">
+			(SELECT
+			#{development.barcodeString,jdbcType=VARCHAR},
+			#{development.yfQty,jdbcType=VARCHAR},
+			sysdate,#{development.workId,jdbcType=VARCHAR},
+			1,
+			sysdate,
+			10,
+			0 FROM
+			DUAL)
+		</foreach>
+	</insert>
+
+
+
+	<insert id="saveTbarcode" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		t_material.T_BARCODE
+		(BARCODE_RRN,BARCODE_STRING,LOGIN_RRN,CREATE_TIMESTAMP,BARCODE_TYPE,YF_QTY)
+		<foreach collection="list" item="development" index="index"
+			separator="union all">
+			(SELECT
+			#{development.barcodeRrn,jdbcType=VARCHAR},
+			#{development.barcodeString,jdbcType=VARCHAR},
+			#{development.loginRrn,jdbcType=VARCHAR},
+			sysdate,
+			#{development.barcodeType,jdbcType=VARCHAR},
+			#{development.yfQty,jdbcType=VARCHAR}FROM DUAL)
+		</foreach>
+	</insert>
+
+	<!-- t_stock -->
+	<insert id="saveTrans" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		t_material.t_stock
+		(stock_rrn,BARCODE_TYPE,BARCODE_RRN,BARCODE_ID,LOGIN_RRN,
+		CREATE_TIMESTAMP,BARCODE_STATUS,IN_TRANS,RACKING_RRN,LAST_TRANS)
+		<foreach collection="list" item="counter" index="index"
+			separator="union all">
+			(
+			SELECT
+			#{counter.stockRrn,jdbcType=VARCHAR},#{counter.barcodeType,jdbcType=VARCHAR},
+			#{counter.barcodeRrn,jdbcType=VARCHAR},#{counter.barcodeId,jdbcType=VARCHAR},
+			#{counter.loginRrn,jdbcType=VARCHAR},sysdate,
+			#{counter.barcodeStatus,jdbcType=VARCHAR},#{counter.inTrans,jdbcType=VARCHAR},
+			#{counter.rackingRrn,jdbcType=VARCHAR},#{counter.lastTrans,jdbcType=VARCHAR}
+			FROM DUAL )
+		</foreach>
+	</insert>
+	<!-- t_stock_trans_detail -->
+	<insert id="saveStockTransD" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		t_material.t_stock_trans_detail
+		(trans_rrn,trans_type,trans_type_id,stock_rrn,barcode_type,barcode_rrn,barcode_id,login_rrn,racking_rrn)
+		<foreach collection="list" item="counter" index="index"
+			separator="union all">
+			(SELECT
+			#{counter.transRrn,jdbcType=VARCHAR},#{counter.transType,jdbcType=VARCHAR},
+			#{counter.transTypeId,jdbcType=VARCHAR},#{counter.stockRrn,jdbcType=VARCHAR},
+			#{counter.barcodeType,jdbcType=VARCHAR},#{counter.barcodeRrn,jdbcType=VARCHAR},
+			#{counter.barcodeId,jdbcType=VARCHAR},
+			#{counter.loginRrn,jdbcType=VARCHAR},#{counter.rackingRrn,jdbcType=VARCHAR}
+			FROM DUAL
+			)
+		</foreach>
+	</insert>
+	<!-- t_stock_trans -->
+	<insert id="saveStockTrans" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		t_material.t_stock_trans
+		(trans_rrn,trans_type,trans_type_id,trans_qty,login_rrn,trans_timestamp)
+
+		<foreach collection="list" item="counter" index="index"
+			separator="union all">
+			(SELECT
+			#{counter.transRrn,jdbcType=VARCHAR},#{counter.transType,jdbcType=VARCHAR},
+			#{counter.transTypeId,jdbcType=VARCHAR},#{counter.transQty,jdbcType=VARCHAR},
+			#{counter.loginRrn,jdbcType=VARCHAR},sysdate
+			FROM DUAL
+			)
+		</foreach>
+	</insert>
+	<!-- t_stock_in_history -->
+
+	<insert id="saveStockIn" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		t_material.t_stock_in_history
+		(in_cache_rrn,BARCODE_TYPE,BARCODE_RRN,BARCODE_ID,LOGIN_RRN,RACKING_RRN,stock_Rrn,cache_date,trans_rrn)
+
+		<foreach collection="list" item="counter" index="index"
+			separator="union all">
+			(SELECT
+			#{counter.inCacheRrn,jdbcType=VARCHAR},#{counter.barcodeType,jdbcType=VARCHAR},
+			#{counter.barcodeRrn,jdbcType=VARCHAR},#{counter.barcodeId,jdbcType=VARCHAR},
+			#{counter.loginRrn,jdbcType=VARCHAR},#{counter.rackingRrn,jdbcType=VARCHAR},
+			#{counter.stockRrn,jdbcType=VARCHAR},sysdate,#{counter.transRrn,jdbcType=VARCHAR}
+			FROM DUAL
+			)
+		</foreach>
+
+	</insert>
+	<select id="selectUnitId" resultType="Map">
+		select * from
+		jnbdt.rd_unit_label_info@lbdas
+		where unit_id=#{unitId}
+	</select>
+	<select id="selectBarcodeString" resultType="Map">
+		select * from
+		t_material.T_BARCODE
+		where barcode_String=#{unitId}
+	</select>
+	<!-- 查询工号rrn -->
+	<select id="selectWorkId" resultType="Map">
+		select * from T_USER.L_USER
+		t where
+		user_id=#{workId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 查询t_material.in_cache_rrn序列号 -->
+	<select id="selectInCacheSeq" resultType="java.lang.String"
+		resultMap="demoMap" useCache="false" flushCache="true">
+		SELECT
+		T_MATERIAL.in_cache_rrn.NEXTVAL as inCacheRrn FROM
+		DUAL
+	</select>
+
+	<!-- 查询t_material.stock_trans_rrn序列号 -->
+	<select id="selectStockTransSeq" resultType="java.lang.String"
+		resultMap="demoMap" useCache="false" flushCache="true">
+		SELECT
+		T_MATERIAL.stock_trans_rrn.NEXTVAL as stockTransRrn
+		FROM DUAL
+	</select>
+
+	<!-- 查询barcode_rrn 序列号 -->
+	<select id="selectBarcodeSeq" resultType="Map">
+		SELECT
+		T_MATERIAL.barcode_rrn.NEXTVAL as barcodeRrn FROM
+		DUAL
+	</select>
+
+	<!-- 查询t_material.stock_rrn序列号 -->
+	<select id="selectStockSeq" resultType="Map">
+		SELECT
+		T_MATERIAL.stock_rrn.NEXTVAL as stockRrn FROM DUAL
+	</select>
+
+	<!-- 查询t_material.out_cache_rrn序列号 -->
+	<select id="selectOutCache" resultType="Map">
+		SELECT
+		T_MATERIAL.out_cache_rrn.NEXTVAL as outCacheRrn FROM
+		DUAL
+	</select>
+	<!-- 查询 t_material.t_stock -->
+	<select id="selectBarcodeId" resultType="Map">
+		select *
+		from
+		t_material.t_stock where
+		barcode_id=#{barcodeString,jdbcType=VARCHAR}
+	</select>
+
+	<update id="updateStock">
+		update t_material.t_stock
+		set
+		last_trans=#{stockTransRrn,jdbcType=VARCHAR},barcode_status='2' where
+		barcode_id=#{barcodeString,jdbcType=VARCHAR}
+	</update>
+
+	<select id="selectTransRrn" resultType="Map">
+		select * from
+		t_material.t_stock_in_history
+		where
+		barcode_id=#{barcodeString,jdbcType=VARCHAR}
+	</select>
+
+	<!--t_material.t_stock_out_history; -->
+	<insert id="saveStockOut" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		t_material.t_stock_out_history
+		(out_cache_rrn,barcode_type,barcode_rrn,barcode_id,login_rrn,racking_rrn,stock_rrn,cache_date,customer_rrn,trans_rrn)
+		<foreach collection="list" item="counter" index="index"
+			separator="union all">
+			(SELECT
+			#{counter.outCacheRrn,jdbcType=VARCHAR},#{counter.barcodeType,jdbcType=VARCHAR},
+			#{counter.barcodeRrn,jdbcType=VARCHAR},#{counter.barcodeId,jdbcType=VARCHAR},
+			#{counter.loginRrn,jdbcType=VARCHAR},#{counter.rackingRrn,jdbcType=VARCHAR},
+			#{counter.stockRrn,jdbcType=VARCHAR},
+			sysdate,#{counter.customerRrn,jdbcType=VARCHAR},#{counter.transRrn,jdbcType=VARCHAR}
+			FROM DUAL
+			)
+		</foreach>
+	</insert>
+</mapper>
+

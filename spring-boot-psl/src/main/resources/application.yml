@@ -1,0 +1,39 @@
+server:
+  port: 8821
+spring:
+    banner:
+     #image:
+       location: classpath:bander.txt
+    datasource:
+        driver-class-name: oracle.jdbc.driver.OracleDriver
+        url: jdbc:oracle:thin:@192.168.6.66:1521:orcl
+        username: user_cert
+        password: user_cert
+        
+    thymeleaf:
+      cache: false
+      prefix: classpath:/templates/
+      suffix: .html
+      encoding: UTF-8
+    output:
+      ansi:
+       enabled: always
+
+    #配置mybatis相关文件路径
+mybatis:
+  #映射配置文件路径
+  mapper-locations: classpath:mybatis/pslmapper/*.xml
+  #核心配置文件路径
+  config-location: classpath:mybatis/mybatis-config.xml
+logging:
+  config: classpath:logback-spring.xml
+  path: classpath:logs
+pagehelper:
+  reasonable: false # 禁用合理化时，如果pageNum<1或pageNum>pages会返回空数据
+  support-methods-arguments: true
+  params: count=countSql
+  row-bounds-with-count: true
+  helper-dialect: oracle
+
+ 
+ 

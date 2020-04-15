@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springboot.psl.dao.BinUnitDao">
+
+	<insert id="saveBunitShelf" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		SYS_PSL.CSP_PL_BINUNIT_SHELF
+		(lotId,P_NO,CREATETIME,workId)
+		<foreach collection="list" item="fgShelf" index="index"
+			separator="union all">
+			(SELECT
+			#{fgShelf.lotId,jdbcType=VARCHAR},
+			#{fgShelf.pno,jdbcType=VARCHAR},
+			sysdate,
+			#{fgShelf.workId,jdbcType=VARCHAR}FROM DUAL)
+		</foreach>
+	</insert>
+
+	<select id="selectShelf" resultType="Map">
+		select * from
+		SYS_PSL.CSP_PL_BINUNIT_SHELF
+	</select>
+	<select id="selectBacthByLotId" resultType="Map">
+		select * from
+		SYS_PSL.CSP_PL_BINUNIT_SHELF where lotid=#{lotId, jdbcType=VARCHAR}
+	</select>
+
+	<select id="selectUnitIdByLotId" resultType="Map">
+		select
+		u.UNIT_ID unitId,c.qty qty ,substr(l.lot_id,4,7)
+		lotType,d.bin_id binId,substr(spec_id,1,instr(spec_id,'.',-1)-1)
+		specId from
+		unit@jpmycim2 u,lot@jpmycim2 l,BIN_UNIT_DATA@jpmycim2 d
+		,cnt_unit_qty_info@jp c
+		where l.lot_rrn=u.lot_rrn
+		and l.lot_id
+		=#{batchLot}
+		and
+		d.bin_unit_id=u.UNIT_ID
+		and
+		c.unit_id=u.UNIT_ID
+		and
+		l.operation_rrn='12260834'
+		and
+		l.lot_status='COMPLETED'
+		<if test="unitId != null and unitId !='' ">
+			and u.UNIT_ID= #{unitId}
+		</if>
+	</select>
+
+	<select id="selectUnitByUnit" resultType="Map">
+		select * from
+		SYS_PSL.CSP_PL_BINUNIT_SHELF_GOODS WHERE
+		unitid=#{0} and flag=0
+	</select>
+	<select id="selectUnitByUnitAll" resultType="Map">
+		select * from
+		SYS_PSL.CSP_PL_BINUNIT_SHELF_GOODS
+	</select>
+	<select id="selectMaxBdLotId" resultType="java.lang.String">
+
+		select max(bdlotid)
+		bdlotid from SYS_PSL.CSP_BD_UNIT_PRO
+		where bdlotid
+		like
+		#{lotId,jdbcType=VARCHAR}|| '%'
+	</select>
+	<select id="selectCountByLotId" resultType="Map">
+		select count(1) maxId
+		from SYS_PSL.CSP_PL_BINUNIT_SHELF
+		where p_no like
+		#{lotId,jdbcType=VARCHAR}|| '%' and flag is null
+	</select>
+	<update id="updateShelfFlag">
+		update SYS_PSL.CSP_PL_BINUNIT_SHELF
+		<set>
+			flag=1
+		</set>
+		WHERE p_no IN
+		<foreach collection="list" item="fgShelf" index="index"
+			separator="union all" open="(" close=")">
+			(SELECT
+			#{fgShelf.pno,jdbcType=VARCHAR}
+			FROM DUAL)
+		</foreach>
+	</update>
+
+	<insert id="saveBinUnit" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		SYS_PSL.CSP_PL_BINUNIT_SHELF_GOODS
+		(lotId,P_NO,lottype,spec_id,binId,flag,qty,unitId,CREATETIME,workId,unit_Type)
+		<foreach collection="list" item="fgShelf" index="index"
+			separator="union all">
+			(SELECT
+			#{fgShelf.lotId,jdbcType=VARCHAR},
+			#{fgShelf.pno,jdbcType=VARCHAR},
+			#{fgShelf.lotType,jdbcType=VARCHAR},
+			#{fgShelf.specId,jdbcType=VARCHAR},
+			#{fgShelf.binId,jdbcType=VARCHAR},
+			0,
+			#{fgShelf.qty,jdbcType=VARCHAR},
+			#{fgShelf.unitId,jdbcType=VARCHAR},
+			sysdate,
+			#{fgShelf.workId,jdbcType=VARCHAR},
+			0
+			FROM DUAL)
+		</foreach>
+	</insert>
+	<insert id="saveBinUnitId"
+		parameterType="com.example.springboot.psl.entity.BinUnit">
+		insert into
+		SYS_PSL.CSP_PL_BINUNIT_SHELF_GOODS
+		(lotid,p_no,lottype,spec_id,binid,flag,qty,unitid,workId,CREATETIME,unit_type)
+		values(
+		#{lotId,jdbcType=VARCHAR},
+		#{pno,jdbcType=VARCHAR},
+		#{lotType,jdbcType=VARCHAR},
+		#{specId,jdbcType=VARCHAR},
+		#{binId,jdbcType=VARCHAR},
+		0,
+		#{qty,jdbcType=VARCHAR},
+		#{unitId,jdbcType=VARCHAR},
+		#{workId,jdbcType=VARCHAR},
+		sysdate,#{unitType,jdbcType=VARCHAR})
+
+	</insert>
+	<select id="selectBinUnitEqpt" resultType="Map">
+		select eqpt,status,lotType,id specID,bdLotId,bin
+		binId,createtime,sexian from SYS_PSL.CSP_BD_UNIT_EQPT t where eqpt
+		like 'AT%'
+		<if test="eqpt != null and eqpt !='' ">
+			and eqpt= #{eqpt}
+		</if>
+	</select>
+	<select id="selectShelfByLotId" resultType="Map">
+		select * from (
+		select rownum odd, t.* from ( select * from
+		SYS_PSL.CSP_PL_BINUNIT_SHELF t
+		where p_no
+		like #{lotId} || '%' and flag
+		is null
+		order by p_no)t
+		) where odd=#{odd}
+
+	</select>
+
+	<select id="selectUnitDateil" resultType="Map">
+		select * from ( select
+		rownum odd,t.* from(select
+		lottype||'-'||spec_id||'-'||binid
+		lottype,sum(qty)qty,count(unitid) flag from
+		SYS_PSL.CSP_PL_BINUNIT_SHELF_GOODS t where flag=0
+		group by
+		lottype,spec_id,binid)t
+		)
+		where odd
+		between #{page} and #{limit}
+	</select>
+	<select id="selectUnitDateilByLBI" resultType="Map">
+
+		select * from (
+		select rownum odd,t.* from( select
+		unitid,lottype||'-'||spec_id||'-'||binid lottype
+		,qty,p_no,createtime,status from SYS_PSL.CSP_PL_BINUNIT_SHELF_GOODS
+		where flag=0
+		and lottype=#{lotType,jdbcType=VARCHAR}
+		and
+		binid=#{binId,jdbcType=VARCHAR}
+		and
+		spec_id=#{specId,jdbcType=VARCHAR})t) WHERE odd
+		between #{page} and
+		#{limit}
+	</select>
+
+
+	<select id="queryUnitDateilCountByLBI"
+		resultType="java.lang.Integer" parameterType="java.lang.String">
+		select count(*)from(
+		select unitid,lottype||'-'||spec_id||'-'||binid lottype
+		,qty,p_no,createtime,status from SYS_PSL.CSP_PL_BINUNIT_SHELF_GOODS
+		where flag=0
+		and lottype=#{lotType,jdbcType=VARCHAR}
+		and
+		binid=#{binId,jdbcType=VARCHAR}
+		and
+		spec_id=#{specId,jdbcType=VARCHAR})
+	</select>
+	<select id="queryUnitDateilCount" resultType="java.lang.Integer"
+		parameterType="java.lang.String">
+		select count(*) from(select
+		lottype||'-'||spec_id||'-'||binid
+		lottype,sum(qty)qty,count(unitid)
+		flag from
+		SYS_PSL.CSP_PL_BINUNIT_SHELF_GOODS t where flag=0
+		group by
+		lottype,spec_id,binid)
+	</select>
+	<update id="updateShelfStatus" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		update SYS_PSL.CSP_PL_BINUNIT_SHELF
+		<set>
+			flag='0'
+		</set>
+		where p_no in
+		<foreach collection="list" item="fgShelf" index="index"
+			separator="union all" open="(" close=")">
+			(SELECT
+			#{fgShelf.pno,jdbcType=VARCHAR}
+			FROM DUAL)
+		</foreach>
+	</update>
+
+	<insert id="saveUnitIdToEqpt" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		sys_psl.csp_bd_unit_pro
+		(eqpt,lottype,specid,binid,bdlotid,unitid,qty,CREATETIME,workId)
+		<foreach collection="list" item="item" index="index"
+			separator="union all">
+			(SELECT
+			#{item.eqpt,jdbcType=VARCHAR},
+			#{item.lotType,jdbcType=VARCHAR},
+			#{item.specId,jdbcType=VARCHAR},
+			#{item.binId,jdbcType=VARCHAR},
+			#{item.bdLotId,jdbcType=VARCHAR},
+			#{item.unitId,jdbcType=VARCHAR},
+			#{item.qty,jdbcType=VARCHAR},
+			sysdate,
+			#{item.workId,jdbcType=VARCHAR}
+			FROM DUAL)
+		</foreach>
+	</insert>
+	<update id="updateEqpt">
+		update sys_psl.csp_bd_unit_eqpt set
+		status=1,lottype=#{lotType,jdbcType=VARCHAR},
+		bdlotid=#{bdLotId,jdbcType=VARCHAR},bin=#{binId,jdbcType=VARCHAR},
+		createtime=sysdate,workid=#{workId,jdbcType=VARCHAR},id=#{specId,jdbcType=VARCHAR}
+		where eqpt=#{eqpt,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateUnitStatus" parameterType="java.util.List">
+		update SYS_PSL.CSP_PL_BINUNIT_SHELF_GOODS
+		SET
+		flag='1',flag_type='编带出库',
+		outtime=sysdate,
+		outworkid=#{workId,jdbcType=VARCHAR}
+		WHERE unitid in
+		<foreach collection="binUnitList" item="item" open="("
+			separator="," close=")">
+			#{item.unitId,jdbcType=VARCHAR}
+		</foreach>
+	</update>
+</mapper>

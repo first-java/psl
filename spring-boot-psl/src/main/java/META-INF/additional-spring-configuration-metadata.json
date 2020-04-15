@@ -1,0 +1,18 @@
+{
+	"properties": [
+		{
+			"name": "spring.datasource.primary",
+			"password": "user_cert",
+			"driver-class-name": "oracle.jdbc.driver.OracleDriver",
+			"url": "jdbc:oracle:thin:@192.168.6.66:1521:orcl",
+			"username": "user_cert"
+		},
+		{
+			"name": "spring.datasource.development",
+			"driver-class-name": "",
+			"url": "",
+			"username": "",
+			"description": ""
+		}
+	]
+}

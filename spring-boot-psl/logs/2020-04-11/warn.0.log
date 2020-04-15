@@ -1,0 +1,3 @@
+[WARN ] 2020-04-11 08:16:14.210 [restartedMain] org.springframework.boot.ImageBanner - Image banner not printable: class path resource [ll] (class java.lang.IllegalStateException: 'Unable to read image banner source')
+[WARN ] 2020-04-11 08:37:32.570 [restartedMain] org.springframework.boot.ImageBanner - Image banner not printable: class path resource [bander.txt] (class java.lang.IllegalStateException: 'Unable to read image banner source')
+[WARN ] 2020-04-11 08:37:42.860 [restartedMain] org.springframework.boot.ImageBanner - Image banner not printable: class path resource [bander.txt] (class java.lang.IllegalStateException: 'Unable to read image banner source')

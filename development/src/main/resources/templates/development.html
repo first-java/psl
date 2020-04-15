@@ -1,0 +1,73 @@
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>研发片入库</title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="layui/css/layui.css" media="all">
+<!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
+	<input type="hidden" id="workId">
+	<input type="hidden" id="id">
+	<input type="hidden" id="idd" value="0">
+	<div>
+		<button class="layui-btn">
+			研发片入库<span class="layui-badge-dot layui-bg-orange"></span>
+
+		</button>
+	</div>
+	<hr class="layui-bg-orange">
+	<form id="setId" class="layui-form layui-form-pane"
+		style="margin-top: 20px;">
+		<div class="layui-form-item">
+			<div class="layui-inline">
+				<label class="layui-form-label">研发流水号：</label>
+				<div class="layui-input-inline">
+					<input type="text" id="unitId" lay-verify="required"
+						onkeypress='if(event.keyCode==13) selectUnit()' autocomplete="off"
+						class="layui-input">
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">数量：</label>
+				<div class="layui-input-inline">
+					<input type="number" id="yfQty" lay-verify="required|number"
+						onkeypress='if(event.keyCode==13) addUnit()' autocomplete="off"
+						class="layui-input">
+				</div>
+			</div>
+		</div>
+		<div class="layui-inline"
+			style="height: 400px; width: 550px; overflow-y: auto;">
+			<div class="layui-inline">
+				<table id="demo" lay-filter="test" class="layui-table">
+					<th>序号</th>
+					<th>流水号</th>
+					<th>数量</th>
+					<th>操作</th>
+				</table>
+			</div>
+		</div>
+
+		<input type="hidden" id="odd">
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+				<input class="layui-btn layui-btn-primary" value="提交"
+					onclick="putIn();">
+				<!-- <button id="pwdBtn" class="layui-btn layui-btn-primary"
+					lay-submit="" lay-filter="setId">确定</button> -->
+			</div>
+		</div>
+	</form>
+	<script src="js/md5.js" charset="utf-8"></script>
+	<script src="js/jquery-1.7.2.min.js" charset="utf-8"></script>
+	<script src="psljs/development.js" charset="utf-8"></script>
+	<script src="layui/layui.js" charset="utf-8"></script>
+	<script src="layui/layui.all.js" charset="utf-8"></script>
+</body>
+</html>
+

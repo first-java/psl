@@ -1,0 +1,25 @@
+{
+	"properties": [
+		{
+			"name": "spring.datasource.secondary3",
+			"driverClassName": "",
+			"jdbc-url": "",
+			"password": "",
+			"username": ""
+		},
+		{
+			"name": "spring.datasource.primary",
+			"driverClassName": "",
+			"jdbc-url": "",
+			"password": "",
+			"username": ""
+		},
+		{
+			"name": "spring.datasource.secondary",
+			"driverClassName": "",
+			"jdbc-url": "",
+			"password": "",
+			"username": ""
+		}
+	]
+}

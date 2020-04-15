@@ -1,0 +1,5 @@
+[WARN ] 2020-04-14 08:38:37.744 [http-nio-8822-exec-6] c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[WARN ] 2020-04-14 08:51:42.659 [http-nio-8822-exec-1] c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[WARN ] 2020-04-14 08:53:49.825 [http-nio-8822-exec-1] c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[WARN ] 2020-04-14 08:57:02.835 [http-nio-8822-exec-1] c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[WARN ] 2020-04-14 09:02:46.294 [http-nio-8822-exec-2] c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
