@@ -1,0 +1,488 @@
+file=2020-03-20 09:55:33.650 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Starting PslApplication on DESKTOP-11AKJED with PID 13916 (D:\eclipse\workspace\psl\target\classes started by 奥特虾不会写代码 in D:\eclipse\workspace\psl)
+file=2020-03-20 09:55:33.656 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> No active profile set, falling back to default profiles: default
+file=2020-03-20 09:55:33.700 >>> [restartedMain] >>> INFO  >>> o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor >>> Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+file=2020-03-20 09:55:33.701 >>> [restartedMain] >>> INFO  >>> o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor >>> For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+file=2020-03-20 09:55:34.441 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8001 (http)
+file=2020-03-20 09:55:34.448 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+file=2020-03-20 09:55:34.448 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.31]
+file=2020-03-20 09:55:34.507 >>> [restartedMain] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+file=2020-03-20 09:55:34.507 >>> [restartedMain] >>> INFO  >>> org.springframework.web.context.ContextLoader >>> Root WebApplicationContext: initialization completed in 806 ms
+file=2020-03-20 09:55:34.643 >>> [restartedMain] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 09:55:34.688 >>> [restartedMain] >>> INFO  >>> o.s.b.a.web.servlet.WelcomePageHandlerMapping >>> Adding welcome page template: index
+file=2020-03-20 09:55:34.771 >>> [restartedMain] >>> INFO  >>> o.s.b.d.autoconfigure.OptionalLiveReloadServer >>> LiveReload server is running on port 35729
+file=2020-03-20 09:55:34.814 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat started on port(s): 8001 (http) with context path ''
+file=2020-03-20 09:55:34.817 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Started PslApplication in 1.515 seconds (JVM running for 2.671)
+file=2020-03-20 09:56:33.645 >>> [Thread-7] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 09:56:34.209 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Starting PslApplication on DESKTOP-11AKJED with PID 13916 (D:\eclipse\workspace\psl\target\classes started by 奥特虾不会写代码 in D:\eclipse\workspace\psl)
+file=2020-03-20 09:56:34.209 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> No active profile set, falling back to default profiles: default
+file=2020-03-20 09:56:34.386 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8001 (http)
+file=2020-03-20 09:56:34.386 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+file=2020-03-20 09:56:34.387 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.31]
+file=2020-03-20 09:56:34.399 >>> [restartedMain] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+file=2020-03-20 09:56:34.400 >>> [restartedMain] >>> INFO  >>> org.springframework.web.context.ContextLoader >>> Root WebApplicationContext: initialization completed in 189 ms
+file=2020-03-20 09:56:34.437 >>> [restartedMain] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 09:56:34.445 >>> [restartedMain] >>> INFO  >>> o.s.b.a.web.servlet.WelcomePageHandlerMapping >>> Adding welcome page template: index
+file=2020-03-20 09:56:34.473 >>> [restartedMain] >>> INFO  >>> o.s.b.d.autoconfigure.OptionalLiveReloadServer >>> LiveReload server is running on port 35729
+file=2020-03-20 09:56:34.484 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat started on port(s): 8001 (http) with context path ''
+file=2020-03-20 09:56:34.485 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Started PslApplication in 0.301 seconds (JVM running for 62.338)
+file=2020-03-20 09:56:34.486 >>> [restartedMain] >>> INFO  >>> o.s.b.d.a.ConditionEvaluationDeltaLoggingListener >>> Condition evaluation unchanged
+file=2020-03-20 09:56:38.916 >>> [Thread-10] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 09:56:39.549 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Starting PslApplication on DESKTOP-11AKJED with PID 13916 (D:\eclipse\workspace\psl\target\classes started by 奥特虾不会写代码 in D:\eclipse\workspace\psl)
+file=2020-03-20 09:56:39.549 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> No active profile set, falling back to default profiles: default
+file=2020-03-20 09:56:39.704 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8001 (http)
+file=2020-03-20 09:56:39.704 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+file=2020-03-20 09:56:39.705 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.31]
+file=2020-03-20 09:56:39.716 >>> [restartedMain] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+file=2020-03-20 09:56:39.716 >>> [restartedMain] >>> INFO  >>> org.springframework.web.context.ContextLoader >>> Root WebApplicationContext: initialization completed in 165 ms
+file=2020-03-20 09:56:39.748 >>> [restartedMain] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 09:56:39.756 >>> [restartedMain] >>> INFO  >>> o.s.b.a.web.servlet.WelcomePageHandlerMapping >>> Adding welcome page template: index
+file=2020-03-20 09:56:39.781 >>> [restartedMain] >>> INFO  >>> o.s.b.d.autoconfigure.OptionalLiveReloadServer >>> LiveReload server is running on port 35729
+file=2020-03-20 09:56:39.791 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat started on port(s): 8001 (http) with context path ''
+file=2020-03-20 09:56:39.792 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Started PslApplication in 0.266 seconds (JVM running for 67.646)
+file=2020-03-20 09:56:39.793 >>> [restartedMain] >>> INFO  >>> o.s.b.d.a.ConditionEvaluationDeltaLoggingListener >>> Condition evaluation unchanged
+file=2020-03-20 09:56:47.443 >>> [http-nio-8001-exec-1] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring DispatcherServlet 'dispatcherServlet'
+file=2020-03-20 09:56:47.444 >>> [http-nio-8001-exec-1] >>> INFO  >>> org.springframework.web.servlet.DispatcherServlet >>> Initializing Servlet 'dispatcherServlet'
+file=2020-03-20 09:56:47.448 >>> [http-nio-8001-exec-1] >>> INFO  >>> org.springframework.web.servlet.DispatcherServlet >>> Completed initialization in 4 ms
+file=2020-03-20 09:56:47.464 >>> [http-nio-8001-exec-1] >>> INFO  >>> com.jnbdt.conteroller.ConllectController >>> conllect
+file=2020-03-20 09:56:47.469 >>> [http-nio-8001-exec-1] >>> INFO  >>> com.jnbdt.component.MyLocaleResolver >>> 解析区域信息：null
+file=2020-03-20 09:56:47.470 >>> [http-nio-8001-exec-1] >>> INFO  >>> com.jnbdt.component.MyLocaleResolver >>> 最终采用的区域信息：zh_CN
+file=2020-03-20 09:56:47.474 >>> [http-nio-8001-exec-1] >>> INFO  >>> com.jnbdt.component.MyLocaleResolver >>> 解析区域信息：null
+file=2020-03-20 09:56:47.474 >>> [http-nio-8001-exec-1] >>> INFO  >>> com.jnbdt.component.MyLocaleResolver >>> 最终采用的区域信息：zh_CN
+file=2020-03-20 09:56:47.575 >>> [http-nio-8001-exec-1] >>> ERROR >>> org.thymeleaf.TemplateEngine >>> [THYMELEAF][http-nio-8001-exec-1] Exception processing template "conllect": Error resolving template [conllect], template might not exist or might not be accessible by any of the configured Template Resolvers
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [conllect], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) [thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) [thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362) [thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189) [thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1373) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1118) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_144]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_144]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_144]
+file=2020-03-20 09:56:47.578 >>> [http-nio-8001-exec-1] >>> ERROR >>> o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] >>> Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template [conllect], template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [conllect], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362) ~[thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189) ~[thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1373) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1118) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_144]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_144]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_144]
+file=2020-03-20 09:56:47.592 >>> [http-nio-8001-exec-1] >>> INFO  >>> com.jnbdt.component.MyLocaleResolver >>> 解析区域信息：null
+file=2020-03-20 09:56:47.593 >>> [http-nio-8001-exec-1] >>> INFO  >>> com.jnbdt.component.MyLocaleResolver >>> 最终采用的区域信息：zh_CN
+file=2020-03-20 09:59:01.258 >>> [Thread-15] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 09:59:01.894 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Starting PslApplication on DESKTOP-11AKJED with PID 13916 (D:\eclipse\workspace\psl\target\classes started by 奥特虾不会写代码 in D:\eclipse\workspace\psl)
+file=2020-03-20 09:59:01.894 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> No active profile set, falling back to default profiles: default
+file=2020-03-20 09:59:02.053 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8001 (http)
+file=2020-03-20 09:59:02.053 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+file=2020-03-20 09:59:02.053 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.31]
+file=2020-03-20 09:59:02.071 >>> [restartedMain] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+file=2020-03-20 09:59:02.071 >>> [restartedMain] >>> INFO  >>> org.springframework.web.context.ContextLoader >>> Root WebApplicationContext: initialization completed in 175 ms
+file=2020-03-20 09:59:02.103 >>> [restartedMain] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 09:59:02.111 >>> [restartedMain] >>> INFO  >>> o.s.b.a.web.servlet.WelcomePageHandlerMapping >>> Adding welcome page template: index
+file=2020-03-20 09:59:02.134 >>> [restartedMain] >>> INFO  >>> o.s.b.d.autoconfigure.OptionalLiveReloadServer >>> LiveReload server is running on port 35729
+file=2020-03-20 09:59:02.143 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat started on port(s): 8001 (http) with context path ''
+file=2020-03-20 09:59:02.144 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Started PslApplication in 0.273 seconds (JVM running for 209.997)
+file=2020-03-20 09:59:02.144 >>> [restartedMain] >>> INFO  >>> o.s.b.d.a.ConditionEvaluationDeltaLoggingListener >>> Condition evaluation unchanged
+file=2020-03-20 09:59:37.809 >>> [Thread-20] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 09:59:38.484 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Starting PslApplication on DESKTOP-11AKJED with PID 13916 (D:\eclipse\workspace\psl\target\classes started by 奥特虾不会写代码 in D:\eclipse\workspace\psl)
+file=2020-03-20 09:59:38.484 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> No active profile set, falling back to default profiles: default
+file=2020-03-20 09:59:38.648 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8001 (http)
+file=2020-03-20 09:59:38.649 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+file=2020-03-20 09:59:38.649 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.31]
+file=2020-03-20 09:59:38.664 >>> [restartedMain] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+file=2020-03-20 09:59:38.664 >>> [restartedMain] >>> INFO  >>> org.springframework.web.context.ContextLoader >>> Root WebApplicationContext: initialization completed in 178 ms
+file=2020-03-20 09:59:38.709 >>> [restartedMain] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 09:59:38.724 >>> [restartedMain] >>> INFO  >>> o.s.b.a.web.servlet.WelcomePageHandlerMapping >>> Adding welcome page template: index
+file=2020-03-20 09:59:38.771 >>> [restartedMain] >>> INFO  >>> o.s.b.d.autoconfigure.OptionalLiveReloadServer >>> LiveReload server is running on port 35729
+file=2020-03-20 09:59:38.785 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat started on port(s): 8001 (http) with context path ''
+file=2020-03-20 09:59:38.786 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Started PslApplication in 0.323 seconds (JVM running for 246.639)
+file=2020-03-20 09:59:38.787 >>> [restartedMain] >>> INFO  >>> o.s.b.d.a.ConditionEvaluationDeltaLoggingListener >>> Condition evaluation unchanged
+file=2020-03-20 10:00:26.985 >>> [Thread-25] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 10:00:27.558 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Starting PslApplication on DESKTOP-11AKJED with PID 13916 (D:\eclipse\workspace\psl\target\classes started by 奥特虾不会写代码 in D:\eclipse\workspace\psl)
+file=2020-03-20 10:00:27.558 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> No active profile set, falling back to default profiles: default
+file=2020-03-20 10:00:27.706 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8001 (http)
+file=2020-03-20 10:00:27.707 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+file=2020-03-20 10:00:27.707 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.31]
+file=2020-03-20 10:00:27.718 >>> [restartedMain] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+file=2020-03-20 10:00:27.718 >>> [restartedMain] >>> INFO  >>> org.springframework.web.context.ContextLoader >>> Root WebApplicationContext: initialization completed in 158 ms
+file=2020-03-20 10:00:27.748 >>> [restartedMain] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 10:00:27.755 >>> [restartedMain] >>> INFO  >>> o.s.b.a.web.servlet.WelcomePageHandlerMapping >>> Adding welcome page template: index
+file=2020-03-20 10:00:27.779 >>> [restartedMain] >>> INFO  >>> o.s.b.d.autoconfigure.OptionalLiveReloadServer >>> LiveReload server is running on port 35729
+file=2020-03-20 10:00:27.789 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat started on port(s): 8001 (http) with context path ''
+file=2020-03-20 10:00:27.789 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Started PslApplication in 0.252 seconds (JVM running for 295.643)
+file=2020-03-20 10:00:27.790 >>> [restartedMain] >>> INFO  >>> o.s.b.d.a.ConditionEvaluationDeltaLoggingListener >>> Condition evaluation unchanged
+file=2020-03-20 10:00:34.241 >>> [Thread-30] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 10:00:34.927 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Starting PslApplication on DESKTOP-11AKJED with PID 13916 (D:\eclipse\workspace\psl\target\classes started by 奥特虾不会写代码 in D:\eclipse\workspace\psl)
+file=2020-03-20 10:00:34.927 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> No active profile set, falling back to default profiles: default
+file=2020-03-20 10:00:35.135 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8001 (http)
+file=2020-03-20 10:00:35.135 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+file=2020-03-20 10:00:35.135 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.31]
+file=2020-03-20 10:00:35.156 >>> [restartedMain] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+file=2020-03-20 10:00:35.156 >>> [restartedMain] >>> INFO  >>> org.springframework.web.context.ContextLoader >>> Root WebApplicationContext: initialization completed in 228 ms
+file=2020-03-20 10:00:35.193 >>> [restartedMain] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 10:00:35.200 >>> [restartedMain] >>> INFO  >>> o.s.b.a.web.servlet.WelcomePageHandlerMapping >>> Adding welcome page template: index
+file=2020-03-20 10:00:35.222 >>> [restartedMain] >>> INFO  >>> o.s.b.d.autoconfigure.OptionalLiveReloadServer >>> LiveReload server is running on port 35729
+file=2020-03-20 10:00:35.231 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat started on port(s): 8001 (http) with context path ''
+file=2020-03-20 10:00:35.231 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Started PslApplication in 0.329 seconds (JVM running for 303.085)
+file=2020-03-20 10:00:35.232 >>> [restartedMain] >>> INFO  >>> o.s.b.d.a.ConditionEvaluationDeltaLoggingListener >>> Condition evaluation unchanged
+file=2020-03-20 10:00:45.711 >>> [Thread-35] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 10:00:46.320 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Starting PslApplication on DESKTOP-11AKJED with PID 13916 (D:\eclipse\workspace\psl\target\classes started by 奥特虾不会写代码 in D:\eclipse\workspace\psl)
+file=2020-03-20 10:00:46.320 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> No active profile set, falling back to default profiles: default
+file=2020-03-20 10:00:46.474 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8001 (http)
+file=2020-03-20 10:00:46.475 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+file=2020-03-20 10:00:46.475 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.31]
+file=2020-03-20 10:00:46.486 >>> [restartedMain] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+file=2020-03-20 10:00:46.486 >>> [restartedMain] >>> INFO  >>> org.springframework.web.context.ContextLoader >>> Root WebApplicationContext: initialization completed in 164 ms
+file=2020-03-20 10:00:46.514 >>> [restartedMain] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 10:00:46.521 >>> [restartedMain] >>> INFO  >>> o.s.b.a.web.servlet.WelcomePageHandlerMapping >>> Adding welcome page template: index
+file=2020-03-20 10:00:46.542 >>> [restartedMain] >>> INFO  >>> o.s.b.d.autoconfigure.OptionalLiveReloadServer >>> LiveReload server is running on port 35729
+file=2020-03-20 10:00:46.551 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat started on port(s): 8001 (http) with context path ''
+file=2020-03-20 10:00:46.552 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Started PslApplication in 0.253 seconds (JVM running for 314.405)
+file=2020-03-20 10:00:46.553 >>> [restartedMain] >>> INFO  >>> o.s.b.d.a.ConditionEvaluationDeltaLoggingListener >>> Condition evaluation unchanged
+file=2020-03-20 10:01:10.129 >>> [Thread-40] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 10:01:10.746 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Starting PslApplication on DESKTOP-11AKJED with PID 13916 (D:\eclipse\workspace\psl\target\classes started by 奥特虾不会写代码 in D:\eclipse\workspace\psl)
+file=2020-03-20 10:01:10.747 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> No active profile set, falling back to default profiles: default
+file=2020-03-20 10:01:10.926 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8001 (http)
+file=2020-03-20 10:01:10.927 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+file=2020-03-20 10:01:10.927 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.31]
+file=2020-03-20 10:01:10.940 >>> [restartedMain] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+file=2020-03-20 10:01:10.940 >>> [restartedMain] >>> INFO  >>> org.springframework.web.context.ContextLoader >>> Root WebApplicationContext: initialization completed in 192 ms
+file=2020-03-20 10:01:10.968 >>> [restartedMain] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 10:01:10.974 >>> [restartedMain] >>> INFO  >>> o.s.b.a.web.servlet.WelcomePageHandlerMapping >>> Adding welcome page template: index
+file=2020-03-20 10:01:10.995 >>> [restartedMain] >>> INFO  >>> o.s.b.d.autoconfigure.OptionalLiveReloadServer >>> LiveReload server is running on port 35729
+file=2020-03-20 10:01:11.003 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat started on port(s): 8001 (http) with context path ''
+file=2020-03-20 10:01:11.004 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Started PslApplication in 0.277 seconds (JVM running for 338.857)
+file=2020-03-20 10:01:11.005 >>> [restartedMain] >>> INFO  >>> o.s.b.d.a.ConditionEvaluationDeltaLoggingListener >>> Condition evaluation unchanged
+file=2020-03-20 10:01:18.459 >>> [Thread-45] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 10:01:19.004 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Starting PslApplication on DESKTOP-11AKJED with PID 13916 (D:\eclipse\workspace\psl\target\classes started by 奥特虾不会写代码 in D:\eclipse\workspace\psl)
+file=2020-03-20 10:01:19.004 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> No active profile set, falling back to default profiles: default
+file=2020-03-20 10:01:19.157 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8001 (http)
+file=2020-03-20 10:01:19.158 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+file=2020-03-20 10:01:19.158 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.31]
+file=2020-03-20 10:01:19.170 >>> [restartedMain] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+file=2020-03-20 10:01:19.170 >>> [restartedMain] >>> INFO  >>> org.springframework.web.context.ContextLoader >>> Root WebApplicationContext: initialization completed in 165 ms
+file=2020-03-20 10:01:19.199 >>> [restartedMain] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 10:01:19.205 >>> [restartedMain] >>> INFO  >>> o.s.b.a.web.servlet.WelcomePageHandlerMapping >>> Adding welcome page template: index
+file=2020-03-20 10:01:19.226 >>> [restartedMain] >>> INFO  >>> o.s.b.d.autoconfigure.OptionalLiveReloadServer >>> LiveReload server is running on port 35729
+file=2020-03-20 10:01:19.234 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat started on port(s): 8001 (http) with context path ''
+file=2020-03-20 10:01:19.234 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Started PslApplication in 0.25 seconds (JVM running for 347.088)
+file=2020-03-20 10:01:19.235 >>> [restartedMain] >>> INFO  >>> o.s.b.d.a.ConditionEvaluationDeltaLoggingListener >>> Condition evaluation unchanged
+file=2020-03-20 10:01:35.156 >>> [Thread-50] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 10:01:35.711 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Starting PslApplication on DESKTOP-11AKJED with PID 13916 (D:\eclipse\workspace\psl\target\classes started by 奥特虾不会写代码 in D:\eclipse\workspace\psl)
+file=2020-03-20 10:01:35.711 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> No active profile set, falling back to default profiles: default
+file=2020-03-20 10:01:35.854 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8001 (http)
+file=2020-03-20 10:01:35.855 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+file=2020-03-20 10:01:35.855 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.31]
+file=2020-03-20 10:01:35.870 >>> [restartedMain] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+file=2020-03-20 10:01:35.870 >>> [restartedMain] >>> INFO  >>> org.springframework.web.context.ContextLoader >>> Root WebApplicationContext: initialization completed in 158 ms
+file=2020-03-20 10:01:35.904 >>> [restartedMain] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 10:01:35.911 >>> [restartedMain] >>> INFO  >>> o.s.b.a.web.servlet.WelcomePageHandlerMapping >>> Adding welcome page template: index
+file=2020-03-20 10:01:35.931 >>> [restartedMain] >>> INFO  >>> o.s.b.d.autoconfigure.OptionalLiveReloadServer >>> LiveReload server is running on port 35729
+file=2020-03-20 10:01:35.939 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat started on port(s): 8001 (http) with context path ''
+file=2020-03-20 10:01:35.940 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Started PslApplication in 0.248 seconds (JVM running for 363.793)
+file=2020-03-20 10:01:35.940 >>> [restartedMain] >>> INFO  >>> o.s.b.d.a.ConditionEvaluationDeltaLoggingListener >>> Condition evaluation unchanged
+file=2020-03-20 10:04:15.957 >>> [Thread-55] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 10:04:16.497 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Starting PslApplication on DESKTOP-11AKJED with PID 13916 (D:\eclipse\workspace\psl\target\classes started by 奥特虾不会写代码 in D:\eclipse\workspace\psl)
+file=2020-03-20 10:04:16.498 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> No active profile set, falling back to default profiles: default
+file=2020-03-20 10:04:16.646 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8001 (http)
+file=2020-03-20 10:04:16.646 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+file=2020-03-20 10:04:16.646 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.31]
+file=2020-03-20 10:04:16.658 >>> [restartedMain] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+file=2020-03-20 10:04:16.658 >>> [restartedMain] >>> INFO  >>> org.springframework.web.context.ContextLoader >>> Root WebApplicationContext: initialization completed in 159 ms
+file=2020-03-20 10:04:16.686 >>> [restartedMain] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 10:04:16.692 >>> [restartedMain] >>> INFO  >>> o.s.b.a.web.servlet.WelcomePageHandlerMapping >>> Adding welcome page template: index
+file=2020-03-20 10:04:16.717 >>> [restartedMain] >>> INFO  >>> o.s.b.d.autoconfigure.OptionalLiveReloadServer >>> LiveReload server is running on port 35729
+file=2020-03-20 10:04:16.727 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat started on port(s): 8001 (http) with context path ''
+file=2020-03-20 10:04:16.728 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Started PslApplication in 0.25 seconds (JVM running for 524.581)
+file=2020-03-20 10:04:16.729 >>> [restartedMain] >>> INFO  >>> o.s.b.d.a.ConditionEvaluationDeltaLoggingListener >>> Condition evaluation unchanged
+file=2020-03-20 10:05:09.393 >>> [RMI TCP Connection(4)-127.0.0.1] >>> INFO  >>> o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin >>> Application shutdown requested.
+file=2020-03-20 10:05:09.394 >>> [RMI TCP Connection(4)-127.0.0.1] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 10:24:37.618 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Starting PslApplication on DESKTOP-11AKJED with PID 14840 (D:\eclipse\workspace\psl\target\classes started by 奥特虾不会写代码 in D:\eclipse\workspace\psl)
+file=2020-03-20 10:24:37.621 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> No active profile set, falling back to default profiles: default
+file=2020-03-20 10:24:37.661 >>> [restartedMain] >>> INFO  >>> o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor >>> Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+file=2020-03-20 10:24:37.661 >>> [restartedMain] >>> INFO  >>> o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor >>> For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+file=2020-03-20 10:24:38.115 >>> [restartedMain] >>> WARN  >>> org.mybatis.spring.mapper.ClassPathMapperScanner >>> No MyBatis mapper was found in '[com.jnbdt]' package. Please check your configuration.
+file=2020-03-20 10:24:38.624 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8001 (http)
+file=2020-03-20 10:24:38.632 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+file=2020-03-20 10:24:38.632 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.31]
+file=2020-03-20 10:24:38.706 >>> [restartedMain] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+file=2020-03-20 10:24:38.706 >>> [restartedMain] >>> INFO  >>> org.springframework.web.context.ContextLoader >>> Root WebApplicationContext: initialization completed in 1045 ms
+file=2020-03-20 10:24:38.747 >>> [restartedMain] >>> WARN  >>> o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext >>> Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'conllectController': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'conllectServiceImpl': Unsatisfied dependency expressed through field 'conllectDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.jnbdt.repository.CollectDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+file=2020-03-20 10:24:38.750 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Stopping service [Tomcat]
+file=2020-03-20 10:24:38.775 >>> [restartedMain] >>> INFO  >>> o.s.b.a.l.ConditionEvaluationReportLoggingListener >>> 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+file=2020-03-20 10:24:38.874 >>> [restartedMain] >>> ERROR >>> o.s.b.diagnostics.LoggingFailureAnalysisReporter >>> 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field conllectDao in com.jnbdt.service.impl.ConllectServiceImpl required a bean of type 'com.jnbdt.repository.CollectDao' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.jnbdt.repository.CollectDao' in your configuration.
+
+file=2020-03-20 10:25:47.685 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Starting PslApplication on DESKTOP-11AKJED with PID 4160 (D:\eclipse\workspace\psl\target\classes started by 奥特虾不会写代码 in D:\eclipse\workspace\psl)
+file=2020-03-20 10:25:47.688 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> No active profile set, falling back to default profiles: default
+file=2020-03-20 10:25:47.719 >>> [restartedMain] >>> INFO  >>> o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor >>> Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+file=2020-03-20 10:25:47.719 >>> [restartedMain] >>> INFO  >>> o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor >>> For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+file=2020-03-20 10:25:48.106 >>> [restartedMain] >>> WARN  >>> org.mybatis.spring.mapper.ClassPathMapperScanner >>> No MyBatis mapper was found in '[com.jnbdt]' package. Please check your configuration.
+file=2020-03-20 10:25:48.511 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8001 (http)
+file=2020-03-20 10:25:48.519 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+file=2020-03-20 10:25:48.520 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.31]
+file=2020-03-20 10:25:48.598 >>> [restartedMain] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+file=2020-03-20 10:25:48.599 >>> [restartedMain] >>> INFO  >>> org.springframework.web.context.ContextLoader >>> Root WebApplicationContext: initialization completed in 880 ms
+file=2020-03-20 10:25:48.752 >>> [restartedMain] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 10:25:48.799 >>> [restartedMain] >>> INFO  >>> o.s.b.a.web.servlet.WelcomePageHandlerMapping >>> Adding welcome page template: index
+file=2020-03-20 10:25:49.175 >>> [restartedMain] >>> INFO  >>> o.s.b.d.autoconfigure.OptionalLiveReloadServer >>> LiveReload server is running on port 35729
+file=2020-03-20 10:25:49.222 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat started on port(s): 8001 (http) with context path ''
+file=2020-03-20 10:25:49.225 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Started PslApplication in 1.826 seconds (JVM running for 2.894)
+file=2020-03-20 10:26:16.723 >>> [http-nio-8001-exec-1] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring DispatcherServlet 'dispatcherServlet'
+file=2020-03-20 10:26:16.724 >>> [http-nio-8001-exec-1] >>> INFO  >>> org.springframework.web.servlet.DispatcherServlet >>> Initializing Servlet 'dispatcherServlet'
+file=2020-03-20 10:26:16.731 >>> [http-nio-8001-exec-1] >>> INFO  >>> org.springframework.web.servlet.DispatcherServlet >>> Completed initialization in 7 ms
+file=2020-03-20 10:26:49.488 >>> [RMI TCP Connection(3)-127.0.0.1] >>> INFO  >>> o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin >>> Application shutdown requested.
+file=2020-03-20 10:26:49.491 >>> [RMI TCP Connection(3)-127.0.0.1] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 10:27:16.437 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Starting PslApplication on DESKTOP-11AKJED with PID 1384 (D:\eclipse\workspace\psl\target\classes started by 奥特虾不会写代码 in D:\eclipse\workspace\psl)
+file=2020-03-20 10:27:16.441 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> No active profile set, falling back to default profiles: default
+file=2020-03-20 10:27:16.478 >>> [restartedMain] >>> INFO  >>> o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor >>> Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+file=2020-03-20 10:27:16.478 >>> [restartedMain] >>> INFO  >>> o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor >>> For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+file=2020-03-20 10:27:17.042 >>> [restartedMain] >>> WARN  >>> org.mybatis.spring.mapper.ClassPathMapperScanner >>> No MyBatis mapper was found in '[com.jnbdt]' package. Please check your configuration.
+file=2020-03-20 10:27:17.563 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8001 (http)
+file=2020-03-20 10:27:17.572 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+file=2020-03-20 10:27:17.572 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.31]
+file=2020-03-20 10:27:17.647 >>> [restartedMain] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+file=2020-03-20 10:27:17.647 >>> [restartedMain] >>> INFO  >>> org.springframework.web.context.ContextLoader >>> Root WebApplicationContext: initialization completed in 1169 ms
+file=2020-03-20 10:27:17.812 >>> [restartedMain] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 10:27:17.867 >>> [restartedMain] >>> INFO  >>> o.s.b.a.web.servlet.WelcomePageHandlerMapping >>> Adding welcome page template: index
+file=2020-03-20 10:27:18.151 >>> [restartedMain] >>> INFO  >>> o.s.b.d.autoconfigure.OptionalLiveReloadServer >>> LiveReload server is running on port 35729
+file=2020-03-20 10:27:18.255 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat started on port(s): 8001 (http) with context path ''
+file=2020-03-20 10:27:18.261 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Started PslApplication in 2.13 seconds (JVM running for 3.406)
+file=2020-03-20 10:27:24.841 >>> [http-nio-8001-exec-1] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring DispatcherServlet 'dispatcherServlet'
+file=2020-03-20 10:27:24.842 >>> [http-nio-8001-exec-1] >>> INFO  >>> org.springframework.web.servlet.DispatcherServlet >>> Initializing Servlet 'dispatcherServlet'
+file=2020-03-20 10:27:24.851 >>> [http-nio-8001-exec-1] >>> INFO  >>> org.springframework.web.servlet.DispatcherServlet >>> Completed initialization in 9 ms
+file=2020-03-20 10:28:24.074 >>> [RMI TCP Connection(4)-127.0.0.1] >>> INFO  >>> o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin >>> Application shutdown requested.
+file=2020-03-20 10:28:24.079 >>> [RMI TCP Connection(4)-127.0.0.1] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 10:28:32.738 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Starting PslApplication on DESKTOP-11AKJED with PID 10360 (D:\eclipse\workspace\psl\target\classes started by 奥特虾不会写代码 in D:\eclipse\workspace\psl)
+file=2020-03-20 10:28:32.742 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> No active profile set, falling back to default profiles: default
+file=2020-03-20 10:28:32.778 >>> [restartedMain] >>> INFO  >>> o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor >>> Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+file=2020-03-20 10:28:32.778 >>> [restartedMain] >>> INFO  >>> o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor >>> For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+file=2020-03-20 10:28:33.355 >>> [restartedMain] >>> WARN  >>> org.mybatis.spring.mapper.ClassPathMapperScanner >>> No MyBatis mapper was found in '[com.jnbdt]' package. Please check your configuration.
+file=2020-03-20 10:28:33.844 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8001 (http)
+file=2020-03-20 10:28:33.851 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+file=2020-03-20 10:28:33.851 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.31]
+file=2020-03-20 10:28:33.919 >>> [restartedMain] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+file=2020-03-20 10:28:33.919 >>> [restartedMain] >>> INFO  >>> org.springframework.web.context.ContextLoader >>> Root WebApplicationContext: initialization completed in 1141 ms
+file=2020-03-20 10:28:34.069 >>> [restartedMain] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 10:28:34.126 >>> [restartedMain] >>> INFO  >>> o.s.b.a.web.servlet.WelcomePageHandlerMapping >>> Adding welcome page template: index
+file=2020-03-20 10:28:34.423 >>> [restartedMain] >>> INFO  >>> o.s.b.d.autoconfigure.OptionalLiveReloadServer >>> LiveReload server is running on port 35729
+file=2020-03-20 10:28:34.547 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat started on port(s): 8001 (http) with context path ''
+file=2020-03-20 10:28:34.551 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Started PslApplication in 2.136 seconds (JVM running for 3.3)
+file=2020-03-20 10:29:00.178 >>> [http-nio-8001-exec-1] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring DispatcherServlet 'dispatcherServlet'
+file=2020-03-20 10:29:00.179 >>> [http-nio-8001-exec-1] >>> INFO  >>> org.springframework.web.servlet.DispatcherServlet >>> Initializing Servlet 'dispatcherServlet'
+file=2020-03-20 10:29:00.184 >>> [http-nio-8001-exec-1] >>> INFO  >>> org.springframework.web.servlet.DispatcherServlet >>> Completed initialization in 5 ms
+file=2020-03-20 10:29:48.362 >>> [Thread-6] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 10:29:49.014 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Starting PslApplication on DESKTOP-11AKJED with PID 10360 (D:\eclipse\workspace\psl\target\classes started by 奥特虾不会写代码 in D:\eclipse\workspace\psl)
+file=2020-03-20 10:29:49.015 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> No active profile set, falling back to default profiles: default
+file=2020-03-20 10:29:49.183 >>> [restartedMain] >>> WARN  >>> org.mybatis.spring.mapper.ClassPathMapperScanner >>> No MyBatis mapper was found in '[com.jnbdt]' package. Please check your configuration.
+file=2020-03-20 10:29:49.298 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8001 (http)
+file=2020-03-20 10:29:49.298 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+file=2020-03-20 10:29:49.298 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.31]
+file=2020-03-20 10:29:49.323 >>> [restartedMain] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+file=2020-03-20 10:29:49.323 >>> [restartedMain] >>> INFO  >>> org.springframework.web.context.ContextLoader >>> Root WebApplicationContext: initialization completed in 306 ms
+file=2020-03-20 10:29:49.390 >>> [restartedMain] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 10:29:49.405 >>> [restartedMain] >>> INFO  >>> o.s.b.a.web.servlet.WelcomePageHandlerMapping >>> Adding welcome page template: index
+file=2020-03-20 10:29:49.501 >>> [restartedMain] >>> INFO  >>> o.s.b.d.autoconfigure.OptionalLiveReloadServer >>> LiveReload server is running on port 35729
+file=2020-03-20 10:29:49.518 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat started on port(s): 8001 (http) with context path ''
+file=2020-03-20 10:29:49.519 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Started PslApplication in 0.533 seconds (JVM running for 78.268)
+file=2020-03-20 10:29:49.521 >>> [restartedMain] >>> INFO  >>> o.s.b.d.a.ConditionEvaluationDeltaLoggingListener >>> Condition evaluation unchanged
+file=2020-03-20 10:29:55.495 >>> [http-nio-8001-exec-1] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring DispatcherServlet 'dispatcherServlet'
+file=2020-03-20 10:29:55.496 >>> [http-nio-8001-exec-1] >>> INFO  >>> org.springframework.web.servlet.DispatcherServlet >>> Initializing Servlet 'dispatcherServlet'
+file=2020-03-20 10:29:55.510 >>> [http-nio-8001-exec-1] >>> INFO  >>> org.springframework.web.servlet.DispatcherServlet >>> Completed initialization in 14 ms
+file=2020-03-20 10:32:02.883 >>> [Thread-10] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+file=2020-03-20 10:32:03.551 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Starting PslApplication on DESKTOP-11AKJED with PID 10360 (D:\eclipse\workspace\psl\target\classes started by 奥特虾不会写代码 in D:\eclipse\workspace\psl)
+file=2020-03-20 10:32:03.552 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> No active profile set, falling back to default profiles: default
+file=2020-03-20 10:32:03.708 >>> [restartedMain] >>> WARN  >>> org.mybatis.spring.mapper.ClassPathMapperScanner >>> No MyBatis mapper was found in '[com.jnbdt.mapper]' package. Please check your configuration.
+file=2020-03-20 10:32:03.738 >>> [restartedMain] >>> WARN  >>> org.mybatis.spring.mapper.ClassPathMapperScanner >>> No MyBatis mapper was found in '[com.jnbdt]' package. Please check your configuration.
+file=2020-03-20 10:32:03.876 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8001 (http)
+file=2020-03-20 10:32:03.876 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+file=2020-03-20 10:32:03.877 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.31]
+file=2020-03-20 10:32:03.899 >>> [restartedMain] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+file=2020-03-20 10:32:03.899 >>> [restartedMain] >>> INFO  >>> org.springframework.web.context.ContextLoader >>> Root WebApplicationContext: initialization completed in 336 ms
+file=2020-03-20 10:32:03.915 >>> [restartedMain] >>> WARN  >>> o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext >>> Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'conllectController': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'conllectServiceImpl': Unsatisfied dependency expressed through field 'conllectDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.jnbdt.repository.CollectDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+file=2020-03-20 10:32:03.916 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Stopping service [Tomcat]
+file=2020-03-20 10:32:03.923 >>> [restartedMain] >>> INFO  >>> o.s.b.a.l.ConditionEvaluationReportLoggingListener >>> 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+file=2020-03-20 10:32:04.047 >>> [restartedMain] >>> ERROR >>> o.s.b.diagnostics.LoggingFailureAnalysisReporter >>> 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field conllectDao in com.jnbdt.service.impl.ConllectServiceImpl required a bean of type 'com.jnbdt.repository.CollectDao' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.jnbdt.repository.CollectDao' in your configuration.
+
+file=2020-03-20 10:32:35.744 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Starting PslApplication on DESKTOP-11AKJED with PID 10360 (D:\eclipse\workspace\psl\target\classes started by 奥特虾不会写代码 in D:\eclipse\workspace\psl)
+file=2020-03-20 10:32:35.744 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> No active profile set, falling back to default profiles: default
+file=2020-03-20 10:32:35.887 >>> [restartedMain] >>> WARN  >>> org.mybatis.spring.mapper.ClassPathMapperScanner >>> No MyBatis mapper was found in '[com.jnbdt.mapper]' package. Please check your configuration.
+file=2020-03-20 10:32:35.919 >>> [restartedMain] >>> WARN  >>> org.mybatis.spring.mapper.ClassPathMapperScanner >>> No MyBatis mapper was found in '[com.jnbdt]' package. Please check your configuration.
+file=2020-03-20 10:32:36.035 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8001 (http)
+file=2020-03-20 10:32:36.035 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+file=2020-03-20 10:32:36.035 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.31]
+file=2020-03-20 10:32:36.050 >>> [restartedMain] >>> INFO  >>> o.a.c.c.ContainerBase.[Tomcat-1].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+file=2020-03-20 10:32:36.050 >>> [restartedMain] >>> INFO  >>> org.springframework.web.context.ContextLoader >>> Root WebApplicationContext: initialization completed in 299 ms
+file=2020-03-20 10:32:36.062 >>> [restartedMain] >>> WARN  >>> o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext >>> Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'conllectController': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'conllectServiceImpl': Unsatisfied dependency expressed through field 'conllectDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.jnbdt.repository.CollectDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+file=2020-03-20 10:32:36.062 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Stopping service [Tomcat]
+file=2020-03-20 10:32:36.066 >>> [restartedMain] >>> INFO  >>> o.s.b.a.l.ConditionEvaluationReportLoggingListener >>> 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+file=2020-03-20 10:32:36.175 >>> [restartedMain] >>> ERROR >>> o.s.b.diagnostics.LoggingFailureAnalysisReporter >>> 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field conllectDao in com.jnbdt.service.impl.ConllectServiceImpl required a bean of type 'com.jnbdt.repository.CollectDao' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.jnbdt.repository.CollectDao' in your configuration.
+
+file=2020-03-20 10:33:51.370 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> Starting PslApplication on DESKTOP-11AKJED with PID 10588 (D:\eclipse\workspace\psl\target\classes started by 奥特虾不会写代码 in D:\eclipse\workspace\psl)
+file=2020-03-20 10:33:51.375 >>> [restartedMain] >>> INFO  >>> com.jnbdt.PslApplication >>> No active profile set, falling back to default profiles: default
+file=2020-03-20 10:33:51.421 >>> [restartedMain] >>> INFO  >>> o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor >>> Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+file=2020-03-20 10:33:51.421 >>> [restartedMain] >>> INFO  >>> o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor >>> For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+file=2020-03-20 10:33:51.816 >>> [restartedMain] >>> WARN  >>> org.mybatis.spring.mapper.ClassPathMapperScanner >>> No MyBatis mapper was found in '[com.jnbdt.mapper]' package. Please check your configuration.
+file=2020-03-20 10:33:51.940 >>> [restartedMain] >>> WARN  >>> org.mybatis.spring.mapper.ClassPathMapperScanner >>> No MyBatis mapper was found in '[com.jnbdt]' package. Please check your configuration.
+file=2020-03-20 10:33:52.512 >>> [restartedMain] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8001 (http)
+file=2020-03-20 10:33:52.522 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+file=2020-03-20 10:33:52.522 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.31]
+file=2020-03-20 10:33:52.601 >>> [restartedMain] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+file=2020-03-20 10:33:52.602 >>> [restartedMain] >>> INFO  >>> org.springframework.web.context.ContextLoader >>> Root WebApplicationContext: initialization completed in 1181 ms
+file=2020-03-20 10:33:52.650 >>> [restartedMain] >>> WARN  >>> o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext >>> Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'conllectController': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'conllectServiceImpl': Unsatisfied dependency expressed through field 'conllectDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.jnbdt.repository.CollectDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+file=2020-03-20 10:33:52.652 >>> [restartedMain] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Stopping service [Tomcat]
+file=2020-03-20 10:33:52.675 >>> [restartedMain] >>> INFO  >>> o.s.b.a.l.ConditionEvaluationReportLoggingListener >>> 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+file=2020-03-20 10:33:52.811 >>> [restartedMain] >>> ERROR >>> o.s.b.diagnostics.LoggingFailureAnalysisReporter >>> 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field conllectDao in com.jnbdt.service.impl.ConllectServiceImpl required a bean of type 'com.jnbdt.repository.CollectDao' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.jnbdt.repository.CollectDao' in your configuration.
+

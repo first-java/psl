@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="file.dao.Psp_detialDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="entity.Psp_detial" id="myPsp">
+
+		<!-- 其他列映射都是用result -->
+		<result column="MODELNO" property="modelNo" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="material_name_detail" property="material_name_detail"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+
+	</resultMap>
+
+	<!-- 上传 -->
+
+	<delete id="del">
+		DROP TABLE sys_psl.psp_tmp_detail
+	</delete>
+
+	<update id="creatTable" parameterType="string">
+		CREATE TABLE
+		sys_psl.PSP_TMP_DETaiL AS
+		SELECT modelno,
+		to_clob(wmsys.wm_concat(material_name)) AS material_name_detail
+		FROM sys_psl.v_psp_tmp
+		GROUP BY modelno
+	</update>
+
+</mapper>

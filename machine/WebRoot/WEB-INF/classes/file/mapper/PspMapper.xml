@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="file.dao.PspDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="entity.Psp" id="myPsp">
+
+		<!-- 其他列映射都是用result -->
+		<result column="MODELNO" property="modelNo" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+
+		<result column="PRODUCT" property="product" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+
+		<result column="SRA" property="sRa" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+
+		<result column="CZ" property="cz" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+
+		<result column="LUMINANCE" property="luminance" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+
+		<result column="CREAT_TIME" property="creat_time" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+
+	</resultMap>
+
+	<!-- 上传 -->
+
+	<delete id="del">
+		Truncate Table SYS_PSL.PSP_tmp
+	</delete>
+
+	<insert id="saveTmp" parameterType="entity.Psp">
+		insert into SYS_PSL.psp_tmp
+		values(
+		#{modelNo,jdbcType=VARCHAR},#{product,jdbcType=VARCHAR},#{sRa,jdbcType=VARCHAR},#{cz,jdbcType=VARCHAR},
+		#{luminance,jdbcType=VARCHAR},#{tension,jdbcType=VARCHAR},to_char(sysdate,'YYYY-MM-DD hh24:mi:ss'))
+	</insert>
+
+	<insert id="save" parameterType="entity.Psp">
+		insert into SYS_PSL.psp
+		values(
+		#{modelNo,jdbcType=VARCHAR},#{product,jdbcType=VARCHAR},#{sRa,jdbcType=VARCHAR},#{cz,jdbcType=VARCHAR},
+		#{luminance,jdbcType=VARCHAR},#{tension,jdbcType=VARCHAR},to_char(sysdate,'YYYY-MM-DD hh24:mi:ss'))
+	</insert>
+
+	<select id="getOne" resultMap="myPsp">
+		select distinct
+		modelno,product,sra,cz,luminance,tension from
+		SYS_PSL.PSP_tmp where
+		product||sra||cz||luminance||tension
+		=#{product,jdbcType=VARCHAR}||#{sRa,jdbcType=VARCHAR}||#{cz,jdbcType=VARCHAR}||
+		#{luminance,jdbcType=VARCHAR}||#{tension,jdbcType=VARCHAR}
+	</select>
+	<select id="getTwo" resultMap="myPsp">
+		select
+		modelno,product,sra,cz,luminance,tension from
+		SYS_PSL.PSP_tmp where
+		modelNo
+		=#{modelNo,jdbcType=VARCHAR} order by CREAT_TIME ASC
+	</select>
+	<select id="downLoad" resultMap="myPsp">
+		select * from SYS_PSL.psp_tmp
+	</select>
+
+</mapper>
