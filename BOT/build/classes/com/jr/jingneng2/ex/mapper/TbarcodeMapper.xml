@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jr.jingneng2.ex.dao.TbarcodeDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="com.jr.jingneng2.entity.Tbarcode" id="tbc">
+		<!-- 用于主键的映射 -->
+		<!-- <id column="id" property="id" javaType="int" /> -->
+
+		<result column="BARCODE_RRN" property="barcodeRrn" javaType="java.lang.Integer"
+			jdbcType="VARCHAR" />
+		<result column="BARCODE_STRING" property="barcodeId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="LOGIN_RRN" property="loginRrn" javaType="java.lang.Integer"
+			jdbcType="VARCHAR" />
+		<result column="CREATE_TIMESTAMP" property="createTimeStamp"
+			javaType="java.util.Date" jdbcType="VARCHAR" />
+		<result column="BARCODE_TYPE" property="barcodeType" javaType="java.lang.Integer"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<!-- 查询barcode_rrn 序列号 -->
+	<select id="selectBarcodeSeq" resultType="java.lang.String"
+		resultMap="ShippingInformation" useCache="false" flushCache="true">
+		SELECT
+		T_MATERIAL.barcode_rrn.NEXTVAL as barcodeRrn FROM
+		DUAL
+	</select>
+	<!-- 查询t_material.stock_rrn序列号 -->
+	<select id="selectStockSeq" resultType="java.lang.String"
+		resultMap="ShippingInformation" useCache="false" flushCache="true">
+		SELECT
+		T_MATERIAL.stock_rrn.NEXTVAL as stockRrn FROM DUAL
+	</select>
+	<!-- t_stock -->
+	<insert id="saveBarcode" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		t_material.T_BARCODE
+		(BARCODE_RRN,BARCODE_STRING,LOGIN_RRN,CREATE_TIMESTAMP,BARCODE_TYPE,JY_QTY,JY_TYPE,C_QTY,C_TYPE,PO,WLD)
+
+		<foreach collection="list" item="counter" index="index"
+			separator="union all">
+			(SELECT
+			#{counter.barcodeRrn,jdbcType=VARCHAR},#{counter.barcodeString,jdbcType=VARCHAR},
+			#{counter.loginRrn,jdbcType=VARCHAR},sysdate,
+			#{counter.barcodeType,jdbcType=VARCHAR},#{counter.jyQty,jdbcType=VARCHAR},#{counter.jyType,jdbcType=VARCHAR}
+			,#{counter.cQty,jdbcType=VARCHAR},#{counter.cType,jdbcType=VARCHAR},#{counter.po,jdbcType=VARCHAR},#{counter.wld,jdbcType=VARCHAR}
+			FROM DUAL
+			)
+		</foreach>
+	</insert>
+
+</mapper>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jr.counterToManage.file.dao.BoliaoDao">
+	<resultMap type="com.jr.counterToManage.entity.Boliao" id="boliao">
+
+		<result column="LOT_ID" property="lotId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="unit_Id" property="unitId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="test_file" property="testFile" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="selectCalcu" resultType="java.lang.String"
+		resultMap="boliao">
+		select u.unit_id, t.test_file
+		from lbmes.b_unit u,
+		lbmes.b_lot l, LBMES.B_LOT_EXTENDED t
+		where u.lot_rrn=l.lot_rrn
+		and
+		l.root_lot_rrn = t.lot_rrn
+		and l.lot_id =#{lotId,jdbcType=VARCHAR}
+		and
+		u.unit_status=3
+	</select>
+
+	<select id="selectHui" resultType="java.lang.String" resultMap="boliao">
+		select DISTINCT reflow_id from lbdas.LB_BONDER_SUBSTRATE bd,
+		rfl_reflow_info@lsrm sr
+		where
+		bd.barcode=sr.reflow_id and
+		bd.unit_id=#{unitId,jdbcType=VARCHAR}
+	</select>
+	<select id="selectHui2" resultType="java.lang.String" resultMap="boliao">
+		Select * From SYS_Lot_Header_Info@lsrm where
+		lot_header=substr(#{unitId,jdbcType=VARCHAR},0,6)
+	</select>
+
+	<insert id="insert" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		JNBDT.BOLIAO
+		(lotid,workId,createtime)
+		<foreach collection="list" item="boliao" index="index"
+			separator="union all">
+			(SELECT
+			#{boliao.lotId,jdbcType=VARCHAR},
+			#{boliao.workId,jdbcType=VARCHAR},sysdate
+			FROM DUAL)
+		</foreach>
+	</insert>
+	<insert id="barcodeQc" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		JNBDT.BARCODE_QC
+		(barcode,lotid)
+		<foreach collection="list" item="boliao" index="index"
+			separator="union all">
+			(SELECT
+			#{boliao.barcode,jdbcType=VARCHAR},
+			#{boliao.lotId,jdbcType=VARCHAR}
+			FROM DUAL)
+		</foreach>
+	</insert>
+
+	<insert id="fenxuanQing" parameterType="com.jr.counterToManage.entity.Boliao">
+		insert into
+		JNBDT.FENXUAN_QINGJI
+		(eqpt, createtime,WORKID,qty,lothead)
+		VALUES(#{eqpt,jdbcType=VARCHAR},sysdate,
+		#{workId,jdbcType=VARCHAR},#{qty,jdbcType=VARCHAR},#{lotHead,jdbcType=VARCHAR})
+	</insert>
+
+	<select id="selectQty" resultType="java.lang.String" resultMap="boliao">
+		select eqpt_id as eqpt,
+		max(substr(epi_id, 1, 5)) as lotHead,
+		sum(die_Qty) as qty
+		from (
+		SELECT d.epi_id,
+		d.eqpt_id,
+		u.die_qty -
+		nvl(bw.bad_qty,0) - nvl(ubr.die_Qty,0) as die_qty
+		from
+		(
+		select epi_id,
+		min(create_time) as create_time,
+		max(eqpt_id) as eqpt_id
+		from
+		lbmes_rpt.j_da_sa_bin_yield_sum
+		where create_time >
+		to_date('2019-09-16', 'yyyy-mm-dd')
+		group by epi_id
+		) d,
+		(
+		select eqpt,
+		max(createtime) as create_time
+		from jnbdt.fenxuan_qingji
+		where eqpt
+		=#{eqpt,jdbcType=VARCHAR}
+		group by eqpt
+		) l,
+		lbmes.b_unit u,
+		lbmes.b_bonder_substrate bw,
+		(
+		select j.unit_id,
+		sum(j.die_qty) as
+		die_Qty
+		from lbmycim2.unit_bin_relation j,
+		lbmycim2.bin_unit_data b
+		where j.bin_unit_id = b.bin_unit_id
+		group by j.unit_Id
+		) ubr
+		where
+		d.eqpt_id = l.eqpt
+		and d.create_time >= l.create_time
+		and d.epi_id =
+		ubr.unit_id(+)
+		and d.epi_id=u.unit_id(+)
+		and d.epi_id=bw.unit_id(+)
+		)
+		group by eqpt_id
+
+
+
+
+	</select>
+
+</mapper>

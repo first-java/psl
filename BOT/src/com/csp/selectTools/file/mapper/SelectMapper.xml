@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csp.selectTools.file.dao.SelectTape_IdDao">
+	<resultMap type="com.csp.selectTools.entity.SelectTape_Id" id="myuser">
+		<result column="Tape_Id" property="tape_Id" javaType="java.lang.String"></result>
+		<result column="Film_ID" property="film_ID" javaType="java.lang.String"></result>
+
+		<result column="unit_id" property="unit_id" javaType="java.lang.String"></result>
+		<result column="value_string" property="value_string" javaType="java.lang.String"></result>
+	</resultMap>
+
+	<!-- 方片查卷轴 -->
+	<select id="selectTape_Id" resultMap="myuser">
+		Select
+		Tape_Id,die_qty,bin_id From
+		FILM_TAPE_RELATION Where
+		film_ID=#{film_ID,jdbcType=VARCHAR}
+	</select>
+
+	<!--卷轴查方片 -->
+	<select id="selectSY" resultMap="myuser">
+		Select
+		film_ID,die_qty,bin_id
+		From
+		FILM_TAPE_RELATION Where Tape_Id=#{tape_Id,jdbcType=VARCHAR}
+	</select>
+	<!-- 底板查芯片 -->
+
+	<select id="selectD" resultMap="myuser">
+		Select unit_id,value_string from
+		jpcsp.csp_run_detail j where project_id=46 and
+		unit_id=#{unit_id,jdbcType=VARCHAR}
+	</select>
+
+</mapper>

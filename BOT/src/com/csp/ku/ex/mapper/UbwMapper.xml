@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csp.ku.ex.dao.UbwDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="com.csp.ku.entity.Ubw" id="ubw">
+		<!-- 用于主键的映射 -->
+		<!-- <id column="id" property="id" javaType="int" /> -->
+
+		<result column="REELID" property="reelId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="STOCKID" property="stockId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="ITEMID" property="itemId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="QTY" property="qty" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="CREATETIME" property="createTime" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="WORKID" property="workId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="STATUS" property="status" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="CLIENT" property="client" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="CUASE" property="cuase" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="OUTDATE" property="outDate" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+
+	</resultMap>
+	<!-- 单片入库查询 -->
+	<select id="selectProduct" resultType="java.lang.String"
+		resultMap="ubw">
+
+		SELECT p.UNIT_ID AS reelId,p.qty,p.lot_ID AS lotId FROM
+		jp.CNT_UNIT_QTY_info@jp p,
+		(select u.unit_id from unit@jp u,lot@jp l
+		where l.lot_rrn=u.lot_rrn
+		and U.UNIT_ID =#{reelId,jdbcType=VARCHAR}
+		and
+		lot_status='COMPLETED'
+		and OPERATION_rrn@jp in(12978307,
+		12978289)) h
+		where h.unit_id=p.UNIT_ID
+		and p.UNIT_ID=#{reelId,jdbcType=VARCHAR}
+
+	</select>
+	<select id="selectLotId" resultType="java.lang.String"
+		resultMap="ubw">
+		SELECT instance_id stockId,lot_id lotId,attribute_value qty
+		FROM NAMED_OBJECT@jp o,lot@jp l,object_attribute_value@jpmycim2 o1
+		where l.OPERATION_rrn ='11828606'
+		and
+		l.product_rrn=o.instance_rrn
+		and
+		l.product_rrn=o1.instance_rrn
+		and lot_id=#{lotId,jdbcType=VARCHAR}
+		and
+		o1.field_rrn=4824450
+	</select>
+	<select id="selInstanceId" resultType="java.lang.String"
+		resultMap="ubw">
+		select * from SYS_PSL.CSP_USP_TABLE_ONE t where
+		lotid=#{lotId,jdbcType=VARCHAR}
+	</select>
+	<select id="selInstanceIdLotId" resultType="java.lang.String"
+		resultMap="ubw">
+		select * from sys_psl.csp_usp_table_two t where
+		lotid=#{lotId,jdbcType=VARCHAR}
+	</select>
+
+	<insert id="insertProduct" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		sys_psl.CSP_gu_KU
+		(lotid,unitid,workid,CREATETIME,QTY,flag)
+		<foreach collection="list" item="ubw" index="index" separator="union all">
+			(SELECT
+			#{ubw.lotId,jdbcType=VARCHAR},#{ubw.unitId,jdbcType=VARCHAR},
+			#{ubw.workId,jdbcType=VARCHAR},sysdate,
+			#{ubw.qty,jdbcType=VARCHAR},'0'
+			FROM DUAL)
+		</foreach>
+	</insert>
+
+	<insert id="insertProductHistory" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		sys_psl.CSP_gu_KU_history
+		(lotid,unitid,workid,CREATETIME,QTY,flag)
+		<foreach collection="list" item="ubw" index="index" separator="union all">
+			(SELECT
+			#{ubw.lotId,jdbcType=VARCHAR},#{ubw.unitId,jdbcType=VARCHAR},
+			#{ubw.workId,jdbcType=VARCHAR},sysdate,
+			#{ubw.qty,jdbcType=VARCHAR},'0'
+			FROM DUAL)
+		</foreach>
+	</insert>
+
+	<select id="selectUbw" resultType="java.lang.String" resultMap="ubw">
+		select * from SYS_PSL.CSP_gu_KU where
+		unitid=#{reelId,jdbcType=VARCHAR}
+		<if test="flag != null and flag !='' ">
+			and flag =0
+		</if>
+	</select>
+
+	<!-- 批号查询 -->
+	<select id="selectLotUbw" resultType="java.lang.String"
+		resultMap="ubw">
+
+		SELECT j.UNIT_ID AS reelId,qty,j.lot_ID AS lotId FROM
+		jp.CNT_UNIT_QTY_info@jp j,(select * from lot@Jpmycim2 where
+		operation_rrn in(12978289,12978307) and lot_status='COMPLETED')p WHERE
+		j.lot_ID=#{reelId,jdbcType=VARCHAR}
+		and p.lot_id=j.lot_ID
+
+	</select>
+
+	<select id="selectIsHave" resultType="java.lang.String"
+		resultMap="ubw">
+		select * from (select * from
+		jp.lbl_label_info@jp where
+		reel_id in(select unit_id from unit@jpmycim2 where lot_rrn=(select
+		lot_rrn from lot@jpmycim2 where lot_id=#{reelId,jdbcType=VARCHAR})))
+		where reel_id not in(select unit_id from unit@jpmycim2 where
+		lot_rrn=(select lot_rrn from lot@jpmycim2 where
+		lot_id=#{reelId,jdbcType=VARCHAR}))
+	</select>
+	<update id="updateProduct" parameterType="com.csp.ku.entity.Ubw">
+		update
+		SYS_PSL.CSP_GU_KU set
+		outworkid=#{outWorkId,jdbcType=VARCHAR},meslotid=#{lotId,jdbcType=VARCHAR},outdate=sysdate,flag=1
+		where
+		unitid=#{unitId,jdbcType=VARCHAR}
+	</update>
+	<update id="updateProductHistory" parameterType="com.csp.ku.entity.Ubw">
+		update
+		SYS_PSL.CSP_GU_KU_history set
+		outworkid=#{outWorkId,jdbcType=VARCHAR},meslotid=#{lotId,jdbcType=VARCHAR},outdate=sysdate,flag=1
+		where
+		unitid=#{unitId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updatePutIn" parameterType="com.csp.ku.entity.Ubw">
+		update
+		SYS_PSL.CSP_GU_KU
+		set
+		workid=#{workId,jdbcType=VARCHAR},createtime=sysdate
+		where
+		unitid=#{unitId,jdbcType=VARCHAR}
+	</update>
+
+
+	<!-- 时间为条件查询库存 -->
+	<select id="selTime" resultType="java.lang.String" resultMap="ubw">
+		select
+		*
+		from sys_psl.csp_gu_ku t
+		where 1=1
+
+		<if test="flag != null and flag !='' ">
+			and t.flag=#{flag,jdbcType=VARCHAR}
+		</if>
+		<if test="startTime != null and createTime !='' ">
+			and
+			t.createtime>=TO_DATE(#{startTime,jdbcType=VARCHAR},'yyyy-mm-dd
+			hh24:mi:ss') AND
+			t.createtime&lt;TO_DATE(#{endTime,jdbcType=VARCHAR},'yyyy-mm-dd
+			hh24:mi:ss')+1
+		</if>
+		<if test="outDate != null and outDate !='' ">
+			and
+			outDate>=TO_DATE(#{startTime,jdbcType=VARCHAR},'yyyy-mm-dd
+			hh24:mi:ss')
+			AND
+			outDate&lt;TO_DATE(#{endTime,jdbcType=VARCHAR},'yyyy-mm-dd
+			hh24:mi:ss')+1
+		</if>
+
+	</select>
+</mapper>

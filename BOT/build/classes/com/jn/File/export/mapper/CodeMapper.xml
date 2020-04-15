@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jn.File.export.dao.CodeDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="com.jn.File.entity.Code" id="code">
+		<!-- 用于主键的映射 -->
+		<!-- 其他列映射都是用result -->
+		<result column="NSIZE" property="nSize" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="NELEC" property="nElec" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="NBIN" property="nBin" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="NLIGHT" property="nLight" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="NSTORAGE" property="nStorage" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="NMODEL" property="nModel" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="NPRODUCTTYPE" property="nProductType" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="NVOLID" property="nVolid" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="NLIGHTDESC" property="nLightDesc" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="chipVer" property="chipVer" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="lopCaption" property="lopCaption" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="wldCaption" property="wldCaption" />
+		<result column="irCaption" property="irCaption" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="vfCaption" property="vfCaption" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="raCaption" property="raCaption" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="cCTCaption" property="cCTCaption" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="wLPCaption" property="wLPCaption" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+
+	</resultMap>
+	<!-- 针对于不定向条件的查询，关键在于SQL语句的拼接，根据当前实际的参数来拼接SQL -->
+	<insert id="save">
+		insert into TBLPROFILE_TMP
+		values(#{nSize,jdbcType=VARCHAR},#{nElec,jdbcType=VARCHAR},#{nBin,jdbcType=VARCHAR}
+		,#{nLight,jdbcType=VARCHAR},#{nStorage,jdbcType=VARCHAR},#{nModel,jdbcType=VARCHAR}
+		,#{nProductType,jdbcType=VARCHAR},#{nVolid,jdbcType=VARCHAR},#{nLightDesc,jdbcType=VARCHAR}
+		,#{chipVer,jdbcType=VARCHAR},#{lopCaption,jdbcType=VARCHAR},#{wldCaption,jdbcType=VARCHAR}
+		,#{irCaption,jdbcType=VARCHAR},#{vfCaption,jdbcType=VARCHAR},#{raCaption,jdbcType=VARCHAR},
+		#{cCTCaption,jdbcType=VARCHAR},#{wLPCaption,jdbcType=VARCHAR})
+	</insert>
+	<delete id="delAll">
+		TRUNCATE TABLE TBLPROFILE_TMP
+	</delete>
+	<select id="chackCode" resultMap="code">
+		SELECT M.nSize, M.nElec,
+		M.nBin, M.nLight, M.nStorage,
+		M.nModel,M.nProductType, M.nVolID,
+		M.nLightDesc,
+		M.chipVer,M.lopCaption,
+		M.wldCaption, M.irCaption,
+		M.vfCaption, M.raCaption,M.cCTCaption, M.wLPCaption
+		FROM
+		(
+		SELECT
+		tpt.nSize, tpt.nElec, tpt.nBin, tpt.nLight, tpt.nStorage,
+		usd.ModelID
+		AS nModel,
+		tpt.nProductType, tpt.nVolID, tpt.nLightDesc,
+		tpt.chipVer,
+		tpt.lopCaption, tpt.wldCaption, tpt.irCaption,
+		tpt.vfCaption,
+		tpt.raCaption,
+		tpt.cCTCaption, tpt.wLPCaption
+		FROM
+		tblProfile_Tmp AS
+		tpt
+		LEFT JOIN u_StorageDesc AS usd
+		ON
+		tpt.nStorage=usd.StorageID
+		) M
+		WHERE M.nModel IS NULL
+
+	</select>
+	<!-- 导入正式表 -->
+	<insert id="addBin">
+		INSERT INTO tblProfile
+		(nSize,nElec,nBin,nLight,nStorage,nModel,nProductType,nVolID,nLightDesc,chipVer,lopCaption,wldCaption,irCaption,vfCaption,raCaption,cCTCaption,wLPCaption)
+		SELECT M.nSize, M.nElec, M.nBin, M.nLight,
+		M.nStorage,M.nModel,M.nProductType,
+		M.nVolID, M.nLightDesc,
+		M.chipVer,M.lopCaption, M.wldCaption, M.irCaption,
+		M.vfCaption,
+		M.raCaption,M.cCTCaption, M.wLPCaption FROM (SELECT
+		tpt.nSize,
+		tpt.nElec, tpt.nBin, tpt.nLight, tpt.nStorage, usd.ModelID AS
+		nModel,
+		tpt.nProductType, tpt.nVolID, tpt.nLightDesc, tpt.chipVer,
+		tpt.lopCaption,
+		tpt.wldCaption, tpt.irCaption, tpt.vfCaption,
+		tpt.raCaption, tpt.cCTCaption,
+		tpt.wLPCaption FROM tblProfile_Tmp
+		AS tpt LEFT JOIN
+		u_StorageDesc
+		AS usd ON tpt.nStorage=usd.StorageID
+		) M
+	</insert>
+	<!-- 检查bin表日期 -->
+	<select id="verTime" resultType="java.lang.String">
+		SELECT DISTINCT
+		SUBSTRING(tp.nVolID,CHARINDEX('_',tp.nVolID)+1,255) ver
+		FROM
+		tblProfile_Tmp AS tp
+	</select>
+	<!-- 查看有编码没参数范围的BIN表 -->
+	<select id="codeNoScope" resultMap="code">
+		SELECT * FROM
+		tblProfile
+		AS tp WHERE NOT EXISTS (SELECT 1 FROM
+		tblBinRules
+		AS tbr WHERE
+		tbr.nVolID=tp.nVolID
+		AND tbr.nBin=tp.nBin)
+		AND tp.nBin !=
+		'C' AND
+		tp.nProductType NOT IN
+		('SI_1000','SI_0700','SI_0707')
+		AND
+		tp.nVolID NOT
+		IN
+		('Y5_20140218','Y5E_20140218','R1_20121205','R1_20140218','R1L6AA1_20130109','R1S2AA1_20130114',
+		'R2_20140218','R3_20140218','R5_20121022','R6_20121214','R7_20130105','R7L2AA1_20130109','R8_20140324','R9_20140324',
+		'A1_20140218','A1D_20140218','A2C_20140218','A2D_20140218','A3_20140218','A6CC_20140218','A6G_20140218',
+		'A3G_20140218','A4_20140218','A4G_20140218','A5_20140218','A5G_20140218','A6_20140218','A6CC_20140218,''A6G_20140218','A6L_20140218',
+		'A6S_20140218','A6W_20140218','AAC_20140218','AAG_20140218','ABC_20140218','ABG_20140218','ACC_20140218','ACG_20140218','B1_20130116',
+		'C2C_20140218','C2G_20140218','C2L_20140218','D1_20140218','D1G_20140218','D1L_20140218','D3C_20140218','D3G_20140218','D3L_20140218',
+		'S1C4_20120903','S1G4_20120903','S1L4_20120903','S1R4_20120903','S1S4_20120903','J3R2AC1_20150610','J3R2AB1_20150610','J3R2AA1_20150610'
+		)
+	</select>
+	<!-- 查看有参数范围没编码的BIN表 -->
+	<select id="paraNoScope" resultMap="code">
+		SELECT * FROM
+		tblBinRules AS tp WHERE
+		NOT EXISTS
+		(SELECT 1 FROM
+		tblProfile AS
+		tbr WHERE
+		tbr.nVolID=tp.nVolID
+		AND
+		tbr.nBin=tp.nBin)
+	</select>
+	<select id="co" resultMap="code">
+		SELECT * from tblProfile  WHERE nVolid LIKE  #{nVolid,jdbcType=VARCHAR} + '%'
+	</select>
+</mapper>

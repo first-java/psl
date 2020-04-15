@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jr.xl.ex.dao.KuDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="com.jr.xl.entity.Ku" id="ku">
+		<!-- 用于主键的映射 -->
+		<!-- <id column="id" property="id" javaType="int" /> -->
+
+		<result column="REELID" property="reelId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="STOCKID" property="stockId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="ITEMID" property="itemId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="QTY" property="qty" javaType="java.lang.Integer"
+			jdbcType="VARCHAR" />
+		<result column="CREATETIME" property="createTime" javaType="java.util.Date"
+			jdbcType="VARCHAR" />
+		<result column="WORKID" property="workId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="STATUS" property="status" javaType="java.lang.Integer"
+			jdbcType="VARCHAR" />
+		<result column="OUTDATE" property="outDate" javaType="java.util.Date"
+			jdbcType="VARCHAR" />
+
+		<result column="BARCODE_TYPE" property="barcodeType" javaType="java.lang.Integer"
+			jdbcType="VARCHAR" />
+		<result column="BARCODE_STRING" property="barcodeString"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="BARCODE_STATUS" property="barcodeStatus"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="SS_QTY" property="ssQty" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="SS_CODE" property="ssCode" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="SS_SPEC" property="ssSpec" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="JY_TYPE" property="jyType" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="C_TYPE" property="cType" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="JY_QTY" property="jyQty" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="C_QTY" property="cQty" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="SS_VFCODE" property="ssVfcode" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+
+
+	</resultMap>
+
+	<insert id="saveBarcode" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		sys_psl.JNBDT_KU
+		(REELID,STOCKID,ITEMID,QTY,CREATETIME,WORKID,STATUS,BARCODETYPE,SSVFCODE)
+		<foreach collection="list" item="counter" index="index"
+			separator="union all">
+			(SELECT
+			#{counter.reelId,jdbcType=VARCHAR},#{counter.stockId,jdbcType=VARCHAR},
+			#{counter.itemId,jdbcType=VARCHAR},#{counter.qty,jdbcType=VARCHAR},sysdate,
+			#{counter.workId,jdbcType=VARCHAR},'0',#{counter.barcodeType,jdbcType=VARCHAR},
+			#{counter.ssVfcode,jdbcType=VARCHAR}
+			FROM DUAL)
+		</foreach>
+	</insert>
+	<!--上传异常 -->
+
+	<update id="updateGeli" parameterType="com.jr.xl.entity.Ku">
+		update sys_psl.jnbdt_ku
+		set
+		gelidate=sysdate,gelicase=#{gelicase,jdbcType=VARCHAR},flag=1
+		WHERE
+		reelid = #{reelId,jdbcType=VARCHAR}
+
+	</update>
+
+	<select id="selTangh" resultType="java.lang.String" resultMap="ku">
+		select * from sys_psl.csp_KU where reelid=#{reelId,jdbcType=VARCHAR}
+		and status='1'
+	</select>
+	<select id="selTangh2" resultType="java.lang.String" resultMap="ku">
+		select * from SYS_PSL.JNBDT_KU where reelid=#{reelId,jdbcType=VARCHAR}
+	</select>
+	<select id="selTlbmain" resultType="java.lang.String" resultMap="ku">
+		select ts.barcode_rrn,
+		ts.barcode_status,
+		tb.barcode_type,
+		tb.barcode_string,
+		tb.ss_qty,
+		tb.ss_code,
+		tb.ss_spec,
+		tb.jy_type,
+		tb.c_type,
+		tb.jy_qty,
+		tb.c_qty,
+		tb.SS_VFCODE
+		from
+		t_material.t_BARCODE@t_lbmain tb,
+		t_material.t_stock@t_lbmain ts
+		where
+		ts.barcode_rrn=tb.barcode_rrn
+		and
+		barcode_string =
+		#{reelId,jdbcType=VARCHAR}
+		and barcode_status='2'
+	</select>
+	<select id="selTanghAll" resultType="java.lang.String"
+		resultMap="ku">
+		select * from SYS_PSL.JNBDT_KU t where status=0
+	</select>
+</mapper>

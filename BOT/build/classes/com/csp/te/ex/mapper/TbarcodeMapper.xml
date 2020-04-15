@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csp.te.ex.dao.TbarcodeDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="com.csp.te.entity.Tbarcode" id="Tbarcode">
+
+		<result column="BARCODE_RRN" property="barcodeRrn" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="BARCODE_STRING" property="barcodeString"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="LOGIN_RRN" property="loginRrn" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="CREATE_TIMESTAMP" property="createTimeStamp"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="BARCODE_TYPE" property="barcodeType" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="JY_QTY" property="jyQty" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="JY_TYPE" property="jyType" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="user_id" property="userId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<!-- 针对于不定向条件的查询，关键在于SQL语句的拼接，根据当前实际的参数来拼接SQL -->
+
+	<!-- 查询工号rrn -->
+	<select id="selectWorkId" resultType="java.lang.String"
+		resultMap="ShippingInformation">
+		select * from T_USER.L_USER t where
+		user_id=#{userId,jdbcType=VARCHAR}
+	</select>
+
+	<select id="selectTransRrn" resultType="java.lang.String"
+		resultMap="ShippingInformation">
+		select t.*, t.rowid from t_material.t_stock_in_history t
+		where barcode_id=#{barcodeId,jdbcType=VARCHAR}
+	</select>
+	<select id="selectTransRrn1" resultType="java.lang.String"
+		resultMap="ShippingInformation">
+		select t.*, t.rowid from t_material.t_stock_out_history t
+		where barcode_id=#{barcodeId,jdbcType=VARCHAR}
+	</select>
+	<select id="selectCustomer" resultType="java.lang.String"
+		resultMap="ShippingInformation">
+		select * FROM T_MATERIAL.T_CUSTOMER
+	</select>
+
+	<select id="selectStatus" resultType="java.lang.String"
+		resultMap="ShippingInformation">
+		select * from t_material.t_stock where barcode_status='1'
+		and barcode_id=#{barcodeId,jdbcType=VARCHAR}
+	</select>
+
+	<select id="selectStatus1" resultType="java.lang.String"
+		resultMap="ShippingInformation">
+		select t.*, t.rowid from t_material.T_BARCODE t where
+		barcode_String=#{barcodeId,jdbcType=VARCHAR}
+	</select>
+	<!-- 查询barcode_rrn 序列号 -->
+	<select id="selectBarcodeSeq" resultType="java.lang.String"
+		resultMap="ShippingInformation" useCache="false" flushCache="true">
+		SELECT
+		T_MATERIAL.barcode_rrn.NEXTVAL as barcodeRrn FROM
+		DUAL
+	</select>
+	<!-- 查询t_material.stock_rrn序列号 -->
+	<select id="selectStockSeq" resultType="java.lang.String"
+		resultMap="ShippingInformation" useCache="false" flushCache="true">
+		SELECT
+		T_MATERIAL.stock_rrn.NEXTVAL as stockRrn FROM DUAL
+	</select>
+	<!-- 查询t_material.stock_trans_rrn序列号 -->
+	<select id="selectStockTransSeq" resultType="java.lang.String"
+		resultMap="ShippingInformation" useCache="false" flushCache="true">
+		SELECT
+		T_MATERIAL.stock_trans_rrn.NEXTVAL as stockTransRrn
+		FROM DUAL
+	</select>
+	<!-- 查询t_material.racking_rrn序列号 -->
+	<select id="selectRackingSeq" resultType="java.lang.String"
+		resultMap="ShippingInformation" useCache="false" flushCache="true">
+		SELECT
+		T_MATERIAL.racking_rrn.NEXTVAL as rackingRrn FROM
+		DUAL
+	</select>
+
+	<!-- 查询t_material.in_cache_rrn序列号 -->
+	<select id="selectInCacheSeq" resultType="java.lang.String"
+		resultMap="ShippingInformation" useCache="false" flushCache="true">
+		SELECT
+		T_MATERIAL.in_cache_rrn.NEXTVAL as inCacheRrn FROM
+		DUAL
+	</select>
+	<!-- 查询t_material.customer_rrn序列号 -->
+	<select id="selectCustomerSeq" resultType="java.lang.String"
+		resultMap="ShippingInformation" useCache="false" flushCache="true">
+		SELECT
+		T_MATERIAL.customer_rrn.NEXTVAL as customerRrn FROM
+		DUAL
+	</select>
+	<select id="selectDetail" resultType="java.lang.String"
+		resultMap="ShippingInformation" useCache="false" flushCache="true">
+		select *
+		from t_material.t_stock_trans_detail where
+		barcode_id=#{barcodeId,jdbcType=VARCHAR}
+	</select>
+	<select id="selectBarcodeId" resultType="java.lang.String"
+		resultMap="ShippingInformation" useCache="false" flushCache="true">
+		select *
+		from t_material.t_stock where
+		barcode_id=#{barcodeId,jdbcType=VARCHAR}
+	</select>
+
+	<insert id="saveBarcode" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert all into
+		t_material.T_BARCODE
+		(BARCODE_RRN,BARCODE_STRING,LOGIN_RRN,
+		CREATE_TIMESTAMP,BARCODE_TYPE,JY_QTY,JY_TYPE,C_QTY,C_TYPE)
+		VALUES
+		<foreach collection="list" item="counter" index="index"
+			separator="into t_material.T_BARCODE (BARCODE_RRN,BARCODE_STRING,LOGIN_RRN,CREATE_TIMESTAMP,BARCODE_TYPE,JY_QTY,JY_TYPE,C_QTY,C_TYPE)  values">
+			(#{counter.barcodeRrn,jdbcType=VARCHAR},#{counter.barcodeString,jdbcType=VARCHAR},
+			#{counter.loginRrn,jdbcType=VARCHAR},sysdate,
+			#{counter.barcodeType,jdbcType=VARCHAR},#{counter.jyQty,jdbcType=VARCHAR},#{counter.jyType,jdbcType=VARCHAR}
+			,#{counter.cQty,jdbcType=VARCHAR},#{counter.cType,jdbcType=VARCHAR})
+		</foreach>
+		select 1 from dual
+	</insert>
+</mapper>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jr.mi.file.dao.MiLableReconutDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="com.jr.mi.entity.MiLableReconut" id="myPsp">
+		<!-- 其他列映射都是用result -->
+		<result column="BARCODE_REEL_ID" property="barcodeReelId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="CREATE_TIMESTAMP" property="createTimesTamp" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="COMMENTS" property="comments" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="USER_ID" property="userId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="user_desc" property="userDesc" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		
+	</resultMap>
+	<!-- 上传 -->
+	<insert id="save" parameterType="com.jr.mi.entity.MiLableReconut">
+		insert into MI_LABEL_RECOUNT
+		(BARCODE_REEL_ID,CREATE_TIMESTAMP,COMMENTS)
+		values(#{barcodeReelId,jdbcType=VARCHAR},
+		to_date(to_char(sysdate,'YYYY-MM-DD hh24:mi:ss'),'YYYY-MM-DD hh24:mi:ss'),#{comments,jdbcType=VARCHAR})	
+	</insert>
+	<select id="select"  resultType="java.lang.String" resultMap="myPsp">
+	
+	select user_desc from user_cert.t_user_cert@lbdas where user_id=#{userId,jdbcType=VARCHAR}
+	
+	</select>
+	
+</mapper>
+

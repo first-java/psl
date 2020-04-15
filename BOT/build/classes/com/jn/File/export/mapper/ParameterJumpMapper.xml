@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.jn.File.export.dao.ParameterJumpDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="com.jn.File.entity.ParameterJump" id="myparameterJump">
+		<!-- 用于主键的映射 -->
+		<!-- 其他列映射都是用result -->
+		<result column="nVolID" property="nVolID" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="nLight" property="nLight" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="nBinFrom" property="nBinFrom" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="ivLow" property="ivLow" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="ivLowTo" property="ivLowTo" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+
+		<result column="ivHigh" property="ivHigh" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="ivHighTo" property="ivHighTo" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="wldLow" property="wldLow" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="wldLowTo" property="wldLowTo" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="wldHigh" property="wldHigh" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+
+		<result column="wldHighTo" property="wldHighTo" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="irLow" property="irLow" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="irLowTo" property="irLowTo" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="irHigh" property="irHigh" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="irHighTo" property="irHighTo" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+
+		<result column="vfLow" property="vfLow" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="vfLowTo" property="vfLowTo" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="vfHigh" property="vfHigh" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="vfHighTo" property="vfHighTo" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="wLPLow" property="wLPLow" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+
+		<result column="wLPLowTo" property="wLPLowTo" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="wLPHigh" property="wLPHigh" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="wLPHighTo" property="vfHigh" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="sT3Low" property="sT3Low" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="sT3LowTo" property="sT3LowTo" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+
+		<result column="sT3High" property="sT3High" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="sT3HighTo" property="sT3HighTo" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="cCTLow" property="cCTLow" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="cCTLowTo" property="cCTLowTo" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="cCTHigh" property="cCTHigh" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="cCTHighTo" property="cCTHighTo" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+
+
+	</resultMap>
+	<!-- 针对于不定向条件的查询，关键在于SQL语句的拼接，根据当前实际的参数来拼接SQL -->
+	<insert id="save">
+		insert into TBLPROFILEPARAMGOTO_TMP
+		values(#{nVolID,jdbcType=VARCHAR},#{nLight,jdbcType=VARCHAR},#{nBinFrom,jdbcType=VARCHAR},#{ivLow,jdbcType=VARCHAR},#{ivLowTo,jdbcType=VARCHAR},
+		#{ivHigh,jdbcType=VARCHAR},#{ivHighTo,jdbcType=VARCHAR},#{wldLow,jdbcType=VARCHAR},#{wldLowTo,jdbcType=VARCHAR},#{wldHigh,jdbcType=VARCHAR},
+		#{wldHighTo,jdbcType=VARCHAR},#{irLow,jdbcType=VARCHAR},#{irLowTo,jdbcType=VARCHAR},#{irHigh,jdbcType=VARCHAR},#{irHighTo,jdbcType=VARCHAR},
+		#{vfLow,jdbcType=VARCHAR},#{vfLowTo,jdbcType=VARCHAR},#{vfHigh,jdbcType=VARCHAR},#{vfHighTo,jdbcType=VARCHAR},#{wLPLow,jdbcType=VARCHAR},
+		#{wLPLowTo,jdbcType=VARCHAR},#{wLPHigh,jdbcType=VARCHAR},#{wLPHighTo,jdbcType=VARCHAR},#{sT3Low,jdbcType=VARCHAR},#{sT3LowTo,jdbcType=VARCHAR},
+		#{sT3High,jdbcType=VARCHAR},#{sT3HighTo,jdbcType=VARCHAR},#{cCTLow,jdbcType=VARCHAR},#{cCTLowTo,jdbcType=VARCHAR},#{cCTHigh,jdbcType=VARCHAR},
+		#{cCTHighTo,jdbcType=VARCHAR})
+	</insert>
+	<delete id="delAll">
+		TRUNCATE TABLE TBLPROFILEPARAMGOTO_TMP
+	</delete>
+	<select id="verTime" resultType="java.lang.String">
+		SELECT
+		DISTINCT
+		SUBSTRING(tp.nVolID,CHARINDEX('_',tp.nVolID)+1,255) ver
+		FROM
+		tblProfileParamGoto_Tmp AS tp
+	</select>
+	<insert id="addBin">
+		<!-- set identity_insert tblProfileBinGoTo on -->
+		INSERT
+		INTO
+		TBLPROFILEPARAMGOTO
+		(nVolID,nLight,nBinFrom,ivLow,ivLowTo,ivHigh,ivHighTo,wldLow,wldLowTo,wldHigh,
+		wldHighTo,irLow,irLowTo,irHigh,irHighTo,vfLow,vfLowTo,vfHigh,vfHighTo,
+		wLPLow,wLPLowTo,wLPHigh,wLPHighTo,sT3Low,sT3LowTo,sT3High,sT3HighTo,cCTLow,
+		cCTLowTo,cCTHigh,cCTHighTo)
+		SELECT
+		nVolID,nLight,nBinFrom,ivLow,ivLowTo,ivHigh,ivHighTo,wldLow,wldLowTo,wldHigh,
+		wldHighTo,irLow,irLowTo,irHigh,irHighTo,vfLow,vfLowTo,vfHigh,vfHighTo,
+		wLPLow,wLPLowTo,wLPHigh,wLPHighTo,sT3Low,sT3LowTo,sT3High,sT3HighTo,cCTLow,
+		cCTLowTo,cCTHigh,cCTHighTo FROM TBLPROFILEPARAMGOTO_TMP
+	</insert>
+	<select id="paraJump" resultMap="myparameterJump">
+		SELECT * from TBLPROFILEPARAMGOTO WHERE nVolID LIKE
+		#{nVolID,jdbcType=VARCHAR} + '%'
+	</select>
+	<!-- 删除冲突跳转 -->
+	<delete id="del">
+		delete from TBLPROFILEPARAMGOTO
+		where nVolID IN (SELECT DISTINCT nVolID from TBLPROFILEPARAMGOTO_tmp)
+	</delete>
+</mapper>

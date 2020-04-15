@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.csp.selectTools.file.dao.SelectVolumeDao">
+	<resultMap type="com.csp.selectTools.entity.SelectVolume" id="myuser">
+		<result column="Bin_Unit_Id" property="bin_Unit_Id" javaType="java.lang.String"></result>
+		<result column="Unit_ID" property="unit_ID" javaType="java.lang.String"></result>
+		<result column="BIN_ID" property="bin_id" javaType="java.lang.String"></result>
+	</resultMap>
+	<!-- 圆片查方片 -->
+	<select id="selectF" resultMap="myuser">
+		Select Bin_Unit_Id,die_qty,bin_id
+		From
+		Unit_Bin_Relation Where Unit_ID=#{unit_ID,jdbcType=VARCHAR}
+	</select>
+	<!--方片查圆片 -->
+	<select id="selectY" resultMap="myuser">
+		Select Unit_ID,die_qty,bin_id
+		From
+		Unit_Bin_Relation Where
+		Bin_Unit_Id=#{bin_Unit_Id,jdbcType=VARCHAR}
+	</select>
+	
+</mapper>

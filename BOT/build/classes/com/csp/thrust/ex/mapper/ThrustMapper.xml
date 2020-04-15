@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csp.thrust.ex.dao.ThrustDao">
+	<resultMap type="com.csp.thrust.entity.Thrust" id="myuser">
+		<result column="FILE_NAME" property="fileName" javaType="java.lang.String"></result>
+		<result column="UNIT_ID" property="unitId" javaType="java.lang.String"></result>
+		<result column="TEST_TIME" property="testTime" javaType="java.lang.String"></result>
+		<result column="CREATE_TIME" property="createTime" javaType="java.lang.String"></result>
+
+		<result column="DATA_TYPE_ID" property="dataTypeId" javaType="java.lang.String"></result>
+		<result column="DATA_TYPE" property="dataType" javaType="java.lang.String"></result>
+		<result column="EQPT" property="eqpt" javaType="java.lang.String"></result>
+		<result column="STAFFER_ID" property="stafferId" javaType="java.lang.String"></result>
+
+		<result column="TEST_RESULT" property="testResult" javaType="java.lang.String"></result>
+		<result column="IDX" property="idx" javaType="java.lang.String"></result>
+		<result column="SQE" property="seq" javaType="java.lang.String"></result>
+		<result column="TEST_VALUE" property="testValue" javaType="java.lang.String"></result>
+	</resultMap>
+
+	<select id="selectTape" resultMap="myuser">
+		select * from lbmycim2.YX_THRUST_INFO_EX t
+			where 
+			TEST_TIME>=TO_DATE(#{startTime,jdbcType=VARCHAR},'yyyy-mm-dd hh24:mi:ss') 
+			AND
+			TEST_TIME&lt;TO_DATE(#{endTime,jdbcType=VARCHAR},'yyyy-mm-dd hh24:mi:ss')+1
+		
+	</select>
+</mapper>

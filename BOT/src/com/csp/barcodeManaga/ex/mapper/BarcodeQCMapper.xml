@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.csp.barcodeManaga.ex.dao.BarcodeQCDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="com.csp.barcodeManaga.entity.BarcodeQC" id="barcodeQC">
+		<!-- 用于主键的映射 -->
+		<!-- <id column="id" property="id" javaType="int" /> -->
+
+		<result column="PRODUCTMODEL" property="productModel" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="QTY" property="qty" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="URG" property="urg" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="WORKID" property="workId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="CREATETIME" property="createtime" javaType="java.util.Date"
+			jdbcType="VARCHAR" />
+		<result column="SERI" property="seri" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="BARCODE" property="barcode" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="BJTIME" property="bjTime" javaType="java.util.Date"
+			jdbcType="VARCHAR" />
+		<result column="SCROLLPD" property="scrollpd" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+
+		<result column="CHECKBARCODE" property="checkBarcode" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="DEF_QTY" property="defQty" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="BATCHDET" property="batchdet" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="REMARK" property="remark" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="SONG_WORKID" property="songWorkId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="BADSIGN" property="badSign" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="WHETH" property="wheth" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="WHETHD" property="whethd" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="BAR_QTY" property="barQty" javaType="java.lang.Integer"
+			jdbcType="VARCHAR" />
+		<result column="LOT_HEADer" property="lotHeader" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="buCause" property="buCause" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="dieQty" property="dieQty" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="remark_timestamp" property="remarkTimestamp"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="storage_Id" property="storageId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="barcode_Id" property="barcodeId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="material_Name" property="materialName"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="die_Qty" property="dieQty" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="BARCODE_REEL_ID" property="barcodeReelId"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="remark" property="remark" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+
+		<result column="ss_number" property="ssNumber" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="scroll_id" property="scrollId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<!--QC -->
+	<insert id="saveBarcodeQC" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		sys_psl.CSP_barcode_QC
+		(PRODUCTMODEL,QTY,URG,WORKIDc,CREATETIME,SERI,BARCODE,BJTIME,
+		SCROLLPD,CHECKBARCODE,DEF_QTY,BATCHDET,REMARK,WORKID,
+		BADSIGN,WHETH,WHETHD,LOT_HEADer,odd,dieQty,buCause,workidc2)
+		<foreach collection="list" item="barcodeQC" index="index"
+			separator="union all">
+			(SELECT
+			#{barcodeQC.productModel,jdbcType=VARCHAR},
+			#{barcodeQC.qty,jdbcType=VARCHAR},
+			#{barcodeQC.urg,jdbcType=VARCHAR},
+			#{barcodeQC.workIdC,jdbcType=VARCHAR},
+			sysdate,
+			#{barcodeQC.seri,jdbcType=VARCHAR},
+			#{barcodeQC.barcode,jdbcType=VARCHAR},
+			#{barcodeQC.bjTime,jdbcType=VARCHAR},
+			#{barcodeQC.scrollpd,jdbcType=VARCHAR},
+			#{barcodeQC.checkBarcode,jdbcType=VARCHAR},
+			#{barcodeQC.defQty,jdbcType=VARCHAR},
+			#{barcodeQC.batchdet,jdbcType=VARCHAR},
+			#{barcodeQC.remark,jdbcType=VARCHAR},
+			#{barcodeQC.workId,jdbcType=VARCHAR},
+			#{barcodeQC.badSign,jdbcType=VARCHAR},
+			#{barcodeQC.wheth,jdbcType=VARCHAR},
+			#{barcodeQC.whethd,jdbcType=VARCHAR},
+			#{barcodeQC.lotHeader,jdbcType=VARCHAR},
+			#{barcodeQC.odd,jdbcType=VARCHAR},
+			#{barcodeQC.dieQty,jdbcType=VARCHAR},
+			#{barcodeQC.buCause,jdbcType=VARCHAR},
+			#{barcodeQC.workIdC2,jdbcType=VARCHAR} FROM DUAL)
+		</foreach>
+	</insert>
+	<!-- 品质检验 更改检验单状态 -->
+	<update id="updateBarcodeCL" parameterType="com.csp.barcodeManaga.entity.BarcodeQC">
+		update
+		SYS_PSL.CSP_BARCODE_CL set scrollpd=#{scrollpd,jdbcType=VARCHAR},
+		checkBarcode=#{checkBarcode,jdbcType=VARCHAR},
+		def_Qty=#{defQty,jdbcType=VARCHAR},
+		batchdet=#{batchdet,jdbcType=VARCHAR}
+		where
+		barcode=#{barcode,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 查询检查单卷轴。 -->
+	<select id="selBarcodeQC" resultType="java.lang.String"
+		resultMap="barcodeQC">
+		select * from sys_psl.csp_barcode_qc where batchdet ='允收'
+		and barcode=#{barcode,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 查询包装是否已经接收。 -->
+	<select id="selpick" resultType="java.lang.String" resultMap="barcodeQC">
+		select * from sys_psl.csp_pickingreceive where
+		barcode=#{barcode,jdbcType=VARCHAR}
+	</select>
+	<!-- 下载明细。 -->
+	<select id="selOut" resultType="java.lang.String" resultMap="barcodeQC">
+		select distinct
+		ss_number,material_name,scroll_id,remark_timestamp,die_qty
+		from(select
+		ss_number ,
+		t.material_name,
+		s.scroll_id,
+		remark_timestamp,t.die_qty
+		from
+		T_BARCODE_REEL@T_JPMAIN
+		t,jpcsp.csp_barcode s
+		where
+		s.barcode_id=t.barcode_reel_id
+		and ss_number
+		is not null
+		AND
+		remark_timestamp>=TO_DATE(#{startTime,jdbcType=VARCHAR},'yyyy-mm-dd
+		hh24:mi:ss')
+		AND
+		remark_timestamp&lt;TO_DATE(#{endTime,jdbcType=VARCHAR},'yyyy-mm-dd
+		hh24:mi:ss')+1)
+
+	</select>
+
+	<select id="selQcOut" resultType="java.lang.String" resultMap="barcodeQC">
+		select * from SYS_PSL.CSP_BARCODE_qc
+		where
+		createtime>=TO_DATE(#{startTime,jdbcType=VARCHAR},'yyyy-mm-dd
+		hh24:mi:ss')
+		AND
+		createtime&lt;TO_DATE(#{endTime,jdbcType=VARCHAR},'yyyy-mm-dd
+		hh24:mi:ss')+1
+	</select>
+
+	<insert id="savePickingReceive" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		sys_psl.csp_pickingreceive
+		(QTY,CREATETIME,BARCODE,BJTIME,LOT_HEADer,WORKiD,workIdc)
+		<foreach collection="list" item="barcodeQC" index="index"
+			separator="union all">
+			(SELECT
+			#{barcodeQC.qty,jdbcType=VARCHAR},
+			sysdate,
+			#{barcodeQC.barcode,jdbcType=VARCHAR},
+			#{barcodeQC.bjTime,jdbcType=VARCHAR},
+			#{barcodeQC.lotHeader,jdbcType=VARCHAR},
+			#{barcodeQC.workId,jdbcType=VARCHAR},
+			#{barcodeQC.workIdC,jdbcType=VARCHAR} FROM DUAL)
+		</foreach>
+	</insert>
+
+	<!-- 查询包装接收数据 -->
+	<select id="selPickingReceive" resultType="java.lang.String"
+		resultMap="barcodeQC">
+		select * from SYS_PSL.CSP_PICKINGRECEIVE
+		where
+		barcode=#{barcode,jdbcType=VARCHAR}
+	</select>
+
+	<insert id="savePickingReceiveOut" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		sys_psl.csp_pickingreceive_out
+		(QTY,CREATETIME,BARCODE,BJTIME,LOT_HEADer,WORKiD,workIdC)
+		<foreach collection="list" item="barcodeQC" index="index"
+			separator="union all">
+			(SELECT
+			#{barcodeQC.qty,jdbcType=VARCHAR},
+			sysdate,
+			#{barcodeQC.barcode,jdbcType=VARCHAR},
+			#{barcodeQC.bjTime,jdbcType=VARCHAR},
+			#{barcodeQC.lotHeader,jdbcType=VARCHAR},
+			#{barcodeQC.workId,jdbcType=VARCHAR},
+			#{barcodeQC.workIdC,jdbcType=VARCHAR} FROM DUAL)
+		</foreach>
+	</insert>
+
+	<update id="del" parameterType="com.csp.barcodeManaga.entity.BarcodeQC">
+		DELETE 
+		sys_psl.csp_barcode_QC where
+		barcode=#{barcode,jdbcType=VARCHAR}
+	</update>
+
+</mapper>

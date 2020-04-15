@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jr.test.file.dao.TestDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="com.jr.test.entity.Test" id="myPsp">
+		<!-- 其他列映射都是用result -->
+		<result column="LOT_NUMBER" property="lotNumber" javaType="java.lang.Integer"
+			jdbcType="VARCHAR" />
+		<result column="MCOUNT" property="mcount" javaType="java.lang.Integer"
+			jdbcType="VARCHAR" />
+		<result column="MCOUNT1" property="mcount1" javaType="java.lang.Integer"
+			jdbcType="VARCHAR" />
+
+	</resultMap>
+	<!--查询 -->
+	<select id="findNum" resultMap="myPsp">
+		select * from ( SELECT rownum
+		id,LOT_NUMBER
+		FROM
+		(
+		SELECT
+		LOT_NUMBER
+		FROM MYCIM2.LOT_INVENTORY@mycim LI
+		WHERE 1=1
+		AND LI.WAREHOUSE_RRN=4662071
+		AND LI.ITEM_RRN=5796159
+		AND
+		LI.ISSUE_QTY=0
+		AND LI.STATUS='ACTIVE'
+		) X
+		WHERE 1=1
+		AND NOT EXISTS (SELECT
+		1 FROM MYCIM2.CREATE_EPI_LOT_RAW@mycim C WHERE
+		C.RAW_ID=X.LOT_NUMBER
+		and c.status is null)
+		) where id between #{mcount,jdbcType=VARCHAR}
+		and
+		#{mcount1,jdbcType=VARCHAR}
+	</select>
+
+	<select id="findCount" resultMap="myPsp">
+		SELECT COUNT(*) COUNT
+		FROM
+		(select * from ( SELECT rownum id,LOT_NUMBER
+		FROM
+		(
+		SELECT
+		LOT_NUMBER
+		FROM MYCIM2.LOT_INVENTORY@mycim LI
+		WHERE 1=1
+		AND LI.WAREHOUSE_RRN=4662071
+		AND LI.ITEM_RRN=5796159
+		AND LI.ISSUE_QTY=0
+		AND LI.STATUS='ACTIVE'
+		) X
+		WHERE 1=1
+		AND NOT EXISTS (SELECT 1 FROM MYCIM2.CREATE_EPI_LOT_RAW@mycim C WHERE
+		C.RAW_ID=X.LOT_NUMBER and c.status is null)
+		) )
+	</select>
+
+	<update id="updateC" parameterType="com.jr.counterToManage.entity.Counter">
+		update
+		JNBDT.MCOUNT
+		set
+		mcount=#{mcount,jdbcType=VARCHAR},mcount1=#{mcount1,jdbcType=VARCHAR}
+	</update>
+
+	<select id="findT" resultMap="myPsp">
+		select t.*, t.rowid from
+		JNBDT.MCOUNT t
+	</select>
+
+</mapper>

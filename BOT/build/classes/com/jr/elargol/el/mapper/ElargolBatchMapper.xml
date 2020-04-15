@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jr.elargol.el.dao.ElargolBatchDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="com.jr.elargol.entity.ElargolBatch" id="myPsp">
+		<!-- 其他列映射都是用result -->
+		<result column="FULLNAME" property="fullName" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="BATCHS" property="batchs" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="INTIME" property="inTime" javaType="java.util.Date"
+			jdbcType="VARCHAR" />
+		<result column="LOT_RRN" property="lotRrn" javaType="java.lang.Integer"
+			jdbcType="VARCHAR" />
+		<result column="LOT_ID" property="lotId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<!-- 上传 -->
+
+	<!-- 分页查询 -->
+	<select id="findPage" resultMap="myPsp" resultType="java.lang.String">
+
+		select * from (
+		select * from (
+		select rownum r,fullname,INTIME,
+		inUser,LOT_ID
+		from JNBDT.ELARGOL_BATCH
+		<where>
+			<if test="fullName!='' and fullName != null">
+				fullName =#{fullName,jdbcType=VARCHAR}
+			</if>
+		</where>
+
+		) s
+		where s.r&lt;=#{startrow,jdbcType=NUMERIC}
+		)d
+		where d.r>
+		#{endrow,jdbcType=NUMERIC}
+
+	</select>
+	<!-- 查询总记录数 -->
+	<select id="findCount" resultType="java.lang.Integer">
+		select count(*) from
+		JNBDT.ELARGOL_BATCH
+		<where>
+			<if test="fullName != '' and fullName != null ">
+				fullName=#{fullName,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</select>
+
+	<select id="selectBatch" resultType="java.lang.String"
+		resultMap="myPsp">
+		select * from JNBDT.ELARGOL_BATCH where
+		fullname=#{fullName,jdbcType=VARCHAR}
+	</select>
+	<select id="selectElargol" resultType="java.lang.String"
+		resultMap="myPsp">
+		select * from JNBDT.ELARGOL_BATCH where
+		lot_id=#{lotId,jdbcType=VARCHAR}
+	</select>
+</mapper>

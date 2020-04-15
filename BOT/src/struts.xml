@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<!--白光芯片异常隔离 -->
+	<package name="bai" extends="struts-default">
+		<action name="baiguang" class="com.csp.ku.action.ParseExcelAction">
+			<result name="success">/success.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+	</package>
+
+	<!-- tapeId_film -->
+	<constant name="struts.action.extension" value="do,action" />
+	<constant name="struts.multipart.maxSize" value="10701096" />
+	<package name="action" extends="struts-default">
+		<action name="ret" class="com.jr.tapeId_film.action.BarcodeFilmAction">
+			<result name="success">/tapeId_film/jsp/index2.jsp</result>
+			<result name="error">/tapeId_film/jsp/error.jsp</result>
+		</action>
+	</package>
+	<package name="default" extends="json-default" namespace="/">
+		<!-- jquery，json方式 ，以通配符方式访问方法 -->
+		<action name="tion" class="com.jr.tapeId_film.action.BarcodeFilmAction">
+			<result name="success" type="json">
+				<!--返回的json数据的根为root中指定的bean类，例如此处为 message，如果没有指定root属性，则默认使用Action作为返回的 
+					json数据的根 -->
+				<param name="root">message</param>
+			</result>
+		</action>
+	</package>
+	<!--bin_record -->
+	<package name="binAction" extends="struts-default">
+		<action name="res" class="com.jn.bin_record.action.BinRecordAction">
+			<result name="success">/bin_record/index.jsp</result>
+			<result name="error">>/bin_record/jsp/error.jsp</result>
+		</action>
+	</package>
+	<!--diebond固晶录入 -->
+	<!-- taling -->
+	<constant name="struts.action.extension" value="do,action" />
+	<constant name="struts.multipart.maxSize" value="10701096" />
+	<constant name="struts.devMode" value="true" />
+	<package name="diebondAction" extends="struts-default">
+		<action name="diebond" class="com.jr.diebond.action.DieBondAction">
+			<result name="success">/File/jsp/success.jsp</result>
+			<result name="4">/File/jsp/verTime4.jsp</result>
+		</action>
+	</package>
+	<!-- file -->
+	<package name="actionfile" extends="struts-default">
+		<action name="parseExcel" class="com.jn.File.action.ParseExcelAction">
+			<result name="success">/File/jsp/success.jsp</result>
+			<result name="4">/File/jsp/verTime4.jsp</result>
+			<result name="5">/File/jsp/Table5.jsp</result>
+			<result name="erre">/File/jsp/erre.jsp</result>
+			<result name="error">/FileF/jsp/error.jsp</result>
+			<result name="batch">/File/jsp/success.jsp</result>
+		</action>
+	</package>
+	<!-- File 下载 -->
+	<constant name="struts.devMode" value="true" />
+	<package name="File" namespace="/" extends="struts-default">
+		<!-- <action name="show"> <result name="success">pages/downloadPage.jsp</result> 
+			</action> -->
+		<action name="downloadF" class="com.jn.File.action.DownloadAction">
+			<result name="erre">/File/jsp/erre.jsp</result>
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream;charset=utf-8</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${fileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+	</package>
+
+	<!--insert2 图片上传 -->
+	<constant name="struts.devMode" value="true" />
+	<package name="mystruts2" extends="struts-default" namespace="/">
+		<action name="myup" class="com.jn.insert2.action.UpAction">
+			<result name="success" type="dispatcher">/insert2/loginSuccess.jsp
+			</result>
+			<result name="error">/insert2/jsp/error.jsp</result>
+			<result name="inst">/insert2/jsp/success.jsp</result>
+			<result name="batch">/insert2/jsp/fsuccess.jsp</result>
+		</action>
+	</package>
+
+
+	<!-- taling -->
+	<constant name="struts.action.extension" value="do,action" />
+	<constant name="struts.multipart.maxSize" value="10701096" />
+	<package name="actionq" extends="struts-default">
+		<action name="re" class="com.jr.tailing.action.TailAction">
+			<result name="success">/tailing/jsp/loginSuccess.jsp</result>
+			<result name="noPrem">/tailing/jsp/noPrem.jsp</result>
+			<result name="selectType">/tailing/jsp/success3.jsp</result>
+			<result name="select">/tailing/jsp/success2.jsp</result>
+			<result name="del">/tailing/jsp/delSuccess.jsp</result>
+			<result name="delError">/tailing/jsp/delError.jsp</result>
+			<result name="error">/tailing/jsp/error.jsp</result>
+		</action>
+	</package>
+	<constant name="struts.devMode" value="true" />
+	<package name="tailing" namespace="/" extends="struts-default">
+		<action name="downloads" class="com.jr.tailing.action.DownloadAction">
+			<result name="erre">/tailing/jsp/erre.jsp</result>
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream;charset=utf-8</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${fileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+	</package>
+
+	<package name="counter" extends="struts-default" namespace="/">
+		<action name="ctm" class="com.jr.counterToManage.action.CounterAction">
+			<result name="success">/counterToManage/success.jsp</result>
+			<result name="error">/tailing/jsp/error.jsp</result>
+			<result name="status">/counterToManage/index23.jsp</result>
+			<result name="index24">/counterToManage/index24.jsp</result>
+			<result name="index30">/counterToManage/index30.jsp</result>
+			<result name="craftReject">/counterToManage/in7.jsp</result>
+			<result name="QcReject">/counterToManage/in6.jsp</result>
+		</action>
+	</package>
+	<!--countertomanage -->
+
+	<package name="zlook1" extends="struts-default" namespace="/">
+		<action name="zlook" class="com.jr.zLook.action.ZlookAction">
+			<result name="success">/counterToManage/success.jsp</result>
+			<result name="error">/tailing/jsp/error.jsp</result>
+			<result name="status">/counterToManage/index23.jsp</result>
+			<result name="index24">/counterToManage/index24.jsp</result>
+		</action>
+	</package>
+	<!--countertomanage -->
+	<constant name="struts.devMode" value="true" />
+	<package name="s" namespace="/" extends="struts-default">
+		<action name="downloadC" class="com.jr.counterToManage.action.DownloadAction">
+			<result name="error">/counterToManage/error.jsp</result>
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream;charset=utf-8</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${fileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+	</package>
+	<!--countertomanage -->
+	<constant name="struts.devMode" value="true" />
+	<package name="z" namespace="/" extends="struts-default">
+		<!-- <action name="show"> <result name="success">pages/downloadPage.jsp</result> 
+			</action> -->
+		<action name="downloadZ" class="com.jr.zLook.action.DownloadAction">
+			<result name="erre">/File/jsp/erre.jsp</result>
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream;charset=utf-8</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${fileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+	</package>
+	<!-- mi -->
+
+	<package name="actions" extends="struts-default" namespace="/">
+		<action name="mi" class="com.jr.mi.action.MiAction">
+			<result name="s">mi/index.jsp</result>
+			<result name="error">mi/error.jsp</result>
+		</action>
+	</package>
+
+
+	<!-- 下载 -->
+	<constant name="struts.devMode" value="true" />
+	<package name="actionTest" namespace="/" extends="struts-default">
+
+		<action name="test" class="com.jr.test.action.TestAction">
+			<result name="erre">/File/jsp/erre.jsp</result>
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream;charset=utf-8</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${fileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+	</package>
+
+	<!-- orderCount -->
+	<package name="orderC" extends="struts-default" namespace="/">
+		<action name="orderCount" class="com.jr.orderCount.action.OrderCountAction">
+			<result name="success">/orderCount/My.jsp</result>
+			<result name="error">/FileF/jsp/error.jsp</result>
+		</action>
+	</package>
+	<constant name="struts.devMode" value="true" />
+	<package name="ordercoun" namespace="/" extends="struts-default">
+
+		<action name="os" class="com.jr.orderCount.action.DownLoadAction">
+			<result name="erre">/FileF/jsp/error.jsp</result>
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream;charset=utf-8</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${fileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+	</package>
+
+	<!-- selectTools -->
+	<constant name="struts.action.extension" value="do,action" />
+	<constant name="struts.multipart.maxSize" value="10701096" />
+	<package name="sele" extends="struts-default">
+		<action name="selectTools" class="com.csp.selectTools.action.SelectAction">
+			<result name="success">/WEB-INF/jsp/success.jsp</result>
+			<result name="SelectTape_Id">/WEB-INF/jsp/batch.jsp</result>
+			<result name="selectY">/WEB-INF/jsp/batch.jsp</result>
+			<result name="selectF">/WEB-INF/jsp/batch.jsp</result>
+			<result name="error">/WEB-INF/jsp/1.jsp</result>
+		</action>
+
+	</package>
+
+	<!-- ShippingInformation -->
+	<constant name="struts.objectFactory" value="spring" />
+	<package name="ShC" extends="struts-default" namespace="/">
+		<action name="ShippingInformationC"
+			class="com.jr.ShippingInformation.action.ShippingInformationAction">
+			<result name="success">/ShippingInformation/My.jsp</result>
+			<result name="error">/ShippingInformation/My2.jsp</result>
+		</action>
+	</package>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.devMode" value="true" />
+	<package name="Sh" namespace="/" extends="struts-default">
+		<action name="ShippingInformation" class="com.jr.ShippingInformation.action.ShAction">
+			<result name="erre">/FileF/jsp/error.jsp</result>
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream;charset=utf-8</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${fileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+	</package>
+
+	<!-- view -->
+	<constant name="struts.objectFactory" value="spring" />
+	<package name="Shv" extends="struts-default" namespace="/">
+		<action name="vc" class="com.jr.view.action.ViewAction">
+			<result name="success">/view/My.jsp</result>
+			<result name="error">/FileF/jsp/error.jsp</result>
+		</action>
+	</package>
+
+	<!-- latticeLight -->
+	<constant name="struts.objectFactory" value="spring" />
+	<package name="Shv1" extends="struts-default" namespace="/">
+		<action name="lig" class="com.jr.latticeLighting.action.LabelAction">
+			<result name="success">/view/My.jsp</result>
+			<result name="error">/FileF/jsp/error.jsp</result>
+		</action>
+	</package>
+
+	<!-- blob -->
+	<constant name="struts.objectFactory" value="spring" />
+	<package name="Shvb1" extends="struts-default" namespace="/">
+		<action name="bloa" class="com.jr.blob.BLOBObjectAction">
+			<result name="success">/blob/success.jsp</result>
+		</action>
+	</package>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.devMode" value="true" />
+	<package name="Shba1" namespace="/" extends="struts-default">
+		<action name="ba1" class="com.jr.blob.action.DownLoadAction">
+			<result name="erre">/FileF/jsp/error.jsp</result>
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream;charset=utf-8</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${fileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+	</package>
+	<!-- 下载 -->
+	<constant name="struts.devMode" value="true" />
+	<package name="actionTest1" namespace="/" extends="struts-default">
+
+		<action name="test1" class="com.jr.blob.action.TestAction">
+			<result name="erre">/File/jsp/erre.jsp</result>
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream;charset=utf-8</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${fileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+	</package>
+	<!-- proc -->
+	<constant name="struts.objectFactory" value="spring" />
+	<package name="Spr" extends="struts-default" namespace="/">
+		<action name="Sprvc" class="com.jr.proc.action.ProcAction">
+			<result name="success">/view/My.jsp</result>
+			<result name="error">/FileF/jsp/error.jsp</result>
+		</action>
+	</package>
+	<!-- elargol -->
+	<constant name="struts.objectFactory" value="spring" />
+	<package name="elar" extends="struts-default" namespace="/">
+		<action name="ela" class="com.jr.elargol.action.ElargolAction">
+			<result name="success">/view/My.jsp</result>
+			<result name="error">/FileF/jsp/error.jsp</result>
+		</action>
+		<!-- 1.查询所有 -->
+		<action name="findPage1" class="com.jr.elargol.action.ElargolAction"
+			method="findPage1">
+			<result name="success">/elargol/index.jsp</result>
+			<result name="error">fail.jsp</result>
+		</action>
+	</package>
+
+	<!-- 中文乱码处理 -->
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<package name="default1" namespace="/" extends="struts-default">
+		<!-- 默认首起项配置 <default-action-ref name="findPage" /> -->
+		<!-- ssm框架集合时,class的值是spring配置文件的实例化action的bean的id值 -->
+		<!-- 1.查询所有 -->
+		<action name="findAll" class="com.csp.page.action.DeptAction"
+			method="findAll">
+			<result name="success">/page/index.jsp</result>
+			<result name="error">fail.jsp</result>
+		</action>
+
+		<!-- 1.查询所有 -->
+		<action name="findPage" class="com.csp.page.action.DeptAction"
+			method="findPage">
+			<result name="success">/page/index.jsp</result>
+			<result name="error">fail.jsp</result>
+		</action>
+
+		<!-- 2.根据id查询 -->
+		<action name="findById" class="com.csp.page.action.DeptAction"
+			method="findById">
+			<result name="success">update.jsp</result>
+			<!-- 重定向到action -->
+			<result name="error" type="redirectAction">findAll</result>
+		</action>
+
+		<!-- 3.添加 -->
+		<action name="save" class="com.csp.page.action.DeptAction"
+			method="save">
+			<!-- 重定向到action -->
+			<result name="success" type="redirectAction">findAll</result>
+			<result name="error">insert.jsp</result>
+		</action>
+
+		<!-- 4.修改 -->
+		<action name="update" class="com.csp.page.action.DeptAction"
+			method="update">
+			<!-- 重定向到action -->
+			<result name="success" type="redirectAction">findAll</result>
+			<result name="error">fail.jsp</result>
+		</action>
+
+		<!-- 5.删除 -->
+		<action name="delete" class="com.csp.page.action.DeptAction"
+			method="delete">
+			<!-- 重定向到action -->
+			<result name="success" type="redirectAction">findPage</result>
+			<result name="error">fail.jsp</result>
+		</action>
+	</package>
+	<!-- elargol -->
+	<constant name="struts.objectFactory" value="spring" />
+	<package name="oemL" extends="struts-default" namespace="/">
+		<action name="oemList" class="com.jr.szham.action.OemListAction">
+			<result name="success">/view/My.jsp</result>
+			<result name="error">/FileF/jsp/error.jsp</result>
+		</action>
+		<!-- 1.查询所有 -->
+		<action name="findPage1" class="com.jr.elargol.action.ElargolAction"
+			method="findPage1">
+			<result name="success">/elargol/index.jsp</result>
+			<result name="error">fail.jsp</result>
+		</action>
+	</package>
+
+	<!--晶能 -->
+	<package name="jingNengAction" extends="struts-default">
+		<action name="jna" class="com.jr.jingneng.action.JingNengAction">
+			<result name="success">/bin_record/index.jsp</result>
+			<result name="error">>/bin_record/jsp/error.jsp</result>
+		</action>
+	</package>
+	<package name="AllAction" extends="struts-default">
+		<action name="jna1" class="com.jr.jingneng2.action.AllAction">
+			<result name="success">/bin_record/index.jsp</result>
+			<result name="error">>/bin_record/jsp/error.jsp</result>
+		</action>
+	</package>
+
+	<package name="DuibiAction" extends="struts-default">
+		<action name="duibi" class="com.jr.duibi.action.BarcodeDuibiAction">
+			<result name="success">/bin_record/index.jsp</result>
+			<result name="error">>/bin_record/jsp/error.jsp</result>
+		</action>
+	</package>
+
+	<!-- 博思得打印机测试 -->
+	<package name="PostekAction" extends="struts-default">
+		<action name="postek" class="com.POSTEK.action.PostekAction">
+			<result name="success">/bin_record/index.jsp</result>
+			<result name="error">>/bin_record/jsp/error.jsp</result>
+		</action>
+	</package>
+
+	<!-- tangh -->
+	<package name="actiontangh" extends="struts-default" namespace="/">
+		<action name="tangh" class="com.csp.tangh.action.TanghAction">
+			<result name="s">mi/index.jsp</result>
+			<result name="error">mi/error.jsp</result>
+		</action>
+	</package>
+	<constant name="struts.devMode" value="true" />
+	<package name="actionDth" namespace="/" extends="struts-default">
+		<action name="DownTgh" class="com.csp.tangh.action.DownTanghAction">
+			<result name="erre">/File/jsp/erre.jsp</result>
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream;charset=utf-8</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${fileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+	</package>
+
+	<!-- 白光芯片 -->
+	<package name="actionDthb" namespace="/" extends="struts-default">
+		<action name="DownBai" class="com.csp.tangh.action.DownBatchAction">
+			<result name="erre">/File/jsp/erre.jsp</result>
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream;charset=utf-8</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${fileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+	</package>
+
+
+	<!-- csp_ku -->
+	<package name="cspk" extends="struts-default" namespace="/">
+		<action name="cspku" class="com.csp.ku.action.CspkuAction">
+			<result name="s">mi/index.jsp</result>
+			<result name="error">mi/error.jsp</result>
+		</action>
+	</package>
+
+	<package name="cspkb" extends="struts-default" namespace="/">
+		<action name="cspkub" class="com.csp.tangh.action.BatchAction">
+			<result name="s">mi/index.jsp</result>
+			<result name="error">mi/error.jsp</result>
+		</action>
+	</package>
+	<constant name="struts.devMode" value="true" />
+	<package name="pk2" namespace="/" extends="struts-default">
+		<action name="downloadKu" class="com.jr.xl.action.DownloadAction">
+			<result name="erre">/tailing/jsp/erre.jsp</result>
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream;charset=utf-8</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${fileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+	</package>
+	<package name="pk" extends="struts-default" namespace="/">
+		<action name="xlku" class="com.jr.xl.action.KuAction">
+			<result name="s">mi/index.jsp</result>
+			<result name="error">mi/error.jsp</result>
+		</action>
+	</package>
+
+	<constant name="struts.devMode" value="true" />
+	<package name="pk1" namespace="/" extends="struts-default">
+		<action name="downKu" class="com.csp.ku.action.DownloadAction">
+			<result name="erre">/tailing/jsp/erre.jsp</result>
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream;charset=utf-8</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${fileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+	</package>
+
+	<!-- 入库达成 -->
+	<package name="agreed" extends="struts-default" namespace="/">
+		<action name="agreedDelivery" class="com.jr.agreedDelivery.action.AgreedAction">
+			<result name="s">mi/index.jsp</result>
+			<result name="error">mi/error.jsp</result>
+		</action>
+	</package>
+
+
+	<!-- thrust -->
+
+	<package name="actiont" extends="struts-default" namespace="/">
+		<action name="thrust" class="com.csp.thrust.action.ThrustAction">
+			<result name="s">mi/index.jsp</result>
+			<result name="error">mi/error.jsp</result>
+		</action>
+	</package>
+	<constant name="struts.devMode" value="true" />
+	<package name="pkt" namespace="/" extends="struts-default">
+		<action name="downTht" class="com.csp.thrust.action.DownloadAction">
+			<result name="erre">/tailing/jsp/erre.jsp</result>
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream;charset=utf-8</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${fileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+	</package>
+	<!--晶能 -->
+	<package name="jingNenge" extends="struts-default">
+		<action name="jna2" class="com.jr.jingneng.action.Ku2Action">
+			<result name="success">/bin_record/index.jsp</result>
+			<result name="error">>/bin_record/jsp/error.jsp</result>
+		</action>
+	</package>
+
+	<!--csp卷轴管理 -->
+	<package name="cspBarMan" extends="struts-default">
+		<action name="cspBarcode" class="com.csp.barcodeManaga.action.PickingAction">
+			<result name="success">/bin_record/index.jsp</result>
+			<result name="error">>/bin_record/jsp/error.jsp</result>
+		</action>
+	</package>
+	<constant name="struts.devMode" value="true" />
+	<package name="pkt1" namespace="/" extends="struts-default">
+		<action name="downThtB" class="com.csp.barcodeManaga.action.DownloadAction">
+			<result name="erre">/tailing/jsp/erre.jsp</result>
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream;charset=utf-8</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${fileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+	</package>
+
+	<!--剥料 确认 -->
+	<package name="BL" extends="struts-default">
+		<action name="boliao" class="com.jr.counterToManage.action.BoliaoAction">
+			<result name="success">/bin_record/index.jsp</result>
+			<result name="error">>/bin_record/jsp/error.jsp</result>
+		</action>
+	</package>
+	<!--csp派料系统 -->
+	<package name="csppai" extends="struts-default">
+		<action name="csppailiao" class="com.csp.tanghPailiao.action.PaiLiaoAction">
+			<result name="success">/bin_record/index.jsp</result>
+			<result name="error">>/bin_record/jsp/error.jsp</result>
+			<result name="index30">/tanghPailiao/index30.jsp</result>
+			<result name="index32">/tanghPailiao/index32.jsp</result>
+		</action>
+	</package>
+	<constant name="struts.devMode" value="true" />
+	<package name="cspDown" namespace="/" extends="struts-default">
+		<action name="cspDownLoad" class="com.csp.tanghPailiao.action.DownloadAction">
+			<result name="erre">/tailing/jsp/erre.jsp</result>
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream;charset=utf-8</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${fileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+	</package>
+	<!--csp派料系统 -->
+	<package name="cspdaoru1" extends="struts-default">
+		<action name="cspdaoru" class="com.csp.tanghPailiao.action.ParseExcelAction">
+
+			<result name="error">>/tanghPailiao/error.jsp</result>
+			<result name="index30">/tanghPailiao/index30.jsp</result>
+			<result name="index32">/tanghPailiao/index32.jsp</result>
+			<result name="erre">/tailing/jsp/erre.jsp</result>
+			<result name="success1">/success.jsp</result>
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream;charset=utf-8</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${fileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+	</package>
+
+	<!--UBW入库 -->
+	<package name="ubwr" extends="struts-default">
+		<action name="ubw" class="com.csp.ku.action.UbwAction">
+			<result name="success">/bin_record/index.jsp</result>
+
+		</action>
+	</package>
+
+	<!-- excle表格 -->
+	<constant name="struts.action.extension" value="do,action" />
+	<constant name="struts.multipart.maxSize" value="10701096" />
+	<package name="actionmomian" extends="struts-default">
+		<action name="momian" class="com.jr.xl.action.ParseExcelAction">
+			<result name="success">/success.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+	</package>
+</struts>    

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jr.agreedDelivery.ex.dao.AgreedCelDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="com.jr.agreedDelivery.entity.AgreedCel" id="agreed">
+		<!-- 用于主键的映射 -->
+
+		<result column="LOT_ID" property="lotId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="QTY" property="qty" javaType="java.lang.Integer"
+			jdbcType="INTEGER" />
+		<result column="CYCLE" property="cycle" javaType="java.lang.Double"
+			jdbcType="DOUBLE" />
+		<result column="YIELD" property="yield" javaType="java.lang.Double"
+			jdbcType="DOUBLE" />
+		<result column="JIAO_QTY" property="jiaoQty" javaType="java.lang.Double"
+			jdbcType="DOUBLE" />
+		<result column="KU_QTY" property="kuQty" javaType="java.lang.Integer"
+			jdbcType="INTEGER" />
+		<result column="C_QTY" property="cQty" javaType="java.lang.Double"
+			jdbcType="DOUBLE" />
+		<result column="CREATETIME" property="createTime" javaType="java.util.Date"
+			jdbcType="DATE" />
+		<result column="CY_TIME" property="cyTime" javaType="java.util.Date"
+			jdbcType="DATE" />
+		<result column="TRANCETIME" property="tranceTime" javaType="java.util.Date"
+			jdbcType="DATE" />
+		<result column="completed_Flag" property="completedFlag"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="STARTTIME" property="startTime" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="endTime" property="endTime" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<!-- calculate.jsp -->
+	<select id="selCel" parameterType="java.lang.String" resultType="java.util.Map">
+		select * from JNBDT.AGREED_AUTO where
+		1=1
+		<if test="lotId != null and lotId !='' ">
+			and lot_id like #{lotId,jdbcType=VARCHAR}||'%'
+		</if>
+		<if test="startTime != null and startTime !='' ">
+			and
+			cy_Time>=to_date(#{startTime,jdbcType=VARCHAR},'YYYY-MM-DD
+			hh24:mi:ss')
+		</if>
+		<if test="endTime != null and endTime !='' ">
+			and
+			cy_Time&lt;to_date(#{endTime,jdbcType=VARCHAR},'YYYY-MM-DD
+			hh24:mi:ss')+1
+		</if>
+	</select>
+
+	<select id="selStatus" parameterType="java.lang.String"
+		resultType="java.util.Map">
+		select lot_id,trancetime,sum (qty)as qty, OPERATION_DESC,
+		LOT_STATUS from(
+		SELECT A.LOT_ID,
+		A.CREATETIME,
+		A.TRANCETIME,
+		A.UNIT_ID,
+		A.QTY,
+		NVL(N.INSTANCE_DESC,'无法找到具体的工步') AS OPERATION_DESC,
+		L.LOT_STATUS
+		FROM
+		jnbdt.AGREED A,
+		LOT@LBMYCIM L,
+		NAMED_OBJECT@LBMYCIM N
+		WHERE 1=1
+		AND
+		A.LOT_RRN=L.LOT_RRN
+		AND L.OPERATION_RRN=N.INSTANCE_RRN
+		AND A.LOT_ID LIKE
+		#{lotId,jdbcType=VARCHAR} ||'%'
+		AND CASE WHEN
+		TO_NUMBER(SUBSTR(TO_CHAR(A.TRANCETIME,'YYYY-MM-DD HH24:MI:SS'),12,2))&lt;8 THEN TRUNC(A.TRANCETIME,'DD')-1
+		ELSE
+		TRUNC(A.TRANCETIME,'DD') END =
+		TO_date(#{createTimes,jdbcType=VARCHAR},'YYYY-MM-DD')
+		ORDER
+		BY
+		A.lot_id,A.trancetime DESC
+		)group by
+		lot_id,trancetime, OPERATION_DESC,
+		LOT_STATUS
+	</select>
+
+
+	<select id="selMonth" parameterType="java.lang.String"
+		resultType="java.util.Map">
+
+		SELECT aar.lot_id,
+		aar.c_month,
+		aar.jiao_qty,
+		aar.ku_qty,
+		aar.c_qty
+		FROM jnbdt.v_agreed_auto_result aar
+		WHERE
+		aar.c_month=#{month,jdbcType=VARCHAR}
+		ORDER BY aar.lot_id
+
+	</select>
+
+
+</mapper>

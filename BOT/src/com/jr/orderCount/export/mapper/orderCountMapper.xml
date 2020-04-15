@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jr.orderCount.export.dao.OrderCountDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="com.jr.orderCount.entity.OrderCount" id="OrderCount">
+		<!-- 用于主键的映射 -->
+		<!-- <id column="id" property="id" javaType="int" /> -->
+
+		<result column="MODELNO" property="modelNo" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="WEEKS" property="weeks" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="sellin" property="sellin" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="createTime" property="createTime" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="WORKID" property="workId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="TARGS" property="targs" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="WEEKSDAY" property="weeksDay" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="PRIORITY" property="priority" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="ID" property="id" javaType="java.lang.Integer"
+			jdbcType="VARCHAR" />
+		<result column="COUNT1" property="count1" javaType="java.lang.Integer"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<!-- 针对于不定向条件的查询，关键在于SQL语句的拼接，根据当前实际的参数来拼接SQL -->
+	<insert id="save">
+		insert into
+		sys_psl.ordercount(MODELNO,weeks,weeksDay,sellin,CREATETIME,WORKID,targs,priority)
+		values(#{modelNo,jdbcType=VARCHAR},#{weeks,jdbcType=VARCHAR},#{weeksDay,jdbcType=VARCHAR},#{sellin,jdbcType=VARCHAR}
+		,to_char(sysdate,'YYYY-MM-DD hh24:mi:ss'),
+		#{workId,jdbcType=VARCHAR},#{targs,jdbcType=VARCHAR},#{priority,jdbcType=VARCHAR})
+	</insert>
+	<insert id="save1">
+		insert into sys_psl.tableTmp
+		SELECT * FROM
+		(
+		SELECT x2.*
+		FROM
+		(
+		SELECT modelno,
+
+		substr(weeks,1,2) AS weeks,
+		max(targs) AS targs,priority
+		from sys_psl.ordercount
+		GROUP BY modelno,substr(weeks,1,2),priority
+		) x1,
+		(select
+		modelno,substr(weeks,1,2) as
+		weeks,weeksday,sellin,createtime,workid,targs,priority
+		from sys_psl.ordercount)
+		x2
+		WHERE x1.modelno=x2.modelno
+		AND x1.weeks=x2.weeks
+		AND
+		x1.targs=x2.targs
+		AND x2.sellin!=' '
+
+		UNION ALL
+
+		SELECT distinct
+		modelno,substr(weeks,1,2) as weeks,min(weeksday), sellin,NULL AS
+		createtime, NULL
+		AS workid, NULL AS targs ,priority
+		FROM sys_psl.ordercount group
+		by
+		modelno,weeks,sellin,createtime,workid,targs,priority
+		) x2
+		ORDER BY
+		x2.modelno,x2.weeks,x2.weeksday
+
+	</insert>
+	<insert id="save2">
+		insert into sys_psl.ordercount_2
+		SELECT
+		x1.modelno,x1.weeks,x1.weeksday as starttime,x2.weeksday as
+		endtime,x2.sellin,x1.createtime,x1.workid,x1.targs,x1.priority
+		FROM
+		(
+		SELECT
+		t.*,ROWNUM AS num FROM sys_psl.tableTmp t
+		) x1,
+		(
+		SELECT t.*,ROWNUM AS
+		num FROM sys_psl.tableTmp t
+		) x2
+		WHERE x1.modelno=x2.modelno
+		AND
+		x1.num=x2.num-1
+
+	</insert>
+
+	<select id="selectLastTargs" resultType="java.lang.String"
+		resultMap="OrderCount">
+		select max( targs) as targs from sys_psl.ordercount
+	</select>
+	<!-- 查询排序 -->
+	<select id="selectPX" resultType="java.lang.String" resultMap="OrderCount">
+		select * from (select rownum as id,count1,modelno from (SELECT
+		count(*)as count1, modelno ,substr(modelno,-2,1) as second1
+		FROM
+		SYS_PSL.PSP_TMP
+		GROUP BY modelno order by count1,second1 desc)) where
+		modelno=#{modelNo,jdbcType=VARCHAR}
+	</select>
+	<select id="selectSecondTargs" resultType="java.lang.String"
+		resultMap="OrderCount">
+		select DISTINCT WEEKS from sys_psl.ordercount WHERE
+		TARGS=(select
+		distinct max(targs)-1 as targs from
+		sys_psl.ordercount)ORDER BY
+		WEEKS
+	</select>
+	<select id="selectWeeks1" resultType="java.lang.String"
+		resultMap="OrderCount">
+		select distinct max(targs) as targs,weeksday from
+		sys_psl.ordercount where
+		weeksDay
+		between #{startTime,jdbcType=VARCHAR}
+		and #{endTime,jdbcType=VARCHAR}
+		group by weeksday order by weeksday
+	</select>
+	<select id="selectWeeks2" resultType="java.lang.String"
+		resultMap="OrderCount">
+		select * from sys_psl.ordercount where
+		targs=#{targs,jdbcType=VARCHAR} and
+		weeksday=#{weeksDay,jdbcType=VARCHAR}
+
+	</select>
+	<select id="selectWeeks" resultType="java.lang.String"
+		resultMap="OrderCount">
+		select distinct weeksday from sys_psl.ordercount where TARGS
+		=(select max(targs) from sys_psl.ordercount) and weeksday
+		in(select
+		distinct weeksday from sys_psl.ordercount where TARGS =(select
+		max(targs)-1
+		from sys_psl.ordercount))order by weeksday
+	</select>
+	<select id="selectSellIN" resultType="java.lang.String"
+		resultMap="OrderCount">
+		select modelno,sellin from sys_psl.ordercount WHERE
+		weeksday=#{weeksDay,jdbcType=VARCHAR} and TARGS=(select max( targs)
+		from
+		sys_psl.ordercount) order by modelno
+	</select>
+	<select id="selectSellIN1" resultType="java.lang.String"
+		resultMap="OrderCount">
+		select modelno,sellin from sys_psl.ordercount WHERE
+		weeksDay=#{weeksDay,jdbcType=VARCHAR} and TARGS=(select max(targs)-1
+		from
+		sys_psl.ordercount) order by modelno
+	</select>
+	<update id="del">
+		truncate table SYS_PSL.tableTmp
+	</update>
+	<update id="del1">
+		truncate table sys_psl.ordercount_2
+	</update>
+</mapper>

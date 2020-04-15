@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jr.zLook.file.dao.ZlookDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="com.jr.zLook.entity.Zlook" id="myPsp">
+		<!-- 其他列映射都是用result -->
+		<result column="LOT_ID" property="lotId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="FLAG_DESC" property="flagDesc" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="END_TIMESTAMP" property="endTimeStamp"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="UNIT_ID" property="unitId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="CUR_DIE_QTY" property="curDieQty" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="startrow" property="startrow" javaType="java.lang.Integer"
+			jdbcType="VARCHAR" />
+		<result column="endrow" property="endrow" javaType="java.lang.Integer"
+			jdbcType="VARCHAR" />
+		<result column="TEST_FILE" property="testFile" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="ID" property="id" javaType="java.lang.Integer"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<!-- 查询总条数 -->
+	<select id="findCount" resultType="java.lang.Integer">
+		select
+		count(*) from(SELECT
+		T1.LOT_ID,
+		T1.END_TIMESTAMP,
+		T1.UNIT_ID,
+		T1.CUR_DIE_QTY,
+		T1.test_file,
+		CASE WHEN
+		T2.LOT_RRN IS NULL
+		THEN '待剥料'
+		WHEN
+		s1.LOT_id IS not NULL THEN
+		'待剥料'
+		ELSE '待分选' END AS
+		FLAG_DESC
+		FROM
+		(
+		SELECT
+		L.LOT_RRN,
+		L.LOT_ID,
+		L.END_TIMESTAMP,
+		U.UNIT_ID,
+		Y.test_file,
+		Y.DIE_QTY-NVL(B.BAD_QTY,0)-NVL(BAD.BAD_VALUE,0) AS
+		CUR_DIE_QTY
+		FROM
+		(SELECT L.LOT_RRN,
+		L.LOT_ID,
+		L.END_TIMESTAMP
+		FROM LOT L
+		WHERE 1=1
+		AND
+		L.STAGE_ID='DIEP'
+		AND L.LOT_ID NOT LIKE 'RT_____-%'
+		AND
+		L.LOT_ID NOT
+		LIKE
+		'BIN_____-%'
+		AND L.LOT_ID NOT LIKE 'BINRT_____-%'
+		AND
+		L.LOT_STATUS='COMPLETED'
+		AND
+		L.END_TIMESTAMP>=TO_DATE('2018-09-23','yyyy-mm-dd')
+		AND NOT EXISTS
+		(SELECT 1
+		FROM JNBDT.LIGHTSHELFT@LBDAS T3
+		WHERE 1=1
+		AND
+		L.LOT_ID=T3.BATCHS)) L,
+		(SELECT U.UNIT_ID,
+		U.LOT_RRN,
+		U.UNIT_RRN
+		FROM UNIT
+		U
+		WHERE 1=1
+		AND NOT EXISTS (SELECT T2.UNIT_ID
+		FROM UNIT_BIN_RELATION T2
+		WHERE 1=1
+		AND U.UNIT_ID=T2.UNIT_ID)) U,
+		YX_ZDTL_PROCESSCARD Y,
+		(SELECT
+		YSV.UNIT_RRN,
+		SUM(YSV.VALUE) AS BAD_VALUE
+		FROM LB_YX_SJCJ_VALUE YSV
+		WHERE
+		1=1
+		AND YSV.PROJECT_TYPE='不良项'
+		GROUP BY YSV.UNIT_RRN) BAD,
+		J_LB_BONDER_SUBSTRATE B
+		WHERE 1=1
+		AND U.UNIT_ID=Y.PLACODE
+		AND
+		L.LOT_RRN=U.LOT_RRN
+		AND U.UNIT_RRN=BAD.UNIT_RRN(+)
+		AND
+		U.UNIT_ID=B.UNIT_ID(+)
+		) T1,
+		(
+		SELECT distinct LSH.LOT_RRN
+		FROM
+		LOT_STEP_HISTORY LSH
+		WHERE 1=1
+		AND LSH.OPERATION_RRN IN
+		(11828702,19664138,18993586)
+		AND EXISTS (SELECT 1
+		FROM LOT_TRANS_HISTORY
+		LTH
+		WHERE 1=1
+		AND LSH.LOT_RRN=LTH.LOT_RRN
+		AND
+		LSH.STEP_SEQUENCE=LTH.STEP_SEQUENCE
+		AND LTH.TRANS_ID='MOVEOUT')
+		AND
+		EXISTS (SELECT 1
+		FROM LOT L
+		WHERE 1=1
+		AND L.LOT_RRN=LSH.LOT_RRN
+		AND
+		L.END_TIMESTAMP>=TO_DATE('2018-09-23','yyyy-mm-dd'))
+		)
+		T2,jnbdt.sortingtags@lbdas s1
+		WHERE 1=1
+		AND T1.LOT_RRN=T2.LOT_RRN(+) and
+		t1.lot_id=s1.lot_id(+))
+
+	</select>
+
+	<select id="zLook" resultType="java.lang.String" resultMap="myPsp">
+
+		select * from (SELECT rownum id, T1.LOT_ID,
+		T1.test_file,
+		T1.END_TIMESTAMP,
+		T1.UNIT_ID,
+		T1.CUR_DIE_QTY,
+		CASE WHEN
+		T2.LOT_RRN IS NULL
+		THEN '待剥料'
+		WHEN s1.LOT_id IS not NULL THEN '待剥料'
+		ELSE '待分选' END AS
+		FLAG_DESC
+		FROM
+		(
+		SELECT L.LOT_RRN,
+		L.LOT_ID,
+		L.END_TIMESTAMP,
+		U.UNIT_ID,
+		Y.test_file,
+		Y.DIE_QTY-NVL(B.BAD_QTY,0)-NVL(BAD.BAD_VALUE,0) AS
+		CUR_DIE_QTY
+		FROM
+		(SELECT L.LOT_RRN,
+		L.LOT_ID,
+		L.END_TIMESTAMP
+		FROM LOT L
+		WHERE 1=1
+		AND
+		L.STAGE_ID='DIEP'
+		AND L.LOT_ID NOT LIKE 'RT_____-%'
+		AND
+		L.LOT_ID NOT
+		LIKE 'BIN_____-%'
+		AND L.LOT_ID NOT LIKE 'BINRT_____-%'
+		AND
+		L.LOT_STATUS='COMPLETED'
+		AND
+		L.END_TIMESTAMP>=TO_DATE('2018-09-23','yyyy-mm-dd')
+		AND NOT EXISTS
+		(SELECT 1
+		FROM JNBDT.LIGHTSHELFT@LBDAS T3
+		WHERE 1=1
+		AND
+		L.LOT_ID=T3.BATCHS)) L,
+		(SELECT U.UNIT_ID,
+		U.LOT_RRN,
+		U.UNIT_RRN
+		FROM UNIT
+		U
+		WHERE 1=1
+		AND NOT EXISTS (SELECT T2.UNIT_ID
+		FROM UNIT_BIN_RELATION T2
+		WHERE 1=1
+		AND U.UNIT_ID=T2.UNIT_ID)) U,
+		YX_ZDTL_PROCESSCARD Y,
+		(SELECT
+		YSV.UNIT_RRN,
+		SUM(YSV.VALUE) AS BAD_VALUE
+		FROM LB_YX_SJCJ_VALUE YSV
+		WHERE
+		1=1
+		AND YSV.PROJECT_TYPE='不良项'
+		GROUP BY YSV.UNIT_RRN) BAD,
+		J_LB_BONDER_SUBSTRATE B
+		WHERE 1=1
+		AND U.UNIT_ID=Y.PLACODE
+		AND
+		L.LOT_RRN=U.LOT_RRN
+		AND U.UNIT_RRN=BAD.UNIT_RRN(+)
+		AND
+		U.UNIT_ID=B.UNIT_ID(+)
+		) T1,
+		(
+		SELECT distinct LSH.LOT_RRN
+		FROM
+		LOT_STEP_HISTORY LSH
+		WHERE 1=1
+		AND LSH.OPERATION_RRN IN
+		(11828702,19664138,18993586)
+		AND EXISTS (SELECT 1
+		FROM LOT_TRANS_HISTORY
+		LTH
+		WHERE 1=1
+		AND LSH.LOT_RRN=LTH.LOT_RRN
+		AND
+		LSH.STEP_SEQUENCE=LTH.STEP_SEQUENCE
+		AND LTH.TRANS_ID='MOVEOUT')
+		AND
+		EXISTS (SELECT 1
+		FROM LOT L
+		WHERE 1=1
+		AND L.LOT_RRN=LSH.LOT_RRN
+		AND
+		L.END_TIMESTAMP>=TO_DATE('2018-09-23','yyyy-mm-dd'))
+		)
+		T2,jnbdt.sortingtags@lbdas s1
+		WHERE 1=1
+		AND T1.LOT_RRN=T2.LOT_RRN(+) and
+		t1.lot_id=s1.lot_id(+))where id between
+		#{startrow,jdbcType=VARCHAR}+1
+		and
+		#{endrow,jdbcType=VARCHAR}
+	</select>
+	<select id="selectRow" resultType="java.lang.Integer" resultMap="myPsp">
+		select t.*, t.rowid from JNBDT.PAGE1@LBDAS t
+	</select>
+
+	<update id="updateRow" parameterType="com.jr.counterToManage.entity.Counter">
+		update JNBDT.PAGE1@LBDAS
+		set
+		startRow=#{startrow,jdbcType=VARCHAR}
+	</update>
+	<select id="zLook2" resultType="java.lang.String" resultMap="myPsp">
+		select * from (SELECT rownum id, T1.LOT_ID,
+		T1.test_file,
+		T1.END_TIMESTAMP,
+		T1.UNIT_ID,
+		T1.CUR_DIE_QTY,
+		CASE WHEN
+		T2.LOT_RRN IS NULL
+		THEN '待剥料'
+		WHEN s1.LOT_id IS not NULL THEN '待剥料'
+		ELSE '待分选' END AS
+		FLAG_DESC
+		FROM
+		(
+		SELECT L.LOT_RRN,
+		L.LOT_ID,
+		L.END_TIMESTAMP,
+		U.UNIT_ID,
+		Y.test_file,
+		Y.DIE_QTY-NVL(B.BAD_QTY,0)-NVL(BAD.BAD_VALUE,0) AS
+		CUR_DIE_QTY
+		FROM
+		(SELECT L.LOT_RRN,
+		L.LOT_ID,
+		L.END_TIMESTAMP
+		FROM LOT L
+		WHERE 1=1
+		AND
+		L.STAGE_ID='DIEP'
+		AND L.LOT_ID NOT LIKE 'RT_____-%'
+		AND
+		L.LOT_ID NOT
+		LIKE 'BIN_____-%'
+		AND L.LOT_ID NOT LIKE 'BINRT_____-%'
+		AND
+		L.LOT_STATUS='COMPLETED'
+		AND
+		L.END_TIMESTAMP>=TO_DATE('2018-09-23','yyyy-mm-dd')
+		AND NOT EXISTS
+		(SELECT 1
+		FROM JNBDT.LIGHTSHELFT@LBDAS T3
+		WHERE 1=1
+		AND
+		L.LOT_ID=T3.BATCHS)) L,
+		(SELECT U.UNIT_ID,
+		U.LOT_RRN,
+		U.UNIT_RRN
+		FROM UNIT
+		U
+		WHERE 1=1
+		AND NOT EXISTS (SELECT T2.UNIT_ID
+		FROM UNIT_BIN_RELATION T2
+		WHERE 1=1
+		AND U.UNIT_ID=T2.UNIT_ID)) U,
+		YX_ZDTL_PROCESSCARD Y,
+		(SELECT
+		YSV.UNIT_RRN,
+		SUM(YSV.VALUE) AS BAD_VALUE
+		FROM LB_YX_SJCJ_VALUE YSV
+		WHERE
+		1=1
+		AND YSV.PROJECT_TYPE='不良项'
+		GROUP BY YSV.UNIT_RRN) BAD,
+		J_LB_BONDER_SUBSTRATE B
+		WHERE 1=1
+		AND U.UNIT_ID=Y.PLACODE
+		AND
+		L.LOT_RRN=U.LOT_RRN
+		AND U.UNIT_RRN=BAD.UNIT_RRN(+)
+		AND
+		U.UNIT_ID=B.UNIT_ID(+)
+		) T1,
+		(
+		SELECT distinct LSH.LOT_RRN
+		FROM
+		LOT_STEP_HISTORY LSH
+		WHERE 1=1
+		AND LSH.OPERATION_RRN IN
+		(11828702,19664138,18993586)
+		AND EXISTS (SELECT 1
+		FROM LOT_TRANS_HISTORY
+		LTH
+		WHERE 1=1
+		AND LSH.LOT_RRN=LTH.LOT_RRN
+		AND
+		LSH.STEP_SEQUENCE=LTH.STEP_SEQUENCE
+		AND LTH.TRANS_ID='MOVEOUT')
+		AND
+		EXISTS (SELECT 1
+		FROM LOT L
+		WHERE 1=1
+		AND L.LOT_RRN=LSH.LOT_RRN
+		AND
+		L.END_TIMESTAMP>=TO_DATE('2018-09-23','yyyy-mm-dd'))
+		)
+		T2,jnbdt.sortingtags@lbdas s1
+		WHERE 1=1
+		AND T1.LOT_RRN=T2.LOT_RRN(+) and
+		t1.lot_id=s1.lot_id(+)) where
+		flag_desc=#{flagDesc,jdbcType=VARCHAR}
+		and id between #{startrow,jdbcType=VARCHAR} +1
+		and
+		#{endrow,jdbcType=VARCHAR}
+	</select>
+	<select id="zLook3" resultType="java.lang.String" resultMap="myPsp">
+		select * from (select * from (SELECT rownum id, T1.LOT_ID,
+		T1.test_file,
+		T1.END_TIMESTAMP,
+		T1.UNIT_ID,
+		T1.CUR_DIE_QTY,
+		CASE WHEN
+		T2.LOT_RRN IS NULL
+		THEN '待剥料'
+		WHEN s1.LOT_id IS not NULL THEN '待剥料'
+		ELSE
+		'待分选' END AS
+		FLAG_DESC
+		FROM
+		(
+		SELECT L.LOT_RRN,
+		L.LOT_ID,
+		L.END_TIMESTAMP,
+		U.UNIT_ID,
+		Y.test_file,
+		Y.DIE_QTY-NVL(B.BAD_QTY,0)-NVL(BAD.BAD_VALUE,0)
+		AS
+		CUR_DIE_QTY
+		FROM
+		(SELECT L.LOT_RRN,
+		L.LOT_ID,
+		L.END_TIMESTAMP
+		FROM LOT L
+		WHERE 1=1
+		AND
+		L.STAGE_ID='DIEP'
+		AND L.LOT_ID NOT LIKE 'RT_____-%'
+		AND
+		L.LOT_ID NOT
+		LIKE 'BIN_____-%'
+		AND L.LOT_ID NOT LIKE 'BINRT_____-%'
+		AND
+		L.LOT_STATUS='COMPLETED'
+		AND
+		L.END_TIMESTAMP>=TO_DATE('2018-09-23','yyyy-mm-dd')
+		AND NOT EXISTS
+		(SELECT 1
+		FROM JNBDT.LIGHTSHELFT@LBDAS T3
+		WHERE 1=1
+		AND
+		L.LOT_ID=T3.BATCHS)) L,
+		(SELECT U.UNIT_ID,
+		U.LOT_RRN,
+		U.UNIT_RRN
+		FROM UNIT
+		U
+		WHERE 1=1
+		AND NOT EXISTS (SELECT T2.UNIT_ID
+		FROM UNIT_BIN_RELATION T2
+		WHERE 1=1
+		AND U.UNIT_ID=T2.UNIT_ID)) U,
+		YX_ZDTL_PROCESSCARD Y,
+		(SELECT
+		YSV.UNIT_RRN,
+		SUM(YSV.VALUE) AS BAD_VALUE
+		FROM LB_YX_SJCJ_VALUE YSV
+		WHERE
+		1=1
+		AND YSV.PROJECT_TYPE='不良项'
+		GROUP BY YSV.UNIT_RRN) BAD,
+		J_LB_BONDER_SUBSTRATE B
+		WHERE 1=1
+		AND U.UNIT_ID=Y.PLACODE
+		AND
+		L.LOT_RRN=U.LOT_RRN
+		AND U.UNIT_RRN=BAD.UNIT_RRN(+)
+		AND
+		U.UNIT_ID=B.UNIT_ID(+)
+		) T1,
+		(
+		SELECT distinct LSH.LOT_RRN
+		FROM
+		LOT_STEP_HISTORY LSH
+		WHERE 1=1
+		AND LSH.OPERATION_RRN IN
+		(11828702,19664138,18993586)
+		AND EXISTS (SELECT 1
+		FROM LOT_TRANS_HISTORY
+		LTH
+		WHERE 1=1
+		AND LSH.LOT_RRN=LTH.LOT_RRN
+		AND
+		LSH.STEP_SEQUENCE=LTH.STEP_SEQUENCE
+		AND LTH.TRANS_ID='MOVEOUT')
+		AND
+		EXISTS (SELECT 1
+		FROM LOT L
+		WHERE 1=1
+		AND L.LOT_RRN=LSH.LOT_RRN
+		AND
+		L.END_TIMESTAMP>=TO_DATE('2018-09-23','yyyy-mm-dd'))
+		)
+		T2,jnbdt.sortingtags@lbdas s1
+		WHERE 1=1
+		AND T1.LOT_RRN=T2.LOT_RRN(+) and
+		t1.lot_id=s1.lot_id(+)) where
+		LOT_ID like
+		#{lotId,jdbcType=VARCHAR}
+		||'%' or TEST_FILE like
+		#{lotId,jdbcType=VARCHAR}||'%' )
+	</select>
+</mapper>

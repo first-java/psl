@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jr.tailing.file.dao.TailingDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="com.jr.tailing.entity.Tailing" id="myPsp">
+		<!-- 其他列映射都是用result -->
+		<result column="caseNo" property="caseNo" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="filmNo" property="filmNo" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="pcs" property="pcs" javaType="java.lang.Integer"
+			jdbcType="VARCHAR" />
+		<result column="creat_time" property="creat_time" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="film_id" property="film_id" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="bin_unit_id" property="bin_unit_id" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="workid" property="workid" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="root_lot_id" property="root_lot_id" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="createtime" property="createtime" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<!-- 上传 -->
+	<insert id="save" parameterType="com.jr.tailing.entity.Tailing">
+		insert into sys_psl.tailing
+		(CASENO,FILMNO,PCS,CREAT_TIME,WORKID,REMARK,ROOT_LOT_ID)
+		SELECT
+		#{caseNo,jdbcType=VARCHAR},#{filmNo,jdbcType=VARCHAR},#{pcs,jdbcType=VARCHAR},
+		to_char(sysdate,'YYYY-MM-DD
+		hh24:mi:ss'),#{workid,jdbcType=VARCHAR},REMARK,ROOT_LOT_ID FROM
+		lbmycim2.bin_unit_data WHERE
+		bin_unit_id=#{bin_unit_id,jdbcType=VARCHAR}
+	</insert>
+
+	<select id="chack" parameterType="com.jr.tailing.entity.Tailing"
+		resultType="Integer">
+		select count(*) from lbmycim2.bin_unit_data where
+		BIN_UNIT_ID=#{bin_unit_id,jdbcType=VARCHAR}
+	</select>
+	<select id="select" resultMap="myPsp">
+		select * from sys_psl.tailing
+		where remark=(select remark from
+		lbmycim2.bin_unit_data
+		Where
+		bin_unit_id=#{bin_unit_id,jdbcType=VARCHAR}) and
+		root_lot_id=(select
+		root_lot_id from lbmycim2.bin_unit_data Where
+		bin_unit_id=#{bin_unit_id,jdbcType=VARCHAR})
+	</select>
+	<delete id="del">
+		delete sys_psl.tailing where
+		filmNo=#{filmNo,jdbcType=VARCHAR}
+	</delete>
+	<select id="selectCaseNo" resultMap="myPsp">
+		select * from
+		sys_psl.tailing where caseNo =#{caseNo,jdbcType=VARCHAR}
+	</select>
+
+	<select id="download" resultMap="myPsp">
+		select * from sys_psl.tailing
+	</select>
+</mapper>

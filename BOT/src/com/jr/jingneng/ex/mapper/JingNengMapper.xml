@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jr.jingneng.ex.dao.JingNengDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="com.jr.jingneng.entity.JingNeng" id="jn">
+		<!-- 用于主键的映射 -->
+		<!-- <id column="id" property="id" javaType="int" /> -->
+		<result column="bin_Unit_Id" property="binUnitId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="outReason" property="outReason" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="oid" property="oid" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="unitId" property="unitId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="qty" property="qty" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+
+	</resultMap>
+	<!-- 针对于不定向条件的查询，关键在于SQL语句的拼接，根据当前实际的参数来拼接SQL -->
+	<select id="selectJl" resultType="java.lang.String" resultMap="jn">
+		SELECT twh.Bin_Unit_ID,twh.OutReason
+		FROM tblWareHouse twh
+		WHERE
+		twh.Bin_Unit_ID=#{binUnitId,jdbcType=VARCHAR}
+	</select>
+	<select id="selectOid" resultType="java.lang.String" resultMap="jn">
+		SELECT toh.OID FROM tblOutHistory toh
+		WHERE
+		toh.UnitID=#{binUnitId,jdbcType=VARCHAR}
+		ORDER BY toh.OutTimeStamp DESC
+	</select>
+	<select id="selectUnitId" resultType="java.lang.String"
+		resultMap="jn">
+		SELECT toh.UnitID,toh.OutReason ,twh.Qty
+		FROM tblOutHistory
+		toh
+		INNER JOIN tblWareHouse AS twh
+		ON toh.UnitID=twh.Bin_Unit_ID
+		WHERE
+		toh.OID=#{oid,jdbcType=VARCHAR} order by unitid desc
+	</select>
+</mapper>

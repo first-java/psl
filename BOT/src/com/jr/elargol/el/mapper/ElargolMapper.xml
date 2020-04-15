@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jr.elargol.el.dao.ElargolDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="com.jr.elargol.entity.Elargol" id="myPsp">
+		<!-- 其他列映射都是用result -->
+		<result column="FULLNAME" property="fullName" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="SERIALNUMBER" property="serialNumber" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="TYPENO" property="typeNo" javaType="java.lang.Integer"
+			jdbcType="VARCHAR" />
+		<result column="LOTNO" property="lotNo" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="WEIGHT" property="weight" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="PRODUCEDDATE" property="producedDate" javaType="java.util.Date"
+			jdbcType="VARCHAR" />
+		<result column="LOSEDATE" property="loseDate" javaType="java.util.Date"
+			jdbcType="VARCHAR" />
+		<result column="CREATETIME" property="createTime" javaType="java.util.Date"
+			jdbcType="VARCHAR" />
+		<result column="ONEHOUR" property="oneHour" javaType="java.util.Date"
+			jdbcType="VARCHAR" />
+		<result column="TWENTYFOUR" property="twentyFour" javaType="java.util.Date"
+			jdbcType="VARCHAR" />
+		<result column="WORKID" property="workId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<!-- 上传 -->
+
+	<insert id="save" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert all into
+		jnbdt.elargol
+		(FULLNAME,SERIALNUMBER,TYPENO,LOTNO,WEIGHT,PRODUCEDDATE,LOSEDATE,CREATETIME,ONEHOUR,TWENTYFOUR,workId)
+		VALUES
+		<foreach collection="list" item="counter" index="index"
+			separator="into jnbdt.elargol (FULLNAME,SERIALNUMBER,TYPENO,LOTNO,WEIGHT,PRODUCEDDATE,LOSEDATE,CREATETIME,ONEHOUR,TWENTYFOUR,workId)  values">
+			(#{counter.fullName,jdbcType=VARCHAR},#{counter.serialNumber,jdbcType=VARCHAR}
+			,#{counter.typeNo,jdbcType=VARCHAR},#{counter.lotNo,jdbcType=VARCHAR},#{counter.weight,jdbcType=VARCHAR}
+			,#{counter.producedDate,jdbcType=VARCHAR},#{counter.loseDate,jdbcType=VARCHAR},#{counter.createTime,jdbcType=VARCHAR}
+			,#{counter.oneHour,jdbcType=VARCHAR},#{counter.twentyFour,jdbcType=VARCHAR},#{counter.workId,jdbcType=VARCHAR})
+		</foreach>
+		select 1 from dual
+	</insert>
+	<!-- <insert id="save" parameterType="com.jr.elargol.entity.Elargol"> insert 
+		into jnbdt.elargol (FULLNAME,SERIALNUMBER,TYPENO,LOTNO,WEIGHT,PRODUCEDDATE,LOSEDATE,CREATETIME,ONEHOUR,TWENTYFOUR,workId) 
+		values(#{fullName,jdbcType=VARCHAR},#{serialNumber,jdbcType=VARCHAR} ,#{typeNo,jdbcType=VARCHAR},#{lotNo,jdbcType=VARCHAR},#{weight,jdbcType=VARCHAR} 
+		,#{producedDate,jdbcType=VARCHAR},#{loseDate,jdbcType=VARCHAR},#{createTime,jdbcType=VARCHAR} 
+		,#{oneHour,jdbcType=VARCHAR},#{twentyFour,jdbcType=VARCHAR},#{workId,jdbcType=VARCHAR}) 
+		</insert> -->
+</mapper>

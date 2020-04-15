@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csp.ku.ex.dao.CspkuDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="com.csp.ku.entity.Cspku" id="ku">
+		<!-- 用于主键的映射 -->
+		<!-- <id column="id" property="id" javaType="int" /> -->
+
+		<result column="REELID" property="reelId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="STOCKID" property="stockId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="ITEMID" property="itemId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="QTY" property="qty" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="CREATETIME" property="createTime" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="WORKID" property="workId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="STATUS" property="status" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="CLIENT" property="client" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="CUASE" property="cuase" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="OUTDATE" property="outDate" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+
+		<result column="LIANG_DU" property="light" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="DIAN_YA" property="dianya" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="se_qu" property="sewen" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="bo_duan" property="bochang" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+
+		<result column="value_l2" property="liangdu_valuel" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="value_h2" property="liangdu_valueh" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+
+		<result column="value_l3" property="dianya_valuel" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="value_h3" property="dianya_valueh" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+
+		<result column="value_l4" property="sequ_valuel" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="value_h4" property="sequ_valueh" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+
+		<result column="value_l5" property="boduan_valuel" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="value_h5" property="boduan_valueh" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+	</resultMap>
+
+	<insert id="saveBarcode" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		sys_psl.CSP_KU
+		(REELID,STOCKID,ITEMID,CREATETIME,QTY,WORKID,STATUS)
+		<foreach collection="list" item="counter" index="index"
+			separator="union all">
+			(SELECT
+			#{counter.reelId,jdbcType=VARCHAR},#{counter.stockId,jdbcType=VARCHAR},
+			#{counter.itemId,jdbcType=VARCHAR},sysdate,
+			#{counter.qty,jdbcType=VARCHAR},#{counter.workId,jdbcType=VARCHAR},'0'
+			FROM DUAL)
+		</foreach>
+	</insert>
+
+	<insert id="saveBarcodeHistory" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		sys_psl.CSP_KU_history
+		(REELID,STOCKID,ITEMID,CREATETIME,QTY,WORKID,STATUS)
+		<foreach collection="list" item="counter" index="index"
+			separator="union all">
+			(SELECT
+			#{counter.reelId,jdbcType=VARCHAR},#{counter.stockId,jdbcType=VARCHAR},
+			#{counter.itemId,jdbcType=VARCHAR},sysdate,
+			#{counter.qty,jdbcType=VARCHAR},#{counter.workId,jdbcType=VARCHAR},'0'
+			FROM DUAL)
+		</foreach>
+	</insert>
+
+	<select id="selTangh" resultType="java.lang.String" resultMap="ku">
+		select * from (select REEL_ID AS REELID,ITEM_ID AS ITEMID,BIN_UNIT_ID
+		AS BINUNITID,STOCK_ID AS STOCKID ,QTY ,create_time as createtime from
+		jp.lbl_label_info@jp where
+		reel_id=#{reelId,jdbcType=VARCHAR} order by
+		id desc) where rownum=1
+	</select>
+
+	<select id="selChong" resultType="java.lang.String" resultMap="ku">
+		select * from (select REEL_ID AS REELID,ITEM_ID AS ITEMID,STOCK_ID AS
+		STOCKID
+		,QTY from jp.LBL_LABEL_REWORK_INFO@jp
+		where
+		reel_id=#{reelId,jdbcType=VARCHAR} order by create_time desc) where
+		rownum=1
+	</select>
+
+	<select id="selTanghH" resultType="java.lang.String" resultMap="ku">
+		select * from SYS_PSL.CSP_KU where
+		reelid=#{reelId,jdbcType=VARCHAR}
+		and status=1
+	</select>
+
+	<!-- 查看库存 -->
+	<select id="selZhiling" resultType="java.lang.String" resultMap="ku">
+		select * from SYS_PSL.CSP_KU t where reelid=#{reelId,jdbcType=VARCHAR}
+		and stockId=#{stockId,jdbcType=VARCHAR} and status='0'
+	</select>
+	<!-- 时间为条件查询库存 -->
+	<select id="selTime" resultType="java.lang.String" resultMap="ku">
+		select y.reelid,
+		y.stockid,
+		y.itemid,
+		y.qty,
+		y.createtime,
+		y.workid,
+		y.status,
+		y.outdate,
+		y.client,
+		k.value_l2,
+		k.value_h2,
+		k.value_l3,
+		k.value_h3,
+		k.value_l4,
+		k.value_h4,
+		k.value_l5 ,
+		k.value_h5 from( select
+		rr.reelid,
+		rr.stockid,
+		rr.itemid,
+		rr.qty,
+		rr.createtime,
+		rr.workid,
+		rr.status,
+		rr.outdate,
+		t.client
+		from SYS_PSL.CSP_KU rr,
+		SYS_PSL.CSP_ZHILING t
+		where rr.zhilid = t.id
+		and rr.status=1
+		)y,
+		(select
+		l.item_id,
+		l.reel_id,
+		t1.value_l as value_l2,
+		t1.value_h as value_h2,
+		t2.value_l as value_l3,
+		t2.value_h as value_h3,
+		t3.value_l as value_l4,
+		t3.value_h as value_h4,
+		t4.value_l as value_l5,
+		t4.value_h as value_h5
+		from (select * from jp.lbl_label_info@jp where create_time in(select
+		max(create_time) from jp.lbl_label_info@jp group by reel_id )) l,
+		t_jcmain.t_csp_liang_du_value@t_jpmain t1,
+		t_jcmain.t_csp_dian_ya_value@t_jpmain t2,
+		t_jcmain.t_csp_se_qu_value@t_jpmain t3,
+		t_jcmain.t_csp_bo_duan_value@t_jpmain t4
+		where create_time >
+		to_date('2019-10-28 12:00:00', 'yyyy-MM-dd hh24:mi:ss')
+		and
+		(substr(item_id, 5, 2)) = t1.liang_du(+)
+		and (substr(item_id, 11, 2)) =
+		t2.dian_ya(+)
+		and (substr(item_id, 3, 1)) = t3.se_qu(+)
+		and
+		(substr(item_id, 14, 1)) = t4.bo_duan(+))k
+		where y.reelid=k.reel_id(+)
+		<if test="stockId != null and stockId !='' ">
+			and stockid like #{stockId,jdbcType=VARCHAR}||'%'
+		</if>
+
+		<if test="startTime != null and createTime !='' ">
+			and
+			y.createtime>=TO_DATE(#{startTime,jdbcType=VARCHAR},'yyyy-mm-dd
+			hh24:mi:ss') AND
+			y.createtime&lt;TO_DATE(#{endTime,jdbcType=VARCHAR},'yyyy-mm-dd
+			hh24:mi:ss')+1
+		</if>
+		<if test="outDate != null and outDate !='' ">
+			and
+			y.outDate>=TO_DATE(#{startTime,jdbcType=VARCHAR},'yyyy-mm-dd
+			hh24:mi:ss')
+			AND
+			y.outDate&lt;TO_DATE(#{endTime,jdbcType=VARCHAR},'yyyy-mm-dd
+			hh24:mi:ss')+1
+		</if>
+	</select>
+	<!-- 时间为条件查询库存 -->
+	<select id="selTime1" resultType="java.lang.String" resultMap="ku">
+
+		select y.reelid,
+		y.stockid,
+		y.itemid,
+		y.qty,
+		y.createtime,
+		y.workid,
+		y.status,
+		y.outdate,
+		k.value_l2,
+		k.value_h2,
+		k.value_l3,
+		k.value_h3,
+		k.value_l4,
+		k.value_h4,
+		k.value_l5,
+		k.value_h5
+		from (select * from
+		SYS_PSL.CSP_KU where status = 0) y,
+		(select l.item_id,
+		l.reel_id,
+		t1.value_l as value_l2,
+		t1.value_h as value_h2,
+		t2.value_l as value_l3,
+		t2.value_h as value_h3,
+		t3.value_l as value_l4,
+		t3.value_h as value_h4,
+		t4.value_l as value_l5,
+		t4.value_h as value_h5
+		from (select * from
+		jp.lbl_label_info@jp where create_time in(select max(create_time) from
+		jp.lbl_label_info@jp group by reel_id ))
+		l,
+		t_jcmain.t_csp_liang_du_value@t_jpmain t1,
+		t_jcmain.t_csp_dian_ya_value@t_jpmain t2,
+		t_jcmain.t_csp_se_qu_value@t_jpmain t3,
+		t_jcmain.t_csp_bo_duan_value@t_jpmain t4
+		where create_time >
+		to_date('2019-10-28 12:00:00', 'yyyy-MM-dd hh24:mi:ss')
+		and
+		(substr(item_id, 5, 2)) = t1.liang_du(+)
+		and (substr(item_id, 11, 2)) =
+		t2.dian_ya(+)
+		and (substr(item_id, 3, 1)) = t3.se_qu(+)
+		and
+		(substr(item_id, 14, 1)) = t4.bo_duan(+)) k
+		where y.reelid =
+		k.reel_id(+)
+		<if test="stockId != null and stockId !='' ">
+			and stockid like #{stockId,jdbcType=VARCHAR}||'%'
+		</if>
+		<if test="startTime != null and createTime !='' ">
+			and
+			y.createtime>=TO_DATE(#{startTime,jdbcType=VARCHAR},'yyyy-mm-dd
+			hh24:mi:ss') AND
+			y.createtime&lt;TO_DATE(#{endTime,jdbcType=VARCHAR},'yyyy-mm-dd
+			hh24:mi:ss')+1
+		</if>
+		<if test="outDate != null and outDate !='' ">
+			and
+			y.outDate>=TO_DATE(#{startTime,jdbcType=VARCHAR},'yyyy-mm-dd
+			hh24:mi:ss')
+			AND
+			y.outDate&lt;TO_DATE(#{endTime,jdbcType=VARCHAR},'yyyy-mm-dd
+			hh24:mi:ss')+1
+		</if>
+	</select>
+	<!-- 时间为条件查询库存 -->
+	<select id="selTime2" resultType="java.lang.String" resultMap="ku">
+
+		select y.reelid,
+		y.stockid,
+		y.itemid,
+		y.qty,
+		y.createtime,
+		y.workid,
+		y.status,
+		y.outdate,
+		y.client,
+		k.value_l2,
+		k.value_h2,
+		k.value_l3,
+		k.value_h3,
+		k.value_l4,
+		k.value_h4,
+		k.value_l5,
+		k.value_h5
+		from (select
+		reelid,
+		stockid,
+		itemid,
+		qty,
+		createtime,
+		workid,
+		status,
+		outdate,
+		''
+		as
+		client
+		from
+		SYS_PSL.CSP_KU
+		where status=0) y,
+		(select l.item_id,
+		l.reel_id,
+		t1.value_l as value_l2,
+		t1.value_h as value_h2,
+		t2.value_l as value_l3,
+		t2.value_h as value_h3,
+		t3.value_l as value_l4,
+		t3.value_h as value_h4,
+		t4.value_l as value_l5,
+		t4.value_h as value_h5
+		from (select * from
+		jp.lbl_label_info@jp where create_time in(select max(create_time) from
+		jp.lbl_label_info@jp group by reel_id ))
+		l,
+		t_jcmain.t_csp_liang_du_value@t_jpmain t1,
+		t_jcmain.t_csp_dian_ya_value@t_jpmain t2,
+		t_jcmain.t_csp_se_qu_value@t_jpmain t3,
+		t_jcmain.t_csp_bo_duan_value@t_jpmain t4
+		where create_time >
+		to_date('2019-10-28 12:00:00', 'yyyy-MM-dd hh24:mi:ss')
+		and
+		(substr(item_id, 5, 2)) = t1.liang_du(+)
+		and (substr(item_id, 11, 2)) =
+		t2.dian_ya(+)
+		and (substr(item_id, 3, 1)) = t3.se_qu(+)
+		and
+		(substr(item_id, 14, 1)) = t4.bo_duan(+)) k
+		where y.reelid =
+		k.reel_id(+)
+		<if test="stockId != null and stockId !='' ">
+			and stockid like #{stockId,jdbcType=VARCHAR}||'%'
+		</if>
+		<if test="startTime != null and createTime !='' ">
+			and
+			y.createtime>=TO_DATE(#{startTime,jdbcType=VARCHAR},'yyyy-mm-dd
+			hh24:mi:ss') AND
+			y.createtime&lt;TO_DATE(#{endTime,jdbcType=VARCHAR},'yyyy-mm-dd
+			hh24:mi:ss')+1
+		</if>
+		<if test="outDate != null and outDate !='' ">
+			and
+			y.outDate>=TO_DATE(#{startTime,jdbcType=VARCHAR},'yyyy-mm-dd
+			hh24:mi:ss')
+			AND
+			y.outDate&lt;TO_DATE(#{endTime,jdbcType=VARCHAR},'yyyy-mm-dd
+			hh24:mi:ss')+1
+		</if>
+		union all
+
+		select y.reelid,
+		y.stockid,
+		y.itemid,
+		y.qty,
+		y.createtime,
+		y.workid,
+		y.status,
+		y.outdate,
+		y.client,
+		k.value_l2,
+		k.value_h2,
+		k.value_l3,
+		k.value_h3,
+		k.value_l4,
+		k.value_h4,
+		k.value_l5,
+		k.value_h5
+		from
+		(select
+		rr.reelid,
+		rr.stockid,
+		rr.itemid,
+		rr.qty,
+		rr.createtime,
+		rr.workid,
+		rr.status,
+		rr.outdate,
+		t.client
+		from SYS_PSL.CSP_KU rr,
+		SYS_PSL.CSP_ZHILING t
+		where rr.zhilid = t.id
+		and rr.status=1) y,
+		(select
+		l.item_id,
+		l.reel_id,
+		t1.value_l as value_l2,
+		t1.value_h as value_h2,
+		t2.value_l as value_l3,
+		t2.value_h as value_h3,
+		t3.value_l as value_l4,
+		t3.value_h as value_h4,
+		t4.value_l as value_l5,
+		t4.value_h as value_h5
+		from (select * from jp.lbl_label_info@jp where create_time in(select
+		max(create_time) from jp.lbl_label_info@jp group by reel_id )) l,
+		t_jcmain.t_csp_liang_du_value@t_jpmain t1,
+		t_jcmain.t_csp_dian_ya_value@t_jpmain t2,
+		t_jcmain.t_csp_se_qu_value@t_jpmain t3,
+		t_jcmain.t_csp_bo_duan_value@t_jpmain t4
+		where create_time >
+		to_date('2019-10-28 12:00:00', 'yyyy-MM-dd hh24:mi:ss')
+		and
+		(substr(item_id, 5, 2)) = t1.liang_du(+)
+		and (substr(item_id, 11, 2)) =
+		t2.dian_ya(+)
+		and (substr(item_id, 3, 1)) = t3.se_qu(+)
+		and
+		(substr(item_id, 14, 1)) = t4.bo_duan(+)) k
+		where y.reelid =
+		k.reel_id(+)
+		<if test="stockId != null and stockId !='' ">
+			and stockid like #{stockId,jdbcType=VARCHAR}||'%'
+		</if>
+		<if test="startTime != null and createTime !='' ">
+			and
+			y.createtime>=TO_DATE(#{startTime,jdbcType=VARCHAR},'yyyy-mm-dd
+			hh24:mi:ss') AND
+			y.createtime&lt;TO_DATE(#{endTime,jdbcType=VARCHAR},'yyyy-mm-dd
+			hh24:mi:ss')+1
+		</if>
+		<if test="outDate != null and outDate !='' ">
+			and
+			y.outDate>=TO_DATE(#{startTime,jdbcType=VARCHAR},'yyyy-mm-dd
+			hh24:mi:ss')
+			AND
+			y.outDate&lt;TO_DATE(#{endTime,jdbcType=VARCHAR},'yyyy-mm-dd
+			hh24:mi:ss')+1
+		</if>
+		union all
+
+		select y.reelid,
+		y.stockid,
+		y.itemid,
+		y.qty,
+		y.createtime,
+		y.workid,
+		y.status,
+		y.outdate,
+		y.client,
+		k.value_l2,
+		k.value_h2,
+		k.value_l3,
+		k.value_h3,
+		k.value_l4,
+		k.value_h4,
+		k.value_l5,
+		k.value_h5
+		from
+		(select
+		reelid,
+		stockid,
+		itemid,
+		qty,
+		createtime,
+		workid,
+		status,
+		outdate,
+		''
+		as
+		client
+		from
+		SYS_PSL.CSP_KU
+		where status=2) y,
+		(select l.item_id,
+		l.reel_id,
+		t1.value_l as value_l2,
+		t1.value_h as value_h2,
+		t2.value_l as
+		value_l3,
+		t2.value_h as value_h3,
+		t3.value_l as value_l4,
+		t3.value_h as
+		value_h4,
+		t4.value_l as value_l5,
+		t4.value_h as value_h5
+		from
+		(select *
+		from jp.lbl_label_info@jp where create_time in(select max(create_time)
+		from jp.lbl_label_info@jp group by reel_id ))
+		l,
+		t_jcmain.t_csp_liang_du_value@t_jpmain t1,
+		t_jcmain.t_csp_dian_ya_value@t_jpmain t2,
+		t_jcmain.t_csp_se_qu_value@t_jpmain t3,
+		t_jcmain.t_csp_bo_duan_value@t_jpmain t4
+		where create_time >
+		to_date('2019-10-28 12:00:00', 'yyyy-MM-dd hh24:mi:ss')
+		and
+		(substr(item_id, 5, 2)) = t1.liang_du(+)
+		and (substr(item_id, 11, 2)) =
+		t2.dian_ya(+)
+		and (substr(item_id, 3, 1)) = t3.se_qu(+)
+		and
+		(substr(item_id, 14, 1)) = t4.bo_duan(+)) k
+		where y.reelid =
+		k.reel_id(+)
+		<if test="stockId != null and stockId !='' ">
+			and stockid like #{stockId,jdbcType=VARCHAR}||'%'
+		</if>
+		<if test="startTime != null and createTime !='' ">
+			and
+			createtime>=TO_DATE(#{startTime,jdbcType=VARCHAR},'yyyy-mm-dd
+			hh24:mi:ss') AND
+			createtime&lt;TO_DATE(#{endTime,jdbcType=VARCHAR},'yyyy-mm-dd
+			hh24:mi:ss')+1
+		</if>
+		<if test="outDate != null and outDate !='' ">
+			and
+			outDate>=TO_DATE(#{startTime,jdbcType=VARCHAR},'yyyy-mm-dd
+			hh24:mi:ss')
+			AND
+			outDate&lt;TO_DATE(#{endTime,jdbcType=VARCHAR},'yyyy-mm-dd
+			hh24:mi:ss')+1
+		</if>
+	</select>
+	<!-- 查看指令 -->
+	<select id="selZhiL" resultType="java.lang.String" resultMap="ku">
+		select * from SYS_PSL.CSP_ZHILING t where status='0'
+		<if test="stockId != null and stockId !='' ">
+			and stockId=#{stockId,jdbcType=VARCHAR}
+		</if>
+		<if test="id != null and id !='' ">
+			and id=#{id,jdbcType=VARCHAR}
+		</if>
+		<if test="qcTime != null and qcTime !='' ">
+			and qctime is not null
+		</if>
+	</select>
+	<select id="selZhiL2" resultType="java.lang.String" resultMap="ku">
+		select * from SYS_PSL.CSP_ZHILING t
+	</select>
+	<!-- 查看指令 -->
+	<select id="selZhiL1" resultType="java.lang.String" resultMap="ku">
+		select distinct stockid from SYS_PSL.CSP_ZHILING t where status='0'
+
+	</select>
+	<select id="selClient" resultType="java.lang.String" resultMap="ku">
+		select * from SYS_PSL.CSP_CLIENT order by client desc
+	</select>
+
+	<select id="selTanghAll" resultType="java.lang.String"
+		resultMap="ku">
+		select * from SYS_PSL.CSP_KU t where 1=1
+		<if test="status != null and status !='' ">
+			and status=#{status,jdbcType=VARCHAR}
+		</if>
+		<if test="stockId != null and stockId !='' ">
+			and stockId=#{stockId,jdbcType=VARCHAR}
+		</if>
+		<if test="reelId != null and reelId !='' ">
+			and reelId=#{reelId,jdbcType=VARCHAR}
+		</if>
+	</select>
+	<select id="selKu" resultType="java.lang.String" resultMap="ku">
+		select * from SYS_PSL.CSP_KU t where 1=1
+		<if test="reelId != null and reelId !='' ">
+			and reelid=#{reelId,jdbcType=VARCHAR}
+		</if>
+		<if test="zhilId != null and zhilId !='' ">
+			and zhilId=#{zhilId,jdbcType=VARCHAR}
+		</if>
+		and status='0'
+	</select>
+
+	<select id="selKu1" resultType="java.lang.String" resultMap="ku">
+		select * from SYS_PSL.CSP_KU where reelid=#{reelId,jdbcType=VARCHAR}
+	</select>
+
+	<update id="updateProStatusIn" parameterType="com.csp.ku.entity.Cspku">
+		update
+		sys_psl.csp_ku
+		set
+		status=0,outdate='',outworkid='',flag='' where
+		reelid=#{reelId,jdbcType=VARCHAR}
+	</update>
+
+	<select id="qcchk" resultType="java.lang.String" resultMap="ku">
+		select * from SYS_PSL.CSP_KU t where
+		stockid=#{stockId,jdbcType=VARCHAR} and zhilid=#{id,jdbcType=VARCHAR}
+	</select>
+	<!--查询时锁定指令ID对应的备货信息 -->
+	<update id="updateSuoFlag" parameterType="com.csp.ku.entity.Cspku">
+		update sys_psl.csp_ku
+		set suoflag='0' where zhilid=#{id,jdbcType=VARCHAR}
+	</update>
+	<!-- 品质完成校验时，把锁住flag改为空 -->
+	<update id="updateSuo" parameterType="com.csp.ku.entity.Cspku">
+		update sys_psl.csp_ku
+		set
+		suoflag='' where zhilid=#{zhilId,jdbcType=VARCHAR}
+	</update>
+
+
+
+	<!-- 下达指令 -->
+	<insert id="zhiLing" parameterType="com.csp.ku.entity.Cspku">
+		insert into
+		sys_psl.CSP_ZHILING
+		(CLIENT,CUASE,STOCKID,ITEMId,QTY,WORKID,createtime,status,product,sewen,light,xianzhi,dianya,bochang)
+		VALUES(#{client,jdbcType=VARCHAR},#{cuase,jdbcType=VARCHAR},
+		#{stockId,jdbcType=VARCHAR},#{itemId,jdbcType=VARCHAR},#{qty,jdbcType=VARCHAR},
+		#{workId,jdbcType=VARCHAR},to_char(sysdate,'YYYY-MM-DD*hh24:mi:ss'),'0'
+		,#{product,jdbcType=VARCHAR},#{sewen,jdbcType=VARCHAR},#{light,jdbcType=VARCHAR},
+		#{xianzhi,jdbcType=VARCHAR},#{dianya,jdbcType=VARCHAR},#{bochang,jdbcType=VARCHAR})
+	</insert>
+	<update id="updateProStatus" parameterType="com.csp.ku.entity.Cspku">
+		update SYS_PSL.CSP_KU
+		set
+		status=2,
+		flag=1,outdate=sysdate,outWorkId=#{outWorkId,jdbcType=VARCHAR}
+		where
+		reelid=#{reelId,jdbcType=VARCHAR}
+	</update>
+	<!--提交到品质检验 -->
+	<update id="updateStatus" parameterType="com.csp.ku.entity.Cspku">
+		update SYS_PSL.CSP_KU
+		set
+		ZHILID=#{id,jdbcType=VARCHAR}
+		where
+		reelid=#{reelId,jdbcType=VARCHAR}
+	</update>
+	<!--历史 -->
+	<update id="updateStatus1" parameterType="com.csp.ku.entity.Cspku">
+		update
+		SYS_PSL.CSP_KU_history
+		set
+		ZHILID=#{id,jdbcType=VARCHAR}
+		where
+		reelid=#{reelId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="ckUpdate" parameterType="com.csp.ku.entity.Cspku">
+		update SYS_PSL.CSP_KU
+		set
+		status='1',outdate=sysdate,outworkid=#{outWorkId,jdbcType=VARCHAR}
+		where zhilid=#{id,jdbcType=VARCHAR}
+	</update>
+	<update id="ckUpdate2" parameterType="com.csp.ku.entity.Cspku">
+		update
+		SYS_PSL.CSP_KU_history
+		set
+		status='1',outdate=sysdate,outworkid=#{outWorkId,jdbcType=VARCHAR}
+		where zhilid=#{id,jdbcType=VARCHAR}
+	</update>
+	<update id="zUpdate" parameterType="com.csp.ku.entity.Cspku">
+		update SYS_PSL.CSP_zhiling
+		set
+		status='1'
+		where id=#{id,jdbcType=VARCHAR}
+	</update>
+	<!-- 品质出货校验 -->
+	<update id="qcUpdate" parameterType="com.csp.ku.entity.Cspku">
+		update SYS_PSL.CSP_zhiling
+		set
+		qcworkid=#{workId,jdbcType=VARCHAR},qctime=sysdate where
+		stockId=#{stockId,jdbcType=VARCHAR}
+		and id=#{id,jdbcType=VARCHAR}
+	</update>
+	<!-- 品质撤销校验 -->
+	<update id="qccheUpdate" parameterType="com.csp.ku.entity.Cspku">
+		update
+		SYS_PSL.CSP_zhiling
+		set
+		qcworkid='',qctime='' where
+		id=#{id,jdbcType=VARCHAR}
+	</update>
+	<!-- 仓库撤销送检 -->
+	<update id="cangkucheUpdate" parameterType="com.csp.ku.entity.Cspku">
+		update SYS_PSL.CSP_KU
+		set zhilid='' where zhilid=#{zhilId,jdbcType=VARCHAR}
+	</update>
+	<!-- 仓库撤销送检时校验品质有没有锁定备货信息 -->
+	<select id="selSuoFlag" resultType="java.lang.String" resultMap="ku">
+		select * from sys_psl.csp_ku where zhilid=#{zhilId,jdbcType=VARCHAR}
+		and suoflag is not null
+	</select>
+
+	<!-- 重工入库，改变之前出库状态 -->
+	<update id="updateStatusChong" parameterType="com.csp.ku.entity.Cspku">
+		update
+		SYS_PSL.CSP_KU
+		set
+		qty=#{qty,jdbcType=VARCHAR},stockId=#{stockId,jdbcType=VARCHAR},
+		itemid=#{itemId,jdbcType=VARCHAR},createtime=sysdate,
+		workId=#{workId,jdbcType=VARCHAR},status=0,outdate='',outworkid='',zhilid=''
+		where reelid=#{reelId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateZl" parameterType="com.csp.ku.entity.Cspku">
+		update SYS_PSL.CSP_ZHILING
+		set status='1', donetime=sysdate where
+		stockId=#{stockIdcheck,jdbcType=VARCHAR} and
+		createTime=#{createTime,jdbcType=VARCHAR}
+	</update>
+	<insert id="saveC" parameterType="com.csp.ku.entity.Cspku">
+		insert into SYS_PSL.CSP_CLIENT
+		(CLIENT,workId,createtime)
+		VALUES(#{client,jdbcType=VARCHAR},#{workId,jdbcType=VARCHAR},sysdate)
+	</insert>
+	<update id="updateZhiling" parameterType="com.csp.ku.entity.Cspku">
+		update
+		SYS_PSL.CSP_ZHILING set
+		client=#{client,jdbcType=VARCHAR},cuase=#{cuase,jdbcType=VARCHAR},itemid=#{itemId,jdbcType=VARCHAR}
+		,qty=#{qty,jdbcType=VARCHAR} where
+		id=#{id,jdbcType=VARCHAR}
+	</update>
+
+	<update id="checkZhiling" parameterType="com.csp.ku.entity.Cspku">
+		update
+		SYS_PSL.CSP_ZHILING set
+		status='2',chetime=sysdate where
+		id=#{id,jdbcType=VARCHAR}
+	</update>
+
+	<select id="selStockId" resultType="java.lang.String" resultMap="ku">
+		select distinct stockId from SYS_PSL.CSP_KU t where 1=1
+		<if test="status != null and status !='' ">
+			and status=#{status,jdbcType=VARCHAR}
+		</if>
+		<if test="stockId != null and stockId !='' ">
+			and stockId=#{stockId,jdbcType=VARCHAR}
+		</if>
+	</select>
+
+	<!-- -->
+
+	<select id="selStockIdHold" resultType="java.lang.String"
+		resultMap="ku">
+		select * from SYS_PSL.CSP_ZHILING t
+		where stockid=
+		(select
+		stockid from
+		sys_psl.csp_ku where reelid=#{reelId,jdbcType=VARCHAR})
+		and donetime is
+		null
+		and status=0
+	</select>
+
+	<update id="updateHold" parameterType="com.csp.ku.entity.Cspku">
+		update SYS_PSL.CSP_ZHILING
+		set qty=qty-#{qty,jdbcType=VARCHAR} where
+		stockid=#{stockId,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 重工出库 -->
+	<update id="chongKu" parameterType="com.csp.ku.entity.Cspku">
+		update
+		SYS_PSL.CSP_ku set
+		status='1' where
+		reelId=#{reelId,jdbcType=VARCHAR}
+	</update>
+	<update id="chongKuHistory" parameterType="com.csp.ku.entity.Cspku">
+		update
+		SYS_PSL.CSP_ku_HISTORY set
+		status='1',
+		OUTDATE=sysdate,outWorkId=#{workId,jdbcType=VARCHAR} where
+		reelId=#{reelId,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateGeli" parameterType="com.csp.ku.entity.Cspku">
+		update sys_psl.csp_ku
+		set
+		gelidate=sysdate,gelicase=#{gelicase,jdbcType=VARCHAR},status='2',zhilid=''
+		WHERE
+		reelid = #{reelId,jdbcType=VARCHAR}
+	</update>
+
+	<select id="liangDu" resultType="java.lang.String" resultMap="ku">
+		select * from t_jcmain.t_csp_liang_du_value@t_jpmain
+	</select>
+	<select id="dianYa" resultType="java.lang.String" resultMap="ku">
+		select * from t_jcmain.t_csp_dian_ya_value@t_jpmain
+	</select>
+	<select id="seQu" resultType="java.lang.String" resultMap="ku">
+		select * from t_jcmain.t_csp_se_qu_value@t_jpmain
+	</select>
+	<select id="boDuan" resultType="java.lang.String" resultMap="ku">
+		select * from t_jcmain.t_csp_bo_duan_value@t_jpmain
+	</select>
+</mapper>

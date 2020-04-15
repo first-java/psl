@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jn.File.export.dao.BinDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="com.jn.File.entity.Bin" id="mybin">
+		<!-- 用于主键的映射 -->
+
+		<!-- 其他列映射都是用result -->
+		<result column="nVolID" property="nVolID" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="nLight" property="nLight" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="sPBinID" property="sPBinID" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="nBinFrom" property="nBinFrom" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="nBinTo" property="nBinTo" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<!-- 针对于不定向条件的查询，关键在于SQL语句的拼接，根据当前实际的参数来拼接SQL -->
+	<insert id="save">
+		insert into TBLPROFILEBINGOTO_TMP
+		values(#{nVolID,jdbcType=VARCHAR},#{nLight,jdbcType=VARCHAR},#{sPBinID,jdbcType=VARCHAR}
+		,#{nBinFrom,jdbcType=VARCHAR},#{nBinTo,jdbcType=VARCHAR})
+	</insert>
+	<delete id="delAll">
+		TRUNCATE TABLE TBLPROFILEBINGOTO_TMP
+	</delete>
+	<select id="verTime"  resultType="java.lang.String">
+		SELECT
+		DISTINCT SUBSTRING(tp.nVolID,CHARINDEX('_',tp.nVolID)+1,255) ver
+		FROM tblProfileBinGoTo_Tmp AS tp
+	</select>
+	<insert id="addBin">
+		<!-- set identity_insert tblProfileBinGoTo on -->
+		INSERT
+		INTO tblProfileBinGoTo
+		(nVolID,nLight,sPBinID,nBinFrom,nBinTo)
+		SELECT
+		nVolID,nLight,sPBinID,nBinFrom,nBinTo FROM
+		tblProfileBinGoTo_Tmp
+
+	</insert>
+	<!-- 查看跳转参数与BIN表范围冲突 -->
+	<select id="paraJumpBinCon" resultMap="mybin">
+		SELECT X.nVolID AS BIN表版本,
+		X.nBin AS BIN档,
+		X.nIvLow AS BIN表Iv范围最小值,
+		X.IvLow AS BIN表Iv跳转下限,
+		X.IvLowTo AS BIN表Iv跳转下限跳转至,
+		X.nIvHigh AS
+		BIN表Iv范围最大值,
+		X.IvHigh AS
+		BIN表Iv跳转上限,
+		X.IvHighTo AS BIN表Iv跳转上限跳转至,
+		X.nWLDLow AS BIN表WLD范围最小值,
+		X.WLDLow AS BIN表WLD跳转下限,
+		X.WLDLowTo AS
+		BIN表WLD跳转下限跳转至,
+		X.nWLDHigh AS
+		BIN表WLD范围最大值,
+		X.WLDHigh AS BIN表WLD跳转上限,
+		X.WLDHighTo AS BIN表WLD跳转上限跳转至,
+		X.nIrLow AS BIN表Ir范围最小值,
+		X.IrLow AS
+		BIN表Ir跳转下限,
+		X.IrLowTo AS
+		BIN表Ir跳转下限跳转至,
+		X.nIrHigh AS BIN表Ir范围最大值,
+		X.IrHigh AS BIN表Ir跳转上限,
+		X.IrHighTo AS BIN表Ir跳转上限跳转至,
+		X.nVfLow AS
+		BIN表Vf范围最小值,
+		X.VfLow AS
+		BIN表Vf跳转下限,
+		X.VfLowTo AS BIN表Vf跳转下限跳转至,
+		X.nVfHigh AS BIN表Vf范围最大值,
+		X.VfHigh AS BIN表Vf跳转上限,
+		X.VfHighTo AS
+		BIN表WLP跳转上限跳转至,
+		X.nWLPLow AS
+		BIN表WLP范围最小值,
+		X.WLPLow AS BIN表WLP跳转下限,
+		X.WLPLowTo AS BIN表WLP跳转下限跳转至,
+		X.nWLPHigh AS BIN表WLP范围最大值,
+		X.WLPHigh AS
+		BIN表WLP跳转上限,
+		X.WLPHighTo AS
+		BIN表WLP跳转上限跳转至,
+		X.nCCTLow AS BIN表CCT范围最小值,
+		X.CCTLow AS BIN表CCT跳转下限,
+		X.CCTLowTo AS BIN表CCT跳转下限跳转至,
+		X.nCCTHigh AS
+		BIN表CCT范围最大值,
+		X.CCTHigh AS
+		BIN表CCT跳转上限,
+		X.CCTHighTo AS BIN表CCT跳转上限跳转至
+		FROM
+		(
+		SELECT
+		tbr.nVolID,tbr.nBin,
+		tbr.nIvLow,tppg.IvLow,tppg.IvLowTo,
+		tbr.nIvHigh,tppg.IvHigh,tppg.IvHighTo,
+		tbr.nWLDLow,tppg.WLDLow,tppg.WLDLowTo,
+		tbr.nWLDHigh,tppg.WLDHigh,tppg.WLDHighTo,
+		tbr.nIrLow,tppg.IrLow,tppg.IrLowTo,
+		tbr.nIrHigh,tppg.IrHigh,tppg.IrHighTo,
+		tbr.nVfLow,tppg.VfLow,tppg.VfLowTo,
+		tbr.nVfHigh,tppg.VfHigh,tppg.VfHighTo,
+		tbr.nWLPLow,tppg.WLPLow,tppg.WLPLowTo,
+		tbr.nWLPHigh,tppg.WLPHigh,tppg.WLPHighTo,
+		tbr.nCCTLow,tppg.CCTLow,tppg.CCTLowTo,
+		tbr.nCCTHigh,tppg.CCTHigh,tppg.CCTHighTo
+		FROM tblBinRules
+		tbr,tblProfileParamGoto tppg
+		WHERE tppg.nVolID=tbr.nVolID
+		AND
+		tppg.nBinFrom=tbr.nBin
+		) X
+				WHERE CONVERT(BIGINT,CONVERT(FLOAT,X.nIvLow)*1000)&lt;CONVERT(BIGINT,CONVERT(FLOAT,CASE WHEN X.IvLow='' THEN '-999999999' ELSE X.IvLow END) * 1000)
+		OR CONVERT(BIGINT,CONVERT(FLOAT,X.nIvHigh)*1000)>CONVERT(BIGINT,CONVERT(FLOAT,CASE WHEN X.IvHigh='' THEN '999999999' ELSE X.IvHigh END) * 1000)
+		OR CONVERT(BIGINT,CONVERT(FLOAT,X.nWLDLow)*1000)&lt;CONVERT(BIGINT,CONVERT(FLOAT,CASE WHEN X.WLDLow='' THEN '-999999999' ELSE X.WLDLow END) * 1000)
+		OR CONVERT(BIGINT,CONVERT(FLOAT,X.nWLDHigh)*1000)>CONVERT(BIGINT,CONVERT(FLOAT,CASE WHEN X.WLDHigh='' THEN '999999999' ELSE X.WLDHigh END) * 1000)
+		OR CONVERT(BIGINT,CONVERT(FLOAT,X.nIrLow)*1000)&lt;CONVERT(BIGINT,CONVERT(FLOAT,CASE WHEN X.IrLow='' THEN '-999999999' ELSE X.IrLow END) * 1000)
+		OR CONVERT(BIGINT,CONVERT(FLOAT,X.nIrHigh)*1000)>CONVERT(BIGINT,CONVERT(FLOAT,CASE WHEN X.IrHigh='' THEN '999999999' ELSE X.IrHigh END) * 1000)
+		OR CONVERT(BIGINT,CONVERT(FLOAT,X.nVfLow)*1000)&lt;CONVERT(BIGINT,CONVERT(FLOAT,CASE WHEN X.VfLow='' THEN '-999999999' ELSE X.VfLow END) * 1000)
+		OR CONVERT(BIGINT,CONVERT(FLOAT,X.nVfHigh)*1000)>CONVERT(BIGINT,CONVERT(FLOAT,CASE WHEN X.VfHigh='' THEN '999999999' ELSE X.VfHigh END) * 1000)
+		OR CONVERT(BIGINT,CONVERT(FLOAT,X.nWLPLow)*1000)&lt;CONVERT(BIGINT,CONVERT(FLOAT,CASE WHEN X.WLPLow='' THEN '-999999999' ELSE X.WLPLow END) * 1000)
+		OR CONVERT(BIGINT,CONVERT(FLOAT,X.nWLPHigh)*1000)>CONVERT(BIGINT,CONVERT(FLOAT,CASE WHEN X.WLPHigh='' THEN '999999999' ELSE X.WLPHigh END) * 1000)
+		OR CONVERT(BIGINT,CONVERT(FLOAT,X.nCCTLow)*1000)&lt;CONVERT(BIGINT,CONVERT(FLOAT,CASE WHEN X.CCTLow='' THEN '-999999999' ELSE X.CCTLow END) * 1000)
+		OR CONVERT(BIGINT,CONVERT(FLOAT,X.nCCTHigh)*1000)>CONVERT(BIGINT,CONVERT(FLOAT,CASE WHEN X.CCTHigh='' THEN '999999999' ELSE X.CCTHigh END) * 1000)
+	</select>
+	<select id="bin" resultMap="mybin">
+	SELECT * from TBLPROFILEBINGOTO WHERE nVolID LIKE #{nVolID,jdbcType=VARCHAR}+'%'
+	</select>
+</mapper>

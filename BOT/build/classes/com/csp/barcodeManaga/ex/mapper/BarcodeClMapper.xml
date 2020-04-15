@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csp.barcodeManaga.ex.dao.BarcodeClDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="com.csp.barcodeManaga.entity.BarcodeCl" id="barcodeCl">
+		<!-- 用于主键的映射 -->
+		<!-- <id column="id" property="id" javaType="int" /> -->
+
+		<result column="PRODUCTMODEL" property="productModel" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="QTY" property="qty" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="URG" property="urg" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="WORKID" property="workId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="CREATETIME" property="createtime" javaType="java.util.Date"
+			jdbcType="VARCHAR" />
+		<result column="SERI" property="seri" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="BARCODE" property="barcode" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="BJTIME" property="bjTime" javaType="java.util.Date"
+			jdbcType="VARCHAR" />
+		<result column="SCROLLPD" property="scrollpd" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+
+		<result column="CHECKBARCODE" property="checkBarcode" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="DEF_QTY" property="defQty" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="BATCHDET" property="batchdet" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="REMARK" property="remark" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="SONG_WORKID" property="songWorkId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="BADSIGN" property="badSign" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="WHETH" property="wheth" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="WHETHD" property="whethd" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="BAR_QTY" property="barQty" javaType="java.lang.Integer"
+			jdbcType="VARCHAR" />
+		<result column="LOT_HEADer" property="lotHeader" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="buCause" property="buCause" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="dieQty" property="dieQty" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<!--手选接收 -->
+	<insert id="saveBarcodeCl" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		sys_psl.CSP_barcode_Cl
+		(PRODUCTMODEL,QTY,URG,WORKIDc,CREATETIME,SERI,BARCODE,BJTIME,REMARK,WHETH,WHETHD,LOT_HEADer,odd,workId)
+		<foreach collection="list" item="barcodeCl" index="index"
+			separator="union all">
+			(SELECT
+			#{barcodeCl.productModel,jdbcType=VARCHAR},
+			#{barcodeCl.qty,jdbcType=VARCHAR},
+			#{barcodeCl.urg,jdbcType=VARCHAR},
+			#{barcodeCl.workIdC,jdbcType=VARCHAR},
+			sysdate,
+			#{barcodeCl.seri,jdbcType=VARCHAR},
+			#{barcodeCl.barcode,jdbcType=VARCHAR},
+			sysdate,
+			#{barcodeCl.remark,jdbcType=VARCHAR},
+			#{barcodeCl.wheth,jdbcType=VARCHAR},
+			#{barcodeCl.whethd,jdbcType=VARCHAR},
+			#{barcodeCl.lotHeader,jdbcType=VARCHAR},
+			#{barcodeCl.odd,jdbcType=VARCHAR},
+			#{barcodeCl.workId,jdbcType=VARCHAR} FROM DUAL)
+		</foreach>
+	</insert>
+
+	<!-- 查询检查单卷轴。 -->
+	<select id="selBarcodeCl" resultType="java.lang.String"
+		resultMap="barcodeCl">
+		select * from SYS_PSL.CSP_PICKING where
+		tape_id=#{barcode,jdbcType=VARCHAR} and flag=0
+	</select>
+	<!-- 查询检查单卷轴。 -->
+	<select id="selBarcodeClJ" resultType="java.lang.String"
+		resultMap="barcodeCl">
+		select * from SYS_PSL.CSP_PICKING where
+		tape_id=#{barcode,jdbcType=VARCHAR}
+	</select>
+	<!-- 创建检查单后修改手选接收库的卷轴状态 -->
+
+	<update id="updatePicking" parameterType="com.csp.barcodeManaga.entity.BarcodeCl">
+		update
+		SYS_PSL.CSP_PICKING set flag=1 where
+		tape_id=#{barcode,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateCheck" parameterType="com.csp.barcodeManaga.entity.BarcodeCl">
+		update
+		SYS_PSL.CSP_BARCODE_CL set flag='1'where
+		odd=#{odd,jdbcType=VARCHAR}
+	</update>
+	<update id="del" parameterType="com.csp.barcodeManaga.entity.BarcodeCl">
+		DELETE sys_psl.csp_barcode_cl where
+		barcode=#{barcode,jdbcType=VARCHAR}
+	</update>
+
+
+	<!-- 查询检查单卷轴。 -->
+	<select id="selOdd" resultType="java.lang.String" resultMap="barcodeCl">
+		select distinct odd,productModel,createtime,max(seri) as seri from
+		sys_psl.csp_barcode_cl where odd=( select odd from (select * from
+		SYS_PSL.CSP_BARCODE_CL where flag='1' or batchdet is null)where
+		barcode=#{barcode,jdbcType=VARCHAR})
+		group by
+		odd,productModel,createtime
+
+	</select>
+	<!-- 品质审核，查询同一检查单的数据 -->
+	<select id="selOddqc" resultType="java.lang.String" resultMap="barcodeCl">
+		select *
+		from sys_psl.csp_barcode_cl
+		where odd=#{odd,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 查看判退批次 -->
+	<select id="selOddPantui" resultType="java.lang.String"
+		resultMap="barcodeCl">
+		select distinct odd,productModel,createtime,max(seri) as
+		seri from
+		sys_psl.csp_barcode_cl where odd=( select odd from
+		sys_psl.csp_barcode_cl where barcode=#{barcode,jdbcType=VARCHAR}and
+		batchdet='判退')
+		group by odd,productModel,createtime
+	</select>
+	<insert id="saveBarcodeQC" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		sys_psl.CSP_barcode_QC
+		(PRODUCTMODEL,QTY,URG,WORKIDc,CREATETIME,SERI,BARCODE,BJTIME,
+		SCROLLPD,CHECKBARCODE,DEF_QTY,BATCHDET,REMARK,WORKID,
+		BADSIGN,WHETH,WHETHD,LOT_HEADer,odd,dieQty,buCause)
+		<foreach collection="list" item="barcodeCl" index="index"
+			separator="union all">
+			(SELECT
+			#{barcodeCl.productModel,jdbcType=VARCHAR},
+			#{barcodeCl.qty,jdbcType=VARCHAR},
+			#{barcodeCl.urg,jdbcType=VARCHAR},
+			#{barcodeCl.workIdC,jdbcType=VARCHAR},
+			sysdate,
+			#{barcodeCl.seri,jdbcType=VARCHAR},
+			#{barcodeCl.barcode,jdbcType=VARCHAR},
+			#{barcodeCl.bjTime,jdbcType=VARCHAR},
+			#{barcodeCl.scrollpd,jdbcType=VARCHAR},
+			#{barcodeCl.checkBarcode,jdbcType=VARCHAR},
+			#{barcodeCl.defQty,jdbcType=VARCHAR},
+			#{barcodeCl.batchdet,jdbcType=VARCHAR},
+			#{barcodeCl.remark,jdbcType=VARCHAR},
+			#{barcodeCl.workId,jdbcType=VARCHAR},
+			#{barcodeCl.badSign,jdbcType=VARCHAR},
+			#{barcodeCl.wheth,jdbcType=VARCHAR},
+			#{barcodeCl.whethd,jdbcType=VARCHAR},
+			#{barcodeCl.lotHeader,jdbcType=VARCHAR},
+			#{barcodeCl.odd,jdbcType=VARCHAR},
+			#{barcodeCl.dieQty,jdbcType=VARCHAR},
+			#{barcodeCl.buCause,jdbcType=VARCHAR} FROM DUAL)
+		</foreach>
+	</insert>
+</mapper>

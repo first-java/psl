@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jr.view.ex.dao.ViewFileDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="com.jr.view.entity.View" id="view">
+		<!-- 用于主键的映射 -->
+		<!-- <id column="id" property="id" javaType="int" /> -->
+		<result column="c_id" property="cId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="c_level" property="cLevel" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="remark" property="remark" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="disabled" property="disabled" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="bin_product_id" property="binProductId"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="bin_category_id" property="binCategoryId"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="bin_package_ver" property="binPackageVer"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="bin_chip_ver" property="binChipVer" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="bin_product_id_mix" property="binProductIdMix"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="bin_category_id_mix" property="binCategoryIdMix"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="bin_package_ver_mix" property="binPackageVerMix"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="bin_chip_ver_mix" property="binChipVerMix"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+
+		<result column="bin_product_id_deny" property="binProductIdDeny"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="bin_category_id_deny" property="binCategoryIdDeny"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="bin_package_ver_deny" property="binPackageVerDeny"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="bin_chip_ver_deny" property="binChipVerDeny"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="wf_product_id" property="wfProductId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="wf_category_id" property="wfCategoryId"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="wf_package_ver" property="wfPackageVer"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="wf_chip_ver" property="wfChipVer" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="wf_product_id_mix" property="wfProductIdMix"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="wf_category_id_mix" property="wfCategoryIdMix"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="wf_package_ver_mix" property="wfPackageVerMix"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="wf_chip_ver_mix" property="wfChipVerMix"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="wf_product_id_deny" property="wfProductIdDeny"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="wf_category_id_deny" property="wfCategoryIdDeny"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="wf_package_ver_deny" property="wfPackageVerDeny"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="wf_chip_ver_deny" property="wfChipVerDeny"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="item_sec_01" property="itemSec01" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="item_sec_02" property="itemSec02" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="item_sec_03" property="itemSec03" javaType="java.lang.String"></result>
+		<result column="item_sec_04" property="itemSec04" javaType="java.lang.String"></result>
+		<result column="item_sec_05" property="itemSec05" javaType="java.lang.String"></result>
+		<result column="item_sec_06" property="itemSec06" javaType="java.lang.String"></result>
+		<result column="item_sec_07" property="itemSec07" javaType="java.lang.String"></result>
+		<result column="item_sec_08" property="itemSec08" javaType="java.lang.String"></result>
+		<result column="item_sec_09" property="itemSec09" javaType="java.lang.String"></result>
+		<result column="item_sec_10" property="itemSec10" javaType="java.lang.String"></result>
+		<result column="storage_symbol_01" property="storageSymbol01"
+			javaType="java.lang.String"></result>
+		<result column="storage_symbol_02" property="storageSymbol02"
+			javaType="java.lang.String"></result>
+		<result column="storage_symbol_03" property="storageSymbol03"
+			javaType="java.lang.String"></result>
+		<result column="storage_symbol_04" property="storageSymbol04"
+			javaType="java.lang.String"></result>
+		<result column="storage_symbol_05" property="storageSymbol05"
+			javaType="java.lang.String"></result>
+		<result column="storage_symbol_06" property="storageSymbol06"
+			javaType="java.lang.String"></result>
+		<result column="storage_symbol_07" property="storageSymbol07"
+			javaType="java.lang.String"></result>
+		<result column="storage_symbol_08" property="storageSymbol08"
+			javaType="java.lang.String"></result>
+	</resultMap>
+	<!-- 针对于不定向条件的查询，关键在于SQL语句的拼接，根据当前实际的参数来拼接SQL -->
+
+
+	<delete id="truncateTable">
+		Truncate table t_lbmain.t_storage_rules_tmp
+	</delete>
+
+	<update id="createView" parameterType="String">
+		CREATE OR REPLACE VIEW
+		t_lbmain.V_STORAGE_RULES AS
+		select distinct * from t_lbmain.t_storage_rules_tmp order by c_id
+	</update>
+	<insert id="insert">
+		INSERT INTO t_lbmain.t_storage_rules
+		(
+		create_timestamp,
+		c_id,
+		c_level,
+		remark,
+		disabled,
+		bin_product_id,
+		bin_category_id,
+		bin_package_ver,
+		bin_chip_ver,
+		bin_product_id_mix,
+		bin_category_id_mix,
+		bin_package_ver_mix,
+		bin_chip_ver_mix,
+		bin_product_id_deny,
+		bin_category_id_deny,
+		bin_package_ver_deny,
+		bin_chip_ver_deny,
+		wf_product_id,
+		wf_category_id,
+		wf_package_ver,
+		wf_chip_ver,
+		wf_product_id_mix,
+		wf_category_id_mix,
+		wf_package_ver_mix,
+		wf_chip_ver_mix,
+		wf_product_id_deny,
+		wf_category_id_deny,
+		wf_package_ver_deny,
+		wf_chip_ver_deny,
+		item_sec_01,
+		item_sec_02,
+		item_sec_03,
+		item_sec_04,
+		item_sec_05,
+		item_sec_06,
+		item_sec_07,
+		item_sec_08,
+		item_sec_09,
+		item_sec_10,
+		storage_symbol_01,
+		storage_symbol_02,
+		storage_symbol_03,
+		storage_symbol_04,
+		storage_symbol_05,
+		storage_symbol_06,
+		storage_symbol_07,
+		storage_symbol_08
+		)
+		SELECT SYSDATE AS create_timestamp,
+		sr.c_id,
+		sr.c_level, sr.remark, sr.disabled, sr.bin_product_id,
+		sr.bin_category_id, sr.bin_package_ver, sr.bin_chip_ver,
+		sr.bin_product_id_mix, sr.bin_category_id_mix,
+		sr.bin_package_ver_mix,
+		sr.bin_chip_ver_mix, sr.bin_product_id_deny,
+		sr.bin_category_id_deny,
+		sr.bin_package_ver_deny, sr.bin_chip_ver_deny, sr.wf_product_id,
+		sr.wf_category_id, sr.wf_package_ver, sr.wf_chip_ver,
+		sr.wf_product_id_mix,
+		sr.wf_category_id_mix, sr.wf_package_ver_mix,
+		sr.wf_chip_ver_mix,
+		sr.wf_product_id_deny, sr.wf_category_id_deny,
+		sr.wf_package_ver_deny,
+		sr.wf_chip_ver_deny, sr.item_sec_01,
+		sr.item_sec_02, sr.item_sec_03,
+		sr.item_sec_04, sr.item_sec_05,
+		sr.item_sec_06, sr.item_sec_07,
+		sr.item_sec_08, sr.item_sec_09,
+		sr.item_sec_10,
+		sr.storage_symbol_01,
+		sr.storage_symbol_02,
+		sr.storage_symbol_03, sr.storage_symbol_04,
+		sr.storage_symbol_05,
+		sr.storage_symbol_06, sr.storage_symbol_07,
+		sr.storage_symbol_08
+		FROM
+		t_lbmain.v_storage_rules sr
+	</insert>
+	<insert id="save">
+		insert into
+		t_lbmain.t_storage_rules_tmp(c_id,c_level,remark,disabled,bin_product_id,bin_category_id,bin_package_ver,bin_chip_ver,
+		bin_product_id_mix,bin_category_id_mix,bin_package_ver_mix,
+		bin_chip_ver_mix,bin_product_id_deny,bin_category_id_deny,
+		bin_package_ver_deny,bin_chip_ver_deny,wf_product_id,
+		wf_category_id,wf_package_ver,wf_chip_ver,wf_product_id_mix,
+		wf_category_id_mix,wf_package_ver_mix,wf_chip_ver_mix,
+		wf_product_id_deny,wf_category_id_deny,wf_package_ver_deny,
+		wf_chip_ver_deny,item_sec_01,item_sec_02,item_sec_03,item_sec_04,item_sec_05,item_sec_06,
+		item_sec_07,item_sec_08,item_sec_09,item_sec_10,
+		storage_symbol_01,storage_symbol_02,storage_symbol_03,
+		storage_symbol_04,storage_symbol_05,storage_symbol_06,
+		storage_symbol_07,storage_symbol_08)
+		values(#{cId,jdbcType=VARCHAR},#{cLevel,jdbcType=VARCHAR},#{remark,jdbcType=VARCHAR},
+		#{disabled,jdbcType=VARCHAR},#{binProductId,jdbcType=VARCHAR},#{binCategoryId,jdbcType=VARCHAR},
+		#{binPackageVer,jdbcType=VARCHAR},#{binChipVer,jdbcType=VARCHAR},#{binProductIdMix,jdbcType=VARCHAR},
+		#{binCategoryIdMix,jdbcType=VARCHAR},#{binPackageVerMix,jdbcType=VARCHAR},
+		#{binChipVerMix,jdbcType=VARCHAR},
+		#{binProductIdDeny,jdbcType=VARCHAR},#{binCategoryIdDeny,jdbcType=VARCHAR},
+		#{binPackageVerDeny,jdbcType=VARCHAR},
+		#{binChipVerDeny,jdbcType=VARCHAR},
+		#{wfProductId,jdbcType=VARCHAR},
+		#{wfCategoryId,jdbcType=VARCHAR}, #{wfPackageVer,jdbcType=VARCHAR},
+		#{wfChipVer,jdbcType=VARCHAR},
+		#{wfProductIdMix,jdbcType=VARCHAR},
+		#{wfCategoryIdMix,jdbcType=VARCHAR},
+		#{wfPackageVerMix,jdbcType=VARCHAR},
+		#{wfChipVerMix,jdbcType=VARCHAR},
+		#{wfProductIdDeny,jdbcType=VARCHAR},
+		#{wfCategoryIdDeny,jdbcType=VARCHAR},
+		#{wfPackageVerDeny,jdbcType=VARCHAR},
+		#{wfChipVerDeny,jdbcType=VARCHAR},#{itemSec01,jdbcType=VARCHAR},
+		#{itemSec02,jdbcType=VARCHAR},#{itemSec03,jdbcType=VARCHAR},
+		#{itemSec04,jdbcType=VARCHAR},
+		#{itemSec05,jdbcType=VARCHAR},
+		#{itemSec06,jdbcType=VARCHAR},#{itemSec07,jdbcType=VARCHAR},
+		#{itemSec08,jdbcType=VARCHAR},#{itemSec09,jdbcType=VARCHAR},#{itemSec10,jdbcType=VARCHAR},
+		#{storageSymbol01,jdbcType=VARCHAR},#{storageSymbol02,jdbcType=VARCHAR},
+		#{storageSymbol03,jdbcType=VARCHAR},#{storageSymbol04,jdbcType=VARCHAR},
+		#{storageSymbol05,jdbcType=VARCHAR},#{storageSymbol06,jdbcType=VARCHAR},
+		#{storageSymbol07,jdbcType=VARCHAR},#{storageSymbol08,jdbcType=VARCHAR})
+	</insert>
+
+</mapper>

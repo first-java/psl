@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csp.tanghPailiao.ex.dao.FGshelfDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="com.csp.tanghPailiao.entity.FGshelf" id="fg">
+		<!-- 用于主键的映射 -->
+		<!-- <id column="id" property="id" javaType="int" /> -->
+		<result column="SHELFNAME" property="shelfName" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="SHELFFLOORS" property="shelfFloors" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="CASENO" property="caseNo" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="SERI" property="seri" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="CREATETIME" property="createTime" javaType="java.util.Date"
+			jdbcType="VARCHAR" />
+		<result column="WORKID" property="workId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="checkbox" property="checkbox" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="cntargs" property="cntargs" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="JING_WEIGHT" property="jingWeight" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+	</resultMap>
+
+	<insert id="savefgShelf" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		SYS_PSL.CSP_PL_FGSHELF
+		(SHELFNAME,CASENO,SERI,CREATETIME,CHECKBOX,CNTARGS,product,deposit,bin,maxdeposit)
+		<foreach collection="list" item="fgShelf" index="index"
+			separator="union all">
+			(SELECT
+			#{fgShelf.shelfName,jdbcType=VARCHAR},
+			#{fgShelf.caseNo,jdbcType=VARCHAR},
+			#{fgShelf.seri1,jdbcType=VARCHAR},
+			sysdate,
+			#{fgShelf.checkbox,jdbcType=VARCHAR},
+			#{fgShelf.cntargs1,jdbcType=VARCHAR},
+			#{fgShelf.product,jdbcType=VARCHAR},
+			#{fgShelf.deposit,jdbcType=VARCHAR},
+			#{fgShelf.bin,jdbcType=VARCHAR},
+			'99999999' FROM DUAL)
+		</foreach>
+	</insert>
+
+	<select id="selectShelf" resultType="java.lang.String"
+		resultMap="fg">
+		select * from SYS_PSL.CSP_PL_FGSHELF t where
+		shelfName=#{shelfName,jdbcType=VARCHAR} order by caseno
+	</select>
+	<!-- 查询货架设置存放的产品 -->
+	<select id="shelfProduct" resultType="java.lang.String"
+		resultMap="fg">
+		select shelfname,caseno,CASE WHEN product IS NULL
+		THEN '无'
+		ELSE product END AS
+		product,CASE WHEN deposit IS NULL
+		THEN '无'
+		ELSE
+		deposit END AS
+		deposit
+		,CASE WHEN BIN IS NULL
+		THEN '无'
+		ELSE
+		BIN END AS
+		BIN
+		from sys_psl.csp_pl_fgshelf t
+		group by
+		shelfname,caseno,product,deposit,BIN
+		order by
+		to_number(shelfname),
+		to_number(CASENO) asc
+	</select>
+
+	<update id="updateBagHe" parameterType="com.csp.tanghPailiao.entity.FGshelf">
+		update
+		SYS_PSL.CSP_PL_FGSHELF_GOODS set status='1',
+		outtime=sysdate,outworkid=#{workId,jdbcType=VARCHAR},chulei='合袋出库'
+		where bagname=#{bagName,jdbcType=VARCHAR}
+	</update>
+
+
+	<!-- 设置货架存放产品 -->
+	<update id="updateGoodsShelf" parameterType="com.csp.tanghPailiao.entity.FGshelf">
+		update
+		sys_psl.csp_pl_fgshelf
+		set product =#{product,jdbcType=VARCHAR},
+		deposit=#{deposit,jdbcType=VARCHAR},
+		bin=#{bin,jdbcType=VARCHAR} where
+		shelfname=#{shelfName,jdbcType=VARCHAR}
+		and
+		caseno=#{caseNo,jdbcType=VARCHAR}
+	</update>
+	<!-- 查询箱子设置的产品 -->
+	<select id="selectGoodsShelf" resultType="java.lang.String"
+		resultMap="fg">
+		select * from sys_psl.csp_pl_fgshelf where
+		shelfname=#{shelfName,jdbcType=VARCHAR} and
+		caseno=#{caseNo,jdbcType=VARCHAR}
+	</select>
+
+	<select id="shelfProduct3" resultType="java.lang.String"
+		resultMap="fg">
+		select * from sys_psl.csp_pl_fgshelf where bagname is null
+		and
+		shelfname=#{shelfName,jdbcType=VARCHAR} and
+		caseNo=#{caseNo,jdbcType=VARCHAR}
+	</select>
+
+	<update id="upfProduct2" parameterType="com.csp.tanghPailiao.entity.FGshelf">
+		update
+		sys_psl.csp_pl_fgshelf
+		set product='',deposit='',bin='' where
+		shelfname=#{shelfName,jdbcType=VARCHAR} and
+		caseNo=#{caseNo,jdbcType=VARCHAR}
+	</update>
+
+	<select id="selectlanmoShelf" resultType="java.lang.String"
+		resultMap="fg">
+		select * from SYS_PSL.CSP_LANMO_SHELF t where
+		shelfName=#{shelfName,jdbcType=VARCHAR} order by caseno
+	</select>
+
+	<select id="selG" resultType="java.lang.String" resultMap="fg">
+		SELECT * FROM
+		SYS_PSL.CSP_PL_FGSHELF_goods
+		where
+		bagname=#{bagName,jdbcType=VARCHAR}
+		<if test="status != null and status !='' ">
+			AND status='0'
+		</if>
+	</select>
+
+	<select id="selBagG" resultType="java.lang.String" resultMap="fg">
+		select * from SYS_PSL.CSP_PL_FGSHELF_GOODS where leixing not
+		in('良品BIN','分光地料','分光废料','底板散芯','报废BIN') and flag is null and status='0'
+		and bagname=#{bagName,jdbcType=VARCHAR}
+	</select>
+
+
+	<select id="selG1" resultType="java.lang.String" resultMap="fg">
+		select * from sys_psl.csp_fg_eqptpro where
+		fglotid=(SELECT lotid FROM
+		SYS_PSL.CSP_PL_FGSHELF_goods
+		where bagname=#{bagName,jdbcType=VARCHAR})
+	</select>
+
+	<select id="paiAutoLabel" resultType="java.lang.String"
+		resultMap="fg">
+		select t.fglotid as eqpt, g.lottype, g.sexian, t.id,g.lotid,
+		g.leixing,
+		c.project1 as product
+		from
+		SYS_PSL.CSP_FG_EQPTpro t,
+		sys_psl.csp_pl_fgshelf_goods g,
+		SYS_PSL.CSP_CALCULATE c
+		where t.bagname
+		= g.bagname(+)
+		and t.lottype = c.lothead(+)
+		and t.bagname =
+		#{bagName,jdbcType=VARCHAR}
+	</select>
+	<select id="selIsHave" resultType="java.lang.String" resultMap="fg">
+		select * from sys_psl.csp_fg_eqptpro
+		where
+		bagname=#{bagName,jdbcType=VARCHAR}
+	</select>
+	<select id="selectS" resultType="java.lang.String" resultMap="fg">
+		select shelfname,caseno,count(*) as bin,deposit,sum(qty)as
+		qty
+		from
+		SYS_PSL.CSP_PL_FGSHELF_GOODS t
+		group by shelfname,caseno,deposit order
+		by shelfname desc
+	</select>
+	<select id="selectS1" resultType="java.lang.String" resultMap="fg">
+		select * from SYS_PSL.CSP_PL_FGSHELF_GOODS where
+		shelfname=#{shelfName,jdbcType=VARCHAR} and
+		caseno=#{caseNo,jdbcType=VARCHAR} order by shelfname desc
+	</select>
+	<select id="selectQCstatus" resultType="java.lang.String"
+		resultMap="fg">
+		select * from SYS_PSL.CSP_PL_QC where createtime in(select
+		max(createtime)
+		from( select bagname,status,createtime from
+		SYS_PSL.CSP_PL_QC where
+		bagname=#{bagName,jdbcType=VARCHAR}))
+		and
+		bagname=#{bagName,jdbcType=VARCHAR}
+	</select>
+	<select id="selHJ" resultType="java.lang.String" resultMap="fg">
+		select shelfname,caseno,deposit,lottype,sum(seri1) seri1 ,sum(qty) as
+		qty from( select shelfname,caseno,deposit,lottype,count(bagname) as
+		seri1,sum(mes_qty) as qty
+		from SYS_PSL.CSP_PL_FGSHELF_GOODS
+		where
+		status!=1
+		and leixing like '分光%'
+		group by
+		lottype,shelfname,caseno,deposit
+		union
+		select
+		shelfname,caseno,deposit,lottype,count(bagname)as seri1,sum(qty) as
+		qty
+		from SYS_PSL.CSP_PL_FGSHELF_GOODS
+		where status!='1'
+		and leixing in
+		(select leixing from SYS_PSL.CSP_PL_FGSHELF_GOODS where
+		qty!=0 group by
+		leixing)
+		group by lottype,shelfname,caseno,deposit
+		)
+		group by
+		lottype,shelfname,caseno,deposit
+	</select>
+
+	<select id="selHJ2" resultType="java.lang.String" resultMap="fg">
+		select * from (select shelfname,caseno ,bagname
+		,lottype,mes_qty,leixing,createtime,status from
+		SYS_PSL.CSP_PL_FGSHELF_GOODS
+		where status!='1'
+		and leixing like '分光%'
+		union
+		select shelfname,caseno , bagname
+		,lottype,mes_qty,leixing,createtime,status
+		from
+		SYS_PSL.CSP_PL_FGSHELF_GOODS
+		where status!='1'
+		and leixing in (select
+		leixing from
+		SYS_PSL.CSP_PL_FGSHELF_GOODS where
+		qty!=0 group by leixing)
+		)
+		where shelfname=#{shelfName,jdbcType=VARCHAR}
+		and
+		caseno=#{caseNo,jdbcType=VARCHAR}
+		order by createtime desc
+
+	</select>
+
+	<select id="barcodeToFg" resultType="java.lang.String"
+		resultMap="fg">
+		select tape_id as barcode,sub_id as lothead,eqpt_id as
+		eqpt,recipe_id as id,bin,qty from tape_subid_relation@jp
+		where
+		tape_id=#{barcode,jdbcType=VARCHAR}
+	</select>
+	<select id="fenxuanToFg" resultType="java.lang.String"
+		resultMap="fg">
+		select tape_id as barcode,sub_id as lothead,eqpt_id as
+		eqpt,recipe_id as id,bin,qty from tape_subid_relation@jp
+		where
+		tape_id=#{barcode,jdbcType=VARCHAR}
+	</select>
+
+
+	<select id="fenxuanToFgp" resultType="java.lang.String"
+		resultMap="fg">
+		select tape_id as barcode, lothead ,y.eqpt_id as eqpt, e.id,
+		bin_id as bin,
+		die_qty as qty from tape_unit_data@jpmycim2 y, (
+		select
+		distinct substr(spec_id,1,instr(spec_id,'.',-1)-1) as
+		id,substr(root_lot_id,1,instr(root_lot_id,'-',1)-1) as lothead from
+		bin_unit_data@jpmycim2 where bin_unit_id in(
+		select film_id from
+		film_tape_relation@jpmycim2 where
+		tape_id=#{barcode,jdbcType=VARCHAR} )
+		) e
+		where
+		tape_id=#{barcode,jdbcType=VARCHAR}
+	</select>
+
+	<select id="barcodeToFgto" resultType="java.lang.String"
+		resultMap="fg">
+		select * from SYS_PSL.CSP_BARCODETOFG
+		where
+		barcode=#{barcode,jdbcType=VARCHAR}
+	</select>
+
+	<insert id="saveBarcodeToFg" parameterType="com.csp.tanghPailiao.entity.FGshelf">
+		insert into
+		SYS_PSL.CSP_BARCODETOFG
+		(barcode,lothead,eqpt,id,bin,bagname,qty,workid,createtime,remark)
+		values(#{barcode,jdbcType=VARCHAR},#{lotHead,jdbcType=VARCHAR},
+		#{eqpt,jdbcType=VARCHAR},#{id,jdbcType=VARCHAR},#{bin,jdbcType=VARCHAR},
+		#{bagName,jdbcType=VARCHAR},#{qty,jdbcType=VARCHAR},#{workId,jdbcType=VARCHAR},
+		sysdate,#{remark,jdbcType=VARCHAR})
+	</insert>
+
+	<insert id="saveFenxuanToFg" parameterType="com.csp.tanghPailiao.entity.FGshelf">
+		insert into
+		sys_psl.csp_fenxuantofg
+		(barcode,lothead,id,bagname,qty,workid,createtime,remark)
+		values(#{barcode,jdbcType=VARCHAR},#{lotHead,jdbcType=VARCHAR},
+		#{id,jdbcType=VARCHAR},
+		#{bagName,jdbcType=VARCHAR},#{qty,jdbcType=VARCHAR},#{workId,jdbcType=VARCHAR},
+		sysdate,#{remark,jdbcType=VARCHAR})
+	</insert>
+
+	<insert id="saveBinUnitIdToFg" parameterType="com.csp.tanghPailiao.entity.FGshelf">
+		insert into
+		sys_psl.csp_binunitidtofg
+		(barcode,lothead,bagname,qty,workid,createtime,binUnitId,remark)
+		values(#{barcode,jdbcType=VARCHAR},#{lotHead,jdbcType=VARCHAR},
+		#{bagName,jdbcType=VARCHAR},#{qty,jdbcType=VARCHAR},#{workId,jdbcType=VARCHAR},
+		sysdate,#{binUnitId,jdbcType=VARCHAR},#{remark,jdbcType=VARCHAR})
+	</insert>
+	<select id="selBinto" resultType="java.lang.String" resultMap="fg">
+		select * from SYS_PSL.csp_binunitidtofg
+		where
+		binunitid=#{binUnitId,jdbcType=VARCHAR}
+	</select>
+
+</mapper>

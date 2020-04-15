@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jr.blob.ex.dao.BlobDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="com.jr.blob.entity.Blob" id="blob">
+		<!-- 用于主键的映射 -->
+		<!-- <id column="id" property="id" javaType="int" /> -->
+		<result column="sqlDesc" property="sqlDesc" jdbcType="BLOB"
+			typeHandler="com.jr.ShippingInformation.action.MyBlobTypeHandler"></result>
+
+		<result column="COMMANDSTATUS" property="commandStatus"
+			javaType="java.lang.Integer" jdbcType="VARCHAR" />
+		<result column="CREATETIME" property="createTime" javaType="java.util.Date"
+			jdbcType="VARCHAR" />
+		<result column="ENDTIME" property="endTime" javaType="java.util.Date"
+			jdbcType="VARCHAR" />
+		<result column="WORKID" property="workId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="userName" property="userName" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<!-- 针对于不定向条件的查询，关键在于SQL语句的拼接，根据当前实际的参数来拼接SQL -->
+
+	<select id="sss" resultMap="blob" parameterType="map">
+		SELECT
+		TC.COMMAND_STATUS AS commandStatus,
+		TC.COMMAND_SQL_DESC AS sqlDesc,
+		TC.CREATE_TIMESTAMP AS createTime,
+		TC.EDIT_TIMESTAMP AS endTime,
+		LU.USER_ID AS workId,
+		LU.USER_DESC AS userName
+		FROM T_LBMAIN.T_COMMAND
+		TC,
+		T_USER.L_LOGIN_HISTORY LLH,
+		T_USER.L_USER LU
+		WHERE 1=1
+		AND
+		TC.CREATE_LOGIN_RRN=LLH.LOGIN_RRN
+		AND LLH.USER_RRN=LU.USER_RRN
+		AND
+		TC.CREATE_TIMESTAMP>=TO_DATE(#{startTime,jdbcType=VARCHAR},'YYYY-MM-DD')
+		AND
+		TC.CREATE_TIMESTAMP
+		&lt;TO_DATE(#{endTime1,jdbcType=VARCHAR},'YYYY-MM-DD')+1
+		ORDER BY
+		TC.COMMAND_RRN DESC
+
+	</select>
+	<select id="sss1" resultMap="blob" parameterType="map">
+		SELECT
+		TC.COMMAND_STATUS AS commandStatus,
+		TC.COMMAND_SQL_DESC AS sqlDesc,
+		TC.CREATE_TIMESTAMP AS createTime,
+		TC.EDIT_TIMESTAMP AS endTime,
+		LU.USER_ID AS workId,
+		LU.USER_DESC AS userName
+		FROM T_JPMAIN.T_COMMAND
+		TC,
+		T_USER.L_LOGIN_HISTORY LLH,
+		T_USER.L_USER LU
+		WHERE 1=1
+		AND
+		TC.CREATE_LOGIN_RRN=LLH.LOGIN_RRN
+		AND LLH.USER_RRN=LU.USER_RRN
+		AND
+		TC.CREATE_TIMESTAMP>=TO_DATE(#{startTime,jdbcType=VARCHAR},'YYYY-MM-DD')
+		AND
+		TC.CREATE_TIMESTAMP
+		&lt;TO_DATE(#{endTime1,jdbcType=VARCHAR},'YYYY-MM-DD')+1
+		ORDER BY
+		TC.COMMAND_RRN DESC
+
+	</select>
+</mapper>

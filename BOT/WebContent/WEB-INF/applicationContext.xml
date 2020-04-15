@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<!-- 启用AOP注解 -->
+	<bean id="dataSourceTask" name="dataSourceTask"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="url" value="jdbc:oracle:thin:@192.168.6.66:1521:orcl"></property>
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="username" value="user_cert"></property>
+		<property name="password" value="user_cert"></property>
+	</bean>
+
+	<!-- 启用AOP注解 -->
+	<bean id="dataSourceTask2" name="dataSourceTask2"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="url"
+			value="jdbc:jtds:sqlserver://192.168.6.11:1433/PA2009"></property>
+		<property name="driverClassName" value="net.sourceforge.jtds.jdbc.Driver"></property>
+		<property name="username" value="admin"></property>
+		<property name="password" value="LPxxb8158299"></property>
+	</bean>
+	<!-- 启用AOP注解 -->
+	<bean id="dataSourceTask3" name="dataSourceTask3"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="url" value="jdbc:oracle:thin:@192.168.6.3:1521:orcl"></property>
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="username" value="T_LBMAIN"></property>
+		<property name="password" value="T_LBMAIN"></property>
+	</bean>
+
+	<!-- 启用AOP注解 -->
+	<bean id="dataSourceTask4" name="dataSourceTask4"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="url" value="jdbc:oracle:thin:@192.168.6.66:1521:orcl"></property>
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="username" value="lbmycim2"></property>
+		<property name="password" value="lbmycim2"></property>
+	</bean>
+	<!-- 启用AOP注解 -->
+	<bean id="dataSourceTask5" name="dataSourceTask5"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="url" value="jdbc:oracle:thin:@192.168.6.17:1521:orcl"></property>
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="username" value="jpmycim2"></property>
+		<property name="password" value="jpmycim2"></property>
+	</bean>
+
+	<!-- 启用AOP注解 -->
+	<bean id="dataSourceTask6" name="dataSourceTask6"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="url" value="jdbc:oracle:thin:@192.168.6.3:1521:orcl"></property>
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="username" value="t_material"></property>
+		<property name="password" value="t_material"></property>
+	</bean>
+	<!-- 启用AOP注解 -->
+	<bean id="dataSourceTask7" name="dataSourceTask7"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="url" value="jdbc:oracle:thin:@192.168.6.3:1521:orcl"></property>
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="username" value="t_material"></property>
+		<property name="password" value="t_material"></property>
+	</bean>
+
+	<!-- spring创建sqlsessionfactory -->
+	<bean id="sqlFactoryD11a" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask7"></property>
+		<property name="mapperLocations" value="classpath:com/jr/proc/pr/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+	<!-- 创建mapper接口bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.jr.proc.pr.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactoryD11a" />
+	</bean>
+
+
+	<!-- 打印机测试 -->
+	<bean id="sqlFactoryPostek" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask"></property>
+		<property name="mapperLocations" value="classpath:com/POSTEK/ex/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+	<!--打印机测试 创建mapper接口bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.POSTEK.ex.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactoryPostek" />
+	</bean>
+
+
+
+	<!-- csp派料 -->
+	<bean id="sqlFactorycsp" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask"></property>
+		<property name="mapperLocations" value="classpath:com/csp/tanghPailiao/ex/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+	<!--打印机测试 创建mapper接口bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.csp.tanghPailiao.ex.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactorycsp" />
+	</bean>
+
+	<!-- agreed -->
+	<bean id="sqlFactoryAgreed" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask"></property>
+		<property name="mapperLocations"
+			value="classpath:com/jr/agreedDelivery/ex/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.jr.agreedDelivery.ex.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactoryAgreed" />
+	</bean>
+
+
+	<!-- KU -->
+	<bean id="sqlFactoryKu" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask"></property>
+		<property name="mapperLocations" value="classpath:com/jr/xl/ex/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.jr.xl.ex.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactoryKu" />
+	</bean>
+
+
+	<!-- spring创建sqlsessionfactory -->
+	<bean id="sqlFactoryD11a11" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask7"></property>
+		<property name="mapperLocations" value="classpath:com/jr/szham/file/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+	<!-- 创建mapper接口bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.jr.szham.file.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactoryD11a11" />
+	</bean>
+
+	<!-- spring创建sqlsessionfactory -->
+	<bean id="sqlFactoryD11al" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask"></property>
+		<property name="mapperLocations" value="classpath:com/jr/elargol/el/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+	<!-- 创建mapper接口bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.jr.elargol.el.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactoryD11al" />
+	</bean>
+
+	<!-- spring创建sqlsessionfactory -->
+	<bean id="sqlFactoryD11al2" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask"></property>
+		<property name="mapperLocations" value="classpath:com/csp/ku/ex/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+	<!-- 创建mapper接口bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.csp.ku.ex.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactoryD11al2" />
+	</bean>
+
+	<!-- spring创建sqlsessionfactory -->
+	<bean id="sqlFactoryD11" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask6"></property>
+		<property name="mapperLocations" value="classpath:com/jr/blob/ex/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+	<!-- 创建mapper接口bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.jr.blob.ex.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactoryD11" />
+	</bean>
+
+	<!-- spring创建sqlsessionfactory -->
+	<bean id="sqlFactoryD" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask5"></property>
+		<property name="mapperLocations"
+			value="classpath:com/csp/selectTools/file/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+	<!-- 创建mapper接口bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.csp.selectTools.file.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactoryD" />
+	</bean>
+
+	<!-- csp卷轴管理 -->
+	<bean id="sqlFactoryBarM" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask"></property>
+		<property name="mapperLocations"
+			value="classpath:com/csp/barcodeManaga/ex/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+	<!-- 创建mapper接口bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.csp.barcodeManaga.ex.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactoryBarM" />
+	</bean>
+
+	<!-- spring创建sqlsessionfactory -->
+	<bean id="sqlFactoryTangh" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask5"></property>
+		<property name="mapperLocations" value="classpath:com/csp/tangh/ex/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+	<!-- 创建mapper接口bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.csp.tangh.ex.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactoryTangh" />
+	</bean>
+
+	<!-- spring创建sqlsessionfactory -->
+	<bean id="sqlFactoryDDD" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask"></property>
+		<property name="mapperLocations" value="classpath:com/csp/page/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+	<!-- 创建mapper接口bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.csp.page.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactoryDDD" />
+	</bean>
+
+
+	<!-- spring创建sqlsessionfactory -->
+	<bean id="sqlFactoryD1" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask6"></property>
+		<property name="mapperLocations"
+			value="classpath:com/jr/ShippingInformation/export/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+
+	<!-- spring创建sqlsessionfactory -->
+	<bean id="sqlFactoryD2" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask6"></property>
+		<property name="mapperLocations" value="classpath:com/jr/view/ex/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+
+	<!-- 创建mapper接口bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.jr.ShippingInformation.export.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactoryD1" />
+	</bean>
+	<!-- 创建mapper接口bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.jr.view.ex.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactoryD2" />
+	</bean>
+	<!-- spring创建sqlsessionfactory -->
+	<bean id="sqlFactory10" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask4"></property>
+		<property name="mapperLocations" value="classpath:com/jr/zLook/file/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.jr.zLook.file.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactory10" />
+	</bean>
+
+
+	<!-- spring创建sqlsessionfactory -->
+	<bean id="sqlFactoryTh" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask4"></property>
+		<property name="mapperLocations" value="classpath:com/csp/thrust/ex/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+	<!-- 创建mapper接口bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.csp.thrust.ex.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactoryTh" />
+	</bean>
+
+
+	<!-- spring创建sqlsessionfactory -->
+	<bean id="sqlFactoryC" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask"></property>
+		<property name="mapperLocations"
+			value="classpath:com/jr/ShippingInformation/export/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+	<!-- 创建mapper接口bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.jr.ShippingInformation.export.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactoryC" />
+	</bean>
+
+
+	<!-- spring创建sqlsessionfactory -->
+	<bean id="sqlFactoryC1" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask"></property>
+		<property name="mapperLocations"
+			value="classpath:com/jr/latticeLighting/ex/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+	<!-- 创建mapper接口bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.jr.latticeLighting.ex.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactoryC1" />
+	</bean>
+
+	<!-- spring创建sqlsessionfactory -->
+	<bean id="sqlFactory9" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask"></property>
+		<property name="mapperLocations" value="classpath:com/jr/test/file/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+	<!-- 创建mapper接口bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.jr.test.file.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactory9" />
+	</bean>
+
+	<!-- spring创建sqlsessionfactory -->
+	<bean id="sqlFactory11" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask"></property>
+		<property name="mapperLocations"
+			value="classpath:com/jr/orderCount/export/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+	<!-- 创建mapper接口bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.jr.orderCount.export.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactory11" />
+	</bean>
+
+	<!-- spring创建sqlsessionfactory -->
+	<bean id="sqlFactory2" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask"></property>
+		<property name="mapperLocations"
+			value="classpath:com/jr/tapeId_film/file/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+
+	<!-- spring创建sqlsessionfactory -->
+	<bean id="sqlFactory6" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask"></property>
+		<property name="mapperLocations"
+			value="classpath:com/jr/counterToManage/file/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+
+	<!-- spring创建sqlsessionfactory -->
+	<bean id="sqlFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask"></property>
+		<property name="mapperLocations"
+			value="classpath:com/jn/bin_record/file/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+
+	<!-- spring创建sqlsessionfactory -->
+	<bean id="sqlFactory3" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask2"></property>
+		<property name="mapperLocations" value="classpath:com/jn/File/export/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+
+	<!-- 晶能 -->
+	<bean id="sqlFactoryJn" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask2"></property>
+		<property name="mapperLocations" value="classpath:com/jr/jingneng/ex/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+	<!-- 晶能 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.jr.jingneng.ex.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactoryJn" />
+	</bean>
+
+	<!-- 晶能 -->
+	<bean id="sqlFactoryJn1" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask7"></property>
+		<property name="mapperLocations" value="classpath:com/jr/jingneng2/ex/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+	<!-- 晶能 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.jr.jingneng2.ex.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactoryJn1" />
+	</bean>
+
+	<!-- spring创建sqlsessionfactory -->
+	<bean id="sqlFactory4" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask2"></property>
+		<property name="mapperLocations" value="classpath:com/jn/insert2/file/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+
+	<!-- spring创建sqlsessionfactory -->
+	<bean id="sqlFactory5" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask"></property>
+		<property name="mapperLocations" value="classpath:com/jr/tailing/file/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+
+	<!-- spring创建sqlsessionfactory -->
+	<bean id="sqlFactory7" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask3"></property>
+		<property name="mapperLocations" value="classpath:com/jr/mi/file/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+
+	<!-- spring创建sqlsessionfactory -->
+	<bean id="sqlFactoryDuibi" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTask"></property>
+		<property name="mapperLocations" value="classpath:com/jr/duibi/ex/mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="entity"></property>
+	</bean>
+	<!-- 创建mapper接口bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.jr.duibi.ex.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactoryDuibi" />
+	</bean>
+
+
+	<!-- 创建mapper接口bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.jr.mi.file.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactory7" />
+	</bean>
+	<!-- 创建mapper接口bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.jr.tailing.file.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactory5" />
+	</bean>
+
+	<!-- 创建mapper接口bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.jr.counterToManage.file.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactory6" />
+	</bean>
+	<!-- 创建mapper接口bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.jn.insert2.file.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactory4" />
+	</bean>
+
+	<!-- 创建mapper接口bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.jr.tapeId_film.file.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactory2" />
+	</bean>
+
+	<!-- 创建mapper接口bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.jn.bin_record.file.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactory" />
+	</bean>
+
+	<!-- 创建mapper接口bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.jn.File.export.dao"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlFactory3" />
+	</bean>
+
+	<!-- 创建事务管理类的bean -->
+	<bean id="tx"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSourceTask"></property>
+	</bean>
+
+	<!-- 创建事务管理类的bean -->
+	<bean id="tx3"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSourceTask2"></property>
+	</bean>
+	<!-- 创建事务管理类的bean -->
+	<bean id="tx2"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSourceTask3"></property>
+	</bean>
+
+	<!-- 创建事务管理类的bean -->
+	<bean id="tx4"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSourceTask4"></property>
+	</bean>
+
+	<!-- 创建事务管理类的bean -->
+	<bean id="tx5"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSourceTask5"></property>
+	</bean>
+	<!-- 创建事务管理类的bean -->
+	<bean id="tx6"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSourceTask6"></property>
+	</bean>
+	<bean id="tx7"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSourceTask7"></property>
+	</bean>
+	<context:component-scan
+		base-package="com.jr.tapeId_film.service,
+		com.jr.tapeId_film.action,
+		com.jr.tapeId_film.file.dao,
+		com.jn.bin_record.service,
+		com.jn.bin_record.action,
+		com.jn.bin_record.file.dao,
+		com.jn.File.service,
+		com.jn.File.action,
+		com.jn.File.file.dao,
+		com.jr.tailing.service,
+		com.jr.tailing.action,
+		com.jr.tailing.dao,
+		com.jn.insert2.service,
+		com.jn.insert2.action,
+		com.jn.insert2.file.dao,
+		com.jr.counterToManage.service,
+		com.jr.counterToManage.action,
+		com.jr.counterToManage.file.dao,
+		com.jr.mi.service,
+		com.jr.mi.action,
+		com.jr.mi.file.dao,
+		com.jr.test.service,
+		com.jr.test.action,
+		com.jr.test.file.dao,
+		com.jr.zLook.service,
+		com.jr.zLook.action,
+		com.jr.zLook.file.dao,
+		com.jr.orderCount.service,
+		com.jr.orderCount.action,
+		com.jr.orderCount.export.dao,
+		com.csp.selectTools.service,
+		com.csp.selectTools.action,
+		com.csp.selectTools.file.dao,
+		com.jr.ShippingInformation.service,
+		com.jr.ShippingInformation.action,
+		com.jr.ShippingInformation.export.dao,
+		com.jr.view.service,
+		com.jr.view.action,
+		com.jr.view.ex.dao,
+		com.jr.latticeLighting.service,
+		com.jr.latticeLighting.action,
+		com.jr.latticeLighting.ex.dao,
+		com.jr.blob.service,
+		com.jr.blob.action,
+		com.jr.blob.ex.dao,
+		com.jr.proc.service,
+		com.jr.proc.action,
+		com.jr.proc.pr.dao,
+		com.jr.elargol.service,
+		com.jr.elargol.action,
+		com.jr.elargol.el.dao,
+		com.csp.page.service,
+		com.csp.page.action,
+		com.csp.page.dao,
+		com.jr.szham.service,
+		com.jr.szham.action,
+		com.jr.szham.file.dao,
+		com.jr.jingneng.service,
+		com.jr.jingneng.action,
+		com.jr.jingneng.ex.dao,
+		com.jr.jingneng2.service,
+		com.jr.jingneng2.action,
+		com.jr.jingneng2.ex.dao,
+		com.jr.duibi.service,
+		com.jr.duibi.action,
+		com.jr.duibi.ex.dao,
+		com.POSTEK.action,
+		com.POSTEK.service,
+		com.POSTEK.ex.dao,
+		com.csp.tangh.action,
+		com.csp.tangh.service,
+		com.csp.tangh.ex.dao,
+		com.csp.ku.action,
+		com.csp.ku.service,
+		com.csp.ku.ex.dao,
+		com.jr.xl.action,
+		com.jr.xl.service,
+		com.jr.xl.ex.dao,
+		com.jr.agreedDelivery.action,
+		com.jr.agreedDelivery.service,
+		com.jr.agreedDelivery.ex.dao,
+		com.csp.thrust.action,
+		com.csp.thrust.service,
+		com.csp.thrust.ex.dao,
+		com.csp.barcodeManaga.action,
+		com.csp.barcodeManaga.service,
+		com.csp.barcodeManaga.ex.dao,
+		com.csp.tanghPailiao.action,
+		com.csp.tanghPailiao.service,
+		com.csp.tanghPailiao.ex.dao">
+	</context:component-scan>
+	<!-- 声明式事务：指定具体的哪个类的哪个方法需要使用什么样的事务 -->
+	<!-- 配置声明式事务有两种方式：使用配置文件，通过AOP切入 使用注解：@Transcational 启用注解事务，指定事务管理bean -->
+	<tx:annotation-driven transaction-manager="tx"
+		proxy-target-class="false" />
+	<tx:annotation-driven transaction-manager="tx3"
+		proxy-target-class="false" />
+	<tx:annotation-driven transaction-manager="tx4"
+		proxy-target-class="false" />
+	<tx:annotation-driven transaction-manager="tx2"
+		proxy-target-class="false" />
+	<tx:annotation-driven transaction-manager="tx5"
+		proxy-target-class="false" />
+	<tx:annotation-driven transaction-manager="tx6"
+		proxy-target-class="false" />
+	<tx:annotation-driven transaction-manager="tx7"
+		proxy-target-class="false" />
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+</beans>

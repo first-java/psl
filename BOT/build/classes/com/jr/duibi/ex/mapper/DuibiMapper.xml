@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jr.duibi.ex.dao.BarcodeDuibiDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="com.jr.duibi.entity.BarcodeDuibi" id="duibi">
+		<!-- 其他列映射都是用result -->
+		<result column="BARCODE1" property="barcode1" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="BARCODE2" property="barcode2" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="RESULT" property="result" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="WORKID" property="workId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="CREATETIME" property="createTime" javaType="java.util.Date"
+			jdbcType="DATE" />
+	</resultMap>
+	<!-- 上传 -->
+
+	<insert id="save" parameterType="com.jr.duibi.entity.BarcodeDuibi">
+		insert into
+		SYS_PSL.BARCODEDUIBI
+		(BARCODE1,BARCODE2,WORKID,CREATETIME,RESULT)
+		values(
+		#{barcode1,jdbcType=VARCHAR},#{barcode2,jdbcType=VARCHAR},
+		#{workId,jdbcType=VARCHAR},sysdate,#{result,jdbcType=VARCHAR}
+		)
+
+	</insert>
+
+</mapper>

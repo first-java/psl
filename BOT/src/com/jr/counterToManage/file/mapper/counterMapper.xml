@@ -1,0 +1,1340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jr.counterToManage.file.dao.CounterDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="com.jr.counterToManage.entity.Counter" id="myPsp">
+		<!-- 其他列映射都是用result -->
+		<result column="shelfName" property="shelfName" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="caseNo" property="caseNo" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="SHELFNAME1" property="shelfName1" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="CASENO1" property="caseNo1" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="product" property="product" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="maxtrough" property="maxtrough" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="lotHead" property="lotHead" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="materialName" property="materialName" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="CREATETIME" property="createTime" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="workId" property="workId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="product_workid" property="product_workid"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="qty" property="qty" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="ROOT_LOT_ID" property="rootLotId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="INTIME" property="intime" javaType="java.util.Date"
+			jdbcType="VARCHAR" />
+		<result column="LOT_ID" property="lotId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="TAGSTIME" property="tagsTime" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="TARGS" property="targs" javaType="java.lang.Integer"
+			jdbcType="VARCHAR" />
+		<result column="sh" property="sh" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="cn" property="cn" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="cas" property="cas" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="left_qty" property="left_qty" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="ca" property="ca" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="coun" property="coun" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="xtargs" property="xtargs" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="htargs" property="htargs" javaType="java.lang.Integer"
+			jdbcType="VARCHAR" />
+		<result column="dieqty" property="dieqty" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="indeedqty" property="indeedqty" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="droplightqty" property="droplightqty" javaType="java.lang.Integer"
+			jdbcType="VARCHAR" />
+		<result column="die_qty" property="dieqty" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="SENDNUM" property="sendNum" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="STATUS" property="status" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="CNTARGS" property="cntargs" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="TWOPRODUCT" property="twoProduct" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="FLOORS" property="floors" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="REANSFERTIME" property="REANSFERTIME" javaType="java.lang.Integer"
+			jdbcType="VARCHAR" />
+		<result column="CRAFTWORKID" property="craftWorkId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="BARCODEID" property="barcodeId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="TEST_NAME" property="testName" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="BIN_ID" property="binId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="bin_Unit_Id" property="binUnitId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+
+	</resultMap>
+
+	<!-- 1.1.1 新建货架 -->
+	<insert id="save" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		jnbdt.goods_shelf
+		(shelfName,CASENO,maxtrough,createtime,WORKID,CNTARGS,floors,targs,status)
+
+		<foreach collection="list" item="fgShelf" index="index"
+			separator="union all">
+			(select
+			#{counter.shelfName,jdbcType=VARCHAR},#{counter.caseNo,jdbcType=VARCHAR},
+			'25',to_char(sysdate,'YYYY-MM-DD hh24:mi:ss'),
+			#{counter.workId,jdbcType=VARCHAR},#{counter.cntargs,jdbcType=VARCHAR}
+			,#{counter.floors,jdbcType=VARCHAR}
+			,#{counter.targs,jdbcType=VARCHAR}
+			,#{counter.status,jdbcType=VARCHAR} FROM DUAL)
+		</foreach>
+
+	</insert>
+
+	<insert id="saveCaseno">
+		insert into jnbdt.goods_shelf
+		(shelfName,CASENO,maxtrough,createtime,WORKID,CNTARGS,floors,targs,status)
+		values(#{shelfName,jdbcType=VARCHAR},#{caseNo,jdbcType=VARCHAR}
+		,#{maxtrough,jdbcType=VARCHAR},to_char(sysdate,'YYYY-MM-DD
+		hh24:mi:ss'),#{workId,jdbcType=VARCHAR}
+		,#{cntargs,jdbcType=VARCHAR},#{floors,jdbcType=VARCHAR},#{targs,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR})
+	</insert>
+	<!-- 1.1.2新建货架功能， 查询货架最晚创建的序号 -->
+	<select id="selectLastTargs" resultType="java.lang.String"
+		resultMap="myPsp">
+		select
+		targs from (select t.*, t.rowid from JNBDT.GOODS_SHELF
+		t
+		order by
+		createtime
+		desc) where rownum=1
+	</select>
+
+	<!--新建货架功能，根据货架名查，targs不为空，查到最后一条记录 为本次货架序号 货架序号+1 -->
+	<select id="selectLastTargs1" resultType="java.lang.String"
+		resultMap="myPsp">
+		select
+		targs from (select t.*, t.rowid from JNBDT.GOODS_SHELF
+		t where shelfName=#{shelfName,jdbcType=VARCHAR} order by
+		createtime
+		desc) where rownum=1
+	</select>
+
+	<!-- 1.1.2新建货架功能， 查询货架最晚创建的层数 -->
+	<select id="selectLastFloors" resultType="java.lang.String"
+		resultMap="myPsp">
+		select
+		floors from (select t.*, t.rowid from
+		JNBDT.GOODS_SHELF
+		t where shelfName=#{shelfName,jdbcType=VARCHAR}
+		order
+		by
+		createtime desc ) where rownum=1
+	</select>
+
+	<!-- 1.1.3 保存货架 -->
+	<insert id="saveShelf" parameterType="com.jr.counterToManage.entity.Counter">
+		insert into JNBDT.SHELF
+		(shelfName , createtime,WORKID,status,targs,floors,floorsTargs)
+		VALUES(#{shelfName,jdbcType=VARCHAR},
+		to_char(sysdate,'YYYY-MM-DD
+		hh24:mi:ss'),
+		#{workId,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},#{targs,jdbcType=VARCHAR},
+		,#{floors,jdbcType=VARCHAR},#{floorsTargs,jdbcType=VARCHAR})
+	</insert>
+
+	<!--2.1.1 查询所有 货架 -->
+	<select id="selectHj" resultType="java.lang.String" resultMap="myPsp">
+		select DISTINCT SHELFNAME ,targs,STATUS ,workid from JNBDT.GOODS_SHELF
+		t where status ='未启用'
+	</select>
+	<!--2.1.1 产品存在货架上的哪个箱子里 -->
+	<select id="selGoods" resultType="java.lang.String" resultMap="myPsp">
+		select * from JNBDT.FX_GOODS_SHELF t where
+		product=#{binUnitId,jdbcType=VARCHAR}
+		<if test="status!=null and status!='' ">
+			and status is null
+		</if>
+
+	</select>
+	<!-- 2.2.1 修改货架序号 -->
+	<update id="updateHtargs" parameterType="java.util.List">
+		<foreach collection="list" item="counter" index="index" open="begin"
+			close=";end;" separator=";">
+			update JNBDT.GOODS_SHELF T
+			<set>
+				T.targs = #{counter.targs,jdbcType=VARCHAR},
+			</set>
+			WHERE
+			T.shelfName = #{counter.shelfName,jdbcType=VARCHAR}
+		</foreach>
+	</update>
+
+	<!-- 2.2.2 更新fx_goods_shelf 表里的货架排序号 -->
+	<update id="fxUpdateHtargs" parameterType="com.jr.counterToManage.entity.Counter">
+		update
+		jnbdt.fx_goods_shelf a set(a.htargs)=(select targs from
+		jnbdt.shelf
+		b
+		where a.shelfname=b.shelfname)
+	</update>
+
+	<!-- 3.1.1 查询货架里箱子 -->
+	<select id="selectXz" resultType="java.lang.String" resultMap="myPsp">
+		select * from jnbdt.goods_shelf where
+		shelfName=#{shelfName,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 3.2.1 更新箱子排序号 -->
+	<update id="updateXtargs" parameterType="java.util.List">
+		<foreach collection="list" item="counter" index="index" open="begin"
+			close=";end;" separator=";">
+			update jnbdt.goods_shelf T
+			<set>
+				T.cntargs=#{counter.cntargs,jdbcType=VARCHAR},
+			</set>
+			where
+			shelfname=#{counter.shelfName,jdbcType=VARCHAR} and
+			caseno=#{counter.caseNo,jdbcType=VARCHAR}
+		</foreach>
+	</update>
+
+	<!-- 3.2.2 更新fx_goods_shelf 表里的箱子排序号 -->
+	<update id="fxUpdateXtargs" parameterType="com.jr.counterToManage.entity.Counter">
+		update
+		jnbdt.fx_goods_shelf a set(a.xtargs)=
+		(select cntargs from
+		jnbdt.goods_shelf b where a.shelfname=b.shelfname and
+		a.caseno=b.caseno)
+	</update>
+
+	<!--4.1.1 查询所有货架 -->
+	<select id="selectHs1" resultType="java.lang.String" resultMap="myPsp">
+		select DISTINCT SHELFNAME ,STATUS from JNBDT.GOODS_SHELF
+	</select>
+	<!--4.1.2 根据状态查询货架 -->
+	<select id="selectHs" resultType="java.lang.String" resultMap="myPsp">
+		select distinct shelfname from JNBDT.GOODS_SHELF t where
+		status=#{status,jdbcType=VARCHAR}
+	</select>
+	<!-- 4.2.1 修改货架状态 -->
+	<update id="updateShelfStatus" parameterType="com.jr.counterToManage.entity.Counter">
+		update
+		JNBDT.GOODS_SHELF
+		SET STATUS=#{status,jdbcType=VARCHAR} WHERE
+		SHELFNAME=#{shelfName,jdbcType=VARCHAR}
+	</update>
+
+	<!--5.1.1 查询蓝膜是否存在 -->
+	<select id="select" resultType="java.lang.String" resultMap="myPsp">
+		SELECT
+		bin_unit_id,bin_id,REMARK,ROOT_LOT_ID,die_qty ,createtime
+		FROM
+		lbmycim2.bin_unit_data WHERE
+		bin_unit_id=#{product,jdbcType=VARCHAR}
+	</select>
+	<!--5.1.1 查询蓝膜是否存在 -->
+	<select id="selectSaveSendList" resultType="java.lang.String"
+		resultMap="myPsp">
+		select * from JNBDT.FILM_CHECKLIST where
+		binUnitId=#{binUnitId,jdbcType=VARCHAR}
+	</select>
+	<!-- 5.2.1 创建报检单 -->
+	<insert id="saveSendList" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert all into
+		jnbdt.film_checklist
+		(binunitid,materialName,rootlotid,dieqty,indeedqty,droplightqty,workId,createTime,sendNum,status,id)
+		VALUES
+		<foreach collection="list" item="counter" index="index"
+			separator="into  jnbdt.film_checklist (binunitid,materialName,rootlotid,dieqty,indeedqty,droplightqty,workId,createTime,sendNum,status,id) 
+  values">
+			(#{counter.binUnitId,jdbcType=VARCHAR},#{counter.materialName,jdbcType=VARCHAR},#{counter.rootLotId,jdbcType=VARCHAR},
+			#{counter.dieqty,jdbcType=VARCHAR},#{counter.indeedqty,jdbcType=VARCHAR},#{counter.droplightqty,jdbcType=VARCHAR},
+			#{counter.workId,jdbcType=VARCHAR},
+			to_char(sysdate,'YYYY-MM-DD
+			hh24:mi:ss'),
+			#{counter.sendNum,jdbcType=VARCHAR},
+			'0',#{counter.id,jdbcType=VARCHAR})
+		</foreach>
+		select 1 from dual
+	</insert>
+	<!--6.1.1 查询报检单数据 -->
+	<select id="checkList" resultType="java.lang.String" resultMap="myPsp">
+		select * from jnbdt.FILM_CHECKLIST where status='0' and
+		sendNum=(select sendNum from
+		jnbdt.film_checklist where
+		binUnitId=#{binUnitId,jdbcType=VARCHAR}) or
+		sendNum=#{sendNum,jdbcType=VARCHAR}
+	</select>
+
+	<!--6.2.1 保存报检单检电性结果 -->
+	<insert id="checkList1" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert all into
+		jnbdt.checklist
+		(binunitid,materialName,rootlotid,workId,createTime,status,qty,sendnum,targs)
+		values
+		<foreach collection="list" item="counter" index="index"
+			separator="into  jnbdt.checklist (binunitid,materialName,rootlotid,workId,createTime,status,qty,sendnum,targs) 
+  values">
+			(#{counter.binUnitId,jdbcType=VARCHAR},#{counter.materialName,jdbcType=VARCHAR},#{counter.rootLotId,jdbcType=VARCHAR},
+			#{counter.workId,jdbcType=VARCHAR},
+			to_char(sysdate,'YYYY-MM-DD
+			hh24:mi:ss'),
+			#{counter.status,jdbcType=VARCHAR},#{counter.qty,jdbcType=VARCHAR},#{counter.sendNum,jdbcType=VARCHAR},'')
+		</foreach>
+		select 1 from dual
+	</insert>
+	<!-- 6.2.2 蓝膜检验电性后 修改报检单状态， -->
+	<update id="updateD" parameterType="com.jr.counterToManage.entity.Counter">
+		update JNBDT.FILM_CHECKLIST
+		set status='1' where
+		sendnum=#{sendNum,jdbcType=VARCHAR}
+
+	</update>
+
+	<update id="updateD3" parameterType="com.jr.counterToManage.entity.Counter">
+		update jnbdt.pro_checklist
+		set status1='1' where sendNum=#{sendNum,jdbcType=VARCHAR}
+	</update>
+	<!--7.1.1 生产检外观 搜索蓝膜电性表 -->
+	<select id="selectCheckList" resultType="java.lang.String"
+		resultMap="myPsp">
+
+		select * from (select * from ( select t.*, t.rowid from
+		JNBDT.CHECKLIST t
+		where
+		sendnum=(SELECT SENDNUM FROM
+		JNBDT.CHECKLIST
+		WHERE
+		BINUNITID=#{binUnitId,jdbcType=VARCHAR}) or
+		sendnum=#{sendNum,jdbcType=VARCHAR}) where status
+		=#{status,jdbcType=VARCHAR}) WHERE status1 IS NULL
+	</select>
+
+	<!--7.2.1 保存报生产检验外观结果 OK -->
+	<insert id="proCheckList" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert all into
+		jnbdt.pro_checklist
+		(binunitid,materialName,rootlotid,dieqty,residueqty,badqty,createtime,workid,status,sendNum,yiwu,qipao,anlie,lens)
+		values
+		<foreach collection="list" item="counter" index="index"
+			separator="into  jnbdt.pro_checklist (binunitid,materialName,rootlotid,dieqty,residueqty,badqty,createtime,workid,status,sendNum,yiwu,qipao,anlie,lens) 
+  values">
+			(#{counter.binUnitId,jdbcType=VARCHAR},#{counter.materialName,jdbcType=VARCHAR},
+			#{counter.rootLotId,jdbcType=VARCHAR},#{counter.dieqty,jdbcType=VARCHAR},
+			#{counter.residueQty,jdbcType=VARCHAR},#{counter.badQty,jdbcType=VARCHAR},
+			to_char(sysdate,'YYYY-MM-DD hh24:mi:ss'),
+			#{counter.workId,jdbcType=VARCHAR},
+			#{counter.status,jdbcType=VARCHAR},#{counter.sendNum,jdbcType=VARCHAR},
+			#{counter.yiwu,jdbcType=VARCHAR},#{counter.qipao,jdbcType=VARCHAR},
+			#{counter.anlie,jdbcType=VARCHAR},#{counter.lens,jdbcType=VARCHAR})
+		</foreach>
+		select 1 from dual
+	</insert>
+	<!-- 生产检外观 -->
+	<update id="updateD1" parameterType="com.jr.counterToManage.entity.Counter">
+		update JNBDT.CHECKLIST
+		set
+		status1='1' where
+		sendnum=#{sendNum,jdbcType=VARCHAR}
+
+	</update>
+	<update id="updateD2" parameterType="com.jr.counterToManage.entity.Counter">
+		update JNBDT.pro_CHECKLIST
+		set
+		status1='2' where
+		sendnum=#{sendNum,jdbcType=VARCHAR}
+
+	</update>
+	<!-- 工艺判定 更改蓝膜电性结果 -->
+	<update id="updateLmdx" parameterType="com.jr.counterToManage.entity.Counter">
+		update JNBDT.CHECKLIST SET
+		STATUS
+		='OK',CRAFTWORKID=#{craftWorkId,jdbcType=VARCHAR},targs=#{targs,jdbcType=VARCHAR}
+		WHERE
+		BINUNITID=#{binUnitId,jdbcType=VARCHAR}
+
+	</update>
+	<!-- 8.1.1 QC抽检，查询pro_checklist 生产检外观表。 -->
+	<select id="selCheckList" resultType="java.lang.String"
+		resultMap="myPsp">
+		select * from (select * from JNBDT.PRO_CHECKLIST where
+		STATUS='OK' and
+		SENDNUM=#{sendNum,jdbcType=VARCHAR} or sendnum=(SELECT
+		SENDNUM FROM
+		JNBDT.PRO_CHECKLIST where
+		binUnitid=#{binUnitId,jdbcType=VARCHAR})) where status1 is
+		null
+
+	</select>
+	<!-- 8.2.1 保存QC抽检结果 -->
+	<insert id="craftCheckList" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert all into
+		jnbdt.qc_checklist
+		(binunitid,materialName,rootlotid,dieqty,residueqty,badqty,createtime,workid,status,sendNum)
+		values
+		<foreach collection="list" item="counter" index="index"
+			separator="into  jnbdt.qc_checklist (binunitid,materialName,rootlotid,dieqty,residueqty,badqty,createtime,workid,status,sendNum) 
+  values">
+			(#{counter.binUnitId,jdbcType=VARCHAR},#{counter.materialName,jdbcType=VARCHAR},
+			#{counter.rootLotId,jdbcType=VARCHAR},#{counter.dieqty,jdbcType=VARCHAR},
+			#{counter.residueQty,jdbcType=VARCHAR},#{counter.badQty,jdbcType=VARCHAR},
+			to_char(sysdate,'YYYY-MM-DD hh24:mi:ss'),
+			#{counter.workId,jdbcType=VARCHAR},
+			#{counter.status,jdbcType=VARCHAR},#{counter.sendNum,jdbcType=VARCHAR})
+		</foreach>
+		select 1 from dual
+	</insert>
+	<!--工艺 -->
+	<insert id="craftCheckList1" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert all into
+		jnbdt.CRAFT_CHECKLIST
+		(binunitid,materialName,rootlotid,dieqty,residueqty,badqty,createtime,workid,status,sendNum)
+		values
+		<foreach collection="list" item="counter" index="index"
+			separator="into  jnbdt.CRAFT_CHECKLIST (binunitid,materialName,rootlotid,dieqty,residueqty,badqty,createtime,workid,status,sendNum) 
+  values">
+			(#{counter.binUnitId,jdbcType=VARCHAR},#{counter.materialName,jdbcType=VARCHAR},
+			#{counter.rootLotId,jdbcType=VARCHAR},#{counter.dieqty,jdbcType=VARCHAR},
+			#{counter.residueQty,jdbcType=VARCHAR},#{counter.badQty,jdbcType=VARCHAR},
+			to_char(sysdate,'YYYY-MM-DD hh24:mi:ss'),
+			#{counter.workId,jdbcType=VARCHAR},
+			#{counter.status,jdbcType=VARCHAR},#{counter.sendNum,jdbcType=VARCHAR})
+		</foreach>
+		select 1 from dual
+	</insert>
+	<!--9.1.1 入库前校验是否在QC抽检合格的产品当中 -->
+	<select id="selectQC" resultType="java.lang.String" resultMap="myPsp">
+		select *
+		from (select t.binunitid,
+		t.materialname,
+		t.rootlotid,
+		t.dieqty,
+		t.residueqty,
+		t.badqty,
+		t.createtime,
+		t.workid,
+		t.status,
+		t.sendnum,
+		t1.id
+		from JNBDT.QC_CHECKLIST t,
+		JNBDT.FILM_CHECKLIST t1
+		WHERE
+		t.SENDnum
+		=#{binUnitId,jdbcType=VARCHAR}--TCZTC-202003250431014484
+		and
+		t.binunitid = t1.binunitid
+		union
+		select t.binunitid,
+		t.materialname,
+		t.rootlotid,
+		t.dieqty,
+		t.residueqty,
+		t.badqty,
+		t.createtime,
+		t.workid,
+		t.status,
+		t.sendnum,
+		t1.id
+		from JNBDT.QC_CHECKLIST t,
+		JNBDT.FILM_CHECKLIST t1
+		WHERE t.sendnum = (select distinct sendnum from
+		JNBDT.QC_CHECKLIST WHERE
+		binunitid =#{binUnitId,jdbcType=VARCHAR})
+		and
+		t.binunitid = t1.binunitid)
+		order by to_number(id)
+
+
+
+	</select>
+	<!-- 工艺判定OK结果 -->
+	<select id="craftReject" resultType="java.lang.String"
+		resultMap="myPsp">
+		select * from jnbdt.checklist where targs is not null
+		and
+		status ='OK'
+
+	</select>
+	<!-- 工艺判定OK结果 明细 -->
+	<select id="craftReject1" resultType="java.lang.String"
+		resultMap="myPsp">
+		select * from jnbdt.checklist t where targs
+		is not null
+		and
+		status ='OK' and sendnum=#{sendNum,jdbcType=VARCHAR}
+
+	</select>
+	<!-- 查看电性检验NG结果 -->
+	<select id="selectCheckList2" resultType="java.lang.String"
+		resultMap="myPsp">
+		select * from jnbdt.checklist where
+		sendnum=#{sendNum,jdbcType=VARCHAR}
+		or sendnum=(select
+		sendnum from
+		jnbdt.checklist where binunitid=#{binUnitId,jdbcType=VARCHAR}) and
+		status='NG'
+	</select>
+	<!-- 工艺判定 -->
+	<update id="updateIns" parameterType="com.jr.counterToManage.entity.Counter">
+		update jnbdt.checklist set
+		targs='' where
+		BINUNITID=#{binUnitId,jdbcType=VARCHAR}
+	</update>
+	<!-- 查看判退 -->
+	<select id="QcReject" resultType="java.lang.String" resultMap="myPsp">
+		select distinct sendnum from jnbdt.pro_checklist t where
+		status1='1'
+	</select>
+	<select id="QcReject1" resultType="java.lang.String" resultMap="myPsp">
+		select * from jnbdt.pro_checklist t where
+		status1='1' and
+		sendnum=#{sendNum,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 检外观重新送检更改状态 -->
+	<update id="updatePro" parameterType="com.jr.counterToManage.entity.Counter">
+		update JNBDT.pro_checklisT
+		SET STATUS1
+		='',residueQty=#{residueQty,jdbcType=VARCHAR},
+		dieqty=#{dieqty,jdbcType=VARCHAR},
+		badQty=#{badQty,jdbcType=VARCHAR}
+		WHERE BINUNITID=#{binUnitId,jdbcType=VARCHAR}
+	</update>
+	<!--9.1.2 查找未放满的箱子 -->
+	<select id="kAll" resultType="java.lang.String" resultMap="myPsp">
+		select shelfname , caseno,xtargs,htargs ,25-nvl(count(1),0) as
+		coun,floors
+		from JNBDT.FX_GOODS_SHELF
+		where
+		lothead=#{lotHead,jdbcType=VARCHAR}
+		group by
+		shelfname,caseno
+		,xtargs,htargs,floors order by htargs,xtargs
+	</select>
+	<!--9.1.3 查询箱号序号 -->
+	<select id="xstr" resultType="java.lang.String" resultMap="myPsp">
+		select t.*, t.rowid from JNBDT.GOODS_SHELF t where
+		shelfName=#{shelfName,jdbcType=VARCHAR}
+		and
+		caseNo=#{caseNo,jdbcType=VARCHAR}
+	</select>
+	<!--9.1.4 查询货架序号 -->
+	<select id="hstr" resultType="java.lang.String" resultMap="myPsp">
+		select t.*, t.rowid from JNBDT.SHELF t where
+		shelfName=#{shelfName,jdbcType=VARCHAR}
+	</select>
+	<!-- 9.1.5上货架 -->
+	<insert id="putIn" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into jnbdt.fx_goods_shelf
+		(shelfName,CASENO,product,lotHead,materialName,qty,product_workid,intime,xtargs,htargs,floors,shijiQty) values
+		<foreach collection="list" item="counter" index="index"
+			separator="union all">
+			(SELECT
+			#{counter.shelfName,jdbcType=VARCHAR},
+			#{counter.caseNo,jdbcType=VARCHAR},
+			#{counter.product,jdbcType=VARCHAR},
+			#{counter.lotHead,jdbcType=VARCHAR},
+			#{counter.materialName,jdbcType=VARCHAR},
+			#{counter.qty,jdbcType=VARCHAR},#{counter.product_workid,jdbcType=VARCHAR},
+				to_char(sysdate,'YYYY-MM-DD hh24:mi:ss'),
+			#{counter.xtargs,jdbcType=VARCHAR},#{counter.htargs,jdbcType=VARCHAR},
+			#{counter.floors,jdbcType=VARCHAR},#{counter.shijiQty,jdbcType=VARCHAR}
+			FROM DUAL)
+		</foreach>
+
+	</insert>
+	<!--9.1.6 开新箱子放入 -->
+	<select id="newCaseNo" resultType="java.lang.String" resultMap="myPsp">
+		select * from(select
+		targs,shelf,caseNo,CNTARGS
+		,status,caseNo1,left_qty as qty
+		,floors,product from
+		(select s2.targs as
+		targs,
+		s2.shelfname as
+		shelf,s2.caseno
+		as
+		caseno,s2.status as status,
+		s2.CNTARGS as
+		cntargs,s3.caseno as caseno1
+		,s2.maxtrough-nvl(s3.used_qty,0) as
+		left_qty ,floors,product
+		from
+		jnbdt.goods_shelf s2
+		left join
+		(
+		select
+		s3.shelfname,s3.caseno,max(s3.materialname)
+		as
+		material_name,count(1)
+		as
+		used_qty
+		from jnbdt.fx_goods_shelf s3
+		group
+		by
+		s3.shelfname,s3.caseno
+		) s3
+		on s2.shelfname=s3.shelfname
+		and
+		s2.caseno=s3.caseno )where caseno1 is
+		null and status ='已启用'
+
+		order by
+		targs,floors,cntargs) where rownum=1
+
+	</select>
+	<!--9.1.6 开新箱子放入,查找符合设置的两位批次头 -->
+	<select id="newCaseNo1" resultType="java.lang.String">
+		select distinct product from
+		JNBDT.GOODS_SHELF t where
+		floors=#{floors,jdbcType=VARCHAR}and
+		shelfname=#{shelfName,jdbcType=VARCHAR}
+
+	</select>
+	<!--10.1.1 保存新建机台 -->
+	<insert id="saveEqpt" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert all into jnbdt.stickeqpt (eqptId,createtime,workId,status)
+		values
+		<foreach collection="list" item="counter" index="index"
+			separator="into jnbdt.stickeqpt (eqptid,createtime,workid,status)
+  values">
+			(#{counter.eqptId,jdbcType=VARCHAR},
+			to_char(sysdate,'YYYY-MM-DD hh24:mi:ss'),
+			#{counter.workId,jdbcType=VARCHAR},#{counter.status,jdbcType=VARCHAR})
+		</foreach>
+		select 1 from dual
+	</insert>
+
+	<!--11.1.1 查询所有机台 -->
+	<select id="selectEqpt" resultType="java.lang.String" resultMap="myPsp">
+		select eqptid from jnbdt.stickeqpt
+		where 1=1
+		<if test="status != null and status !='' ">
+			AND status=1
+		</if>
+		<if test="status == null and status =='' ">
+			AND status=0
+		</if>
+	</select>
+	<!--11.2.1 保存机台预做产品 -->
+	<insert id="savePresetEqpt" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert all into jnbdt.PRESETEQPT
+		(ROOTLOTID,EQPTID,CREATETIME,WORKID,materialname,product,lotHead2,qty)
+		values
+		<foreach collection="list" item="counter" index="index"
+			separator="into jnbdt.PRESETEQPT (ROOTLOTID,EQPTID,CREATETIME,WORKID,materialname,product,lotHead2,qty) values">
+			(#{counter.rootLotId,jdbcType=VARCHAR},#{counter.eqptId,jdbcType=VARCHAR},
+			to_char(sysdate,'YYYY-MM-DD hh24:mi:ss'),
+			#{counter.workId,jdbcType=VARCHAR},#{counter.materialName,jdbcType=VARCHAR},
+			#{counter.product,jdbcType=VARCHAR},#{counter.lotHead2,jdbcType=VARCHAR},#{counter.qty,jdbcType=VARCHAR})
+		</foreach>
+		select 1 from dual
+	</insert>
+	<!-- 11.2.2 设置机台预做产品后修改机台状态 -->
+	<update id="updateEqpt2" parameterType="com.jr.counterToManage.entity.Counter">
+		update JNBDT.STICKEQPT
+		set status='1' where eqptid=#{eqptId,jdbcType=VARCHAR}
+	</update>
+	<!-- 11.2.3 设置机台预做产品后修改机台状态 -->
+	<update id="updateEqpt3" parameterType="com.jr.counterToManage.entity.Counter">
+		update
+		JNBDT.PRO_CHECKLIST
+		set status1='1' where
+		BinUnitId=#{BinUnitId,jdbcType=VARCHAR}
+	</update>
+	<!--11.3.1 查询两位批次头 -->
+	<select id="selectTL" resultType="java.lang.String" resultMap="myPsp">
+		select * from (SELECT DISTINCT UPPER(SUBSTR(L.LOT_ID,1,2)) AS LOTHEAD2
+		FROMlbmes.b_lot L
+		WHERE UPPER(L.LOT_ID) LIKE '_____-%'
+		ORDER BY
+		UPPER(SUBSTR(L.LOT_ID,1,2))) where lotHead2
+		=#{lotHead2,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 11.3.2 预设置产品前在货架查询级别是否存在 删除 -->
+	<select id="selectPro" resultType="java.lang.String" resultMap="myPsp">
+		select lotHead,materialname,product,QTY,INTIME from
+		JNBDT.FX_GOODS_SHELF t where
+		lotHead like #{lotHead,jdbcType=VARCHAR}
+		|| '%' and rownum &lt;11 and status is null
+	</select>
+	<select id="selectProS" resultType="java.lang.String" resultMap="myPsp">
+		select lotHead,materialname,product,QTY,INTIME from
+		JNBDT.FX_GOODS_SHELF t where
+		lotHead like #{lotHead,jdbcType=VARCHAR}
+		|| '%' and status is null and rownum between
+		#{startRown,jdbcType=VARCHAR} and
+		#{endRow,jdbcType=VARCHAR}
+	</select>
+	<!-- 12.1.1 查询预设机台 -->
+	<select id="selectEqpt2" resultType="java.lang.String"
+		resultMap="myPsp">
+		select eqptid,lothead2,rootlotid,materialName from
+		(select
+		eqptid,lothead2,rootlotid,materialName,rownum as id from
+		jnbdt.doingeqpt)
+		where id in(
+		select id from(
+		select max(id) as id,eqptid
+		from(select
+		eqptid,lothead2,rootlotid,materialName,rownum as id from
+		jnbdt.doingeqpt)
+		group by eqptid))
+		union all
+		select eqptid
+		,lothead2,'无','无' from
+		jnbdt.preseteqpt where eqptid not
+		in (select
+		eqptid from
+		jnbdt.doingeqpt)
+
+	</select>
+
+	<!--12.2.1 查询产品在哪个货架上 -->
+	<select id="selectP" resultType="java.lang.String" resultMap="myPsp">
+		select * from JNBDT.FX_GOODS_SHELF t where
+		product=#{product,jdbcType=VARCHAR} and status is null
+	</select>
+
+	<!--12.2.2 记录机台正在做的产品 -->
+	<insert id="saveEqptIng" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		jnbdt.DOINGEQPT
+		(ROOTLOTID,EQPTID,CREATETIME,WORKID,materialname,product,qty,lothead2)
+
+		<foreach collection="list" item="counter" index="index"
+			separator="union all">
+			(SELECT
+			#{counter.rootLotId,jdbcType=VARCHAR},#{counter.eqptId,jdbcType=VARCHAR},
+			to_char(sysdate,'YYYY-MM-DD
+			hh24:mi:ss'),#{counter.workId,jdbcType=VARCHAR},
+			#{counter.materialName,jdbcType=VARCHAR},#{counter.product,jdbcType=VARCHAR},
+			#{counter.qty,jdbcType=VARCHAR},#{counter.lotHead2,jdbcType=VARCHAR}
+			FROM DUAL
+			)
+		</foreach>
+	</insert>
+
+	<!--12.2.3 更改蓝膜状态，在库改为出库 status 改为 0 删除 -->
+	<update id="updateStatus" parameterType="com.jr.counterToManage.entity.Counter">
+		update
+		JNBDT.FX_GOODS_SHELF t set status='0',
+		outtime =
+		to_char(sysdate,'YYYY-MM-DD hh24:mi:ss'),
+		outworkid=#{outWorkId,jdbcType=VARCHAR} where
+		product=#{product,jdbcType=VARCHAR}
+	</update>
+	<!--12.2.4 删除 -->
+	<update id="EqptIng2" parameterType="com.jr.counterToManage.entity.Counter">
+		update jnbdt.DOINGEQPT
+		set
+		status ='0' where
+		eqptid=#{eqptId,jdbcType=VARCHAR}
+	</update>
+	<!-- 12.3.1根据机台查询产品 -->
+	<select id="selectEqpt1" resultType="java.lang.String"
+		resultMap="myPsp">
+		select *
+		from JNBDT.FX_GOODS_SHELF t
+		where exists (
+		select id
+		from (
+		select * from ( select lothead,materialname,min(id) as
+		id,sum(qty) as qty
+		from
+		JNBDT.FX_GOODS_SHELF t
+		where STATUS IS NULL
+		and
+		substr(t.lothead,1,2) in
+		(select lothead2 from jnbdt.PRESETEQPT S2
+		where
+		eqptid=#{eqptId,jdbcType=VARCHAR})
+		group by
+		lothead,materialname)where qty > #{qty,jdbcType=VARCHAR}
+		)s
+		where
+		s.id=t.id
+		)
+
+	</select>
+
+	<select id="selectTwo" resultType="java.lang.String" resultMap="myPsp">
+		select t.*, t.rowid from JNBDT.TWOPRODUCT t
+	</select>
+	<!-- 查询单位重量 -->
+	<select id="selectCalcu" resultType="java.lang.String"
+		resultMap="myPsp">
+		select eachweight from jnbdt.TESTFILE_CALCULATE where
+		lothead=#{lotHead,jdbcType=VARCHAR} and
+		testName=#{testName,jdbcType=VARCHAR}
+	</select>
+	<insert id="saveCalHistory" parameterType="com.jr.counterToManage.entity.Counter">
+		insert into
+		jnbdt.testFile_CALCULATE_history
+		(lotHead,qty,weight,createTime,WORKID,eachWeight,status,testName)
+		VALUES(#{lotHead,jdbcType=VARCHAR},#{qty,jdbcType=VARCHAR},
+		#{weight,jdbcType=VARCHAR},
+		to_char(sysdate,'YYYY-MM-DD hh24:mi:ss'),
+		#{workId,jdbcType=VARCHAR}
+		,#{eachWeight,jdbcType=VARCHAR},'0',#{testName,jdbcType=VARCHAR})
+	</insert>
+
+	<!-- 修改单重 -->
+	<update id="updateCalWeight" parameterType="com.jr.counterToManage.entity.Counter">
+
+		update
+		JNBDT.TESTFILE_CALCULATE set
+		eachweight=#{eachWeight,jdbcType=VARCHAR}
+		,qty=#{qty,jdbcType=VARCHAR},
+		weight=#{eachWeight,jdbcType=VARCHAR}*#{qty,jdbcType=VARCHAR} where
+		lothead=#{lotHead,jdbcType=VARCHAR} and
+		testName=#{testName,jdbcType=VARCHAR}
+	</update>
+	<!--12.4.1 用两位批次头去货架上查批次 -->
+	<select id="selectPL" resultType="java.lang.String" resultMap="myPsp">
+		select t.*, t.rowid from JNBDT.FX_GOODS_SHELF t where STATUS IS NULL
+		and
+		lotHead like
+		#{lotHead,jdbcType=VARCHAR}
+		|| '%'
+	</select>
+	<!-- 12.4.3 查询最早的一片蓝膜 -->
+	<update id="selectWZ" parameterType="com.jr.counterToManage.entity.Counter">
+		update JNBDT.DOINGEQPT set
+		status ='0' where product=( select product
+		from( select * from
+		JNBDT.DOINGEQPT where
+		eqptid=#{eqptId,jdbcType=VARCHAR} and status is
+		null))
+	</update>
+
+	<!--13.1.1 补料，查询正在做的所有机台 -->
+	<select id="selectEqpt3" resultType="java.lang.String"
+		resultMap="myPsp">
+		select distinct eqptid from JNBDT.DOINGEQPT where status is
+		null
+	</select>
+
+	<!--13.2.1 补料用机台查级别，用查到的级别去fx_goods_shelf表里查时间最早的一条数据 -->
+	<select id="selectDoing" resultType="java.lang.String"
+		resultMap="myPsp">
+		select * from
+		(select * from JNBDT.fx_goods_shelf
+		where
+		materialname= (select distinct materialname from JNBDT.DOINGEQPT
+		where
+		eqptid=#{eqptId,jdbcType=VARCHAR} and status is null)
+		and
+		lothead=(select distinct
+		rootlotid from JNBDT.DOINGEQPT where
+		eqptid=#{eqptId,jdbcType=VARCHAR} and status is null) and status is
+		null AND PRODUCT
+		NOT
+		IN (SELECT PRODUCT FROM JNBDT.DOINGEQPT)
+		order by
+		intime )
+
+	</select>
+	<!--14.1.1 分选机尾料收集，蓝膜查询信息 -->
+	<update id="selectProduct2" parameterType="com.jr.counterToManage.entity.Counter">
+		update
+		jnbdt.fx_goods_shelf set status='1' where product
+		=#{product,jdbcType=VARCHAR}
+	</update>
+	<!-- 1.1.1 新建货架 -->
+	<insert id="savePro" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert all into
+		jnbdt.LANMO_BOLIAO
+		(unit_Id,bagname,baginfo,qty,weight,testfile,workid,createtime)
+		VALUES
+		<foreach collection="list" item="counter" index="index"
+			separator="into jnbdt.LANMO_BOLIAO (unit_Id,bagname,baginfo,qty,weight,testfile,workid,createtime)  values">
+			(#{counter.lanmo,jdbcType=VARCHAR},#{counter.bagname,jdbcType=VARCHAR},#{counter.baginfo,jdbcType=VARCHAR},
+			#{counter.qty,jdbcType=VARCHAR},#{counter.weight,jdbcType=VARCHAR},
+			#{counter.testFile,jdbcType=VARCHAR},#{counter.workId,jdbcType=VARCHAR}
+			,sysdate)
+		</foreach>
+		select 1 from dual
+	</insert>
+	<!--14.2.1 分选贴待机尾料收集，查询最后一次被派上机台的蓝膜号 -->
+	<select id="selectProduct" resultType="java.lang.String"
+		resultMap="myPsp">
+		select * from
+		(select t.*, t.rowid from JNBDT.DOINGEQPT
+		t
+		where eqptid=#{eqptId,jdbcType=VARCHAR}
+		order by createtime desc)
+		where
+		rownum=1
+	</select>
+	<!-- 14.2.2 分选贴待机尾料收集，查询测试档 -->
+	<select id="psl" resultType="java.lang.String">
+
+		select distinct
+		test_file from
+		LBMES.B_LOT_EXTENDED
+		where
+		lot_id=(select *from (
+		select
+		distinct lot_id
+		from
+		lbmycim2.unit_bin_relation
+		where
+		bin_unit_id=#{binUnitId,jdbcType=VARCHAR}) where rownum=1)
+	</select>
+
+	<!-- 15.1.1分选机尾料收集，蓝膜查询信息 -->
+	<select id="selectProduct1" resultType="java.lang.String"
+		resultMap="myPsp">
+		select * from JNBDT.FX_GOODS_SHELF where
+		product=#{product,jdbcType=VARCHAR}
+	</select>
+	<select id="selectNG" resultType="java.lang.String" resultMap="myPsp">
+		select * from JNBDT.CRAFT_CHECKLIST t
+		where
+		binunitid=#{product,jdbcType=VARCHAR}
+	</select>
+	<!-- 16.1.1 -->
+	<select id="As" resultType="java.lang.String" resultMap="myPsp">
+		select
+		*
+		from jnbdt.fx_goods_shelf where status is null
+	</select>
+	<!--16.2.1 -->
+	<select id="selectP3" resultType="java.lang.String" resultMap="myPsp">
+		select * from (select t.*, t.rowid from JNBDT.FX_GOODS_SHELF t where
+		product =#{product,jdbcType=VARCHAR} or
+		lothead=#{product,jdbcType=VARCHAR} or
+		materialName=#{product,jdbcType=VARCHAR}) where
+		status is null
+	</select>
+
+	<!-- 16.3.1 借料 -->
+	<select id="selectP1" resultType="java.lang.String" resultMap="myPsp">
+		select * from JNBDT.FX_GOODS_SHELF t where
+		product=#{product,jdbcType=VARCHAR} and status is null
+	</select>
+	<!-- 设置货架存放产品 -->
+	<select id="shelfProduct" resultType="java.lang.String"
+		resultMap="myPsp">
+		select shelfname,floors,CASE WHEN
+		product IS NULL
+		THEN '无'
+		ELSE product END AS
+		product from JNBDT.GOODS_SHELF t
+		group by
+		shelfname,floors,product order by
+		shelfname, floors asc
+	</select>
+	<select id="shelfProduct1" resultType="java.lang.String"
+		resultMap="myPsp">
+		select shelfname,floors ,CASE WHEN
+		product IS NULL
+		THEN '无'
+		ELSE product END AS
+		product from JNBDT.GOODS_SHELF t
+		where
+		shelfname=#{shelfName,jdbcType=VARCHAR}
+		group by
+		shelfname,floors,product ORDER BY FLOORS
+
+	</select>
+	<update id="shelfProduct2" parameterType="com.jr.counterToManage.entity.Counter">
+		update
+		jnbdt.goods_shelf set product='' where
+		shelfname=#{shelfName,jdbcType=VARCHAR} and
+		floors=#{floors,jdbcType=VARCHAR}
+	</update>
+	<select id="shelfProduct3" resultType="java.lang.String"
+		resultMap="myPsp">
+		select * from jnbdt.fx_goods_shelf where status is null
+		and
+		shelfname=#{shelfName,jdbcType=VARCHAR} and
+		floors=#{floors,jdbcType=VARCHAR}
+	</select>
+
+
+	<!-- 16.3.3 -->
+	<update id="selectP2" parameterType="com.jr.counterToManage.entity.Counter">
+		update JNBDT.FX_GOODS_SHELF
+		set qty =#{qty,jdbcType=VARCHAR} where
+		product=#{product,jdbcType=VARCHAR}
+	</update>
+	<!-- 17.1.1 机台看板 -->
+	<select id="selectEqptStatus1" resultType="java.lang.String"
+		resultMap="myPsp">
+		select eqptid,rootlotid,createtime,workid,materialname,
+		product,lothead2,qty,status from JNBDT.DOINGEQPT t where status is
+		null
+		union
+		select
+		eqptid,'无','无','无','无','无','无','无',status from
+		jnbdt.stickeqpt where
+		eqptid
+		not in (select eqptid from
+		JNBDT.DOINGEQPT)
+	</select>
+
+	<!--18.1.1分选机尾料收集，查询测试档 -->
+	<select id="lxl" resultType="java.lang.String">
+		select distinct
+		test_file from
+		LBMES.B_LOT_EXTENDED where
+		lot_id=#{product,jdbcType=VARCHAR}
+	</select>
+	<!--19.2.1货架转移 -->
+	<select id="transfer2" resultType="java.lang.String" resultMap="myPsp">
+		select distinct caseno from
+		jnbdt.goods_shelf t where
+		shelfname=#{shelfName,jdbcType=VARCHAR}
+	</select>
+	<!--19.2.1货架转移 -->
+	<select id="transfer5" resultType="java.lang.String" resultMap="myPsp">
+		select distinct caseno from
+		jnbdt.fx_goods_shelf t where
+		shelfname=#{shelfName,jdbcType=VARCHAR}
+	</select>
+	<!--19.2.1货架转移 -->
+	<select id="transfer4" resultType="java.lang.String" resultMap="myPsp">
+		select distinct shelfname from
+		jnbdt.fx_goods_shelf
+	</select>
+	<!--19.2.2货架转移 -->
+	<update id="transfer3" parameterType="com.jr.counterToManage.entity.Counter">
+		update
+		JNBDT.FX_GOODS_SHELF
+		set
+		shelfName=#{shelfName1,jdbcType=VARCHAR},caseNo=#{caseNo1,jdbcType=VARCHAR}
+		where
+		shelfName=#{shelfName,jdbcType=VARCHAR} and
+		caseNo=#{caseNo,jdbcType=VARCHAR}
+	</update>
+	<insert id="transfer6" parameterType="com.jr.counterToManage.entity.Counter">
+		insert into
+		JNBDT.SHELFTRANSFERRECORD
+		(shelfname,caseno,shelfname1,caseno1,workid,REANSFERTIME)
+		VALUES(#{shelfName,jdbcType=VARCHAR},#{caseNo,jdbcType=VARCHAR},
+		#{shelfName1,jdbcType=VARCHAR},#{caseNo1,jdbcType=VARCHAR},#{workId,jdbcType=VARCHAR},
+		to_char(sysdate,'YYYY-MM-DD hh24:mi:ss'))
+	</insert>
+	<!-- 设置货架存放产品 -->
+	<update id="updateGoodsShelf" parameterType="com.jr.counterToManage.entity.Counter">
+		update
+		jnbdt.goods_shelf
+		set product =#{product,jdbcType=VARCHAR} where
+		shelfname=#{shelfName,jdbcType=VARCHAR}
+		and
+		floors=#{floors,jdbcType=VARCHAR}
+	</update>
+	<select id="selectGoodsShelf" resultType="java.lang.String"
+		resultMap="myPsp">
+		select t.*, t.rowid from JNBDT.GOODS_SHELF t where
+		shelfname=#{shelfName,jdbcType=VARCHAR} and
+		floors=#{floors,jdbcType=VARCHAR}
+
+	</select>
+	<!-- 获取货架箱号里放的级别 -->
+	<!-- <select id="hj" resultType="java.lang.String" resultMap="myPsp"> select 
+		distinct materialname from jnbdt.fx_goods_shelf where caseNo=#{caseNo,jdbcType=VARCHAR} 
+		and shelfName=#{shelfName,jdbcType=VARCHAR} </select> -->
+
+
+	<!-- 根据状态查询货架 -->
+	<!-- <select id="statusHj" resultType="java.lang.String" resultMap="myPsp"> 
+		select t.*, t.rowid from JNBDT.SHELF t where status=#{status,jdbcType=VARCHAR} 
+		</select> -->
+
+
+	<!-- 查询是否做过测试 -->
+	<select id="selectFx" resultType="java.lang.String" resultMap="myPsp">
+		select lot_id from jnbdt.SORTINGTAGS where
+		lot_id=#{lotId,jdbcType=VARCHAR}
+	</select>
+	<!-- 保存分选转分光数据 -->
+	<insert id="saveTags" parameterType="com.jr.counterToManage.entity.Counter">
+		insert into
+		jnbdt.Sortingtags
+		(LOT_ID,WORKID,TAGSTIME)
+		VALUES(#{lotId,jdbcType=VARCHAR},#{workId,jdbcType=VARCHAR},
+		to_char(sysdate,'YYYY-MM-DD hh24:mi:ss'))
+	</insert>
+
+	<insert id="saveBmCaiji" parameterType="com.jr.counterToManage.entity.Counter">
+		insert into
+		jnbdt.bm_caiji
+		(unitid,WORKID,createtime)
+		VALUES(#{binUnitId,jdbcType=VARCHAR},#{workId,jdbcType=VARCHAR},
+		sysdate)
+
+	</insert>
+
+	<!-- 前段完结数据 -->
+	<select id="frontEnd" resultType="java.lang.String" resultMap="myPsp">
+		SELECT * FROM lbmes.b_lot where lot_status=3
+		and
+		lot_id=#{lotId,jdbcType=VARCHAR}
+	</select>
+	<select id="dibanFrontEnd" resultType="java.lang.String"
+		resultMap="myPsp">
+		select unit_id AS binUnitId from lbmes.b_unit where
+		unit_status=3
+		and unit_id=#{lotId,jdbcType=VARCHAR}
+	</select>
+	<select id="s" resultType="java.lang.String" resultMap="myPsp">
+		select *
+		from jnbdt.fx_goods_shelf where product=#{product,jdbcType=VARCHAR}
+		and status is null
+	</select>
+
+	<select id="shelfMan" resultType="java.lang.String" resultMap="myPsp">
+		select * from (select * from jnbdt.fx_goods_shelf where
+		shelfname=#{shelfName,jdbcType=VARCHAR} or
+		lothead=#{lotHead,jdbcType=VARCHAR} or
+		materialname=#{materialName,jdbcType=VARCHAR} ) where status is
+		null
+	</select>
+	<select id="shelfMan1" resultType="java.lang.String" resultMap="myPsp">
+		select
+		shelfname,caseno,product,lothead,materialname,product_workid,qty,intime
+		from
+		jnbdt.fx_goods_shelf where status is null
+
+		and rownum &lt;100
+	</select>
+	<select id="shelfM1" resultType="java.lang.String" resultMap="myPsp">
+		select
+		shelfname,caseno,product,lothead,materialname,product_workid,qty,intime
+		from
+		jnbdt.fx_goods_shelf where status is null
+
+	</select>
+	<select id="shelfMan2" resultType="java.lang.String" resultMap="myPsp">
+		select * from JNBDT.DOINGEQPT where eqptid=#{eqptId,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 记录借料 -->
+	<insert id="saveBorrow" parameterType="com.jr.counterToManage.entity.Counter">
+		insert into
+		jnbdt.BORROW_MATERIAL_RECORD
+		(product,qty,dept,outtime,WORKID)
+		VALUES(#{product,jdbcType=VARCHAR},#{qty,jdbcType=VARCHAR},
+		#{dept,jdbcType=VARCHAR},
+		to_char(sysdate,'YYYY-MM-DD hh24:mi:ss'),
+		#{workId,jdbcType=VARCHAR})
+	</insert>
+
+	<!-- 计算 -->
+	<select id="testfileCal" resultType="java.lang.String"
+		resultMap="myPsp">
+		select test_name from lbdas.lb_testfile where
+		lot_header_5=#{lotHead,jdbcType=VARCHAR}
+	</select>
+	<insert id="saveCal" parameterType="com.jr.counterToManage.entity.Counter">
+		insert into
+		jnbdt.testFile_CALCULATE
+		(lotHead,qty,weight,createTime,WORKID,eachWeight,status,testName)
+		VALUES(#{lotHead,jdbcType=VARCHAR},#{qty,jdbcType=VARCHAR},
+		#{weight,jdbcType=VARCHAR},
+		to_char(sysdate,'YYYY-MM-DD hh24:mi:ss'),
+		#{workId,jdbcType=VARCHAR}
+		,#{eachWeight,jdbcType=VARCHAR},'0',#{testName,jdbcType=VARCHAR})
+	</insert>
+	<select id="queryQty" resultType="java.lang.String" resultMap="myPsp">
+		select distinct lothead from JNBDT.testfile_CALCULATE order by
+		lothead
+	</select>
+	<select id="queryQty1" resultType="java.lang.String" resultMap="myPsp">
+		select * from JNBDT.testfile_CALCULATE where
+		lotHead=#{lotHead,jdbcType=VARCHAR}
+	</select>
+	<!-- 增加箱子 -->
+	<select id="addC" resultType="java.lang.String" resultMap="myPsp">
+		select distinct floors from jnbdt.goods_shelf where
+		shelfname=#{shelfName,jdbcType=VARCHAR} order by floors
+	</select>
+	<!-- 增加箱子 -->
+	<select id="sCaseno" resultType="java.lang.String" resultMap="myPsp">
+		select distinct CASENO from jnbdt.goods_shelf where FLOORS
+		=#{floors,jdbcType=VARCHAR} AND
+		shelfname=#{shelfName,jdbcType=VARCHAR}
+		order by CASENO
+	</select>
+	<select id="addC2" resultType="java.lang.String" resultMap="myPsp">
+		select max(cntargs) as cntargs,targs ,status from jnbdt.goods_shelf
+		where
+		shelfname=#{shelfName,jdbcType=VARCHAR} and
+		floors=#{floors,jdbcType=VARCHAR} group by
+		targs,status
+	</select>
+	<!-- 用不完的蓝膜放回货架 -->
+	<select id="addC3" resultType="java.lang.String" resultMap="myPsp">
+		select t.*, t.rowid from JNBDT.FX_GOODS_SHELF t where product
+		=#{product,jdbcType=VARCHAR} and status is not null
+	</select>
+
+	<select id="filmNoBind" resultType="java.lang.String" resultMap="myPsp">
+		<bind name="lotHead" value="_parameter.lotHead + '%'" />
+
+		select * from ( SELECT rownum as id1,lothead,materialname,id,qty FROM
+		(select lothead,materialname,min(id) as id,sum(qty) as
+		qty from
+		(select
+		* from JNBDT.FX_GOODS_SHELF s where not EXISTS (select
+		product
+		from
+		JNBDT.FILMNOBIND s1 where s1.product = s.product )) WHERE
+		LOTHEAD
+		LIKE
+		#{lotHead,jdbcType=VARCHAR}
+		group by
+		lothead,materialname)WHERE
+		QTY>=#{qty,jdbcType=VARCHAR} order by
+		to_number(id)) where 1=1
+		<if test="materialName != null and materialName!='' ">
+			and id1 between 0
+			and 2 and materialname
+			=#{materialName,jdbcType=VARCHAR}
+		</if>
+		and id1 between 0 and 2
+
+	</select>
+	<select id="filmNoBind2" resultType="java.lang.String"
+		resultMap="myPsp">
+		select * from (SELECT * FROM
+		JNBDT.FX_GOODS_SHELF WHERE
+		lotHead =
+		#{lotHead,jdbcType=VARCHAR}
+		and
+		materialname=#{materialName,jdbcType=VARCHAR})where status is null
+	</select>
+	<select id="filmNoBind3" resultType="java.lang.String"
+		resultMap="myPsp">
+		select lot_header as lotHead,material_name as materialName
+		from t_lbmain.t_barcode@t_lbmain where
+		barcode_string=#{barcodeId,jdbcType=VARCHAR}
+	</select>
+	<select id="twoProduct1" resultType="java.lang.String"
+		resultMap="myPsp">
+		select t.*, t.rowid from jnbdt.PRESETEQPT t
+	</select>
+	<select id="selectBind" resultType="java.lang.String" resultMap="myPsp">
+		select * from jnbdt.filmnobind where sendNum=(select
+		distinct sendNum
+		from jnbdt.filmnobind where
+		barcodeid=#{barcodeId,jdbcType=VARCHAR}
+		and
+		status is null)
+
+	</select>
+	<select id="selectPailiao" resultType="java.lang.String"
+		resultMap="myPsp">
+		select * from JNBDT.DOINGEQPT t
+
+	</select>
+
+	<update id="updateFilmNoBind" parameterType="com.jr.counterToManage.entity.Counter">
+		update
+		jnbdt.fx_goods_shelf
+		set
+		status='0',outtime=to_char(sysdate,'YYYY-MM-DD
+		hh24:mi:ss')
+		where
+		lothead=#{lotHead,jdbcType=VARCHAR} and
+		materialname=#{materialName,jdbcType=VARCHAR} and status is null
+	</update>
+
+
+	<update id="updateTwoPro" parameterType="com.jr.counterToManage.entity.Counter">
+		update jnbdt.PRESETEQPT
+		set
+		lothead2=#{twoProduct,jdbcType=VARCHAR},createtime=to_char(sysdate,'YYYY-MM-DD
+		hh24:mi:ss'),
+		workid=#{workId,jdbcType=VARCHAR} where
+		eqptid=#{eqptId,jdbcType=VARCHAR} and
+		lothead2=#{lotHead2,jdbcType=VARCHAR}
+
+	</update>
+	<update id="updateBind" parameterType="com.jr.counterToManage.entity.Counter">
+		update
+		jnbdt.filmnobind
+		set
+		status='0',outtime=to_char(sysdate,'YYYY-MM-DD hh24:mi:ss')
+		where
+		sendnum=(select distinct sendnum from jnbdt.filmnobind where
+		barcodeId=#{barcodeId,jdbcType=VARCHAR})
+		and status is null
+	</update>
+	<insert id="saveFilmNoBind" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into
+		jnbdt.filmnobind
+		(barcodeid,lothead,materialname,createtime,workid,status,outtime,product,sendnum,qty)
+		<foreach collection="list" item="counter" index="index"
+			separator="union all">
+			(SELECT
+			#{counter.barcodeId,jdbcType=VARCHAR},#{counter.lotHead,jdbcType=VARCHAR},
+			#{counter.materialName,jdbcType=VARCHAR},to_char(sysdate,'YYYY-MM-DD
+			hh24:mi:ss'),
+			#{counter.workId,jdbcType=VARCHAR},#{counter.status,jdbcType=VARCHAR},
+			#{counter.outtime,jdbcType=VARCHAR},#{counter.product,jdbcType=VARCHAR},
+			#{counter.sendNum,jdbcType=VARCHAR},#{counter.qty,jdbcType=VARCHAR}
+			FROM DUAL
+			)
+		</foreach>
+	</insert>
+
+	<select id="selectBatchs" resultType="java.lang.String"
+		resultMap="myPsp">
+		select distinct eqpt,batchs,bagname,testfile,intime1 as
+		intime from
+		JNBDT.LIGHTEQPTSENDMATERIA t where
+		length(batchs)&lt;20
+		and
+		intime1>=to_date(#{startTime,jdbcType=VARCHAR},'yyyy/mm/dd
+		hh24:mi:ss')
+		and
+		intime1
+		&lt;=to_date(#{endTime,jdbcType=VARCHAR},'yyyy/mm/dd hh24:mi:ss')
+
+		order by intime desc
+
+	</select>
+
+	<update id="uptime" parameterType="com.jr.counterToManage.entity.Counter">
+		update
+		JNBDT.LIGHTEQPTSENDMATERIA set intime1=to_date(intime,'yyyy/mm/dd
+		hh24:mi:ss')
+
+	</update>
+
+
+</mapper>

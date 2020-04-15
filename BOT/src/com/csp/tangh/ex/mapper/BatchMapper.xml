@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csp.tangh.ex.dao.BatchDao">
+
+	<!-- 自定义结果集,可以将sql语句查询的Resultset结果集与实体类一一对应 -->
+	<resultMap type="com.csp.tangh.entity.Batch" id="batch">
+		<!-- 用于主键的映射 -->
+		<!-- <id column="id" property="id" javaType="int" /> -->
+
+		<result column="lot_id" property="lotId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="CREATE_CATEGORY" property="createCategory"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="CATEGORY_DESC" property="categoryDesc"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="INSTANCE_ID" property="instanceId" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="INSTANCE_DESC" property="instanceDesc"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="lot_COUNT" property="lotCount" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="NOW_QTY" property="nowQty" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result column="CREATED_TIMESTAMP" property="createdTimestamp"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+
+	</resultMap>
+
+	<!-- 查看库存 -->
+	<select id="selBatch" resultType="java.lang.String" resultMap="batch">
+
+		select * from (SELECT l.lot_rrn,
+		l.created_timestamp,
+		l.lot_id,
+		l.create_category,
+		c.category_desc,
+		l.product_rrn,
+		NO.instance_id,
+		NO.instance_desc,
+		count(1) as lot_count,
+		sum(case when t.qty is null
+		then
+		to_number(o.attribute_value)-nvl(bad.diep_bad_die_qty,0) else
+		t.qty
+		end) as now_qty
+		FROM lot l,
+		unit u,
+		named_object NO,
+		(
+		SELECT
+		C.KEY_1_VALUE AS CATEGORY_ID,
+		C.DATA_1_VALUE AS CATEGORY_DESC
+		FROM
+		REFERENCE_FILE_DETAIL C
+		WHERE C.REFERENCE_FILE_RRN=59058
+		) C,
+		(
+		SELECT
+		no.instance_rrn,
+		o.attribute_value
+		FROM (select * from
+		object_attribute_value WHERE field_rrn=4824450) o,
+		(select * from
+		named_object WHERE OBJECT='PRODUCT') no
+		WHERE
+		NO.instance_rrn=o.instance_rrn(+)
+		) o,
+		(
+		SELECT unit_rrn,
+		SUM(VALUE_string) AS diep_bad_die_qty
+		FROM csp_run_detail@jpcsp
+		WHERE
+		project_id IN (
+		SELECT ID FROM csp_a_items@jpcsp WHERE is_num=1
+		) and
+		regexp_like(value_string, '^[0-9]+$')
+		GROUP BY unit_rrn
+		) bad,
+		(select *
+		from cnt_unit_qty_info@jp where finish_flag=1) t
+		where
+		l.stage_id='DIEP'
+		and l.lot_status='COMPLETED'
+		AND
+		l.product_rrn=NO.instance_rrn
+		AND l.create_category=c.category_id
+		AND
+		L.PRODUCT_RRN=O.INSTANCE_RRN(+)
+		AND l.lot_rrn=u.lot_rrn
+		and
+		u.unit_rrn=bad.unit_rrn(+)
+		and u.unit_rrn=t.unit_rrn(+)
+		group by
+		l.lot_rrn,
+		l.created_timestamp,
+		l.lot_id,
+		l.create_category,
+		c.category_desc,
+		l.product_rrn,
+		NO.instance_id,
+		NO.instance_desc
+		) where instance_id='VW4242B_F'
+		<if test="lotId != null and lotId !='' ">
+			and lot_id=#{lotId,jdbcType=VARCHAR}
+		</if>
+		<if
+			test="startTime != null and startTime !='' and endTime !=null and endTime !='' ">
+			and
+			created_timestamp>=TO_DATE(#{startTime,jdbcType=VARCHAR},'yyyy-mm-dd
+			hh24:mi:ss') AND
+			created_timestamp&lt;TO_DATE(#{endTime,jdbcType=VARCHAR},'yyyy-mm-dd
+			hh24:mi:ss')+1
+
+		</if>
+	</select>
+
+</mapper>
