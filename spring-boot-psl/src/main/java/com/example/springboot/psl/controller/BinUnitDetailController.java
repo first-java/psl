@@ -23,7 +23,7 @@ public class BinUnitDetailController {
 	Map<String, Object> data = new HashMap<String, Object>();
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@RequestMapping("detail")
+	/*2020/04/15测试提交到github*/	@RequestMapping("detail")
 	public String t() {
 		return "binunitiddetail";//
 	}

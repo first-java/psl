@@ -36,7 +36,7 @@ public class MainController {
 		return lists.toString();
 	}
 
-	/*新增git提交测试*/	@RequestMapping("/find")
+	/*测试git提交更新*/	@RequestMapping("/find")
 	private @ResponseBody String findAll2() {
 		List<Student> lists = studentMapper2.findAll2();
 		System.out.println(lists);

@@ -1,0 +1,70 @@
+[INFO ] 2020-04-15 16:03:36.357 [main] com.jnbdt.DevelopmentApplication - Starting DevelopmentApplication on DESKTOP-11AKJED with PID 13044 (D:\docker\development\target\classes started by Â••ÁâπËôæ‰∏ç‰ºöÂÜô‰ª£Á†Å in D:\docker\development)
+[INFO ] 2020-04-15 16:03:36.359 [main] com.jnbdt.DevelopmentApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-15 16:03:37.268 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8822 (http)
+[INFO ] 2020-04-15 16:03:37.275 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8822"]
+[INFO ] 2020-04-15 16:03:37.276 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-15 16:03:37.276 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-15 16:03:37.339 [main] o.a.c.c.C.[.[.[/development] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-15 16:03:37.339 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 941 ms
+[INFO ] 2020-04-15 16:03:37.752 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-15 16:03:37.795 [main] o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+[INFO ] 2020-04-15 16:03:37.919 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8822"]
+[INFO ] 2020-04-15 16:03:37.938 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8822 (http) with context path '/development'
+[INFO ] 2020-04-15 16:03:37.941 [main] com.jnbdt.DevelopmentApplication - Started DevelopmentApplication in 2.123 seconds (JVM running for 3.481)
+[INFO ] 2020-04-15 16:04:39.425 [http-nio-8822-exec-2] o.a.c.c.C.[.[.[/development] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-04-15 16:04:39.426 [http-nio-8822-exec-2] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-04-15 16:04:39.432 [http-nio-8822-exec-2] o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+[INFO ] 2020-04-15 16:06:21.115 [RMI TCP Connection(3)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 2020-04-15 16:06:21.117 [RMI TCP Connection(3)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-15 16:06:37.046 [main] com.jnbdt.DevelopmentApplication - Starting DevelopmentApplication on DESKTOP-11AKJED with PID 14048 (D:\docker\development\target\classes started by Â••ÁâπËôæ‰∏ç‰ºöÂÜô‰ª£Á†Å in D:\docker\development)
+[INFO ] 2020-04-15 16:06:37.051 [main] com.jnbdt.DevelopmentApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-15 16:06:38.514 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8822 (http)
+[INFO ] 2020-04-15 16:06:38.523 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8822"]
+[INFO ] 2020-04-15 16:06:38.524 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-15 16:06:38.524 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-15 16:06:38.658 [main] o.a.c.c.C.[.[.[/development] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-15 16:06:38.659 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1539 ms
+[INFO ] 2020-04-15 16:06:39.436 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-15 16:06:39.524 [main] o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+[INFO ] 2020-04-15 16:06:39.771 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8822"]
+[INFO ] 2020-04-15 16:06:39.820 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8822 (http) with context path '/development'
+[INFO ] 2020-04-15 16:06:39.829 [main] com.jnbdt.DevelopmentApplication - Started DevelopmentApplication in 3.424 seconds (JVM running for 5.168)
+[INFO ] 2020-04-15 16:06:47.251 [http-nio-8822-exec-1] o.a.c.c.C.[.[.[/development] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-04-15 16:06:47.252 [http-nio-8822-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-04-15 16:06:47.258 [http-nio-8822-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+[INFO ] 2020-04-15 16:07:18.624 [http-nio-8822-exec-5] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2020-04-15 16:07:20.072 [http-nio-8822-exec-5] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2020-04-15 16:07:57.648 [RMI TCP Connection(5)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 2020-04-15 16:07:57.650 [RMI TCP Connection(5)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-15 16:07:57.651 [RMI TCP Connection(5)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2020-04-15 16:07:57.977 [RMI TCP Connection(5)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 2020-04-15 16:16:17.362 [main] c.jnbdt.DevelopmentApplicationTests - Starting DevelopmentApplicationTests on DESKTOP-11AKJED with PID 18652 (started by ∞¬Ãÿœ∫≤ªª·–¥¥˙¬Î in D:\docker\development)
+[INFO ] 2020-04-15 16:16:17.365 [main] c.jnbdt.DevelopmentApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-15 16:16:20.095 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-15 16:16:20.251 [main] o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+[INFO ] 2020-04-15 16:16:20.717 [main] c.jnbdt.DevelopmentApplicationTests - Started DevelopmentApplicationTests in 3.936 seconds (JVM running for 5.137)
+[INFO ] 2020-04-15 16:16:21.084 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-15 16:21:30.793 [main] com.jnbdt.DevelopmentApplication - Starting DevelopmentApplication on DESKTOP-11AKJED with PID 12008 (D:\docker\development\target\classes started by Â••ÁâπËôæ‰∏ç‰ºöÂÜô‰ª£Á†Å in D:\docker\development)
+[INFO ] 2020-04-15 16:21:30.796 [main] com.jnbdt.DevelopmentApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-15 16:21:31.711 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8822 (http)
+[INFO ] 2020-04-15 16:21:31.720 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8822"]
+[INFO ] 2020-04-15 16:21:31.720 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-15 16:21:31.721 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-15 16:21:31.807 [main] o.a.c.c.C.[.[.[/development] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-15 16:21:31.807 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 971 ms
+[INFO ] 2020-04-15 16:21:32.375 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-15 16:21:32.426 [main] o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+[INFO ] 2020-04-15 16:21:32.555 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8822"]
+[INFO ] 2020-04-15 16:21:32.578 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8822 (http) with context path '/development'
+[INFO ] 2020-04-15 16:21:32.586 [main] com.jnbdt.DevelopmentApplication - Started DevelopmentApplication in 2.272 seconds (JVM running for 3.804)
+[INFO ] 2020-04-15 16:21:51.445 [http-nio-8822-exec-2] o.a.c.c.C.[.[.[/development] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-04-15 16:21:51.446 [http-nio-8822-exec-2] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-04-15 16:21:51.451 [http-nio-8822-exec-2] o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+[INFO ] 2020-04-15 16:22:02.033 [http-nio-8822-exec-6] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2020-04-15 16:22:03.214 [http-nio-8822-exec-6] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2020-04-15 16:22:51.584 [main] c.jnbdt.DevelopmentApplicationTests - Starting DevelopmentApplicationTests on DESKTOP-11AKJED with PID 7840 (started by ∞¬Ãÿœ∫≤ªª·–¥¥˙¬Î in D:\docker\development)
+[INFO ] 2020-04-15 16:22:51.586 [main] c.jnbdt.DevelopmentApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-15 16:22:53.755 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-15 16:22:53.914 [main] o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+[INFO ] 2020-04-15 16:22:54.333 [main] c.jnbdt.DevelopmentApplicationTests - Started DevelopmentApplicationTests in 3.383 seconds (JVM running for 4.705)
+[INFO ] 2020-04-15 16:22:54.626 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
