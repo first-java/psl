@@ -22,13 +22,10 @@ import com.csp.reportquery.service.ReportBagHeService;
  * @Copyright © 2020 by 奥特虾不会写代码
  */
 @Controller
-public class ReportController {
+public class ReportBagHeController {
 	@Autowired
 	ReportBagHeService reportBagHeService;
 	Map<String, Object> data = new HashMap<String, Object>();
-
-	public ReportController() {
-	}
 
 	@GetMapping({ "query" })
 	public String query() {
