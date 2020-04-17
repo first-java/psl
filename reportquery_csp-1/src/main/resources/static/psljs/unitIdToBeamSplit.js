@@ -1,5 +1,5 @@
 $(function() {
-	queryScrollToBeamSplitDataByKeyWord()
+	queryUnitIdToBeamSplitDataByKeyWord()
 	layui.use('laydate', function() {
 		var laydate = layui.laydate;
 
@@ -38,14 +38,14 @@ $(function() {
 
 		location.href = url;
 	}
-function queryScrollToBeamSplitDataByKeyWord(){
+function queryUnitIdToBeamSplitDataByKeyWord(){
 	var keyWord = $("#keyWord").prop("value");
 	layui.use('table', function() {
 		var table = layui.table;
 
 		table.render({
 			elem : '#test',
-			url : '/scrollToBeamSplitData?keyWord='+ keyWord,
+			url : '/unitIdToBeamSplitData?keyWord='+ keyWord,
 			page : { // 支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
 				layout : [ 'limit', 'count', 'prev', 'page', 'next', 'skip' ] // 自定义分页布局
 				// ,curr: 5 //设定初始在第 5 页
@@ -79,10 +79,10 @@ function queryScrollToBeamSplitDataByKeyWord(){
 				//templet:"<div>{{ d.UNIT_TYPE=='0'?'正常入库':d.UNIT_TYPE=='1'?'尾料入库':'未知' }}</div>",
 				sort : true
 			}, {
-				field : 'BARCODE',
+				field : 'BINUNITID',
 				
 				// width : 80,
-				title : '卷轴号'
+				title : '蓝膜号'
 			}, {
 				field : 'QTY',
 				title : '原始数量',

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.csp.reportquery.dao.ScrollToBeamSplitDao">
-	<select id="queryScrollToBeamSplit" resultType="Map">
-		select * from ( select rownum id,t.* from sys_psl.v_ScrollToBeamSplit
+<mapper namespace="com.csp.reportquery.dao.UnitIdToBeamSplitDao">
+	<select id="queryUnitIdToBeamSplit" resultType="Map">
+		select * from ( select rownum id,t.* from sys_psl.v_unitidToBeamSplit
 		t
 		where 1=1
 		<if test="keyWord != null and keyWord !='' ">
@@ -13,10 +13,10 @@
 		between #{page} and #{limit}
 	</select>
 
-	<select id="queryScrollToBeamSplitByTime" resultType="Map">
+	<select id="queryUnitIdToBeamSplitByTime" resultType="Map">
 		select *
 		from
-		sys_psl.v_ScrollToBeamSplit
+		sys_psl.v_unitidToBeamSplit
 		where
 		createtime>=TO_DATE(#{startTime,jdbcType=VARCHAR},'yyyy-mm-dd
 		hh24:mi:ss')
@@ -26,7 +26,7 @@
 	</select>
 	<select id="queryAllCount" resultType="java.lang.Integer"
 		parameterType="java.lang.String">
-		select count(*) from sys_psl.v_ScrollToBeamSplit where 1=1
+		select count(*) from sys_psl.v_unitidToBeamSplit where 1=1
 		<if test="keyWord != null and keyWord !='' ">
 			and lothead= #{keyWord}
 		</if>
