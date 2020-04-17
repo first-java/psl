@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csp.reportquery.dao.ScrollToBeamSplitDao">
+	<select id="queryScrollToBeamSplit" resultType="Map">
+		select * from ( select rownum id,t.* from sys_psl.v_ScrollToBeamSplit
+		t
+		where 1=1
+		<if test="keyWord != null and keyWord !='' ">
+			and leixing= #{keyWord}
+		</if>
+		)
+		where id
+		between #{page} and #{limit}
+	</select>
+
+	<select id="queryScrollToBeamSplitByTime" resultType="Map">
+		select *
+		from
+		sys_psl.v_ScrollToBeamSplit
+		where
+		createtime>=TO_DATE(#{startTime,jdbcType=VARCHAR},'yyyy-mm-dd
+		hh24:mi:ss')
+		AND
+		createtime&lt;TO_DATE(#{endTime,jdbcType=VARCHAR},'yyyy-mm-dd
+		hh24:mi:ss')+1
+	</select>
+	<select id="queryAllCount" resultType="java.lang.Integer"
+		parameterType="java.lang.String">
+		select count(*) from sys_psl.v_ScrollToBeamSplit where 1=1
+		<if test="keyWord != null and keyWord !='' ">
+			and leixing= #{keyWord}
+		</if>
+	</select>
+</mapper>
