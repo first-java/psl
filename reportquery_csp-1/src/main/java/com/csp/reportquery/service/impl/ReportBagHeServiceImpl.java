@@ -28,10 +28,10 @@ public class ReportBagHeServiceImpl implements ReportBagHeService {
 	public List<ReportBagHe> queryBagHe(int page, int limit, String keyWord) {
 		int page1 = (page - 1) * limit + 1;
 		int limit1 = page * limit;
-		return this.reportBagHeDao.queryBagHe(page1, limit1, keyWord);
+		return reportBagHeDao.queryBagHe(page1, limit1, keyWord);
 	}
 
 	public Integer queryAllCount(String keyWord) {
-		return this.reportBagHeDao.queryAllCount(keyWord);
+		return reportBagHeDao.queryAllCount(keyWord);
 	}
 }
