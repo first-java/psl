@@ -1,6 +1,9 @@
 package com.csp.reportquery.service;
 
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -19,4 +22,9 @@ public interface ScrapDetailService {
 			@Param("keyWord") String keyWord);
 
 	Integer queryAllCount(String keyWord);
+
+	List<Map<String, Object>> queryScrapDetailByTime(@Param("startTime") String startTime,
+			@Param("endTime") String endTime);
+
+	void salaryTemplate(HttpServletResponse response, String startTime, String endTime) throws Exception;
 }

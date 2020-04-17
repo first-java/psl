@@ -62,7 +62,6 @@ $(function() {
 				//width : 80,
 				title : '报废单号'
 			}, {
-			 
 				field : 'RAMARK',
 				//width : 135,
 			//	templet:"<div>{{ d.STATUS==''?'NORMAL':'HOLD' }}</div>",
@@ -83,5 +82,42 @@ $(function() {
 					'layui-table-click');
 		});
 	});
+
+	layui.use('laydate', function() {
+		var laydate = layui.laydate;
+
+		//自定义格式
+		laydate.render({
+			elem : '#test11',
+			format : 'yyyy/MM/dd'
+		});
+		//自定义格式
+		laydate.render({
+			elem : '#test12',
+			format : 'yyyy/MM/dd'
+		});
+
+	});
 })
- 
+ 	function download(url) {
+	 
+		var endTime = $("#test12").prop("value");
+		var startTime = $("#test11").prop("value");
+		if (startTime == '') {
+			layer.msg("还没选择开始日期", {
+				icon : 2
+			});
+			return;
+		}
+		if (endTime == '') {
+			layer.msg("还没选择结束日期", {
+				icon : 2
+			});
+			return;
+		}
+		//2、拼装URL+查询参数
+		url = url + "?startTime=" + startTime + "&endTime=" + endTime ;
+		//3、使用document.local.href=URL
+
+		location.href = url;
+	}

@@ -2,9 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.csp.reportquery.dao.ScrapDetailDao">
 	<select id="queryScrapDetail" resultType="Map">
-		select * from sys_psl.v_scrapdetai
+		select * from
+		sys_psl.v_scrapdetai
 		where id
 		between #{page} and #{limit}
+	</select>
+
+	<select id="queryScrapDetailByTime" resultType="Map">
+		select * from
+		sys_psl.v_scrapdetai
+		where
+		createtime>=TO_DATE(#{startTime,jdbcType=VARCHAR},'yyyy-mm-dd
+		hh24:mi:ss')
+		AND
+		createtime&lt;TO_DATE(#{endTime,jdbcType=VARCHAR},'yyyy-mm-dd
+		hh24:mi:ss')+1
 	</select>
 	<select id="queryAllCount" resultType="java.lang.Integer"
 		parameterType="java.lang.String">

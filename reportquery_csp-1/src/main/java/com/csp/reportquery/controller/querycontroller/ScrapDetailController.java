@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,5 +45,12 @@ public class ScrapDetailController {
 		this.data.put("count", count);
 		this.data.put("data", binUnitList);
 		return this.data;
+	}
+	/**
+	 * 下载
+	 */
+	@GetMapping("/bagHeDate")
+	public void salaryTemplate(HttpServletResponse response,String startTime,String endTime) throws Exception {
+		scrapDetailService.salaryTemplate(response,startTime,endTime);
 	}
 }
