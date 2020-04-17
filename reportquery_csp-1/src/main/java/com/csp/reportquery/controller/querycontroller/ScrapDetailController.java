@@ -49,7 +49,7 @@ public class ScrapDetailController {
 	/**
 	 * 下载
 	 */
-	@GetMapping("/bagHeDate")
+	@GetMapping("/downloadScrapDetail")
 	public void salaryTemplate(HttpServletResponse response,String startTime,String endTime) throws Exception {
 		scrapDetailService.salaryTemplate(response,startTime,endTime);
 	}
