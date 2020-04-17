@@ -1,0 +1,17 @@
+[INFO ] 2020-04-17 11:14:30.984 [main] c.c.r.ReportqueryCsp1Application - Starting ReportqueryCsp1Application on DESKTOP-11AKJED with PID 17960 (D:\eclipse\workspace\reportquery_csp-1\target\classes started by 奥特虾不会写代码 in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-17 11:14:30.988 [main] c.c.r.ReportqueryCsp1Application - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-17 11:14:31.839 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8821 (http)
+[INFO ] 2020-04-17 11:14:31.846 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8821"]
+[INFO ] 2020-04-17 11:14:31.847 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-17 11:14:31.849 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-17 11:14:31.918 [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-17 11:14:31.918 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 882 ms
+[INFO ] 2020-04-17 11:14:32.322 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-17 11:14:32.467 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8821"]
+[INFO ] 2020-04-17 11:14:32.486 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8821 (http) with context path ''
+[INFO ] 2020-04-17 11:14:32.489 [main] c.c.r.ReportqueryCsp1Application - Started ReportqueryCsp1Application in 1.982 seconds (JVM running for 3.188)
+[INFO ] 2020-04-17 11:14:55.052 [http-nio-8821-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-04-17 11:14:55.052 [http-nio-8821-exec-2] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-04-17 11:14:55.057 [http-nio-8821-exec-2] o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+[INFO ] 2020-04-17 11:16:14.642 [http-nio-8821-exec-1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2020-04-17 11:16:16.019 [http-nio-8821-exec-1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
