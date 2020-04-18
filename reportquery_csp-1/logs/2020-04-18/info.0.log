@@ -151,3 +151,28 @@ Error starting ApplicationContext. To display the conditions report re-run your 
 [INFO ] 2020-04-18 14:10:14.787 [http-nio-8821-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
 [INFO ] 2020-04-18 14:10:14.891 [http-nio-8821-exec-1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
 [INFO ] 2020-04-18 14:10:16.172 [http-nio-8821-exec-1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2020-04-18 15:59:53.274 [RMI TCP Connection(119)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 2020-04-18 15:59:53.280 [RMI TCP Connection(119)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-18 15:59:53.282 [RMI TCP Connection(119)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2020-04-18 15:59:53.308 [RMI TCP Connection(119)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 2020-04-18 16:00:15.622 [main] c.c.r.ReportqueryCsp1Application - Starting ReportqueryCsp1Application on DESKTOP-11AKJED with PID 3964 (D:\eclipse\workspace\reportquery_csp-1\target\classes started by 奥特虾不会写代码 in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-18 16:00:15.629 [main] c.c.r.ReportqueryCsp1Application - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-18 16:00:16.640 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8824 (http)
+[INFO ] 2020-04-18 16:00:16.649 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-18 16:00:16.650 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-18 16:00:16.650 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-18 16:00:16.733 [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-18 16:00:16.733 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1035 ms
+[INFO ] 2020-04-18 16:00:17.308 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-18 16:00:17.490 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-18 16:00:17.535 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8824 (http) with context path ''
+[INFO ] 2020-04-18 16:00:17.542 [main] c.c.r.ReportqueryCsp1Application - Started ReportqueryCsp1Application in 2.746 seconds (JVM running for 4.626)
+[INFO ] 2020-04-18 16:00:27.837 [http-nio-8824-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-04-18 16:00:27.838 [http-nio-8824-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-04-18 16:00:27.843 [http-nio-8824-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+[INFO ] 2020-04-18 16:00:28.365 [http-nio-8824-exec-10] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2020-04-18 16:00:29.777 [http-nio-8824-exec-10] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2020-04-18 16:11:06.852 [RMI TCP Connection(22)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 2020-04-18 16:11:06.856 [RMI TCP Connection(22)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-18 16:11:06.857 [RMI TCP Connection(22)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2020-04-18 16:11:06.898 [RMI TCP Connection(22)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
