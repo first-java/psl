@@ -1,0 +1,6 @@
+[WARN ] 2020-04-18 08:53:33.595 [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'unitIdToBeamSplitController' method 
+com.csp.reportquery.controller.querycontroller.UnitIdToBeamSplitController#scrollToBeamSplitData(int, int, String)
+to {GET /unitIdToBeamSplitData}: There is already 'baseplateToBeamSplitController' bean method
+com.csp.reportquery.controller.querycontroller.BaseplateToBeamSplitController#scrollToBeamSplitData(int, int, String) mapped.
+[WARN ] 2020-04-18 08:57:06.932 [http-nio-8821-exec-10] c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[WARN ] 2020-04-18 08:59:53.720 [http-nio-8821-exec-2] c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.

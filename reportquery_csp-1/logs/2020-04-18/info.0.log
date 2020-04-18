@@ -1,0 +1,52 @@
+[INFO ] 2020-04-18 08:53:31.584 [main] c.c.r.ReportqueryCsp1Application - Starting ReportqueryCsp1Application on DESKTOP-11AKJED with PID 10616 (D:\eclipse\workspace\reportquery_csp-1\target\classes started by 奥特虾不会写代码 in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-18 08:53:31.588 [main] c.c.r.ReportqueryCsp1Application - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-18 08:53:32.826 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8821 (http)
+[INFO ] 2020-04-18 08:53:32.834 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8821"]
+[INFO ] 2020-04-18 08:53:32.835 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-18 08:53:32.835 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-18 08:53:32.928 [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-18 08:53:32.928 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1283 ms
+[INFO ] 2020-04-18 08:53:33.524 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-18 08:53:33.595 [main] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-18 08:53:33.599 [main] o.a.catalina.core.StandardService - Stopping service [Tomcat]
+[INFO ] 2020-04-18 08:53:33.615 [main] o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[INFO ] 2020-04-18 08:56:42.840 [main] c.c.r.ReportqueryCsp1Application - Starting ReportqueryCsp1Application on DESKTOP-11AKJED with PID 17520 (D:\eclipse\workspace\reportquery_csp-1\target\classes started by 奥特虾不会写代码 in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-18 08:56:42.844 [main] c.c.r.ReportqueryCsp1Application - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-18 08:56:43.902 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8821 (http)
+[INFO ] 2020-04-18 08:56:43.911 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8821"]
+[INFO ] 2020-04-18 08:56:43.911 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-18 08:56:43.912 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-18 08:56:44.007 [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-18 08:56:44.007 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1119 ms
+[INFO ] 2020-04-18 08:56:44.551 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-18 08:56:44.738 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8821"]
+[INFO ] 2020-04-18 08:56:44.768 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8821 (http) with context path ''
+[INFO ] 2020-04-18 08:56:44.773 [main] c.c.r.ReportqueryCsp1Application - Started ReportqueryCsp1Application in 2.406 seconds (JVM running for 4.05)
+[INFO ] 2020-04-18 08:57:04.390 [http-nio-8821-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-04-18 08:57:04.390 [http-nio-8821-exec-3] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-04-18 08:57:04.395 [http-nio-8821-exec-3] o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+[INFO ] 2020-04-18 08:57:06.927 [http-nio-8821-exec-10] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2020-04-18 08:57:08.486 [http-nio-8821-exec-10] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2020-04-18 08:59:36.012 [RMI TCP Connection(4)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 2020-04-18 08:59:36.014 [RMI TCP Connection(4)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-18 08:59:36.015 [RMI TCP Connection(4)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2020-04-18 08:59:36.034 [RMI TCP Connection(4)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 2020-04-18 08:59:46.602 [main] c.c.r.ReportqueryCsp1Application - Starting ReportqueryCsp1Application on DESKTOP-11AKJED with PID 5324 (D:\eclipse\workspace\reportquery_csp-1\target\classes started by 奥特虾不会写代码 in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-18 08:59:46.606 [main] c.c.r.ReportqueryCsp1Application - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-18 08:59:47.471 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8821 (http)
+[INFO ] 2020-04-18 08:59:47.478 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8821"]
+[INFO ] 2020-04-18 08:59:47.479 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-18 08:59:47.479 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-18 08:59:47.561 [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-18 08:59:47.561 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 915 ms
+[INFO ] 2020-04-18 08:59:48.066 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-18 08:59:48.244 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8821"]
+[INFO ] 2020-04-18 08:59:48.273 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8821 (http) with context path ''
+[INFO ] 2020-04-18 08:59:48.281 [main] c.c.r.ReportqueryCsp1Application - Started ReportqueryCsp1Application in 2.182 seconds (JVM running for 3.65)
+[INFO ] 2020-04-18 08:59:53.292 [http-nio-8821-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-04-18 08:59:53.292 [http-nio-8821-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-04-18 08:59:53.297 [http-nio-8821-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+[INFO ] 2020-04-18 08:59:53.716 [http-nio-8821-exec-2] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2020-04-18 08:59:55.212 [http-nio-8821-exec-2] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.

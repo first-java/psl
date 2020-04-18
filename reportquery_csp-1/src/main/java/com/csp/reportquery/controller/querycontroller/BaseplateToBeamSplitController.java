@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.csp.reportquery.entity.ReportBagHe;
-import com.csp.reportquery.service.UnitIdToBeamSplitService;
+import com.csp.reportquery.service.BaseplateToBeamSplitService;
 
 /**
  * @ClassNmame ScrollToBeamSplitController.java
@@ -24,24 +24,24 @@ import com.csp.reportquery.service.UnitIdToBeamSplitService;
  * @Copyright © 2020 by 奥特虾不会写代码
  */
 @Controller
-public class UnitIdToBeamSplitController {
+public class BaseplateToBeamSplitController {
 	Map<String, Object> data = new HashMap<String, Object>();
 
 	@Autowired
-	UnitIdToBeamSplitService unitIdToBeamSplitService;
+	BaseplateToBeamSplitService baseplateToBeamSplitService;
 
-	@GetMapping("unitIdToBeamSplit")
+	@GetMapping("baseplateToBeamSplit")
 	private String returnHTML() {
-		return "unitIdToBeamSplit";
+		return "baseplateToBeamSplit";
 
 	}
 
-	@GetMapping({ "unitIdToBeamSplitData" })
+	@GetMapping({ "baseplateToBeamSplitData" })
 	@ResponseBody
-	public Map<String, Object> unitIdToBeamSplitData(@RequestParam(required = false, defaultValue = "1") int page,
+	public Map<String, Object> baseplateToBeamSplitData(@RequestParam(required = false, defaultValue = "1") int page,
 			@RequestParam(required = false, defaultValue = "15") int limit, String keyWord) {
-		List<ReportBagHe> binUnitList = unitIdToBeamSplitService.queryUnitIdToBeamSplit(page, limit, keyWord);
-		int count = unitIdToBeamSplitService.queryAllCount(keyWord);
+		List<ReportBagHe> binUnitList = baseplateToBeamSplitService.queryBaseplateToBeamSplit(page, limit, keyWord);
+		int count = baseplateToBeamSplitService.queryAllCount(keyWord);
 		data.put("code", 0);
 		data.put("msg", "");
 		data.put("count", count);
@@ -52,9 +52,9 @@ public class UnitIdToBeamSplitController {
 	/**
 	 * 下载
 	 */
-	@GetMapping("downloadUnitIdToBeamSplitData")
+	@GetMapping("downloadBaseplateToBeamSplitData")
 	public void salaryTemplate(HttpServletResponse response, String startTime, String endTime) throws Exception {
-		unitIdToBeamSplitService.salaryTemplate(response, startTime, endTime);
+		baseplateToBeamSplitService.salaryTemplate(response, startTime, endTime);
 	}
 
 }

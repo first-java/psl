@@ -25,7 +25,6 @@ import com.csp.reportquery.service.AllDetailService;
  */
 @Controller
 public class AllDetailController {
-
 	@Autowired
 	AllDetailService allDetailService;
 

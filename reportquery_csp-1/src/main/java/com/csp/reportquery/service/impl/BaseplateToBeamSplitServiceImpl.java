@@ -12,41 +12,42 @@ import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.csp.reportquery.dao.UnitIdToBeamSplitDao;
+
+import com.csp.reportquery.dao.BaseplateToBeamSplitDao;
 import com.csp.reportquery.entity.ReportBagHe;
-import com.csp.reportquery.service.UnitIdToBeamSplitService;
+import com.csp.reportquery.service.BaseplateToBeamSplitService;
 
 /**
- * @ClassNmame ScrollToBeamSplitServiceImpl.java
+ * @ClassNmame BaseplateToBeamSplitServiceImpl.java
  * @author 奥特虾不会写代码
  * @author E-mail:pengshiliang@latticepower.com
  * @version 1.0
- * @time 创建时间：2020年4月17日 下午7:37:14
+ * @time 创建时间：2020年4月18日 上午8:33:04
  * @Copyright © 2020 by 奥特虾不会写代码
  */
 @Service
-public class UnitIdToBeamSplitServiceImpl implements UnitIdToBeamSplitService {
+public class BaseplateToBeamSplitServiceImpl implements BaseplateToBeamSplitService {
 
 	@Autowired
-	UnitIdToBeamSplitDao unitIdToBeamSplitDao;
+	BaseplateToBeamSplitDao baseplateToBeamSplitDao;
 
 	@Override
-	public List<ReportBagHe> queryUnitIdToBeamSplit(int page, int limit, String keyWord) {
+	public List<ReportBagHe> queryBaseplateToBeamSplit(int page, int limit, String keyWord) {
 		int page1 = (page - 1) * limit + 1;
 		int limit1 = page * limit;
-		return unitIdToBeamSplitDao.queryUnitIdToBeamSplit(page1, limit1, keyWord);
+		return baseplateToBeamSplitDao.queryBaseplateToBeamSplit(page1, limit1, keyWord);
 	}
 
 	@Override
 	public Integer queryAllCount(String keyWord) {
 
-		return unitIdToBeamSplitDao.queryAllCount(keyWord);
+		return baseplateToBeamSplitDao.queryAllCount(keyWord);
 	}
 
 	@Override
-	public List<Map<String, Object>> queryUnitIdToBeamSplitByTime(String startTime, String endTime) {
+	public List<Map<String, Object>> queryBaseplateToBeamSplitByTime(String startTime, String endTime) {
 
-		return unitIdToBeamSplitDao.queryUnitIdToBeamSplitByTime(startTime, endTime);
+		return baseplateToBeamSplitDao.queryBaseplateToBeamSplitByTime(startTime, endTime);
 	}
 
 	@Override
@@ -58,7 +59,7 @@ public class UnitIdToBeamSplitServiceImpl implements UnitIdToBeamSplitService {
 
 		response.setCharacterEncoding("UTF-8");// 解决导出文件名中文乱码
 		response.setHeader("Content-Disposition",
-				"attachment;filename=" + new String("蓝膜转分光明细".getBytes("UTF-8"), "ISO-8859-1") + ".xls");
+				"attachment;filename=" + new String("卷轴转分光明细".getBytes("UTF-8"), "ISO-8859-1") + ".xls");
 		workbook.write(response.getOutputStream());
 	}
 
@@ -127,7 +128,7 @@ public class UnitIdToBeamSplitServiceImpl implements UnitIdToBeamSplitService {
 
 		headerRow.createCell(18).setCellStyle(cellStyle);
 		headerRow.createCell(18).setCellValue("出库类型");
-		List<Map<String, Object>> listMap = queryUnitIdToBeamSplitByTime(startTime, endTime);
+		List<Map<String, Object>> listMap = queryBaseplateToBeamSplitByTime(startTime, endTime);
 
 		// 创建三行数据
 		HSSFRow row;
@@ -139,37 +140,35 @@ public class UnitIdToBeamSplitServiceImpl implements UnitIdToBeamSplitService {
 					listMap.get(i).get("CREATETIME") == null ? "" : listMap.get(i).get("CREATETIME").toString());
 
 			row.createCell(1).setCellStyle(cellStyle);
-			row.createCell(1).setCellValue(
-					listMap.get(i).get("WORKID") == null ? "" : listMap.get(i).get("WORKID").toString());
+			row.createCell(1)
+					.setCellValue(listMap.get(i).get("WORKID") == null ? "" : listMap.get(i).get("WORKID").toString());
 
 			row.createCell(2).setCellStyle(cellStyle);
 			row.createCell(2).setCellValue(
 					listMap.get(i).get("LOTHEAD") == null ? "" : listMap.get(i).get("LOTHEAD").toString());
 
 			row.createCell(3).setCellStyle(cellStyle);
-			row.createCell(3)
-					.setCellValue(listMap.get(i).get("BINUNITID") == null ? "" : listMap.get(i).get("BINUNITID").toString());
+			row.createCell(3).setCellValue(
+					listMap.get(i).get("BINUNITID") == null ? "" : listMap.get(i).get("BINUNITID").toString());
 
 			row.createCell(4).setCellStyle(cellStyle);
 			row.createCell(4)
 					.setCellValue(listMap.get(i).get("QTY") == null ? "" : listMap.get(i).get("QTY").toString());
 
 			row.createCell(5).setCellStyle(cellStyle);
-			row.createCell(5).setCellValue(
-					listMap.get(i).get("TOTAL_OUT_DIE_QTY") == null ? "" : listMap.get(i).get("TOTAL_OUT_DIE_QTY").toString());
+			row.createCell(5).setCellValue(listMap.get(i).get("TOTAL_OUT_DIE_QTY") == null ? ""
+					: listMap.get(i).get("TOTAL_OUT_DIE_QTY").toString());
 
 			row.createCell(6).setCellStyle(cellStyle);
 			row.createCell(6).setCellValue(
 					listMap.get(i).get("BAGNAME") == null ? "" : listMap.get(i).get("BAGNAME").toString());
 
-			
 			row.createCell(7).setCellStyle(cellStyle);
-			row.createCell(7).setCellValue(
-					listMap.get(i).get("FLAG") == null ? "NORMAL" : "HOLD");
+			row.createCell(7).setCellValue(listMap.get(i).get("FLAG") == null ? "NORMAL" : "HOLD");
 
 			row.createCell(8).setCellStyle(cellStyle);
-			row.createCell(8).setCellValue(
-					listMap.get(i).get("WEIGHT") == null ? "" : listMap.get(i).get("WEIGHT").toString());
+			row.createCell(8)
+					.setCellValue(listMap.get(i).get("WEIGHT") == null ? "" : listMap.get(i).get("WEIGHT").toString());
 
 			row.createCell(9).setCellStyle(cellStyle);
 			row.createCell(9).setCellValue(
@@ -188,16 +187,16 @@ public class UnitIdToBeamSplitServiceImpl implements UnitIdToBeamSplitService {
 					listMap.get(i).get("EACHWEIGHT") == null ? "" : listMap.get(i).get("EACHWEIGHT").toString());
 
 			row.createCell(13).setCellStyle(cellStyle);
-			row.createCell(13).setCellValue(
-					listMap.get(i).get("ZH_QTY") == null ? "" : listMap.get(i).get("ZH_QTY").toString());
+			row.createCell(13)
+					.setCellValue(listMap.get(i).get("ZH_QTY") == null ? "" : listMap.get(i).get("ZH_QTY").toString());
 
 			row.createCell(14).setCellStyle(cellStyle);
 			row.createCell(14).setCellValue(
 					listMap.get(i).get("NOW_DIE_QTY") == null ? "" : listMap.get(i).get("NOW_DIE_QTY").toString());
 
 			row.createCell(15).setCellStyle(cellStyle);
-			row.createCell(15).setCellValue(
-					listMap.get(i).get("NG_QTY") == null ? "" : listMap.get(i).get("NG_QTY").toString());
+			row.createCell(15)
+					.setCellValue(listMap.get(i).get("NG_QTY") == null ? "" : listMap.get(i).get("NG_QTY").toString());
 
 			row.createCell(16).setCellStyle(cellStyle);
 			row.createCell(16).setCellValue(
@@ -208,10 +207,9 @@ public class UnitIdToBeamSplitServiceImpl implements UnitIdToBeamSplitService {
 					listMap.get(i).get("OUTWORKID") == null ? "" : listMap.get(i).get("OUTWORKID").toString());
 
 			row.createCell(18).setCellStyle(cellStyle);
-			row.createCell(18).setCellValue(
-					listMap.get(i).get("CHULEI") == null ? "" : listMap.get(i).get("CHULEI").toString());
+			row.createCell(18)
+					.setCellValue(listMap.get(i).get("CHULEI") == null ? "" : listMap.get(i).get("CHULEI").toString());
 
 		}
 	}
-
 }
