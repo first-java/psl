@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springboot.psl.dao.BagNameToQcDao">
+
+	<insert id="saveBagNameToQc" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into sys_psl.csp_bagname_to_qc
+		(bagname,lottype,id,qty,bin,workId,createtime)
+
+		<foreach collection="list" item="item" index="index"
+			separator="union all"> (SELECT
+			#{item.bagName,jdbcType=VARCHAR},
+			#{item.lotType,jdbcType=VARCHAR},
+			#{item.specId,jdbcType=VARCHAR},
+			#{item.qty,jdbcType=VARCHAR},
+			#{item.binId,jdbcType=VARCHAR},
+			#{item.workId,jdbcType=VARCHAR},
+			sysdate FROM DUAL)
+		</foreach>
+
+	</insert>
+
+	<select id="selectGoodBag" resultType="Map">
+		select distinct t.barcode
+		bagname,t.leixing,p.lottype,t.binid,p.id specid from SYS_PSL.CSP_LABEL
+		t,SYS_PSL.CSP_FG_EQPTPRO p
+		where t.lotid=p.fglotid
+		and
+		t.barcode=#{bagName}
+	</select>
+	<select id="selectBag" resultType="Map">
+		select * from
+		SYS_PSL.CSP_BAGNAME_TO_QC
+		where bagname=#{bagName}
+	</select>
+
+</mapper>
