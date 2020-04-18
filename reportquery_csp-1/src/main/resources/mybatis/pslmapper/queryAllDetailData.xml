@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csp.reportquery.dao.AllDetailDao">
+	<select id="queryAllDetail" resultType="Map">
+		select * from ( select rownum id,t.* from SYS_PSL.V_ALL_DETAILS t
+		where 1=1
+		<if test="keyWord != null and keyWord !='' ">
+			and leixing= #{keyWord}
+		</if>
+		)
+		where id
+		between #{page} and #{limit}
+
+	</select>
+
+	<!-- <select id="queryAllDetailByTime" resultType="Map"> select * from SYS_PSL.V_ALL_DETAILS 
+		where createtime>=TO_DATE(#{startTime,jdbcType=VARCHAR},'yyyy-mm-dd hh24:mi:ss') 
+		AND createtime&lt;TO_DATE(#{endTime,jdbcType=VARCHAR},'yyyy-mm-dd hh24:mi:ss')+1 
+		</select> -->
+	<select id="queryAllCount" resultType="java.lang.Integer"
+		parameterType="java.lang.String">
+		select count(*) from SYS_PSL.V_ALL_DETAILS where 1=1
+		<if test="keyWord != null and keyWord !='' ">
+			and leixing= #{keyWord}
+		</if>
+	</select>
+</mapper>

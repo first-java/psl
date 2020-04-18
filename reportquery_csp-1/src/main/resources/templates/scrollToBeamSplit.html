@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>卷轴转分光</title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="../layui/css/layui.css" media="all">
+<!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
+
+	<div>
+		<button class="layui-btn">
+			卷轴转分光<span class="layui-badge-dot layui-bg-orange"></span>
+		</button>
+	</div>选择日期 从
+	<div class="layui-inline">
+		<div class="layui-input-inline">
+			<input type="text" autocomplete="off" class="layui-input" id="test11"
+				placeholder="yyyy/MM/dd">
+		</div>
+	</div>
+	到
+	<div class="layui-inline">
+		<div class="layui-input-inline">
+			<input type="text" class="layui-input" autocomplete="off" id="test12"
+				placeholder="yyyy/MM/dd">
+		</div>
+	</div>
+	<button type="button" onclick="download('/downloadScrollToBeamSplitData')"
+		class="layui-btn layui-btn-normal layui-btn-radius">下载按钮</button>
+		<div class="layui-input-inline">
+		<input id="keyWord"  lay-verify="required"
+			placeholder="请输入类型查询" autocomplete="off" class="layui-input"
+			type="text" />
+	</div>
+	<button type="button" onclick="queryScrollToBeamSplitDataByKeyWord()"
+		class="layui-btn layui-btn-normal layui-btn-radius">查询</button>
+	<hr class="layui-bg-orange">
+	<table class="layui-hide" id="test" lay-filter="test"></table>
+
+	<script src="../js/jquery-1.7.2.min.js" charset="utf-8"></script>
+	<script src="../psljs/scrollToBeamSplit.js" charset="utf-8"></script>
+	<script src="../layui/layui.js" charset="utf-8"></script>
+	<script src="../layui/layui.all.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		//点击 确定
+	</script>
+	<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+</body>
+</html>
