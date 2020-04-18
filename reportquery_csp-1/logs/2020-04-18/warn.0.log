@@ -4,3 +4,7 @@ to {GET /unitIdToBeamSplitData}: There is already 'baseplateToBeamSplitControlle
 com.csp.reportquery.controller.querycontroller.BaseplateToBeamSplitController#scrollToBeamSplitData(int, int, String) mapped.
 [WARN ] 2020-04-18 08:57:06.932 [http-nio-8821-exec-10] c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
 [WARN ] 2020-04-18 08:59:53.720 [http-nio-8821-exec-2] c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[WARN ] 2020-04-18 13:57:05.209 [http-nio-8821-exec-1] c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[WARN ] 2020-04-18 14:04:19.421 [http-nio-8821-exec-3] c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[WARN ] 2020-04-18 14:05:11.998 [http-nio-8821-exec-1] c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[WARN ] 2020-04-18 14:10:14.894 [http-nio-8821-exec-1] c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.

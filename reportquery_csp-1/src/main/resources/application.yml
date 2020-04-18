@@ -1,5 +1,5 @@
 server:
-  port: 8821
+  port: 8824
 spring:
     banner:
      #image:

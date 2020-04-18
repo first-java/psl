@@ -59,14 +59,14 @@ public class BaseplateToBeamSplitServiceImpl implements BaseplateToBeamSplitServ
 
 		response.setCharacterEncoding("UTF-8");// 解决导出文件名中文乱码
 		response.setHeader("Content-Disposition",
-				"attachment;filename=" + new String("卷轴转分光明细".getBytes("UTF-8"), "ISO-8859-1") + ".xls");
+				"attachment;filename=" + new String("分选底板转分光明细".getBytes("UTF-8"), "ISO-8859-1") + ".xls");
 		workbook.write(response.getOutputStream());
 	}
 
 	// 导入为模版
 	private void exportExcel(HSSFWorkbook workbook, String startTime, String endTime) throws Exception {
 		// 创建创建sheet
-		HSSFSheet sheet = workbook.createSheet("蓝膜转分光明细");
+		HSSFSheet sheet = workbook.createSheet("分选底板转分光明细");
 
 		// 创建单元格样式
 		CellStyle cellStyle = workbook.createCellStyle();
@@ -81,39 +81,42 @@ public class BaseplateToBeamSplitServiceImpl implements BaseplateToBeamSplitServ
 		headerRow.createCell(1).setCellStyle(cellStyle);
 		headerRow.createCell(1).setCellValue("操作人");
 
+		headerRow.createCell(2).setCellStyle(cellStyle);
+		headerRow.createCell(2).setCellValue("种类");
+
 		headerRow.createCell(3).setCellStyle(cellStyle);
-		headerRow.createCell(3).setCellValue("种类");
+		headerRow.createCell(3).setCellValue("蓝膜号");
 
 		headerRow.createCell(4).setCellStyle(cellStyle);
-		headerRow.createCell(4).setCellValue("蓝膜号");
+		headerRow.createCell(4).setCellValue("原始数量");
 
 		headerRow.createCell(5).setCellStyle(cellStyle);
-		headerRow.createCell(5).setCellValue("原始数量");
+		headerRow.createCell(5).setCellValue("原始总数量");
 
 		headerRow.createCell(6).setCellStyle(cellStyle);
-		headerRow.createCell(6).setCellValue("原始总数量");
+		headerRow.createCell(6).setCellValue("袋号");
 
 		headerRow.createCell(7).setCellStyle(cellStyle);
-		headerRow.createCell(7).setCellValue("袋号");
+		headerRow.createCell(7).setCellValue("状态");
 
 		headerRow.createCell(8).setCellStyle(cellStyle);
-		headerRow.createCell(8).setCellValue("状态");
+		headerRow.createCell(8).setCellValue("重量g(含袋子)");
 
 		headerRow.createCell(9).setCellStyle(cellStyle);
-		headerRow.createCell(9).setCellValue("重量g(含袋子)");
+		headerRow.createCell(9).setCellValue("袋子重量g");
 
 		headerRow.createCell(10).setCellStyle(cellStyle);
-		headerRow.createCell(10).setCellValue("袋子重量g");
+		headerRow.createCell(10).setCellValue("标签重量g");
 
 		headerRow.createCell(11).setCellStyle(cellStyle);
-		headerRow.createCell(11).setCellValue("标签重量g");
+		headerRow.createCell(11).setCellValue("净重g");
 
 		headerRow.createCell(12).setCellStyle(cellStyle);
-		headerRow.createCell(12).setCellValue("净重g");
+		headerRow.createCell(12).setCellValue("单颗重量g");
 
 		headerRow.createCell(13).setCellStyle(cellStyle);
-		headerRow.createCell(13).setCellValue("单颗重量g");
-
+		headerRow.createCell(13).setCellValue("重量转换颗粒数");
+		
 		headerRow.createCell(14).setCellStyle(cellStyle);
 		headerRow.createCell(14).setCellValue("计算数量");
 
