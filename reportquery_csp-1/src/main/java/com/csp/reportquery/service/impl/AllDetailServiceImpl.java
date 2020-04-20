@@ -83,6 +83,9 @@ public class AllDetailServiceImpl implements AllDetailService {
 
 		headerRow.createCell(5).setCellStyle(cellStyle);
 		headerRow.createCell(5).setCellValue("创建时间");
+		
+		headerRow.createCell(6).setCellStyle(cellStyle);
+		headerRow.createCell(6).setCellValue("备注");
 
 
 		List<Map<String, Object>> listMap = queryAllDetailByTime(startTime, endTime);
@@ -115,6 +118,11 @@ public class AllDetailServiceImpl implements AllDetailService {
 			row.createCell(5).setCellStyle(cellStyle);
 			row.createCell(5).setCellValue(
 					listMap.get(i).get("CREATETIME") == null ? "" : listMap.get(i).get("CREATETIME").toString());
+			
+
+			row.createCell(6).setCellStyle(cellStyle);
+			row.createCell(6).setCellValue(
+					listMap.get(i).get("REMARK") == null ? "" : listMap.get(i).get("REMARK").toString());
 
 		}
 	}
