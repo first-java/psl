@@ -36,7 +36,7 @@ public class BaseplateToBeamSplitController {
 
 	}
 
-	@GetMapping({ "baseplateToBeamSplitData" })
+	@GetMapping("baseplateToBeamSplitData")
 	@ResponseBody
 	public Map<String, Object> baseplateToBeamSplitData(@RequestParam(required = false, defaultValue = "1") int page,
 			@RequestParam(required = false, defaultValue = "15") int limit, String keyWord) {

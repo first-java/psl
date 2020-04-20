@@ -27,7 +27,7 @@ public class ReportBagHeController {
 	ReportBagHeService reportBagHeService;
 	Map<String, Object> data = new HashMap<String, Object>();
 
-	@GetMapping({ "query" })
+	@GetMapping("query")
 	public String query() {
 		return "queryBagHe";
 	}

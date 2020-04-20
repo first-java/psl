@@ -5,11 +5,26 @@ spring:
      #image:
        location: classpath:bander.txt
     datasource:
-        driver-class-name: oracle.jdbc.driver.OracleDriver
-        url: jdbc:oracle:thin:@192.168.6.66:1521:orcl
-        username: user_cert
-        password: user_cert
-        
+       type: com.alibaba.druid.pool.DruidDataSource # 当前数据源操作类型
+       driver-class-name: oracle.jdbc.driver.OracleDriver
+       url: jdbc:oracle:thin:@192.168.6.66:1521:orcl
+       username: user_cert
+       password: user_cert
+       min-idle: 5 # 数据库连接池的最小维持连接数
+       initial-size: 5 # 初始化连接数
+       max-total: 20 # 最大连接数
+       max-wait-millis: 150
+       stat-view-servlet:
+          allow: ''
+       web-stat-filter:
+           enabled: true
+           exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+           principal-cookie-name: admin
+           principal-session-name: admin
+           profile-enable: true
+           session-stat-enable: false
+           session-stat-max-count: 1000
+           url-pattern: /*
     thymeleaf:
       cache: false
       prefix: classpath:/templates/

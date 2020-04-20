@@ -1,0 +1,276 @@
+[INFO ] 2020-04-20 07:58:06.140 [main] c.c.r.ReportqueryCsp1Application - Starting ReportqueryCsp1Application on DESKTOP-11AKJED with PID 17236 (D:\eclipse\workspace\reportquery_csp-1\target\classes started by Â••ÁâπËôæ‰∏ç‰ºöÂÜô‰ª£Á†Å in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-20 07:58:06.143 [main] c.c.r.ReportqueryCsp1Application - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-20 07:58:06.978 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8824 (http)
+[INFO ] 2020-04-20 07:58:06.983 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 07:58:06.983 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-20 07:58:06.986 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-20 07:58:07.057 [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-20 07:58:07.057 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 852 ms
+[INFO ] 2020-04-20 07:58:07.504 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 07:58:07.631 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 07:58:07.650 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8824 (http) with context path ''
+[INFO ] 2020-04-20 07:58:07.652 [main] c.c.r.ReportqueryCsp1Application - Started ReportqueryCsp1Application in 1.918 seconds (JVM running for 3.136)
+[INFO ] 2020-04-20 07:58:40.067 [http-nio-8824-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-04-20 07:58:40.068 [http-nio-8824-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-04-20 07:58:40.071 [http-nio-8824-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+[INFO ] 2020-04-20 07:58:40.519 [http-nio-8824-exec-10] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2020-04-20 07:58:41.542 [http-nio-8824-exec-10] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2020-04-20 08:11:24.410 [main] c.c.r.ReportqueryCsp1ApplicationTests - Starting ReportqueryCsp1ApplicationTests on DESKTOP-11AKJED with PID 4308 (started by ∞¬Ãÿœ∫≤ªª·–¥¥˙¬Î in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-20 08:11:24.412 [main] c.c.r.ReportqueryCsp1ApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-20 08:11:26.445 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 08:11:27.087 [main] c.c.r.ReportqueryCsp1ApplicationTests - Started ReportqueryCsp1ApplicationTests in 3.123 seconds (JVM running for 4.03)
+[INFO ] 2020-04-20 08:11:27.424 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 08:24:08.824 [main] c.c.r.ReportqueryCsp1Application - Starting ReportqueryCsp1Application on DESKTOP-11AKJED with PID 7868 (D:\eclipse\workspace\reportquery_csp-1\target\classes started by Â••ÁâπËôæ‰∏ç‰ºöÂÜô‰ª£Á†Å in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-20 08:24:08.827 [main] c.c.r.ReportqueryCsp1Application - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-20 08:24:09.525 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8824 (http)
+[INFO ] 2020-04-20 08:24:09.530 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 08:24:09.531 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-20 08:24:09.531 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-20 08:24:09.592 [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-20 08:24:09.592 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 732 ms
+[INFO ] 2020-04-20 08:24:09.984 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 08:24:10.121 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 08:24:10.130 [main] o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 08:24:10.131 [main] o.a.catalina.core.StandardService - Stopping service [Tomcat]
+[INFO ] 2020-04-20 08:24:10.155 [main] o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 08:24:10.155 [main] o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 08:24:10.157 [main] o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[INFO ] 2020-04-20 08:24:10.162 [main] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 08:24:31.240 [RMI TCP Connection(39)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 2020-04-20 08:24:31.243 [RMI TCP Connection(39)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 08:24:31.244 [RMI TCP Connection(39)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2020-04-20 08:24:31.276 [RMI TCP Connection(39)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 2020-04-20 08:24:37.751 [main] c.c.r.ReportqueryCsp1Application - Starting ReportqueryCsp1Application on DESKTOP-11AKJED with PID 6964 (D:\eclipse\workspace\reportquery_csp-1\target\classes started by Â••ÁâπËôæ‰∏ç‰ºöÂÜô‰ª£Á†Å in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-20 08:24:37.753 [main] c.c.r.ReportqueryCsp1Application - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-20 08:24:38.415 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8824 (http)
+[INFO ] 2020-04-20 08:24:38.421 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 08:24:38.422 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-20 08:24:38.422 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-20 08:24:38.489 [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-20 08:24:38.489 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 708 ms
+[INFO ] 2020-04-20 08:24:38.886 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 08:24:39.019 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 08:24:39.035 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8824 (http) with context path ''
+[INFO ] 2020-04-20 08:24:39.037 [main] c.c.r.ReportqueryCsp1Application - Started ReportqueryCsp1Application in 1.665 seconds (JVM running for 2.722)
+[INFO ] 2020-04-20 08:25:18.501 [RMI TCP Connection(10)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 2020-04-20 08:25:18.502 [RMI TCP Connection(10)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 08:25:45.584 [main] c.c.r.ReportqueryCsp1ApplicationTests - Starting ReportqueryCsp1ApplicationTests on DESKTOP-11AKJED with PID 10824 (started by ∞¬Ãÿœ∫≤ªª·–¥¥˙¬Î in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-20 08:25:45.586 [main] c.c.r.ReportqueryCsp1ApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-20 08:25:48.022 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 08:25:48.539 [main] c.c.r.ReportqueryCsp1ApplicationTests - Started ReportqueryCsp1ApplicationTests in 3.508 seconds (JVM running for 4.571)
+[INFO ] 2020-04-20 08:25:48.844 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 08:45:59.530 [main] c.c.r.ReportqueryCsp1Application - Starting ReportqueryCsp1Application on DESKTOP-11AKJED with PID 14156 (D:\eclipse\workspace\reportquery_csp-1\target\classes started by Â••ÁâπËôæ‰∏ç‰ºöÂÜô‰ª£Á†Å in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-20 08:45:59.532 [main] c.c.r.ReportqueryCsp1Application - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-20 08:46:00.216 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8824 (http)
+[INFO ] 2020-04-20 08:46:00.222 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 08:46:00.222 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-20 08:46:00.223 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-20 08:46:00.283 [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-20 08:46:00.283 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 721 ms
+[INFO ] 2020-04-20 08:46:00.673 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 08:46:00.807 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 08:46:00.824 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8824 (http) with context path ''
+[INFO ] 2020-04-20 08:46:00.826 [main] c.c.r.ReportqueryCsp1Application - Started ReportqueryCsp1Application in 1.658 seconds (JVM running for 2.747)
+[INFO ] 2020-04-20 08:46:04.446 [http-nio-8824-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-04-20 08:46:04.446 [http-nio-8824-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-04-20 08:46:04.450 [http-nio-8824-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+[INFO ] 2020-04-20 08:46:04.932 [http-nio-8824-exec-2] c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+[INFO ] 2020-04-20 08:49:53.319 [RMI TCP Connection(13)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 2020-04-20 08:49:53.322 [RMI TCP Connection(13)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 08:49:53.327 [RMI TCP Connection(13)-127.0.0.1] c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+[INFO ] 2020-04-20 08:50:38.377 [main] c.c.r.ReportqueryCsp1ApplicationTests - Starting ReportqueryCsp1ApplicationTests on DESKTOP-11AKJED with PID 13212 (started by ∞¬Ãÿœ∫≤ªª·–¥¥˙¬Î in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-20 08:50:38.379 [main] c.c.r.ReportqueryCsp1ApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-20 08:50:40.606 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 08:50:41.105 [main] c.c.r.ReportqueryCsp1ApplicationTests - Started ReportqueryCsp1ApplicationTests in 3.288 seconds (JVM running for 4.52)
+[INFO ] 2020-04-20 08:50:41.406 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 08:57:32.480 [main] c.c.r.ReportqueryCsp1Application - Starting ReportqueryCsp1Application on DESKTOP-11AKJED with PID 3212 (D:\eclipse\workspace\reportquery_csp-1\target\classes started by Â••ÁâπËôæ‰∏ç‰ºöÂÜô‰ª£Á†Å in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-20 08:57:32.482 [main] c.c.r.ReportqueryCsp1Application - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-20 08:57:33.232 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8824 (http)
+[INFO ] 2020-04-20 08:57:33.238 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 08:57:33.239 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-20 08:57:33.239 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-20 08:57:33.301 [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-20 08:57:33.301 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 789 ms
+[INFO ] 2020-04-20 08:57:33.694 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 08:57:33.828 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 08:57:33.843 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8824 (http) with context path ''
+[INFO ] 2020-04-20 08:57:33.846 [main] c.c.r.ReportqueryCsp1Application - Started ReportqueryCsp1Application in 1.728 seconds (JVM running for 2.787)
+[INFO ] 2020-04-20 08:57:37.042 [http-nio-8824-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-04-20 08:57:37.042 [http-nio-8824-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-04-20 08:57:37.046 [http-nio-8824-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+[INFO ] 2020-04-20 08:57:37.573 [http-nio-8824-exec-9] c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+[INFO ] 2020-04-20 09:02:02.013 [main] c.c.r.ReportqueryCsp1ApplicationTests - Starting ReportqueryCsp1ApplicationTests on DESKTOP-11AKJED with PID 8876 (started by ∞¬Ãÿœ∫≤ªª·–¥¥˙¬Î in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-20 09:02:02.015 [main] c.c.r.ReportqueryCsp1ApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-20 09:02:04.230 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 09:02:04.719 [main] c.c.r.ReportqueryCsp1ApplicationTests - Started ReportqueryCsp1ApplicationTests in 3.213 seconds (JVM running for 4.232)
+[INFO ] 2020-04-20 09:02:05.019 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 09:06:22.594 [RMI TCP Connection(19)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 2020-04-20 09:06:22.596 [RMI TCP Connection(19)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 09:06:22.601 [RMI TCP Connection(19)-127.0.0.1] c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+[INFO ] 2020-04-20 09:06:42.995 [main] c.c.r.ReportqueryCsp1Application - Starting ReportqueryCsp1Application on DESKTOP-11AKJED with PID 17264 (D:\eclipse\workspace\reportquery_csp-1\target\classes started by Â••ÁâπËôæ‰∏ç‰ºöÂÜô‰ª£Á†Å in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-20 09:06:42.997 [main] c.c.r.ReportqueryCsp1Application - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-20 09:06:43.797 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8824 (http)
+[INFO ] 2020-04-20 09:06:43.803 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 09:06:43.803 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-20 09:06:43.804 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-20 09:06:43.862 [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-20 09:06:43.862 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 838 ms
+[INFO ] 2020-04-20 09:06:44.262 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 09:06:44.396 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 09:06:44.411 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8824 (http) with context path ''
+[INFO ] 2020-04-20 09:06:44.413 [main] c.c.r.ReportqueryCsp1Application - Started ReportqueryCsp1Application in 1.788 seconds (JVM running for 2.836)
+[INFO ] 2020-04-20 09:06:47.589 [http-nio-8824-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-04-20 09:06:47.589 [http-nio-8824-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-04-20 09:06:47.593 [http-nio-8824-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+[INFO ] 2020-04-20 09:06:48.019 [http-nio-8824-exec-10] c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+[INFO ] 2020-04-20 09:07:12.763 [RMI TCP Connection(10)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 2020-04-20 09:07:12.765 [RMI TCP Connection(10)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 09:07:12.769 [RMI TCP Connection(10)-127.0.0.1] c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+[INFO ] 2020-04-20 09:07:35.247 [main] c.c.r.ReportqueryCsp1ApplicationTests - Starting ReportqueryCsp1ApplicationTests on DESKTOP-11AKJED with PID 7348 (started by ∞¬Ãÿœ∫≤ªª·–¥¥˙¬Î in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-20 09:07:35.249 [main] c.c.r.ReportqueryCsp1ApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-20 09:07:37.391 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 09:07:37.923 [main] c.c.r.ReportqueryCsp1ApplicationTests - Started ReportqueryCsp1ApplicationTests in 3.158 seconds (JVM running for 4.134)
+[INFO ] 2020-04-20 09:07:38.297 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 09:18:34.588 [main] c.c.r.ReportqueryCsp1Application - Starting ReportqueryCsp1Application on DESKTOP-11AKJED with PID 12532 (D:\eclipse\workspace\reportquery_csp-1\target\classes started by Â••ÁâπËôæ‰∏ç‰ºöÂÜô‰ª£Á†Å in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-20 09:18:34.590 [main] c.c.r.ReportqueryCsp1Application - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-20 09:18:35.403 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8824 (http)
+[INFO ] 2020-04-20 09:18:35.411 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 09:18:35.412 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-20 09:18:35.412 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-20 09:18:35.496 [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-20 09:18:35.496 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 877 ms
+[INFO ] 2020-04-20 09:18:35.596 [main] o.a.catalina.core.StandardService - Stopping service [Tomcat]
+[INFO ] 2020-04-20 09:18:35.633 [main] o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[INFO ] 2020-04-20 09:19:11.217 [main] c.c.r.ReportqueryCsp1Application - Starting ReportqueryCsp1Application on DESKTOP-11AKJED with PID 4580 (D:\eclipse\workspace\reportquery_csp-1\target\classes started by Â••ÁâπËôæ‰∏ç‰ºöÂÜô‰ª£Á†Å in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-20 09:19:11.219 [main] c.c.r.ReportqueryCsp1Application - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-20 09:19:11.880 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8824 (http)
+[INFO ] 2020-04-20 09:19:11.886 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 09:19:11.887 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-20 09:19:11.887 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-20 09:19:11.949 [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-20 09:19:11.949 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 699 ms
+[INFO ] 2020-04-20 09:19:12.333 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 09:19:12.473 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 09:19:12.489 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8824 (http) with context path ''
+[INFO ] 2020-04-20 09:19:12.491 [main] c.c.r.ReportqueryCsp1Application - Started ReportqueryCsp1Application in 1.607 seconds (JVM running for 2.72)
+[INFO ] 2020-04-20 09:20:50.585 [RMI TCP Connection(13)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 2020-04-20 09:20:50.587 [RMI TCP Connection(13)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 09:20:59.794 [main] c.c.r.ReportqueryCsp1Application - Starting ReportqueryCsp1Application on DESKTOP-11AKJED with PID 9088 (D:\eclipse\workspace\reportquery_csp-1\target\classes started by Â••ÁâπËôæ‰∏ç‰ºöÂÜô‰ª£Á†Å in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-20 09:20:59.796 [main] c.c.r.ReportqueryCsp1Application - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-20 09:21:00.466 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8824 (http)
+[INFO ] 2020-04-20 09:21:00.472 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 09:21:00.472 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-20 09:21:00.472 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-20 09:21:00.535 [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-20 09:21:00.536 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 713 ms
+[INFO ] 2020-04-20 09:21:00.933 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 09:21:01.071 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 09:21:01.088 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8824 (http) with context path ''
+[INFO ] 2020-04-20 09:21:01.090 [main] c.c.r.ReportqueryCsp1Application - Started ReportqueryCsp1Application in 1.66 seconds (JVM running for 2.696)
+[INFO ] 2020-04-20 09:21:48.980 [main] c.c.r.ReportqueryCsp1ApplicationTests - Starting ReportqueryCsp1ApplicationTests on DESKTOP-11AKJED with PID 9276 (started by ∞¬Ãÿœ∫≤ªª·–¥¥˙¬Î in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-20 09:21:48.982 [main] c.c.r.ReportqueryCsp1ApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-20 09:21:51.335 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 09:21:51.826 [main] c.c.r.ReportqueryCsp1ApplicationTests - Started ReportqueryCsp1ApplicationTests in 3.326 seconds (JVM running for 4.255)
+[INFO ] 2020-04-20 09:21:52.120 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 09:25:53.181 [RMI TCP Connection(16)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 2020-04-20 09:25:53.183 [RMI TCP Connection(16)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 09:26:01.539 [main] c.c.r.ReportqueryCsp1Application - Starting ReportqueryCsp1Application on DESKTOP-11AKJED with PID 17004 (D:\eclipse\workspace\reportquery_csp-1\target\classes started by Â••ÁâπËôæ‰∏ç‰ºöÂÜô‰ª£Á†Å in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-20 09:26:01.541 [main] c.c.r.ReportqueryCsp1Application - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-20 09:26:02.217 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8824 (http)
+[INFO ] 2020-04-20 09:26:02.222 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 09:26:02.223 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-20 09:26:02.223 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-20 09:26:02.286 [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-20 09:26:02.286 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 717 ms
+[INFO ] 2020-04-20 09:26:02.688 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 09:26:02.822 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 09:26:02.837 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8824 (http) with context path ''
+[INFO ] 2020-04-20 09:26:02.839 [main] c.c.r.ReportqueryCsp1Application - Started ReportqueryCsp1Application in 1.67 seconds (JVM running for 2.726)
+[INFO ] 2020-04-20 09:26:38.794 [RMI TCP Connection(10)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 2020-04-20 09:26:38.796 [RMI TCP Connection(10)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 09:27:03.040 [main] c.c.r.ReportqueryCsp1ApplicationTests - Starting ReportqueryCsp1ApplicationTests on DESKTOP-11AKJED with PID 12636 (started by ∞¬Ãÿœ∫≤ªª·–¥¥˙¬Î in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-20 09:27:03.041 [main] c.c.r.ReportqueryCsp1ApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-20 09:27:05.347 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 09:27:05.850 [main] c.c.r.ReportqueryCsp1ApplicationTests - Started ReportqueryCsp1ApplicationTests in 3.267 seconds (JVM running for 4.172)
+[INFO ] 2020-04-20 09:27:06.172 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 09:31:24.390 [main] c.c.r.ReportqueryCsp1ApplicationTests - Starting ReportqueryCsp1ApplicationTests on DESKTOP-11AKJED with PID 3004 (started by ∞¬Ãÿœ∫≤ªª·–¥¥˙¬Î in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-20 09:31:24.392 [main] c.c.r.ReportqueryCsp1ApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-20 09:31:26.765 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 09:31:27.289 [main] c.c.r.ReportqueryCsp1ApplicationTests - Started ReportqueryCsp1ApplicationTests in 3.425 seconds (JVM running for 4.526)
+[INFO ] 2020-04-20 09:31:27.597 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 14:57:07.055 [main] c.c.r.ReportqueryCsp1Application - Starting ReportqueryCsp1Application on DESKTOP-11AKJED with PID 18704 (D:\eclipse\workspace\reportquery_csp-1\target\classes started by Â••ÁâπËôæ‰∏ç‰ºöÂÜô‰ª£Á†Å in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-20 14:57:07.057 [main] c.c.r.ReportqueryCsp1Application - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-20 14:57:07.912 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8824 (http)
+[INFO ] 2020-04-20 14:57:07.919 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 14:57:07.920 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-20 14:57:07.920 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-20 14:57:07.997 [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-20 14:57:07.998 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 900 ms
+[INFO ] 2020-04-20 14:57:08.472 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 14:57:08.633 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 14:57:08.651 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8824 (http) with context path ''
+[INFO ] 2020-04-20 14:57:08.654 [main] c.c.r.ReportqueryCsp1Application - Started ReportqueryCsp1Application in 2.184 seconds (JVM running for 3.799)
+[INFO ] 2020-04-20 14:57:34.808 [http-nio-8824-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-04-20 14:57:34.808 [http-nio-8824-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-04-20 14:57:34.815 [http-nio-8824-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 7 ms
+[INFO ] 2020-04-20 14:57:35.478 [http-nio-8824-exec-10] c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+[INFO ] 2020-04-20 15:17:08.500 [RMI TCP Connection(32)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 2020-04-20 15:17:08.503 [RMI TCP Connection(32)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 15:17:08.509 [RMI TCP Connection(32)-127.0.0.1] c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+[INFO ] 2020-04-20 19:28:59.456 [main] c.c.r.ReportqueryCsp1Application - Starting ReportqueryCsp1Application on DESKTOP-11AKJED with PID 14568 (D:\eclipse\workspace\reportquery_csp-1\target\classes started by Â••ÁâπËôæ‰∏ç‰ºöÂÜô‰ª£Á†Å in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-20 19:28:59.459 [main] c.c.r.ReportqueryCsp1Application - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-20 19:29:00.232 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8824 (http)
+[INFO ] 2020-04-20 19:29:00.239 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 19:29:00.240 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-20 19:29:00.240 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-20 19:29:00.309 [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-20 19:29:00.309 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 790 ms
+[INFO ] 2020-04-20 19:29:00.719 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 19:29:00.874 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 19:29:00.890 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8824 (http) with context path ''
+[INFO ] 2020-04-20 19:29:00.893 [main] c.c.r.ReportqueryCsp1Application - Started ReportqueryCsp1Application in 1.792 seconds (JVM running for 2.923)
+[INFO ] 2020-04-20 19:29:44.329 [http-nio-8824-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-04-20 19:29:44.330 [http-nio-8824-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-04-20 19:29:44.337 [http-nio-8824-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 7 ms
+[INFO ] 2020-04-20 19:29:44.885 [http-nio-8824-exec-9] c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+[INFO ] 2020-04-20 19:31:31.178 [RMI TCP Connection(4)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 2020-04-20 19:31:31.180 [RMI TCP Connection(4)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 19:31:31.216 [RMI TCP Connection(4)-127.0.0.1] c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+[INFO ] 2020-04-20 19:31:38.923 [main] c.c.r.ReportqueryCsp1Application - Starting ReportqueryCsp1Application on DESKTOP-11AKJED with PID 3392 (D:\eclipse\workspace\reportquery_csp-1\target\classes started by Â••ÁâπËôæ‰∏ç‰ºöÂÜô‰ª£Á†Å in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-20 19:31:38.925 [main] c.c.r.ReportqueryCsp1Application - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-20 19:31:39.666 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8824 (http)
+[INFO ] 2020-04-20 19:31:39.672 [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 19:31:39.673 [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 2020-04-20 19:31:39.673 [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+[INFO ] 2020-04-20 19:31:39.736 [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2020-04-20 19:31:39.736 [main] o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 756 ms
+[INFO ] 2020-04-20 19:31:40.127 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 19:31:40.261 [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8824"]
+[INFO ] 2020-04-20 19:31:40.280 [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8824 (http) with context path ''
+[INFO ] 2020-04-20 19:31:40.282 [main] c.c.r.ReportqueryCsp1Application - Started ReportqueryCsp1Application in 1.693 seconds (JVM running for 2.784)
+[INFO ] 2020-04-20 19:31:53.681 [http-nio-8824-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2020-04-20 19:31:53.682 [http-nio-8824-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2020-04-20 19:31:53.689 [http-nio-8824-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 7 ms
+[INFO ] 2020-04-20 19:31:53.802 [http-nio-8824-exec-1] c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+[INFO ] 2020-04-20 19:36:58.446 [main] c.c.r.ReportqueryCsp1ApplicationTests - Starting ReportqueryCsp1ApplicationTests on DESKTOP-11AKJED with PID 12736 (started by ∞¬Ãÿœ∫≤ªª·–¥¥˙¬Î in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-20 19:36:58.448 [main] c.c.r.ReportqueryCsp1ApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-20 19:37:00.491 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 19:37:00.971 [main] c.c.r.ReportqueryCsp1ApplicationTests - Started ReportqueryCsp1ApplicationTests in 3.018 seconds (JVM running for 4.024)
+[INFO ] 2020-04-20 19:37:01.402 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 19:39:59.557 [main] c.c.r.ReportqueryCsp1ApplicationTests - Starting ReportqueryCsp1ApplicationTests on DESKTOP-11AKJED with PID 17012 (started by ∞¬Ãÿœ∫≤ªª·–¥¥˙¬Î in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-20 19:39:59.558 [main] c.c.r.ReportqueryCsp1ApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-20 19:40:01.733 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 19:40:02.190 [main] c.c.r.ReportqueryCsp1ApplicationTests - Started ReportqueryCsp1ApplicationTests in 3.101 seconds (JVM running for 4.013)
+[INFO ] 2020-04-20 19:40:02.507 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 19:40:54.799 [RMI TCP Connection(10)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 2020-04-20 19:40:54.802 [RMI TCP Connection(10)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 19:40:54.838 [RMI TCP Connection(10)-127.0.0.1] c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+[INFO ] 2020-04-20 19:41:22.346 [main] c.c.r.ReportqueryCsp1ApplicationTests - Starting ReportqueryCsp1ApplicationTests on DESKTOP-11AKJED with PID 14664 (started by ∞¬Ãÿœ∫≤ªª·–¥¥˙¬Î in D:\eclipse\workspace\reportquery_csp-1)
+[INFO ] 2020-04-20 19:41:22.348 [main] c.c.r.ReportqueryCsp1ApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-04-20 19:41:24.424 [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2020-04-20 19:41:24.862 [main] c.c.r.ReportqueryCsp1ApplicationTests - Started ReportqueryCsp1ApplicationTests in 3.071 seconds (JVM running for 4.101)
+[INFO ] 2020-04-20 19:41:25.158 [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'

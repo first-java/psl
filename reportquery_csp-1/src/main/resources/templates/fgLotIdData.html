@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
-<title>蓝膜转分光</title>
+<title>分光批次号查询</title>
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport"
@@ -14,7 +14,7 @@
 
 	<div>
 		<button class="layui-btn">
-			蓝膜转分光<span class="layui-badge-dot layui-bg-orange"></span>
+			分光批次号查询<span class="layui-badge-dot layui-bg-orange"></span>
 		</button>
 	</div>选择日期 从
 	<div class="layui-inline">
@@ -30,20 +30,20 @@
 				placeholder="yyyy/MM/dd">
 		</div>
 	</div>
-	<button type="button" onclick="download('/downloadUnitIdToBeamSplitData')"
+	<button type="button" onclick="download('/downloadFgLotIdData')"
 		class="layui-btn layui-btn-normal layui-btn-radius">下载按钮</button>
 		<div class="layui-input-inline">
 		<input id="keyWord"  lay-verify="required"
-			placeholder="请输入类型查询" autocomplete="off" class="layui-input"
+			placeholder="请输入机台号查询" autocomplete="off" class="layui-input"
 			type="text" />
 	</div>
-	<button type="button" onclick="queryUnitIdToBeamSplitDataByKeyWord()"
+	<button type="button" onclick="queryFgLotIdDataByKeyWord()"
 		class="layui-btn layui-btn-normal layui-btn-radius">查询</button>
 	<hr class="layui-bg-orange">
 	<table class="layui-hide" id="test" lay-filter="test"></table>
 
 	<script src="../js/jquery-1.7.2.min.js" charset="utf-8"></script>
-	<script src="../psljs/unitIdToBeamSplit.js" charset="utf-8"></script>
+	<script src="../psljs/fgLotIdData.js" charset="utf-8"></script>
 	<script src="../layui/layui.js" charset="utf-8"></script>
 	<script src="../layui/layui.all.js" charset="utf-8"></script>
 	<script type="text/javascript">

@@ -96,6 +96,10 @@ function queryDetailDataByKeyWord() {
 				title : '创建时间',
 				templet:"<div>{{!d.CREATETIME?'':layui.util.toDateString(d.CREATETIME, 'yyyy-MM-dd HH:mm:ss') }}</div>",
 				sort : true
+			}, {
+				field : 'REMARK',
+				title : '备注',
+				sort : true
 			}] ]
 
 		});
